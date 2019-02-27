@@ -7,10 +7,22 @@ Set                 Set Ri, #FPvalue                Ri ← FPvalue            1
 -condition codes used:
 
 Load                Load Ri, Rj                     Ri ← M[Rj]              1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
 
 Store				Store Ri, Rj                    M[Ri] ← Rj 		    	1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
 
 Move				Move Ri, Rj                     Ri ← Rj 		    	1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
 
 Add			    	Fadd Ri, Rj, Rk                 Ri ← Rj + Rk 			3
 -description: Adds two or more values.
@@ -29,11 +41,13 @@ Multiply			Fmul Ri, Rj, Rk					Ri ← Rj * Rk 			5
 -syntax: *
 -opcode: 11111
 -condition codes used: Z N V C
+
 Divide				Fdiv Ri, Rj, Rk					Ri ← Rj / Rk 			8
 -description: Divides Rj by Rk and stores as Ri
 -syntax: /
 -opcode: 11110
 -condition codes used: Z N V C
+
 Floor				Floor Ri, Rj					Ri ← roundDown(Rj) 		1
 -description: Calculates the floor of a number by rounding it down to the nearest integer value
 -syntax: FLOOR Rd Rs
