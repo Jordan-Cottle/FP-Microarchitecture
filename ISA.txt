@@ -1,1 +1,28 @@
 TODO - design an ISA that includes all of the instructions specified by the project requirements
+
+Instruction Set:
+Instruction         Mnemonic and Operands           Operation           Num. Cycles in ALU
+Set                 Set Ri, #FPvalue                Ri ← FPvalue            1
+Load                Load Ri, Rj                     Ri ← M[Rj]              1
+Store				Store Ri, Rj                    M[Ri] ← Rj 		    	1
+Move				Move Ri, Rj                     Ri ← Rj 		    	1
+Add			    	Fadd Ri, Rj, Rk                 Ri ← Rj + Rk 			3
+Subtract			Fsub Ri, Rj, Rk                 Ri ← Rj – Rk 			3
+Negate				Fneg Ri, Rj				        Ri ← -Rj 		    	1
+Multiply			Fmul Ri, Rj, Rk					Ri ← Rj * Rk 			5
+Divide				Fdiv Ri, Rj, Rk					Ri ← Rj / Rk 			8
+Floor				Floor Ri, Rj					Ri ← roundDown(Rj) 		1
+Ceiling				Ceil Ri, Rj				    	Ri ← roundUp(Rj) 		1
+Round				Round Ri, Rj					Ri ← round(Rj) 			1
+Absolute			Value Fabs Ri, Rj	    		Ri ← abs(Rj) 			1
+Minimum				Min Ri, Rj, Rk					Ri ← min(Rj, Rk) 		1
+Maximum				Max Ri, Rj, Rk					Ri ← max(Rj, Rk) 		1
+Power				Pow Ri, Rj, #integer_value      Ri ← Rjinteger_value 	6
+Exponent			Exp Ri, Rj					    Ri ← e^Rj 			    8
+Square				Root Sqrt Ri, Rj				Ri ← sqrt(Rj) 			8
+
+Branch				(Uncond.) B Ri PC ← M[Ri] 			                    1
+Branch				Zero BZ Ri, LABEL If (Ri == 0) PC ← LABEL (line) 		3
+Branch				Negative BN Ri, LABEL If (Ri < 0) PC ← LABEL (line) 	3
+No-op               Nop No operation 				                        1
+Halt				Halt Stop Program                                       -
