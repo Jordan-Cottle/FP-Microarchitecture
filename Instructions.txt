@@ -1,7 +1,7 @@
 Instruction Set:
 Instruction         Mnemonic and Operands           Operation           Num. Cycles in ALU
 Set                 Set Ri, #FPvalue                Ri ← FPvalue            1
--description:
+-description: 
 -syntax:
 -opcode:
 -condition codes used:
@@ -20,7 +20,17 @@ Negate				Fneg Ri, Rj				        Ri ← -Rj 		    	1
 Multiply			Fmul Ri, Rj, Rk					Ri ← Rj * Rk 			5
 Divide				Fdiv Ri, Rj, Rk					Ri ← Rj / Rk 			8
 Floor				Floor Ri, Rj					Ri ← roundDown(Rj) 		1
+-description: Calculates the floor of a number by rounding it down to the nearest integer value
+-syntax: FLOOR Rd Rs
+-opcode: 00111
+-condition codes used: Z N v c (CAPS = Used)
+
 Ceiling				Ceil Ri, Rj				    	Ri ← roundUp(Rj) 		1
+-description: Calculates the ceiling of a number by rounding it up to the nearest integer
+-syntax: CEIL Rd Rs
+-opcode: 11000
+-condition codes used: Z N v c (CAPS = Used)
+
 Round				Round Ri, Rj					Ri ← round(Rj) 			1
 Absolute			Value Fabs Ri, Rj	    		Ri ← abs(Rj) 			1
 Minimum				Min Ri, Rj, Rk					Ri ← min(Rj, Rk) 		1
