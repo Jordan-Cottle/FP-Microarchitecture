@@ -3,7 +3,7 @@ Instruction         Mnemonic and Operands           Operation           Num. Cyc
 Set                 Set Ri, #FPvalue                Ri ← FPvalue            1
 -description:
 -syntax:
--opcode:
+-opcode: 
 -condition codes used:
 
 Load                Load Ri, Rj                     Ri ← M[Rj]              1
@@ -13,9 +13,15 @@ Store				Store Ri, Rj                    M[Ri] ← Rj 		    	1
 Move				Move Ri, Rj                     Ri ← Rj 		    	1
 
 Add			    	Fadd Ri, Rj, Rk                 Ri ← Rj + Rk 			3
-
+-description: Adds two or more values.
+-syntax: ADD R1, R2 R3
+-opcode: 00100
+-condition codes used: R1 <= R2 + R3
 Subtract			Fsub Ri, Rj, Rk                 Ri ← Rj – Rk 			3
-
+-description: Subtracts two or more values.
+-syntax: SUB R1, R2 R3
+-opcode: 01010
+-condition codes used: R1 <= R2 - R3
 Negate				Fneg Ri, Rj				        Ri ← -Rj 		    	1
 Multiply			Fmul Ri, Rj, Rk					Ri ← Rj * Rk 			5
 Divide				Fdiv Ri, Rj, Rk					Ri ← Rj / Rk 			8
