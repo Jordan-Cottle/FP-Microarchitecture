@@ -7,32 +7,53 @@ Set                 Set Ri, #FPvalue                Ri ← FPvalue            1
 -condition codes used:
 
 Load                Load Ri, Rj                     Ri ← M[Rj]              1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
 
 Store				Store Ri, Rj                    M[Ri] ← Rj 		    	1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
 
 Move				Move Ri, Rj                     Ri ← Rj 		    	1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
 
 Add			    	Fadd Ri, Rj, Rk                 Ri ← Rj + Rk 			3
 -description: Adds two or more values.
 -syntax: ADD R1, R2 R3
 -opcode: 00100
 -condition codes used: R1 <= R2 + R3
+
 Subtract			Fsub Ri, Rj, Rk                 Ri ← Rj – Rk 			3
 -description: Subtracts two or more values.
 -syntax: SUB R1, R2 R3
 -opcode: 01010
 -condition codes used: R1 <= R2 - R3
+
 Negate				Fneg Ri, Rj				        Ri ← -Rj 		    	1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Multiply			Fmul Ri, Rj, Rk					Ri ← Rj * Rk 			5
 -description: Muliplys Rj and Rk and stored in Ri
 -syntax: *
 -opcode: 11111
 -condition codes used: Z N V C
+
 Divide				Fdiv Ri, Rj, Rk					Ri ← Rj / Rk 			8
 -description: Divides Rj by Rk and stores as Ri
 -syntax: /
 -opcode: 11110
 -condition codes used: Z N V C
+
 Floor				Floor Ri, Rj					Ri ← roundDown(Rj) 		1
 -description: Calculates the floor of a number by rounding it down to the nearest integer value
 -syntax: FLOOR Rd Rs
@@ -46,15 +67,74 @@ Ceiling				Ceil Ri, Rj				    	Ri ← roundUp(Rj) 		1
 -condition codes used: Z N v c (CAPS = Used)
 
 Round				Round Ri, Rj					Ri ← round(Rj) 			1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Absolute			Value Fabs Ri, Rj	    		Ri ← abs(Rj) 			1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Minimum				Min Ri, Rj, Rk					Ri ← min(Rj, Rk) 		1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Maximum				Max Ri, Rj, Rk					Ri ← max(Rj, Rk) 		1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Power				Pow Ri, Rj, #integer_value      Ri ← Rjinteger_value 	6
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Exponent			Exp Ri, Rj					    Ri ← e^Rj 			    8
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Square				Root Sqrt Ri, Rj				Ri ← sqrt(Rj) 			8
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 
 Branch				(Uncond.) B Ri PC ← M[Ri] 			                    1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Branch				Zero BZ Ri, LABEL If (Ri == 0) PC ← LABEL (line) 		3
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Branch				Negative BN Ri, LABEL If (Ri < 0) PC ← LABEL (line) 	3
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 No-op               Nop No operation 				                        1
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
+
 Halt				Halt Stop Program                                       -
+-description: 
+-syntax:
+-opcode: 
+-condition codes used:
