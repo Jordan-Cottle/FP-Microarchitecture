@@ -24,7 +24,15 @@ Subtract			Fsub Ri, Rj, Rk                 Ri ← Rj – Rk 			3
 -condition codes used: R1 <= R2 - R3
 Negate				Fneg Ri, Rj				        Ri ← -Rj 		    	1
 Multiply			Fmul Ri, Rj, Rk					Ri ← Rj * Rk 			5
+-description: Muliplys Rj and Rk and stored in Ri
+-syntax: *
+-opcode: 11111
+-condition codes used: Z N V C
 Divide				Fdiv Ri, Rj, Rk					Ri ← Rj / Rk 			8
+-description: Divides Rj by Rk and stores as Ri
+-syntax: /
+-opcode: 11110
+-condition codes used: Z N V C
 Floor				Floor Ri, Rj					Ri ← roundDown(Rj) 		1
 -description: Calculates the floor of a number by rounding it down to the nearest integer value
 -syntax: FLOOR Rd Rs
