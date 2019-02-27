@@ -1,149 +1,163 @@
-Condition Codes: Z N V C (CAPS = Used)
-Z: Zero flag - set when fp value is 0
-N: Negative flag - set when fp value is Negative
-V: Overflow flag - set when fp value is the result of an overflowed operation
-
-Conventions:
-    Rd signifies a destination register
-    Ri, Rj, Rk signify source registers
+Notes:
+    - Only performs mathematical operations on floating point values
+    - DataTypes: 
+        - Floating point values
+        - Register Addresses
+        - Memory Addresses
+    -Memory:
+        - 1024 Addressable memory locations (32 bits each)
+        - 16 Addressable registers (32 bits each)
+    -Speeds:
+        - Clock cycle: 100ns
+        - Single ALU operation: 200ns
+        - Register Read/Write: 100ns
+        - Memory Read/Write: 300ns
+    - Condition Codes: Z N V (CAPS = Used)
+        - Z: Zero flag - set when fp value is 0
+        - N: Negative flag - set when fp value is Negative
+        - V: Overflow flag - set when fp value is the result of an overflowed operation
+    - Conventions:
+        - Rd signifies a destination register
+        - Ri, Rj, Rk signify source registers
+        - # precedes immediate values
 
 Instruction         Mnemonic and Operands           Operation           Num. Cycles in ALU
 ------------------------------------------------------------------------------------------------
 Set                 Set Ri, #FPvalue                Ri ← FPvalue            1
--description: Takes the immediate floating-point value and sets it into the Register specified by Rd
--syntax: SET Rd, #FPValue
--opcode: 00000
--condition codes used: Z N _ 
+	-description: Takes the immediate floating-point value and sets it into the Register specified by Rd
+	-syntax: SET Rd, #FPValue
+	-opcode: 00000
+	-condition codes used: Z N _ 
 
 Load                Load Ri, Rj                     Ri ← M[Rj]              1
--description: Takes a value from the specified address in memory (stored in register Ri) and stores it in register specified by Rd
--syntax: LOAD Rd, Ri
--opcode: 00001
--condition codes used: Z N _ 
+	-description: Takes a value from the specified address in memory (stored in register Ri) and stores it in register specified by Rd
+	-syntax: LOAD Rd, Ri
+	-opcode: 00001
+	-condition codes used: Z N _ 
 
 Store				Store Ri, Rj                    M[Ri] ← Rj 		    	1
--description: Stores a value located in register Ri into the memory adressed by the value in register Rd
--syntax: STORE Rd, Ri
--opcode: 00010
--condition codes used: Z N _ 
+	-description: Stores a value located in register Ri into the memory adressed by the value in register Rd
+	-syntax: STORE Rd, Ri
+	-opcode: 00010
+	-condition codes used: Z N _ 
 
 Move				Move Ri, Rj                     Ri ← Rj 		    	1
--description: Moves a value from register Ri into register Rd
--syntax: MOVE Rd, Ri
--opcode: 00011
--condition codes used: Z N _ 
+	-description: Moves a value from register Ri into register Rd
+	-syntax: MOVE Rd, Ri
+	-opcode: 00011
+	-condition codes used: Z N _ 
 
 Add			    	Fadd Ri, Rj, Rk                 Ri ← Rj + Rk 			3
--description: Adds the floating point values in registers Ri and Rj together and stores the result in Rd
--syntax: ADD Rd, Ri Rj
--opcode: 00100
--condition codes used: Z N V
+	-description: Adds the floating point values in registers Ri and Rj together and stores the result in Rd
+	-syntax: ADD Rd, Ri Rj
+	-opcode: 00100
+	-condition codes used: Z N V
 
 Subtract			Fsub Ri, Rj, Rk                 Ri ← Rj – Rk 			3
--description: Subtracts the floating point value in register Rj from the value in Ri and stores it in register Rd
--syntax: SUB Rd, Ri Rj
--opcode: 00101
--condition codes used: Z N V
+	-description: Subtracts the floating point value in register Rj from the value in Ri and stores it in register Rd
+	-syntax: SUB Rd, Ri Rj
+	-opcode: 00101
+	-condition codes used: Z N V
 
 Negate				Fneg Ri, Rj				        Ri ← -Rj 		    	1
--description: 
--syntax: NEG Rd, Ri
--opcode: 00110
--condition codes used: Z N _ 
+	-description: Multiplies value in register Ri by -1 and stores result in register Rd
+	-syntax: NEG Rd, Ri
+	-opcode: 00110
+	-condition codes used: Z N _ 
 
 Multiply			Fmul Ri, Rj, Rk					Ri ← Rj * Rk 			5
--description: 
--syntax: MUL Rd, Ri Rj
--opcode: 00111
--condition codes used: Z N V
+	-description: Multiplies value in registers Ri and Rj together and stores result in register Rd
+	-syntax: MUL Rd, Ri Rj
+	-opcode: 00111
+	-condition codes used: Z N V
 
 Divide				Fdiv Ri, Rj, Rk					Ri ← Rj / Rk 			8
--description: Divides Rj by Rk and stores as Ri
--syntax: DIV Rd, Ri Rj
--opcode: 01000
--condition codes used: Z N V
+	-description: Divides value in Ri by value in Rj and stores result in register Rd
+	-syntax: DIV Rd, Ri Rj
+	-opcode: 01000
+	-condition codes used: Z N V
 
 Floor				Floor Ri, Rj					Ri ← roundDown(Rj) 		1
--description: Calculates the floor of the value in register Ri by rounding it down to the nearest integer value and stores it in register Rd
--syntax: FLOOR Rd Ri
--opcode: 01001
--condition codes used: Z N v c (CAPS = Used)
+	-description: Calculates the floor of the value in register Ri by rounding it down to the nearest integer value and stores it in register Rd
+	-syntax: FLOOR Rd Ri
+	-opcode: 01001
+	-condition codes used: Z N _
 
 Ceiling				Ceil Ri, Rj				    	Ri ← roundUp(Rj) 		1
--description: Calculates the ceiling of the value in register Ri by rounding it up to the nearest integer value and stores it in register Rd
--syntax: CEIL Rd Ri
--opcode: 01010
--condition codes used: Z N v c (CAPS = Used)
+	-description: Calculates the ceiling of the value in register Ri by rounding it up to the nearest integer value and stores it in register Rd
+	-syntax: CEIL Rd Ri
+	-opcode: 01010
+	-condition codes used: Z N _
 
 Round				Round Ri, Rj					Ri ← round(Rj) 			1
--description: 
--syntax: ROUND Rd, Ri
--opcode: 01011
--condition codes used:
+	-description: Rounds the value in register Ri to the neartest integer and stores the result in register Rd
+	-syntax: ROUND Rd, Ri
+	-opcode: 01011
+	-condition codes used: Z N _
 
 Absolute			Value Fabs Ri, Rj	    		Ri ← abs(Rj) 			1
--description: 
--syntax: ABS Rd, Ri
--opcode: 01100
--condition codes used:
+	-description: Calculates the absolute value of the value in register Ri and stores the result in register Rd
+	-syntax: ABS Rd, Ri
+	-opcode: 01100
+	-condition codes used: Z N _
 
 Minimum				Min Ri, Rj, Rk					Ri ← min(Rj, Rk) 		1
--description: 
--syntax: MIN Rd, Ri Rj
--opcode: 01101
--condition codes used:
+	-description: Finds the smaller of the values stored in registers Ri and Rj and stores the result in register Rd
+	-syntax: MIN Rd, Ri Rj
+	-opcode: 01101
+	-condition codes used: Z N _
 
 Maximum				Max Ri, Rj, Rk					Ri ← max(Rj, Rk) 		1
--description: 
--syntax: MAX Rd, Ri Rj
--opcode: 01110
--condition codes used:
+	-description: Finds the larger of the values stored in registers Ri and Rj and stores the result in register Rd
+	-syntax: MAX Rd, Ri Rj
+	-opcode: 01110
+	-condition codes used: Z N _
 
 Power				Pow Ri, Rj, #integer_value      Ri ← Rj^integer_value 	6
--description: 
--syntax: POW Rd, Ri #int_value
--opcode: 01111
--condition codes used:
+	-description: Raises the value in register Ri to the power specified by the immediate integer value and stores the result in register Rd
+	-syntax: POW Rd, Ri #int_value
+	-opcode: 01111
+	-condition codes used: Z N V
 
 Exponent			Exp Ri, Rj					    Ri ← e^Rj 			    8
--description: 
--syntax: EEXP Rd, Ri
--opcode: 10000
--condition codes used:
+	-description: Calculates the value of e raised to the value stored in register Ri and stores the result in register Rd
+	-syntax: EEXP Rd, Ri
+	-opcode: 10000
+	-condition codes used: _ _ V
 
 Square				Root Sqrt Ri, Rj				Ri ← sqrt(Rj) 			8
--description: 
--syntax: SQRT Rd, Ri
--opcode: 10001
--condition codes used:
+	-description: Calculates the square root of the value stored in register Ri and stores the result in register Rd
+	-syntax: SQRT Rd, Ri
+	-opcode: 10001
+	-condition codes used: Z _ _
 
 
 Branch				(Uncond.) B Ri PC ← M[Ri] 			                    1
--description: 
--syntax: GOTO Ri
--opcode: 11011
--condition codes used:
+	-description: Moves program counter to the stored value in the memory addressed by the value in register Ri
+	-syntax: GOTO Ri
+	-opcode: 11011
+	-condition codes used: _ _ _
 
 Branch				Zero BZ Ri, LABEL If (Ri == 0) PC ← LABEL (line) 		3
--description: 
--syntax: GOTOZ Ri LABEL  --TODO Clarify what LABEL is
--opcode: 11000
--condition codes used:
+	-description: Moves to program counter to the specified label if the value in register Ri is 0
+	-syntax: GOTOZ Ri LABEL  --TODO Clarify what LABEL is (source code line number?)
+	-opcode: 11000
+	-condition codes used: _ _ _
 
 Branch				Negative BN Ri, LABEL If (Ri < 0) PC ← LABEL (line) 	3
--description: 
--syntax: GOTON Ri LABEL  --TODO Clarify what LABEL is
--opcode: 11001
--condition codes used:
+	-description: Moves the program counter to the specified label if the value in register Ri is negative
+	-syntax: GOTON Ri LABEL  --TODO Clarify what LABEL is (source code line number?)
+	-opcode: 11001
+	-condition codes used: _ _ _
 
 No-op               Nop No operation 				                        1
--description: 
--syntax: PASS
--opcode: 11111
--condition codes used:
+	-description: Does nothing for one cycle
+	-syntax: PASS
+	-opcode: 11111
+	-condition codes used: _ _ _
 
 Halt				Halt Stop Program                                       -
--description: 
--syntax: STOP
--opcode: 10101  -- a very unlucky single bit flip on the square opcode could cause this
--condition codes used:
+	-description: Stops executiong of the program
+	-syntax: STOP
+	-opcode: 10101
+	-condition codes used: _ _ _
