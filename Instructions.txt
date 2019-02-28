@@ -1,7 +1,7 @@
 Team:
 	- Jordan Cottle
-	-
-	-
+	- Michael Russell
+	- Harshil Suthar
 Notes:
     - Only performs mathematical operations on floating point values
     - DataTypes: 
