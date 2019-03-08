@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Simulation.srcs/sources_1/new/Decoder10to1024.vhd" \
+"../../../../Simulation.srcs/sim_1/new/Decoder_tb.vhd" \
+
+# Do not sort compile order
+nosort
