@@ -3,6 +3,7 @@ Simulation/.Xil/
 Simulation/Simulation.cache/
 Simulation/Simulation.hw/
 Simulation/Simulation.sim/
+Simulation/Simulation.ip_user_files/
 *.log
 *.jou
 *.str
