@@ -1,4 +1,8 @@
 .vscode/
+Simulation/.Xil/
+Simulation/Simulation.cache/
+Simulation/Simulation.hw/
+Simulation/Simulation.sim/
 *.log
 *.jou
 *.str
