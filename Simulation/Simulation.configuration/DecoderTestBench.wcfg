@@ -10,9 +10,9 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="92700001fs"></ZoomEndTime>
-      <Cursor1Time time="1360000000fs"></Cursor1Time>
+      <ZoomStartTime time="482750000fs"></ZoomStartTime>
+      <ZoomEndTime time="575450001fs"></ZoomEndTime>
+      <Cursor1Time time="516750000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="59"></NameColumnWidth>
@@ -30,5 +30,6 @@
    <wvobject fp_name="/Decoder_tb/output" type="array">
       <obj_property name="ElementShortName">output[1023:0]</obj_property>
       <obj_property name="ObjectShortName">output[1023:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>
