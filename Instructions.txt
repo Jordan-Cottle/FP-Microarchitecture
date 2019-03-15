@@ -9,8 +9,8 @@ Notes:
         - Register Addresses
         - Memory Addresses
     -Memory:
-        - 1024 Addressable memory locations (32 bits each)
-        - 16 Addressable registers (32 bits each)
+        - 1024 Addressable memory locations (32 bits each) (addressed with 10 bits)
+        - 16 Addressable registers (32 bits each) (addressed with 5 bits)
     -Speeds:
         - Clock cycle: 100ns
         - Single ALU operation: 200ns
