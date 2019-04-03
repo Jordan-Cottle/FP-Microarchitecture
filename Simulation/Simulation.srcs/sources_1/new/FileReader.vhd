@@ -51,8 +51,8 @@ begin
         
         variable count: integer := 0;
     begin
-        file_open(instructions, "../../../../Simulation.configuration/InputFiles/instructions.txt", read_mode);
-        file_open(results, "../../../../Simulation.configuration/OutputFiles/output.txt", write_mode);
+        file_open(instructions, "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\InputFiles\instructions.txt", read_mode);
+        file_open(results, "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\OutputFiles\output.txt", write_mode);
 
         while not(count = 10) loop -- 
             readline(instructions, lineIn);
