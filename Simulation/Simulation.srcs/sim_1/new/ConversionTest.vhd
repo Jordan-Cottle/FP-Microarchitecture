@@ -32,6 +32,7 @@ end ConversionTest;
 architecture Behavioral of ConversionTest is
 
     signal value: string(1 to 32);
+    signal dec: real;
     file inputFile: text;
     file outputFile: text;
 begin
@@ -50,7 +51,7 @@ begin
         while not endfile(inputFile) loop
             readline(inputFile, lineIn);
             read(lineIn, str);
-
+            value <= str;
             report "line read is " & str;
             -- pull bits from line into vector
             for i in 1 to 32 loop
@@ -62,6 +63,7 @@ begin
             end loop;
 
             decimal := fpToDec(vector);
+            dec <= decimal;
             
             write(lineOut, real'image(decimal));
             writeline(outputFile, lineOut);

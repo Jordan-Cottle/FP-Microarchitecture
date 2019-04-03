@@ -15,6 +15,9 @@
 
 
 library IEEE;
+library Sim;
+
+use Sim.components.Decoder10to1024;
 use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
@@ -31,13 +34,6 @@ entity Decoder_tb is
 end Decoder_tb;
 
 architecture Test of Decoder_tb is
-
-    component Decoder10to1024 is
-        Port ( Input : in STD_LOGIC_VECTOR (9 downto 0);
-               Control : in STD_LOGIC;
-               Output : out STD_LOGIC_VECTOR (1023 downto 0));
-    end component;
-
     signal input: STD_LOGIC_VECTOR (9 downto 0);
     signal control: STD_LOGIC;
     signal output: STD_LOGIC_VECTOR (1023 downto 0);

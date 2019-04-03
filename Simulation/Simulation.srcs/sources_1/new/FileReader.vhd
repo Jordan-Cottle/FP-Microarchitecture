@@ -37,6 +37,8 @@ architecture Behavioral of FileReader is
 
     file instructions: text;
     file results: text;
+    signal instruction: string(1 to 13);
+    signal result: string(1 to 17);
 
 begin
 
@@ -57,7 +59,7 @@ begin
         file_open(instructions, inputFolderPath & "instructions.txt", read_mode);
         file_open(results, outputFolderPath & "output.txt", write_mode);
 
-        while not(count = 10) loop -- 
+        while not endfile(instructions) loop
             readline(instructions, lineIn);
             read(lineIn, operation); -- get operation
             read(lineIn, seperator); -- read space
@@ -68,8 +70,8 @@ begin
             read(lineIn, seperator);
             read(lineIn, Rj); -- get second source register
 
-            wait for 20ns;
-
+            instruction <= operation & " " & Rd & ", " & Ri & " " & Rj;
+            
             write(lineOut, count);
             write(lineOut, string'(": "));
             write(lineOut, operation);
@@ -80,9 +82,13 @@ begin
             write(lineOut, ' ');
             write(lineOut, Rj);
             writeline(results, lineOut);
-            
+            if count < 10 then -- pad signal to match expected size od string
+                result <= "0" & integer'image(count) & ": " & operation & " " & Rd & ", " & Ri & " " & Rj;
+            else
+                result <= integer'image(count) & ": " & operation & " " & Rd & ", " & Ri & " " & Rj;
+            end if;
             count := count + 1;
-
+            wait for 20ns;
         end loop;
 
         file_close(instructions);
