@@ -12,6 +12,7 @@ library IEEE;
 library Sim;
 
 use Sim.Conversions.all;
+use Sim.Constants.all;
 use IEEE.STD_LOGIC_1164.ALL;
 use std.textio.ALL;
 
@@ -31,9 +32,6 @@ end ConversionTest;
 architecture Behavioral of ConversionTest is
 
     signal value: string(1 to 32);
-    
-    
-    
     file inputFile: text;
     file outputFile: text;
 begin
@@ -46,8 +44,8 @@ begin
         variable count: integer := 0;
         variable vector: std_logic_vector(31 downto 0);
     begin
-        file_open(inputFile, "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\InputFiles\fpValues.txt", read_mode);
-        file_open(outputFile, "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\OutputFiles\decValues.txt", write_mode);
+        file_open(inputFile, inputFolderPath & "fpValues.txt", read_mode);
+        file_open(outputFile, outputFolderPath & "decValues.txt", write_mode);
 
         while not endfile(inputFile) loop
             readline(inputFile, lineIn);

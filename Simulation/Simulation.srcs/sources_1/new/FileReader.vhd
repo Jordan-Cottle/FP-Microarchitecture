@@ -14,6 +14,9 @@
 
 
 library IEEE;
+library Sim;
+
+use Sim.Constants.all;
 use IEEE.STD_LOGIC_1164.ALL;
 use std.textio.ALL;
 
@@ -51,8 +54,8 @@ begin
         
         variable count: integer := 0;
     begin
-        file_open(instructions, "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\InputFiles\instructions.txt", read_mode);
-        file_open(results, "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\OutputFiles\output.txt", write_mode);
+        file_open(instructions, inputFolderPath & "instructions.txt", read_mode);
+        file_open(results, outputFolderPath & "output.txt", write_mode);
 
         while not(count = 10) loop -- 
             readline(instructions, lineIn);
