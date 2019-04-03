@@ -82,7 +82,7 @@ begin
             write(lineOut, ' ');
             write(lineOut, Rj);
             writeline(results, lineOut);
-            if count < 10 then -- pad signal to match expected size od string
+            if count < 10 then -- pad signal to match expected size of string
                 result <= "0" & integer'image(count) & ": " & operation & " " & Rd & ", " & Ri & " " & Rj;
             else
                 result <= integer'image(count) & ": " & operation & " " & Rd & ", " & Ri & " " & Rj;
