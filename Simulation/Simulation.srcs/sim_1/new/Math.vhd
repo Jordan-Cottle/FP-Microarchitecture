@@ -3,8 +3,6 @@
 -- Engineer: Jordan Cottle
 -- 
 -- Create Date: 04/02/2019 10:22:29 PM
--- Module Name: Conversions - Behavioral
--- Project Name: 
 -- Description: Contains conversion functions for Simulation project
 ----------------------------------------------------------------------------------
 
@@ -12,16 +10,10 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.math_real.all;
-use std.textio.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+--use IEEE.NUMERIC_STD.ALL;
 
 package Math is
     function powOfTwo(exp: integer) 
