@@ -3,14 +3,14 @@ Team:
 	- Michael Russell
 	- Harshil Suthar
 Notes:
-    - Only performs mathematical operations on floating point values
+    - Mathematical operations only performed on floating point values
     - DataTypes: 
         - Floating point values
         - Register Addresses
         - Memory Addresses
     -Memory:
         - 1024 Addressable memory locations (32 bits each) (addressed with 10 bits)
-        - 16 Addressable registers (32 bits each) (addressed with 5 bits)
+        - 16 Addressable registers (32 bits each) (addressed with 4 bits)
     -Speeds:
         - Clock cycle: 100ns
         - Single ALU operation: 200ns
@@ -151,13 +151,13 @@ Branch				Zero BZ Ri, LABEL 				If (Ri == 0) PC ← LABEL (line) 			3
 	-description: Moves to program counter to the specified label if the value in register Ri is 0
 	-syntax: GOTOZ Ri LABEL
 	-opcode: 11000
-	-condition codes used: _ _ _ _
+	-condition codes used: Z _ _ _
 
 Branch				Negative BN Ri, LABEL 			If (Ri < 0) PC ← LABEL (line) 			3
 	-description: Moves the program counter to the specified label if the value in register Ri is negative
 	-syntax: GOTON Ri LABEL
 	-opcode: 11001
-	-condition codes used: _ _ _ _
+	-condition codes used: _ N _ _
 
 No-op               Nop 							No operation 			                 1
 	-description: Does nothing for one cycle
