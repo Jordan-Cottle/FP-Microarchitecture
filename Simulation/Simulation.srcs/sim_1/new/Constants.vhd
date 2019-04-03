@@ -4,7 +4,7 @@
 -- 
 -- Create Date: 04/03/2019 09:11:09 AM
 -- Module Name: Constants
--- Description: Package to contain constant values and various reusable components
+-- Description: Package to contain constant values for simulation
 ----------------------------------------------------------------------------------
 
 
