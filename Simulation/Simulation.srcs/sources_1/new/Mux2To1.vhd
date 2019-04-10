@@ -1,9 +1,10 @@
 ----------------------------------------------------------------------------------
 -- Engineer: Jordan Cottle
 -- 
--- Create Date: 04/03/2019 09:37:32 AM
--- Module Name: Components
--- Description: Contains declarations of components to use in project
+-- Create Date: 04/09/2019 09:59:52 PM
+-- Design Name: Mux2To1
+-- Module Name: Mux2To1 - Behavioral
+-- Description: Muxes two 32 bit values
 ----------------------------------------------------------------------------------
 
 
@@ -19,17 +20,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-package Components is
-    component Decoder10to1024 is
-        Port ( Input : in STD_LOGIC_VECTOR (9 downto 0);
-               Control : in STD_LOGIC;
-               Output : out STD_LOGIC_VECTOR (1023 downto 0));
-    end component;
-
-    component Mux2To1 is
+entity Mux2To1 is
     Port ( a : in STD_LOGIC_VECTOR (31 downto 0);
            b : in STD_LOGIC_VECTOR (31 downto 0);
            control : in STD_LOGIC;
            result : out STD_LOGIC_VECTOR (31 downto 0));
-    end component;
-end Components;
+end mux2To1;
+
+architecture Behavioral of mux2To1 is
+    
+begin
+    result <= a when control = '0' else
+              b;
+end Behavioral;
