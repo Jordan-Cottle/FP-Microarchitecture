@@ -2,8 +2,8 @@
 -- Engineer: Jordan Cottle
 -- 
 -- Create Date: 04/09/2019 09:59:52 PM
--- Design Name: Mux2To1
--- Module Name: Mux2To1 - Behavioral
+-- Design Name: Mux2To1_32b
+-- Module Name: Mux2To1_32b - Behavioral
 -- Description: Muxes two 32 bit values
 ----------------------------------------------------------------------------------
 
