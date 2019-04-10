@@ -3,7 +3,7 @@
 -Minor components-
 Adder1 - For incrementing PC by 1
 AdderX - for incrementing PC by X
-Mux2To1_1b - Standard Mux for choosing binary signals
+**Mux2To1_1b - Standard Mux for choosing binary signals
 **Mux2To1_32b - Mux for choosing between 32bit signals
 **Decoder10To1024 - For addressing data/instruction memory
 Decoder4To16 - addressing reigsters
