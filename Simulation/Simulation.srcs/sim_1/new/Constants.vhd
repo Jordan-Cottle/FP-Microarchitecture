@@ -21,8 +21,9 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 package Constants is
-    constant inputFolderPath: string := "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\InputFiles\";
-    constant outputFolderPath: string := "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\OutputFiles\";
+    constant configurationPath: string := "C:\Users\jorda\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\";
+    constant inputFolderPath: string := configurationPath & "InputFiles\";
+    constant outputFolderPath: string := configurationPath & "OutputFiles\";
 end Constants;
 
 package body Constants is
