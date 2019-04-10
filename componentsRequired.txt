@@ -1,0 +1,17 @@
+--Components Required--
+** Completed
+-Minor components-
+Adder1 - For incrementing PC by 1
+AdderX - for incrementing PC by X
+Mux2To1_1b - Standard Mux for choosing binary signals
+**Mux2To1_32b - Mux for choosing between 32bit signals
+**Decoder10To1024 - For addressing data/instruction memory
+Decoder4To16 - addressing reigsters
+
+-Major Comopnents-
+FileReader/Simulation - parses our program and loads instructions into instruction memory
+PC - for controlling flow of processor
+Controller - for issuing control signals neccessary for proper functinoality
+Instruction Memory - 1024 addresses of 32 bits each, PC in, 2x32 bit out
+Data Memory - 1024 addresses of 32 bits each, calculated address in, control in, data in, result out
+ALU - performs math calculations, 2x32b in, control in, result out, negative out, zero out
