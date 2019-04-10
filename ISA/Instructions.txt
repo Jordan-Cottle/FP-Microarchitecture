@@ -38,9 +38,9 @@ Set                 Set Rd, #FPvalue                Rd ← FPvalue          				
 	-opcode: 10000
 	-condition codes used: _ _ _ _
 
-Load                Load Rd, Ri                     Rd ← M[Ri] 					            1
+Load                Load Ri, Rd                     Rd ← M[Ri] 					            1
 	-description: Takes a value from the specified address in memory (stored in register Ri) and stores it in register specified by Rd
-	-syntax: LOAD Rd, Ri
+	-syntax: LOAD Ri, Rd
 	-opcode: 10001
 	-condition codes used: _ _ _ _
 
@@ -50,9 +50,9 @@ Store				Store Rd, Ri                    M[Rd] ← Ri		  					  	1
 	-opcode: 10010
 	-condition codes used: _ _ _ _
 
-Move				Move Rd, Ri                     Rd ← Ri 		   					 	1
+Move				Move Ri, Rd                     Rd ← Ri 		   					 	1
 	-description: Moves a value from register Ri into register Rd
-	-syntax: MOVE Rd, Ri
+	-syntax: MOVE Ri, Rd
 	-opcode: 10011
 	-condition codes used: _ _ _ _
 
