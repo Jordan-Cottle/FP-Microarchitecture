@@ -26,7 +26,7 @@ package Components is
                Output : out STD_LOGIC_VECTOR (1023 downto 0));
     end component;
 
-    component Mux2To1 is
+    component Mux2To1_32b is
     Port ( a : in STD_LOGIC_VECTOR (31 downto 0);
            b : in STD_LOGIC_VECTOR (31 downto 0);
            control : in STD_LOGIC;

@@ -20,14 +20,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Mux2To1 is
+entity Mux2To1_32b is
     Port ( a : in STD_LOGIC_VECTOR (31 downto 0);
            b : in STD_LOGIC_VECTOR (31 downto 0);
            control : in STD_LOGIC;
            result : out STD_LOGIC_VECTOR (31 downto 0));
-end mux2To1;
+end Mux2To1_32b;
 
-architecture Behavioral of mux2To1 is
+architecture Behavioral of Mux2To1_32b is
     
 begin
     result <= a when control = '0' else

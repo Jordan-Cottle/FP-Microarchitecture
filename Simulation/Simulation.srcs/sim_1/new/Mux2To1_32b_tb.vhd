@@ -2,7 +2,7 @@
 -- Engineer: Jordan Cottle
 -- 
 -- Create Date: 04/09/2019 09:59:52 PM
--- Design Name: Mux2To1_tb
+-- Design Name: Mux2To1_32b_tb
 -- Module Name: mux2To1_tb - Behavioral
 -- Description: Tests proper functionality of Mux by reading 32 bit vectors from a file and muxing them
 ----------------------------------------------------------------------------------
@@ -10,7 +10,7 @@
 
 library IEEE;
 library Sim;
-use Sim.components.Mux2To1;
+use Sim.components.Mux2To1_32b;
 use Sim.constants.all;
 use IEEE.STD_LOGIC_1164.ALL;
 use std.textio.ALL;
@@ -24,11 +24,11 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity mux2To1_tb is
+entity mux2To1_32b_tb is
 --  Port ( );
-end mux2To1_tb;
+end mux2To1_32b_tb;
 
-architecture Behavioral of mux2To1_tb is
+architecture Behavioral of mux2To1_32b_tb is
     signal a: std_logic_vector(31 downto 0);
     signal b: std_logic_vector(31 downto 0);
     signal control: std_logic := '0';
@@ -36,7 +36,7 @@ architecture Behavioral of mux2To1_tb is
     
     file inputFile: text;
 begin
-    UUT : Mux2To1 PORT MAP (a => a, b => b, control => control, result => result);
+    UUT : Mux2To1_32b PORT MAP (a => a, b => b, control => control, result => result);
     process
         variable lineIn: line;
         variable str: string(1 to 32);
