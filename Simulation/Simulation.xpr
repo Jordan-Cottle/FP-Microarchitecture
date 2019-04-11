@@ -65,7 +65,6 @@
       <File Path="$PSRCDIR/sources_1/new/Decoder10to1024.vhd">
         <FileInfo>
           <Attr Name="Library" Val="Sim"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/Mux2To1_32b.vhd">
@@ -156,8 +155,7 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sim_1/new/Decoder_tb.vhd">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="Library" Val="Sim"/>
         </FileInfo>
       </File>
       <File Path="$PPRDIR/Simulation.configuration/WaveFormConfigurations/Decoder_tb.wcfg">
@@ -231,7 +229,6 @@
     <FileSet Name="Mux2To1_1b_Test" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/Mux2To1_1b_Test">
       <File Path="$PSRCDIR/sources_1/new/Mux2To1_1b_tb.vhd">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>

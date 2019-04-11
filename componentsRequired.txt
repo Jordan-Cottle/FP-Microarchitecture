@@ -9,7 +9,7 @@ AdderX - for incrementing PC by X
 Decoder4To16 - addressing reigsters
 
 -Major Comopnents-
-FileReader/Simulation - parses our program and loads instructions into instruction memory
+FileReader/Simulation - parses our program and loads instructions into instruction memory  (clock to synchronize components?)
 PC - for controlling flow of processor
 Controller - for issuing control signals neccessary for proper functinoality
 Instruction Memory - 1024 addresses of 32 bits each, PC in, 2x32 bit out
