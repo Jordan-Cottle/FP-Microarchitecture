@@ -20,6 +20,10 @@ package Math is
         return real;
     function add(a, b: std_logic_vector(31 downto 0))
         return std_logic_vector;
+    function absolute(A: std_logic_vector(31 downto 0))
+        return std_logic_vector;
+    function neg(A: std_logic_vector(31 downto 0))
+        return std_logic_vector;
 end Math;
 
 package body Math is
@@ -49,4 +53,23 @@ package body Math is
     begin
         return a;
     end add;
+
+    function absolute(A:std_logic_vector(31 downto 0))
+        return std_logic_vector is
+        variable C: std_logic_vector(31 downto 0);
+    begin
+        C(31):= '0';
+        C(30 downto 0) := a(30 downto 0);
+            return C;    
+    end absolute;
+    
+     function neg(A: std_logic_vector(31 downto 0))
+           return std_logic_vector is 
+    variable C: std_logic_vector(31 downto 0);
+          begin
+             C(31):= not A(31);
+             C(30 downto 0) := a(30 downto 0);
+          return C;  
+     
+    end neg;
 end Math;

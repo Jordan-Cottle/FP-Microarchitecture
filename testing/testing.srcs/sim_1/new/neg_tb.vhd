@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 04/12/2019 02:21:02 PM
+-- Create Date: 04/12/2019 02:46:37 PM
 -- Design Name: 
--- Module Name: absolute_tb - Behavioral
+-- Module Name: neg_tb - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,7 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.math.all;
+use work.math.neg;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,15 +32,16 @@ use work.math.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity absolute_tb is
+entity neg_tb is
 --  Port ( );
-end absolute_tb;
+end neg_tb;
 
-architecture Behavioral of absolute_tb is
+architecture Behavioral of neg_tb is
 signal A: std_logic_vector(31 downto 0);
 signal C: std_logic_vector(31 downto 0);
 begin
 
 A<="11111111111111111111111111111111";
-C<= absolute(A);
+C<= neg(A);
+
 end Behavioral;
