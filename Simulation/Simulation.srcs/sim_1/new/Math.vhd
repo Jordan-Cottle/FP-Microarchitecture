@@ -18,7 +18,7 @@ use IEEE.math_real.all;
 package Math is
     function powOfTwo(exp: integer) 
         return real;
-    function add(a, b: std_logic_vector)
+    function add(a, b: std_logic_vector(31 downto 0))
         return std_logic_vector;
 end Math;
 
@@ -43,7 +43,7 @@ package body Math is
         end if;
     end powOfTwo;
     
-    function add(a,b: std_logic_vector)
+    function add(a,b: std_logic_vector(31 downto 0))
     return std_logic_vector is
         variable count: integer := 0;
     begin
