@@ -20,6 +20,8 @@ package Math is
         return real;
     function add(a, b: std_logic_vector)
         return std_logic_vector;
+    function abs(A:std_logic_vector)
+        return std_logic_vector;
 end Math;
 
 package body Math is
@@ -49,4 +51,13 @@ package body Math is
     begin
         return a;
     end add;
+
+    function abs(A:std_logic_vector)
+        return std_logic_vector is
+        variable C: std_logic_vector;
+    begin
+        C(31) <= '0';
+        C(30 downto 0) <= a(30 downto 0);
+                
+    end abs;
 end Math;
