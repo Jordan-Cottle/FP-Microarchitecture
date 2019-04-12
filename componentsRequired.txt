@@ -10,7 +10,7 @@ Decoder4To16 - addressing reigsters
 
 -Major Comopnents-
 FileReader/Simulation - parses our program and loads instructions into instruction memory  (clock to synchronize components?)
-PC - for controlling flow of processor
+PC - for controlling flow of processor -- clocked component
 Controller - for issuing control signals neccessary for proper functinoality
 Instruction Memory - 1024 addresses of 32 bits each, PC in, 2x32 bit out
 Data Memory - 1024 addresses of 32 bits each, calculated address in, control in, data in, result out

@@ -134,7 +134,7 @@ Exponent			Exp Rd, Ri					    Rd ← e^Ri 							    8
 	-opcode: 01100
 	-condition codes used: _ _ V _
 
-Square				Root Sqrt Rd, Ri				Rd ← sqrt(Ri) 							8
+Square root			Root Sqrt Rd, Ri				Rd ← sqrt(Ri) 							8
 	-description: Calculates the square root of the value stored in register Ri and stores the result in register Rd
 	-syntax: SQRT Rd, Ri
 	-opcode: 01101
