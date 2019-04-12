@@ -25,9 +25,11 @@ package Math is
     function neg(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
     function FpToDec (Fp: std_logic_vector(31 downto 0))
-    return real;
+        return real;
     function DecToFp(Dec: real)
         return std_logic_vector;
+    function power(A, B: std_logic_vector(31 downto 0))
+        return real;
 end Math;
 
 package body Math is
@@ -118,7 +120,7 @@ package body Math is
         alias mantissa is fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
 
         variable int: std_logic_vector(31 downto 0);
-        variable frac:_std_logic_vector(34 downto 0); -- at most 3
+        variable frac:std_logic_vector(34 downto 0); -- at most 3
     begin
     
     if dec = 0.0 then
@@ -134,4 +136,18 @@ package body Math is
 
         
     end DecToFp;
-end Math;
+
+
+function power(A,B: std_logic_vector(31 downto 0))
+        return real is 
+        variable C: real;
+        variable A_real: real;
+        variable B_real: real;
+    begin
+           A_real := FptoDec(A);
+           B_real := FptoDec(B);
+           C := A_real ** B_real;
+           return C;
+    end power;
+    
+end Math;    
