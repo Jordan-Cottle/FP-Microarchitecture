@@ -18,6 +18,8 @@ use IEEE.math_real.all;
 package Math is
     function powOfTwo(exp: integer) 
         return real;
+    function add(a, b: std_logic_vector)
+        return std_logic_vector;
 end Math;
 
 package body Math is
@@ -40,4 +42,11 @@ package body Math is
             return 1.0 / value;
         end if;
     end powOfTwo;
+    
+    function add(a,b: std_logic_vector)
+    return std_logic_vector is
+        variable count: integer := 0;
+    begin
+        return a;
+    end add;
 end Math;
