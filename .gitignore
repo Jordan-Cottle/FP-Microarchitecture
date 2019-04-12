@@ -1,10 +1,10 @@
 .vscode/
-Simulation/.Xil/
-Simulation/Simulation.cache/
-Simulation/Simulation.hw/
-Simulation/Simulation.runs/
-Simulation/Simulation.sim/
-Simulation/Simulation.ip_user_files/
+.Xil/
+*.cache/
+*.hw/
+*.runs/
+*.sim/
+*.ip_user_files/
 *.log
 *.jou
 *.str
