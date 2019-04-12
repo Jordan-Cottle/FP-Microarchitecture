@@ -25,7 +25,7 @@ package Math is
     function neg(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
     function FpToDec (Fp: std_logic_vector(31 downto 0))
-    return real;
+        return real;
     function DecToFp(Dec: real)
         return std_logic_vector;
 end Math;
@@ -107,6 +107,7 @@ package body Math is
             return sum;
         end if;
     end FpToDec;
+
     function DecToFp(Dec: real)
         return std_logic_vector is
 
@@ -117,21 +118,62 @@ package body Math is
         alias exponent is fp(30 downto 23); -- 8 bit exponent
         alias mantissa is fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
 
-        variable int: std_logic_vector(31 downto 0);
-        variable frac:_std_logic_vector(34 downto 0); -- at most 3
+        variable intVector: std_logic_vector(31 downto 0);
+        variable fracVector: std_logic_vector(34 downto 0); -- at last 3 extra bits for rounding
+
+        variable int: integer;
+        variable fraction: real;
+        variable d: real;
+        variable i: integer;
+        variable shiftAmount: integer;
     begin
-    
     if dec = 0.0 then
         return "00000000000000000000000000000000";
     end if;
-
-    if Dec < 0.0 then
+    
+    d := dec;
+    if d < 0.0 then
         sign := '1';
+        d := d * (-1.0);
     else
         sign := '0';
     end if;
 
+    intVector := std_logic_vector(to_unsigned(integer(d), 32));
 
+    while d >= 1.0 loop
+        d := d - 1.0;
+    end loop;
+
+    fracVector := (others => '0');
+    i := 34;
+    while not (d = 0.0) and i > 0 loop
+        if d*2.0 > 1.0 then
+            fracVector(i) := '1';
+            d := d * 2.0;
+        else
+            fracVector(i) := '0';
+            d := (d * 2.0) - 1.0;
+        end if;
+        i := i - 1;
+    end loop;
+
+    i := 31;
+    shiftAmount := 0;
+    while(intVector(i) = '0') loop
+        i := i - 1;
+    end loop;
+
+    if not (i = 0) then
+        shiftAmount := i;
+    else
+        shiftAmount := -7; -- TODO, fix this later!!
+    end if;
         
+
+    exponent := std_logic_vector(to_unsigned(127 + shiftAmount, 8));
+
+    return fp;
+
     end DecToFp;
 end Math;
