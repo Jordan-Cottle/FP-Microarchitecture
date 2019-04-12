@@ -26,51 +26,11 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 package CONVERSIONS is
-    function DecToFp(Dec: real) 
-        return std_logic_vector;
-    
-    function FpToDec (Fp: std_logic_vector)
-        return real;
-
     function toString(vector: std_logic_vector)
         return string;
 end CONVERSIONS;
 
 package body CONVERSIONS is
-    function FpToDec (Fp: std_logic_vector) -- expects full 32 bit binary fp vector
-        return real is
-    -- ieee fp format components
-    alias sign is Fp(31); -- 1 bit for sign
-    alias exponent is Fp(30 downto 23); -- 8 bit exponent
-    alias mantissa is Fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
-
-    -- decimal values of components
-    variable pow: integer;
-    variable sum: real := 0.0;
-    begin
-        pow := to_integer(unsigned(exponent))- 127;
-
-        -- calculate implied leading 1
-        sum := sum + powOfTwo(pow);
-        pow := pow-1;
-
-        -- calculate listed mantissa bits
-        for i in mantissa'range loop
-            report "sum is " & real'image(sum);
-            report "pow is " & integer'image(pow);
-            if mantissa(i) = '1' then
-                sum := sum + powOfTwo(pow);
-            end if;
-            pow := pow - 1;
-        end loop;
-
-        if sign = '1' then
-            return sum * (-1.0);
-        else
-            return sum;
-        end if;
-    end FpToDec;
-
     function toString(vector: std_logic_vector)
         return string is
     
@@ -88,10 +48,4 @@ package body CONVERSIONS is
     
         return str;
     end toString;
-    
-    function DecToFp(Dec: real)
-        return std_logic_vector is
-    begin
-
-    end DecToFp;
 end CONVERSIONS;
