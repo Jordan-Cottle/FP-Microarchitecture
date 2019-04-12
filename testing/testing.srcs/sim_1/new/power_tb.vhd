@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 04/11/2019 11:10:13 PM
+-- Create Date: 04/12/2019 04:24:59 PM
 -- Design Name: 
--- Module Name: Absolute_value - Behavioral
+-- Module Name: power_tb - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use work.math.power;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -31,16 +32,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Absolute_value is
-    Port ( A : in STD_LOGIC_VECTOR (31 downto 0);
-           C : out STD_LOGIC_VECTOR (31 downto 0));
-end Absolute_value;
+entity power_tb is
+--  Port ( );
+end power_tb;
 
-architecture Behavioral of Absolute_value is
-
+architecture Behavioral of power_tb is
+signal A: std_logic_vector(31 downto 0);
+signal B: std_logic_vector(31 downto 0);
+signal C: real;
 begin
 
-C(31) <= '0';
-C(30 downto 0) <= a(30 downto 0);
-        
+    A <= "01000000000000000000000000000000";
+    B <= "01000000010000000000000000000000"; 
+    C <= power(A,B);
+     
 end Behavioral;
