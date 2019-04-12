@@ -2,13 +2,13 @@ TODO
 -- Get ALU Math functions completed
 -Add * -Jordan
 -Sub * -Jordan
--Neg * -Harshil
+-Neg * -Harshil(1)
 -Muls - Michael
 -Div - Michael
 -Floor * - Michael
 -Ceil * - Michael
 -Rnd * - Jordan
--Abs * -Harshil
+-Abs * -Harshil(1)
 -Min * -Jordan
 -Max * -Jordan
 -Pow - Harshil
