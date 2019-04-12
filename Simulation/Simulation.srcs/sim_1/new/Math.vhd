@@ -28,6 +28,8 @@ package Math is
     return real;
     function DecToFp(Dec: real)
         return std_logic_vector;
+    function mul (a, b: std_logic_vector (31 downto 0))
+        return std_logic_vector;
 end Math;
 
 package body Math is
@@ -82,7 +84,8 @@ package body Math is
     alias sign is Fp(31); -- 1 bit for sign
     alias exponent is Fp(30 downto 23); -- 8 bit exponent
     alias mantissa is Fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
-
+    
+    
     -- decimal values of components
     variable pow: integer;
     variable sum: real := 0.0;
@@ -118,7 +121,7 @@ package body Math is
         alias mantissa is fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
 
         variable int: std_logic_vector(31 downto 0);
-        variable frac:_std_logic_vector(34 downto 0); -- at most 3
+        variable frac: std_logic_vector(34 downto 0); -- at most 3
     begin
     
     if dec = 0.0 then
@@ -134,4 +137,11 @@ package body Math is
 
         
     end DecToFp;
+    
+    function mul (a, b: std_logic_vector (31 downto 0))
+    return std_logic_vector is
+        variable count: integer := 0;
+        begin
+        return a;
+        end mul;
 end Math;
