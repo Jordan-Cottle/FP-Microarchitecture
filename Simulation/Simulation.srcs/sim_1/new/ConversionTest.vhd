@@ -11,7 +11,7 @@
 library IEEE;
 library Sim;
 
-use Sim.Conversions.all;
+use Sim.Math.all;
 use Sim.Constants.all;
 use IEEE.STD_LOGIC_1164.ALL;
 use std.textio.ALL;
