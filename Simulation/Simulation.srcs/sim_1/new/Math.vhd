@@ -1,9 +1,8 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: Jordan Cottle
+-- Engineer: Group Effort
 -- 
 -- Create Date: 04/02/2019 10:22:29 PM
--- Description: Contains conversion functions for Simulation project
+-- Description: Contains math operations and conversions as functions for Simulation project
 ----------------------------------------------------------------------------------
 
 
@@ -28,6 +27,10 @@ package Math is
         return real;
     function DecToFp(Dec: real)
         return std_logic_vector;
+    function realToUnsigned(r: real; bitLength: integer)
+        return unsigned;
+    function realFractionToStdLogicVector(r: real; bitLength: integer)
+        return std_logic_vector;
     function mul (a, b: std_logic_vector (31 downto 0))
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
@@ -45,7 +48,6 @@ package body Math is
 
         for i in 1 to abs(exp) loop
             value := value * 2.0;
-            report "value is " & real'image(value);
         end loop;
     
         if exp > 0 then
@@ -79,6 +81,60 @@ package body Math is
         C(30 downto 0) := a(30 downto 0);
         return C;   
     end neg;
+    
+    -- All because ints are too small :'(
+    function realToUnsigned(r: real; bitLength: integer)
+    return unsigned is
+        variable num: real;
+        variable remainder: real;
+        variable i: integer;
+        variable u: unsigned(bitLength-1 downto 0):= (others => '0');
+    begin
+        num := trunc(r);
+        if num < 0.0 then
+            num := -num;
+        end if;
+        i := 0;
+        while(i < u'length and num > 0.0) loop
+            num := num / 2.0;
+            remainder := num - trunc(num);
+            num := trunc(num);
+            if remainder > 0.0 then
+                u(i) := '1';
+            else
+                u(i) := '0';
+            end if;
+            i := i + 1;
+        end loop;
+        
+        return u;
+    end realToUnsigned;
+    
+    function realFractionToStdLogicVector(r: real; bitLength: integer)
+    return std_logic_vector is
+        variable fracVector: std_logic_vector(bitLength-1 downto 0):= (others => '0');
+        variable i: integer;
+        variable d: real:= r;
+    begin
+        if d < 0.0 then
+            d := -d;
+        end if;
+        d := d - trunc(d);
+        
+        i := fracVector'length-1;
+        while not (d = 0.0) and i >= 0 loop
+            if d*2.0 >= 1.0 then
+                fracVector(i) := '1';
+                d := (d * 2.0) - 1.0;
+            else
+                fracVector(i) := '0';
+                d := d * 2.0;
+            end if;
+            i := i - 1;
+        end loop;
+        return fracVector;
+    end realFractionToStdLogicVector;
+        
 
     function FpToDec (Fp: std_logic_vector(31 downto 0))
         return real is
@@ -116,68 +172,91 @@ package body Math is
     function DecToFp(Dec: real)
         return std_logic_vector is
 
-        variable fp: std_logic_vector(31 downto 0);
+        variable fp: std_logic_vector(31 downto 0) := "00000000000000000000000000000000"; -- initalize to 0
 
         -- ieee fp format components
         alias sign is fp(31); -- 1 bit for sign
         alias exponent is fp(30 downto 23); -- 8 bit exponent
         alias mantissa is fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
 
-        variable intVector: std_logic_vector(31 downto 0);
-        variable fracVector: std_logic_vector(34 downto 0); -- at last 3 extra bits for rounding
+        variable intVector: std_logic_vector(127 downto 0);  -- max fp value is a 128 bit int
+        variable fracVector: std_logic_vector(130 downto 0); -- 128 bits + 3 for rounding
 
         variable int: integer;
         variable fraction: real;
         variable d: real;
         variable i: integer;
+        variable bitIndex: integer;
+        variable firstIntIndex: integer;
+        variable firstFracIndex: integer;
         variable shiftAmount: integer;
     begin
     if dec = 0.0 then
-        return "00000000000000000000000000000000";
+        return fp;
     end if;
     
     d := dec;
+    
+    -- calculate sign bit
     if d < 0.0 then
         sign := '1';
         d := d * (-1.0);
     else
         sign := '0';
     end if;
+    
+    -- calculate binary bits
+    intVector := std_logic_vector(realToUnsigned(d, intVector'length));
+    fracVector := realFractionToStdLogicVector(d, fracVector'length);
 
-    intVector := std_logic_vector(to_unsigned(integer(d), 32));
-
-    while d >= 1.0 loop
-        d := d - 1.0;
-    end loop;
-
-    fracVector := (others => '0');
-    i := 34;
-    while not (d = 0.0) and i > 0 loop
-        if d*2.0 > 1.0 then
-            fracVector(i) := '1';
-            d := d * 2.0;
-        else
-            fracVector(i) := '0';
-            d := (d * 2.0) - 1.0;
-        end if;
+    -- calculate exponent
+    i := intVector'length-1;
+    while(i >= 0 and intVector(i) = '0') loop
         i := i - 1;
     end loop;
-
-    i := 31;
-    shiftAmount := 0;
-    while(intVector(i) = '0') loop
+    firstIntIndex := i;
+    
+    i := fracVector'length-1;
+    while(i >= 3 and fracVector(i) = '0') loop -- don't include grs bits
         i := i - 1;
     end loop;
+    firstFracIndex:= i;
 
-    if not (i = 0) then
-        shiftAmount := i;
+    if not (firstIntIndex = -1) then
+        shiftAmount := firstIntIndex;
     else
-        shiftAmount := -7; -- TODO, fix this later!!
+        shiftAmount := firstFracIndex-fracVector'length;
     end if;
         
 
     exponent := std_logic_vector(to_unsigned(127 + shiftAmount, 8));
-
+    
+    -- calculate mantissa bits
+    if shiftAmount >= 0 then
+        bitIndex := firstIntIndex-1; -- skip assumed 1
+    else
+        bitIndex := firstFracIndex-1; -- skipped assumed 1
+    end if;
+    
+    i := 22;
+    if shiftAmount > 0 then
+        while i >= 0 and bitIndex >= 0 loop
+            mantissa(i) := intVector(bitIndex);
+            i := i - 1;
+            bitIndex := bitIndex-1;
+        end loop;
+   end if;
+   
+   if i >= 0 and bitIndex = -1 then -- ran out of integer bits, move bitIndex to fracVector
+            bitIndex := 130;
+    end if; 
+   
+   -- load fraction bits into mantissa
+   while i >= 0 and bitIndex >= 0 loop
+       mantissa(i) := fracVector(bitIndex);
+       i := i - 1;
+       bitIndex := bitIndex-1;
+   end loop;
     return fp;
 
     end DecToFp;
@@ -188,19 +267,16 @@ package body Math is
         begin
         return a;
         end mul;
-end Math;
-
-
-function power(A,B: std_logic_vector(31 downto 0))
-        return real is 
-        variable C: real;
-        variable A_real: real;
-        variable B_real: real;
-    begin
-           A_real := FptoDec(A);
-           B_real := FptoDec(B);
-           C := A_real ** B_real;
-           return C;
-    end power;
-    
+        
+    function power(A,B: std_logic_vector(31 downto 0))
+            return real is 
+            variable C: real;
+            variable A_real: real;
+            variable B_real: real;
+        begin
+               A_real := FptoDec(A);
+               B_real := FptoDec(B);
+               C := A_real ** B_real;
+               return C;
+        end power;
 end Math;    
