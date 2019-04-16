@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="953286253fs"></ZoomStartTime>
-      <ZoomEndTime time="1009342750fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="52727916666fs"></ZoomStartTime>
+      <ZoomEndTime time="52790416667fs"></ZoomEndTime>
+      <Cursor1Time time="52751217000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="90"></NameColumnWidth>
-      <ValueColumnWidth column_width="125"></ValueColumnWidth>
+      <ValueColumnWidth column_width="121"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="4" />
    <wvobject fp_name="/decToFp_tb/dec" type="other">
@@ -28,16 +28,13 @@
    <wvobject fp_name="/decToFp_tb/fracVector" type="array">
       <obj_property name="ElementShortName">fracVector[127:0]</obj_property>
       <obj_property name="ObjectShortName">fracVector[127:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/decToFp_tb/floatVector" type="array">
       <obj_property name="ElementShortName">floatVector[31:0]</obj_property>
       <obj_property name="ObjectShortName">floatVector[31:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/decToFp_tb/result" type="array">
       <obj_property name="ElementShortName">result[31:0]</obj_property>
       <obj_property name="ObjectShortName">result[31:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>
