@@ -1,21 +1,10 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Engineer: Jordan Cottle
 -- 
 -- Create Date: 04/12/2019 04:59:51 PM
--- Design Name: 
+-- Design Name: decToFp_tb
 -- Module Name: decToFp_tb - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Description: Test bench for converting fp to decimal values and back
 ----------------------------------------------------------------------------------
 
 
