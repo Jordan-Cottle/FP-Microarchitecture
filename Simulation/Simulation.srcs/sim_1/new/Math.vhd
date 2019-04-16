@@ -7,6 +7,8 @@
 
 
 library IEEE;
+library Sim;
+use Sim.constants.all;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.math_real.all;
 
@@ -15,8 +17,6 @@ use IEEE.math_real.all;
 use IEEE.NUMERIC_STD.ALL;
 
 package Math is
-    function powOfTwo(exp: integer) 
-        return real;
     function add(a, b: std_logic_vector(31 downto 0))
         return std_logic_vector;
     function absolute(A: std_logic_vector(31 downto 0))
@@ -38,25 +38,6 @@ package Math is
 end Math;
 
 package body Math is
-    function powOfTwo(exp: integer) 
-        return real is
-    variable value: real := 1.0;
-    begin
-        if exp = 0 then
-            return 1.0;
-        end if;
-
-        for i in 1 to abs(exp) loop
-            value := value * 2.0;
-        end loop;
-    
-        if exp > 0 then
-            return value;
-        else
-            return 1.0 / value;
-        end if;
-    end powOfTwo;
-    
     function add(a,b: std_logic_vector(31 downto 0))
     return std_logic_vector is
         variable count: integer := 0;
@@ -141,23 +122,31 @@ package body Math is
     -- ieee fp format components
     alias sign is Fp(31); -- 1 bit for sign
     alias exponent is Fp(30 downto 23); -- 8 bit exponent
-    alias mantissa is Fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
+    alias mantissa is Fp(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
     
     
     -- decimal values of components
     variable pow: integer;
-    variable sum: real := 0.0;
+    variable sum: real;
     begin
         pow := to_integer(unsigned(exponent))- 127;
 
-        -- calculate implied leading 1
-        sum := sum + powOfTwo(pow);
-        pow := pow-1;
+        if pow > 127 then
+            if sign = '1' then
+                return minValue * 2.0; -- less than minValue
+            else
+                return maxValue * 2.0; -- greater than maxValue
+            end if;
+        else 
+            -- compute implied one
+            sum := 2.0**pow;
+            pow := pow-1;
+        end if;
 
         -- calculate listed mantissa bits
         for i in mantissa'range loop
             if mantissa(i) = '1' then
-                sum := sum + powOfTwo(pow);
+                sum := sum + 2.0**pow;
             end if;
             pow := pow - 1;
         end loop;
