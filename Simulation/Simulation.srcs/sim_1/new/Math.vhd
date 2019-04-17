@@ -131,14 +131,17 @@ package body Math is
     begin
         pow := to_integer(unsigned(exponent))- 127;
 
-        if pow > 127 then
+        if exponent = "00000000" then
+            -- skip implied mantissa bit
+            sum := 0.0;
+        elsif pow > 127 then
             if sign = '1' then
                 return minValue * 2.0; -- less than minValue
             else
                 return maxValue * 2.0; -- greater than maxValue
             end if;
         else 
-            -- compute implied one
+            -- compute implied mantissa bit
             sum := 2.0**pow;
             pow := pow-1;
         end if;
@@ -169,7 +172,7 @@ package body Math is
         alias mantissa is fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
 
         variable intVector: std_logic_vector(127 downto 0);  -- max fp value is a 128 bit int
-        variable fracVector: std_logic_vector(130 downto 0); -- 128 bits + 3 for rounding
+        variable fracVector: std_logic_vector(153 downto 0); -- 128 bits + 3 for rounding + 23 for mantissa
 
         variable int: integer;
         variable fraction: real;
@@ -179,9 +182,14 @@ package body Math is
         variable firstIntIndex: integer;
         variable firstFracIndex: integer;
         variable shiftAmount: integer;
+        variable denormalized: boolean := false;
     begin
     if dec = 0.0 then
         return fp;
+    elsif dec > maxValue then
+        return std_logic_vector'("01111111100000000000000000000000");
+    elsif dec < minValue then
+        return std_logic_vector'("11111111100000000000000000000000");
     end if;
     
     d := dec;
@@ -206,23 +214,33 @@ package body Math is
     firstIntIndex := i;
     
     i := fracVector'length-1;
-    while(i >= 3 and fracVector(i) = '0') loop -- don't include grs bits
+    while(i >= 0 and fracVector(i) = '0') loop -- don't include grs bits or extra mantissa
         i := i - 1;
     end loop;
     firstFracIndex:= i;
+
 
     if not (firstIntIndex = -1) then
         shiftAmount := firstIntIndex;
     else
         shiftAmount := firstFracIndex-fracVector'length;
     end if;
-        
+    
+    if shiftAmount <= -127 then
+        denormalized := true;
+    end if;
 
-    exponent := std_logic_vector(to_unsigned(127 + shiftAmount, 8));
+    if denormalized then
+        exponent := "00000000";
+    else
+        exponent := std_logic_vector(to_unsigned(127 + shiftAmount, 8));
+    end if;
     
     -- calculate mantissa bits
     if shiftAmount >= 0 then
         bitIndex := firstIntIndex-1; -- skip assumed 1
+    elsif denormalized then
+        bitIndex := 27;
     else
         bitIndex := firstFracIndex-1; -- skipped assumed 1
     end if;
@@ -236,8 +254,8 @@ package body Math is
         end loop;
    end if;
    
-   if i >= 0 and bitIndex = -1 then -- ran out of integer bits, move bitIndex to fracVector
-            bitIndex := 130;
+   if i >= 0 and bitIndex = -1 then -- ran out of integer bits, move bitIndex to beginning of fracVector
+            bitIndex := fracVector'length-1;
     end if; 
    
    -- load fraction bits into mantissa
