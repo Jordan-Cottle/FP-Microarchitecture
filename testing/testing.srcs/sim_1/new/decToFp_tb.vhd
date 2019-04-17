@@ -31,7 +31,7 @@ end decToFp_tb;
 
 architecture Behavioral of decToFp_tb is
     signal dec: real;
-    signal fracVector: std_logic_vector(127 downto 0);
+    signal fracVector: std_logic_vector(153 downto 0);
     signal floatVector : std_logic_vector(31 downto 0);
     signal result: std_logic_vector(31 downto 0);
     file inputFile: text;
