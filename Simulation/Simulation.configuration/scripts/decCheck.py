@@ -11,7 +11,7 @@ for line in inputFile:
         expected = float(data['decimalRepr'])
         result = float(outputFile.readline())
 
-        if abs(result - expected) > expected / 10000:
+        if abs(result - expected) > abs(expected / 100000):
             print(f'{count}: expected {expected}, got {result}')
         else:
             print(f'{count}: success!')

@@ -6,9 +6,13 @@ for line in fpFile:
     result = vectorFile.readline()
 
     if line != result:
-        print(f'{count}: expected {line}, got {result}')
+        if line[1:9] == '11111111':
+            print(f'{count}:infinity case')
+        else:
+            print(f'{count}: expected {line}, got {result}')
     else:
-        print(f'{count}: success!')
+        #print(f'{count}: success!')
+        pass
     count += 1
 
 
