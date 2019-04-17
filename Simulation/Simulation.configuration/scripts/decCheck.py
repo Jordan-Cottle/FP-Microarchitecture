@@ -8,7 +8,7 @@ configPath = path.split(scriptDirPath)[0]
 
 inputFile = open(f'{configPath}\\InputFiles\\fpValues.txt', 'r')
 outputFile = open(f'{configPath}\\OutputFiles\\decValues.txt', 'r')
-resultsFile = open(f'{configPath}\\OutputFiles\\decimalConversionTestResults.txt', 'w')
+resultsFile = open(f'{configPath}\\OutputFiles\\decimalConversionTestResults.txt', 'w', buffering=1)
 
 count = 1
 errorCount = 0
