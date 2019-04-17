@@ -35,7 +35,8 @@ architecture Behavioral of decToFp_tb is
     signal floatVector : std_logic_vector(31 downto 0);
     signal result: std_logic_vector(31 downto 0);
     file inputFile: text;
-    file outputFile: text;
+    file realOutputFile: text;
+    file vectorOutputFile: text;
 begin
 
     process
@@ -48,7 +49,8 @@ begin
         variable vector: std_logic_vector(31 downto 0);
     begin
         file_open(inputFile, inputFolderPath & "fpValues.txt", read_mode);
-        file_open(outputFile, outputFolderPath & "decValues.txt", write_mode);
+        file_open(realOutputFile, outputFolderPath & "decValues.txt", write_mode);
+        file_open(vectorOutputFile, outputFolderPath & "fpVectors.txt", write_mode);
 
         while not endfile(inputFile) loop
             readline(inputFile, lineIn);
@@ -71,14 +73,33 @@ begin
             fp := decTofp(decimal);
             result <= fp;
             
-            write(lineOut, real'image(decimal));
-            writeline(outputFile, lineOut);
+            -- write fp vector into str for writing into output file
+            for i in str'range loop
+                if fp(32-i) = '1' then
+                    str(i) := '1';
+                else
+                    str(i) := '0';
+                end if;
+            end loop;
+            
+            write(lineOut, str);
+            writeLine(vectorOutputFile, lineOut);
+            
+            if decimal > maxValue then
+                write(lineOut, string'("inf"));
+            elsif decimal < minValue then 
+                write(lineOut, string'("-inf"));
+            else
+                write(lineOut, real'image(decimal));
+            end if;
+            writeline(realOutputFile, lineOut);
             count := count + 1;
             wait for 20ns;
         end loop;
 
         file_close(inputFile);
-        file_close(outputFile);
+        file_close(realOutputFile);
+        file_close(vectorOutputFile);
         wait;
     end process;
 end Behavioral;
