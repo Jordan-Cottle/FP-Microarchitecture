@@ -17,8 +17,14 @@ use IEEE.math_real.all;
 use IEEE.NUMERIC_STD.ALL;
 
 package Math is
-    function add(a, b: std_logic_vector(31 downto 0))
+    function fpAdd(a, b: std_logic_vector(31 downto 0))
         return std_logic_vector;
+    function bitAdd(a,b: std_logic_vector(22 downto 0))
+                return std_logic_vector;
+    function bitDiff(a, b: std_logic_vector(7 downto 0))
+        return std_logic_vector;
+    function shift(vector: std_logic_vector(22 downto 0); count: integer; shiftLeft, normalized: std_logic)
+                return std_logic_vector;
     function absolute(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
     function neg(A: std_logic_vector(31 downto 0))
@@ -38,12 +44,161 @@ package Math is
 end Math;
 
 package body Math is
-    function add(a,b: std_logic_vector(31 downto 0))
+    function fpAdd(a,b: std_logic_vector(31 downto 0))
     return std_logic_vector is
-        variable count: integer := 0;
+        alias aSign is a(31); -- 1 bit for sign
+        alias aExponent is a(30 downto 23); -- 8 bit exponent
+        alias aMantissa is a(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
+
+        alias bSign is b(31); -- 1 bit for sign
+        alias bExponent is b(30 downto 23); -- 8 bit exponent
+        alias bMantissa is b(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
+
+        variable i: integer;
+        variable aIsGreater: std_logic;
+        variable exponentsSame: std_logic;
+        variable exponentDiff: std_logic_vector(7 downto 0);
+        variable shiftedMantissa: std_logic_vector(22 downto 0);
+        variable normalizedValue: std_logic := '1';
     begin
+        -- find minimum exponent
+
+            -- locate first difference in exponents
+        i := 0;
+        while not(aExponent(i) = bExponent(i)) loop
+            i := i + 1;
+        end loop;
+
+        if i = 8 then
+            exponentsSame := '1';
+        else
+            exponentsSame := '0';
+        end if;
+
+            -- figure out if a has a greater exponent than b
+        aIsGreater := aExponent(i);
+
+        -- compute difference in exponent
+        if aIsGreater = '1' then
+            exponentDiff := bitDiff(aExponent, bExponent);
+        else
+            exponentDiff := bitDiff(bExponent, aExponent);
+        end if;
+
+        -- shift smaller exponent to match larger exponent
+        if aIsGreater='1' then -- jank shifting operation
+            if bExponent = "00000000" then
+                normalizedValue := '0';
+            end if;
+            shiftedMantissa := shift(bExponent, to_integer(unsigned(exponentDiff)), std_logic'('0'), normalizedValue);
+        else -- also a jank shifting operation
+            if aExponent = "00000000" then
+                normalizedValue := '0';
+            end if;
+            shiftedMantissa := shift(aExponent, to_integer(unsigned(exponentDiff)), std_logic'('0'), normalizedValue);
+        end if;
+
+        -- perform mantissa addition
+        
+
+        -- normalize value
+        
         return a;
-    end add;
+    end fpAdd;
+
+    -- add 23 bit binary values together
+    function bitAdd(a,b: std_logic_vector(22 downto 0))
+        return std_logic_vector is
+        
+        variable result: std_logic_vector(23 downto 0) := (others=>'0');
+        variable carry: std_logic := '0';
+        variable i: integer := 0;
+    begin
+        while i <= 22 loop
+            result(i) := carry xor a(i) xor b(i);
+            carry := (a(i) and b(i)) or (a(i) and carry) or (b(i) and carry);
+            i := i+1;
+        end loop;
+
+        result(23) := carry;
+
+        return result;
+    end bitAdd;
+    
+    function shift(vector: std_logic_vector(22 downto 0); count: integer; shiftLeft, normalized: std_logic)
+        return std_logic_vector is
+        
+        variable result: std_logic_vector(22 downto 0):= (others => '0');
+        variable sourceIndex: integer;
+        variable destinationIndex: integer;
+    begin
+        if shiftLeft = '1' then
+            sourceIndex := 0;
+            destinationIndex := sourceIndex + count;
+            while destinationIndex <= vector'length-1 loop
+                result(destinationIndex) := vector(sourceIndex);
+                destinationIndex := destinationIndex + 1;
+                sourceIndex := sourceIndex + 1;
+            end loop;
+        else
+            sourceIndex := 22;
+            destinationIndex := sourceIndex - count;
+            if normalized = '1' then
+                result(destinationIndex+1) := '1';
+            end if;
+            
+            while destinationIndex >= 0 loop
+                result(destinationIndex) := vector(sourceIndex);
+                destinationIndex := destinationIndex - 1;
+                sourceIndex := sourceIndex - 1;
+            end loop;
+        end if;
+        return result;
+    end shift;
+
+    -- computes difference of two 8 bit unsigned values, send first parameter as larger value, and second as smaller value
+    function bitDiff(a, b: std_logic_vector(7 downto 0))
+        return std_logic_vector is
+
+        variable i: integer:= 0;
+        variable carryIndex: integer;
+        variable big: std_logic_vector(7 downto 0) := a;
+        variable small: std_logic_vector(7 downto 0) := b;
+        variable result: std_logic_vector(7 downto 0):= (others => '0');
+    begin
+        while i < big'length loop
+            report "i is " & integer'image(i);
+            report "big(i) is " & std_logic'image(big(i));
+            report "small(i) is " & std_logic'image(big(i));
+            if big(i) = '1' and small(i)='1' then -- 1,1
+                result(i) := '0';
+                report "result(i) is " & std_logic'image(result(i));
+            elsif big(i) = '0' and small(i) = '0' then
+                result(i) := '0';
+            elsif big(i) = '1' and small(i) = '0' then  -- 1,0
+                result(i) := '1';
+                report "result(i) is " & std_logic'image(result(i));
+            elsif big(i) = '0' and small(i) = '1' then  -- 0,1
+                result(i) := '1';
+                -- carry in values from big i + 1
+                carryIndex := i+1;
+                    -- find 1 in big to carry from, toggling bits as we go
+                while big(carryIndex) = '0' loop
+                    if small(carryIndex) = '1' then
+                        small(carryIndex) := '0'; -- 'subtract
+                    else
+                        big(carryIndex) := '1';
+                    end if;
+                    carryIndex := carryIndex + 1;
+                end loop;
+                -- big(carryIndex) = '1'
+                big(carryIndex) := '0';
+            end if;
+            i := i+1;
+        end loop;
+
+        return result;
+    end bitDiff;
 
     function absolute(A:std_logic_vector(31 downto 0))
         return std_logic_vector is
