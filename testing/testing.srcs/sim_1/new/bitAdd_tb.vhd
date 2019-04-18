@@ -32,25 +32,25 @@ architecture Behavioral of bitAdd_tb is
     signal a: integer;
     signal b: integer;
     signal result: integer;
-    signal binA: std_logic_vector(22 downto 0);
-    signal binB: std_logic_vector(22 downto 0);
-    signal binResult: std_logic_vector(23 downto 0);
+    signal binA: std_logic_vector(3 downto 0);
+    signal binB: std_logic_vector(3 downto 0);
+    signal binResult: std_logic_vector(binA'left+1 downto binA'right);
 begin
     process
         variable count: integer:= 0;
         variable i: integer;
-        variable APB: std_logic_vector(23 downto 0);
-        variable aVec: std_logic_vector(22 downto 0);
-        variable bVec: std_logic_vector(22 downto 0);
+        variable APB: std_logic_vector(binResult'range);
+        variable aVec: std_logic_vector(binA'range);
+        variable bVec: std_logic_vector(binB'range);
     begin
-        while count < 8388608 loop
+        while count < 2 ** binA'length -1 loop
             a <= count;
-            aVec := std_logic_vector(to_unsigned(count, 23));
+            aVec := std_logic_vector(to_unsigned(count, binA'length));
             binA <= aVec;
-            i:= 8388607;
+            i:= 2 ** binA'length-1;
             while i >= 0 loop
                 b <= i;
-                bVec := std_logic_vector(to_unsigned(i, 23));
+                bVec := std_logic_vector(to_unsigned(i, binB'length));
                 binB <= bVec;
                 APB := bitAdd(aVec, bVec);
                 binResult <= APB;

@@ -28,22 +28,22 @@ entity bitDiff_tb is
 end bitDiff_tb;
 
 architecture Behavioral of bitDiff_tb is
-    signal a: std_logic_vector(7 downto 0);
-    signal b: std_logic_vector(7 downto 0);
-    signal result: std_logic_vector(7 downto 0);
+    signal a: std_logic_vector(3 downto 0);
+    signal b: std_logic_vector(3 downto 0);
+    signal result: std_logic_vector(a'range);
 begin
     process
         variable count: integer:= 0;
         variable i: integer;
-        variable big: std_logic_vector(7 downto 0);
-        variable small: std_logic_vector(7 downto 0);
-        variable aSubB: std_logic_vector(7 downto 0);
+        variable big: std_logic_vector(a'range);
+        variable small: std_logic_vector(b'range);
+        variable aSubB: std_logic_vector(a'range);
     begin
-        while count < 256 loop
-            big := std_logic_vector(to_unsigned(count, 8));
+        while count < 2 ** a'length loop
+            big := std_logic_vector(to_unsigned(count, a'length));
             i := 0;
             while i <= count loop
-                small := std_logic_vector(to_unsigned(i, 8));
+                small := std_logic_vector(to_unsigned(i, b'length));
                 aSubB := bitDiff(big,small);
                 a <= big;
                 b <= small;
