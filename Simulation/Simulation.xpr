@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/jorda/Documents/Projects/FP-Microarchitecture/Simulation/Simulation.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/Jordan/Documents/Projects/FP-Microarchitecture/Simulation/Simulation.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="a387ce37c3cf4a5893fd5ebb966a76e8"/>
@@ -21,7 +21,7 @@
     <Option Name="SimulatorLanguage" Val="VHDL"/>
     <Option Name="BoardPart" Val=""/>
     <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
-    <Option Name="ActiveSimSet" Val="Mux2To1_Test"/>
+    <Option Name="ActiveSimSet" Val="Conversions_Test"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
@@ -34,7 +34,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="206"/>
+    <Option Name="WTXSimLaunchSim" Val="211"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>

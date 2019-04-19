@@ -10,6 +10,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.math_real.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -24,6 +25,8 @@ package Constants is
     constant configurationPath: string := "C:\Users\jorda\Documents\Projects\FP-Microarchitecture\Simulation\Simulation.configuration\";
     constant inputFolderPath: string := configurationPath & "InputFiles\";
     constant outputFolderPath: string := configurationPath & "OutputFiles\";
+    constant maxValue: real := 3.4028235 * (10.0**38);
+    constant minValue: real := maxValue * (-1.0);
 end Constants;
 
 package body Constants is

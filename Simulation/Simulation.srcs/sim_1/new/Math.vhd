@@ -32,6 +32,8 @@ package Math is
         return real;
     function expo(A: std_logic_vector(31 downto 0))
         return real;
+    function sqrt(A: std_logic_vector(31 downto 0))
+        return real;
 end Math;
 
 package body Math is
@@ -164,4 +166,15 @@ function expo(A: std_logic_vector(31 downto 0))
             return C;
     end expo;        
             
+function sqrt(A: std_logic_vector(31 downto 0))
+                return real is
+                variable C: real;
+                variable A_real: real;
+                variable sqrt_pow: real;
+        begin
+                A_real := FptoDec(A);
+                sqrt_pow := 0.5;
+                C := A_real ** sqrt_pow ;
+                return C;
+        end sqrt;            
 end Math;    
