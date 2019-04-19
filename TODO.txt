@@ -11,6 +11,6 @@ TODO
 -Abs * -Harshil(1)
 -Min * -Jordan
 -Max * -Jordan
--Pow - Harshil
+-Pow - Harshil(1)
 -Exponent - Harshil
 -Sqrt - Harshil

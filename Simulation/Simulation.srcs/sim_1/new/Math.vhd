@@ -30,6 +30,8 @@ package Math is
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
         return real;
+    function expo(A: std_logic_vector(31 downto 0))
+        return real;
 end Math;
 
 package body Math is
@@ -150,4 +152,16 @@ function power(A,B: std_logic_vector(31 downto 0))
            return C;
     end power;
     
+function expo(A: std_logic_vector(31 downto 0))
+            return real is
+            variable C: real;
+            variable A_real: real;
+            variable Euler_num: real;
+    begin
+            A_real := FptoDec(A);
+            Euler_num := 2.718281828459;
+            C := Euler_num ** A_real;
+            return C;
+    end expo;        
+            
 end Math;    
