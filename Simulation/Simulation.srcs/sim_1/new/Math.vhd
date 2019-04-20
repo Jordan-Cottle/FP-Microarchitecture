@@ -189,16 +189,14 @@ package body Math is
         end if;
         
         if G='0' and R='0' and S='0' then
-            report "No rounding necessary";
+            report "No rounding"
         elsif G = '0' then
-            report "Round down";
+            report "Round down"
             -- do nothing to 'truncate' and round down
         else -- G = '1'
             if R = '1' or S = '1' then  -- GRS = "110", "101", "111"
-                report "Round up!";
                 additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
             elsif LSB = '1' then -- GRS = "100"
-                report "Tie, round up!";
                 additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
             -- else, truncate to round down
             end if;

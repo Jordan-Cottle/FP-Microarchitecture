@@ -83,8 +83,8 @@ begin
                 end if;
             end loop;
             
-            if aVar = "10000000011111110110000111001101" then
-                report "Found it!";
+            if aVar = "10000000000001000101110000110111" then
+                report "Found it";
             end if;
             
             resultVar := fpAdd(aVar, bVar);
