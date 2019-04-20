@@ -25,9 +25,9 @@ answers = answerKey.readlines()
 
 successCount = 0
 failCount = 0
-for i in range(1,len(results)-1):
-    result = results[i+1][0:32]
-    answer = answers[i+1][0:32]
+for i in range(1,len(results)+1):
+    result = results[i-1][0:32]
+    answer = answers[i-1][0:32]
 
     if result != answer:
         if isRoundingDifference(answer, result):
