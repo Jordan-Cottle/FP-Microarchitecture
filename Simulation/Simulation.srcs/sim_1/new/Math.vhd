@@ -23,7 +23,7 @@ package Math is
         return std_logic_vector;
     function bitDiff(a, b: std_logic_vector)
         return std_logic_vector;
-    function shift(vector: std_logic_vector; count: integer; shiftLeft: std_logic)
+    function shift(vector: std_logic_vector; count: integer; shiftLeft, stickyBit: std_logic)
         return std_logic_vector;
     function twosCompliment(vector: std_logic_vector)
         return std_logic_vector;
@@ -69,11 +69,15 @@ package body Math is
         variable i: integer;
         variable aIsGreater: std_logic;
         variable exponentsSame: std_logic;
-        variable exponentDiff: std_logic_vector(7 downto 0);
-        variable finalExponent: std_logic_vector(7 downto 0);
-        variable stableMantissa: std_logic_vector(23 downto 0); -- include implied 1
-        variable shiftedMantissa: std_logic_vector(23 downto 0); -- include potential implied 1 (in case of 0 shift)
-        variable additionResult: std_logic_vector(24 downto 0);
+        variable exponentDiff: std_logic_vector(7 downto 0) := (others => '0');
+        variable finalExponent: std_logic_vector(7 downto 0) := (others => '0');
+        variable stableMantissa: std_logic_vector(26 downto 0) := (others => '0'); -- include implied 1 -- + 3 grs bits to match size of shifted mantissa
+        variable shiftedMantissa: std_logic_vector(26 downto 0) := (others => '0'); -- include potential implied 1 (in case of 0 shift)  include grs bits
+        variable additionResult: std_logic_vector(27 downto 0) := (others => '0');
+
+        alias G is additionResult(2);
+        alias R is additionResult(1);
+        alias S is additionResult(0);
         
         -- fix for bug in bitAdd function, send literal "00000001" fails to work properly
         variable one: std_logic_vector(7 downto 0) := "00000001";
@@ -88,39 +92,32 @@ package body Math is
             -- locate first difference in exponents
         i := aExponent'left;
         while i >= aExponent'right and ((aExponent(i) xnor bExponent(i)) ='1') loop
-            --report "i: " & integer'image(i);
             i := i - 1;
         end loop;
-        --report "i is " & integer'image(i);
-
+        
         -- determine larger vector
         if i = aExponent'right-1 then
-            --report "exponents are the same!";
             exponentsSame := '1';
             
             -- compute greater based on mantissa bits
             i := aMantissa'left;
             while i >= aMantissa'right and ((aMantissa(i) xnor bMantissa(i)) ='1') loop
-                --report "i: " & integer'image(i);
                 i := i - 1;
             end loop;
             
             if not (i = -1) and aMantissa(i) = '1' then
-                    greater:= a;
-                    smaller:= b;
+                greater:= a;
+                smaller:= b;
             else
-                    greater:= b;
-                    smaller:= a;
+                greater:= b;
+                smaller:= a;
             end if;
         else
-            --report "Exponents are not the same!";
             exponentsSame := '0';
             if aExponent(i) = '1' then
-                --report "a is bigger!";
                 greater := a;
                 smaller := b;
             else
-                --report "b is bigger!";
                 greater := b;
                 smaller := a;
             end if;
@@ -144,16 +141,15 @@ package body Math is
             end if;
         end if;
 
-        --report "Exponent difference is " & integer'image(to_integer(unsigned(exponentDiff)));
-
-        shiftedMantissa(22 downto 0):= smallerMantissa;
+        
+        shiftedMantissa(25 downto 3):= smallerMantissa;
         stableMantissa(22 downto 0) := greaterMantissa;
 
         -- set implied bits
         if smallerExponent = "00000000" then
-            shiftedMantissa(23):= '0';
+            shiftedMantissa(26):= '0';
         else
-            shiftedMantissa(23) := '1';
+            shiftedMantissa(26) := '1';
         end if;
 
         if greaterExponent = "00000000" then
@@ -163,9 +159,9 @@ package body Math is
         end if;
 
         -- align mantissas
-        shiftedMantissa := shift(shiftedMantissa, to_integer(unsigned(exponentDiff)), '0'); -- shift right
+        shiftedMantissa := shift(shiftedMantissa, to_integer(unsigned(exponentDiff)), '0', '1'); -- shift right
 
-        if shiftedMantissa = "00000000000000000000000" then
+        if shiftedMantissa = "00000000000000000000000000" then -- avoids issue with 2's complimenting all zeros and adding that to another mantissa
             return greater;
         end if;
         
@@ -179,13 +175,11 @@ package body Math is
         
         -- normalize value
         if additionResult(24) = '1' then -- shift right by one
-            --report "Shifting right";
-            additionResult := shift(additionResult, 1, '0');
+            additionResult := shift(additionResult, 1, '0', '1');
             finalExponent := bitAdd(finalExponent, one)(7 downto 0); -- ignore extra bit returned
         elsif additionResult(23) = '0' and not(finalExponent = "00000000") then -- don't shift left for denormalized values
             while additionResult(23) = '0' loop -- shift left until one is found in 
-                --report "Shifting left";
-                additionResult := shift(additionResult, 1, '1');
+                additionResult := shift(additionResult, 1, '1', '0');
                 finalExponent := bitDiff(finalExponent, one);
             end loop;
         elsif additionResult(23) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
@@ -250,12 +244,13 @@ package body Math is
         return result;
     end bitAdd;
     
-    function shift(vector: std_logic_vector; count: integer; shiftLeft: std_logic)
+    function shift(vector: std_logic_vector; count: integer; shiftLeft, stickyBit: std_logic)
         return std_logic_vector is
         
         variable result: std_logic_vector(vector'range):= (others => '0');
         variable sourceIndex: integer;
         variable destinationIndex: integer;
+        variable sticky: std_logic := '0';
     begin
         if count = 0 then
             return vector;
@@ -263,11 +258,20 @@ package body Math is
         if shiftLeft = '1' then
             sourceIndex := vector'right;
             destinationIndex := sourceIndex + count;
+
             while destinationIndex <= vector'left loop
                 result(destinationIndex) := vector(sourceIndex);
                 destinationIndex := destinationIndex + 1;
                 sourceIndex := sourceIndex + 1;
             end loop;
+
+            if stickyBit = '1' then
+                while sourceIndex <= vector'left loop
+                    sticky := sticky or vector(sourceIndex);
+                    sourceIndex := sourceIndex + 1;
+                end loop;
+                result(destinationIndex-1) := sticky or result(destinationIndex-1);
+            end if;
         else
             sourceIndex := vector'left;
             destinationIndex := sourceIndex - count;
@@ -277,6 +281,14 @@ package body Math is
                 destinationIndex := destinationIndex - 1;
                 sourceIndex := sourceIndex - 1;
             end loop;
+
+            if stickyBit = '1' then
+                while sourceIndex >= vector'right loop
+                    sticky := sticky or vector(sourceIndex);
+                    sourceIndex := sourceIndex - 1;
+                end loop;
+                result(destinationIndex+1) := sticky or result(destinationIndex+1);
+            end if;
         end if;
         return result;
     end shift;
@@ -295,9 +307,7 @@ package body Math is
         if a = zero then -- cannot subtract from unsigned 0
             return a;
         end if;
-        --report "a is " & integer'image(to_integer(unsigned(a)));
-        --report "b is " & integer'image(to_integer(unsigned(b)));
-        while i <= a'left loop
+                        while i <= a'left loop
             if big(i) = '1' and small(i)='1' then -- 1,1
                 result(i) := '0';
             elsif big(i) = '0' and small(i) = '0' then
@@ -332,7 +342,7 @@ package body Math is
     begin
         C(31):= '0';
         C(30 downto 0) := a(30 downto 0);
-            return C;    
+        return C;    
     end absolute;
     
      function neg(A: std_logic_vector(31 downto 0))
@@ -368,7 +378,6 @@ package body Math is
             end if;
             i := i + 1;
         end loop;
-        
         return u;
     end realToUnsigned;
     
@@ -499,7 +508,6 @@ package body Math is
         i := i - 1;
     end loop;
     firstFracIndex:= i;
-
 
     if not (firstIntIndex = -1) then
         shiftAmount := firstIntIndex;
