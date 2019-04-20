@@ -9,12 +9,11 @@ fpFile = open(f'{configPath}/InputFiles/fpValues.txt', 'w')
 
 lastExponent = 127
 bitVectors = []
-for i in range (10000):
+for i in range (100000):
     sign = str(r.randint(0,1))
-    exponent = r.randint(lastExponent - 10, lastExponent + 10) % 255
+    exponent = ''.join((str(r.randint(0,1)) for _ in range(8)))
     lastExponent = exponent
-    exponent = bin(exponent)[2:].zfill(8)
-    mantissa = ''.join([str(r.randint(0,1)) for _ in range(23)])
+    mantissa = ''.join((str(r.randint(0,1)) for _ in range(23)))
 
     binaryString = ''.join([sign,exponent,mantissa])
     bitVectors.append(binaryString)

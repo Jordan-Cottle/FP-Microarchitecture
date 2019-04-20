@@ -163,7 +163,7 @@ package body Math is
         -- align mantissas
         shiftedMantissa := shift(shiftedMantissa, to_integer(unsigned(exponentDiff)), '0', '1'); -- shift right
 
-        if shiftedMantissa = "00000000000000000000000000" then -- avoids issue with 2's complimenting all zeros and adding that to another mantissa
+        if shiftedMantissa = "000000000000000000000000000" then -- avoids issue with 2's complimenting all zeros and adding that to another mantissa
             return greater;
         end if;
         
@@ -189,14 +189,16 @@ package body Math is
         end if;
         
         if G='0' and R='0' and S='0' then
-            report "No rounding"
+            report "No rounding necessary";
         elsif G = '0' then
-            report "Round down"
+            report "Round down";
             -- do nothing to 'truncate' and round down
         else -- G = '1'
             if R = '1' or S = '1' then  -- GRS = "110", "101", "111"
+                report "Round up!";
                 additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
             elsif LSB = '1' then -- GRS = "100"
+                report "Tie, round up!";
                 additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
             -- else, truncate to round down
             end if;
