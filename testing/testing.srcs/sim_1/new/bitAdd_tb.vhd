@@ -32,8 +32,8 @@ architecture Behavioral of bitAdd_tb is
     signal a: integer;
     signal b: integer;
     signal result: integer;
-    signal binA: std_logic_vector(3 downto 0);
-    signal binB: std_logic_vector(3 downto 0);
+    signal binA: std_logic_vector(7 downto 0);
+    signal binB: std_logic_vector(7 downto 0);
     signal binResult: std_logic_vector(binA'left+1 downto binA'right);
 begin
     process
