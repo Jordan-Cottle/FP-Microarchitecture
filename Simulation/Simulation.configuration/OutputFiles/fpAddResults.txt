@@ -1,0 +1,4998 @@
+1: Success
+2: Success
+3: Fail
+4: Fail
+5: Success
+6: Rounding error
+7: Fail
+8: Rounding error
+9: Success
+10: Success
+11: Success
+12: Success
+13: Fail
+14: Rounding error
+15: Success
+16: Success
+17: Fail
+18: Fail
+19: Fail
+20: Success
+21: Success
+22: Rounding error
+23: Rounding error
+24: Fail
+25: Success
+26: Success
+27: Success
+28: Rounding error
+29: Rounding error
+30: Rounding error
+31: Rounding error
+32: Rounding error
+33: Fail
+34: Rounding error
+35: Success
+36: Success
+37: Rounding error
+38: Success
+39: Success
+40: Fail
+41: Rounding error
+42: Success
+43: Success
+44: Success
+45: Fail
+46: Fail
+47: Success
+48: Rounding error
+49: Fail
+50: Fail
+51: Success
+52: Fail
+53: Fail
+54: Success
+55: Success
+56: Rounding error
+57: Success
+58: Success
+59: Fail
+60: Success
+61: Success
+62: Success
+63: Fail
+64: Rounding error
+65: Fail
+66: Success
+67: Success
+68: Success
+69: Fail
+70: Success
+71: Success
+72: Rounding error
+73: Success
+74: Success
+75: Rounding error
+76: Success
+77: Rounding error
+78: Success
+79: Fail
+80: Success
+81: Success
+82: Rounding error
+83: Fail
+84: Success
+85: Success
+86: Success
+87: Success
+88: Rounding error
+89: Success
+90: Success
+91: Success
+92: Fail
+93: Rounding error
+94: Success
+95: Success
+96: Rounding error
+97: Rounding error
+98: Rounding error
+99: Fail
+100: Success
+101: Success
+102: Success
+103: Rounding error
+104: Rounding error
+105: Fail
+106: Success
+107: Success
+108: Success
+109: Success
+110: Fail
+111: Success
+112: Success
+113: Success
+114: Fail
+115: Rounding error
+116: Fail
+117: Success
+118: Success
+119: Success
+120: Success
+121: Success
+122: Success
+123: Fail
+124: Rounding error
+125: Fail
+126: Fail
+127: Success
+128: Success
+129: Rounding error
+130: Fail
+131: Fail
+132: Fail
+133: Rounding error
+134: Success
+135: Success
+136: Success
+137: Success
+138: Fail
+139: Fail
+140: Success
+141: Success
+142: Fail
+143: Rounding error
+144: Fail
+145: Success
+146: Success
+147: Success
+148: Fail
+149: Fail
+150: Success
+151: Success
+152: Fail
+153: Success
+154: Rounding error
+155: Success
+156: Rounding error
+157: Fail
+158: Success
+159: Rounding error
+160: Rounding error
+161: Success
+162: Success
+163: Success
+164: Fail
+165: Success
+166: Success
+167: Success
+168: Rounding error
+169: Rounding error
+170: Success
+171: Rounding error
+172: Success
+173: Success
+174: Fail
+175: Rounding error
+176: Fail
+177: Success
+178: Rounding error
+179: Success
+180: Fail
+181: Rounding error
+182: Success
+183: Rounding error
+184: Success
+185: Success
+186: Success
+187: Fail
+188: Success
+189: Rounding error
+190: Success
+191: Success
+192: Success
+193: Success
+194: Success
+195: Success
+196: Fail
+197: Fail
+198: Success
+199: Fail
+200: Success
+201: Rounding error
+202: Success
+203: Rounding error
+204: Success
+205: Success
+206: Rounding error
+207: Rounding error
+208: Fail
+209: Success
+210: Success
+211: Success
+212: Fail
+213: Fail
+214: Fail
+215: Fail
+216: Success
+217: Success
+218: Success
+219: Success
+220: Success
+221: Success
+222: Success
+223: Fail
+224: Success
+225: Fail
+226: Fail
+227: Success
+228: Fail
+229: Fail
+230: Success
+231: Success
+232: Rounding error
+233: Success
+234: Success
+235: Success
+236: Fail
+237: Success
+238: Success
+239: Fail
+240: Rounding error
+241: Fail
+242: Rounding error
+243: Success
+244: Success
+245: Rounding error
+246: Fail
+247: Success
+248: Success
+249: Success
+250: Success
+251: Fail
+252: Success
+253: Fail
+254: Rounding error
+255: Success
+256: Fail
+257: Rounding error
+258: Success
+259: Rounding error
+260: Fail
+261: Success
+262: Success
+263: Fail
+264: Success
+265: Success
+266: Success
+267: Rounding error
+268: Success
+269: Success
+270: Success
+271: Fail
+272: Success
+273: Success
+274: Success
+275: Success
+276: Success
+277: Success
+278: Success
+279: Success
+280: Success
+281: Success
+282: Success
+283: Success
+284: Fail
+285: Rounding error
+286: Fail
+287: Success
+288: Fail
+289: Success
+290: Success
+291: Rounding error
+292: Success
+293: Success
+294: Success
+295: Fail
+296: Rounding error
+297: Rounding error
+298: Success
+299: Success
+300: Success
+301: Rounding error
+302: Success
+303: Success
+304: Success
+305: Success
+306: Success
+307: Success
+308: Rounding error
+309: Fail
+310: Fail
+311: Success
+312: Success
+313: Success
+314: Fail
+315: Success
+316: Success
+317: Fail
+318: Rounding error
+319: Fail
+320: Success
+321: Success
+322: Rounding error
+323: Rounding error
+324: Success
+325: Rounding error
+326: Success
+327: Rounding error
+328: Success
+329: Fail
+330: Rounding error
+331: Success
+332: Fail
+333: Success
+334: Rounding error
+335: Success
+336: Success
+337: Success
+338: Success
+339: Fail
+340: Fail
+341: Rounding error
+342: Success
+343: Rounding error
+344: Success
+345: Success
+346: Success
+347: Success
+348: Success
+349: Fail
+350: Success
+351: Success
+352: Success
+353: Fail
+354: Success
+355: Success
+356: Success
+357: Success
+358: Success
+359: Success
+360: Success
+361: Success
+362: Rounding error
+363: Success
+364: Success
+365: Rounding error
+366: Success
+367: Rounding error
+368: Rounding error
+369: Success
+370: Fail
+371: Success
+372: Success
+373: Fail
+374: Rounding error
+375: Rounding error
+376: Rounding error
+377: Success
+378: Success
+379: Success
+380: Fail
+381: Fail
+382: Success
+383: Fail
+384: Fail
+385: Rounding error
+386: Success
+387: Success
+388: Success
+389: Success
+390: Success
+391: Success
+392: Fail
+393: Success
+394: Success
+395: Success
+396: Rounding error
+397: Success
+398: Success
+399: Success
+400: Fail
+401: Success
+402: Success
+403: Fail
+404: Success
+405: Rounding error
+406: Rounding error
+407: Success
+408: Fail
+409: Fail
+410: Rounding error
+411: Success
+412: Success
+413: Success
+414: Success
+415: Success
+416: Success
+417: Success
+418: Success
+419: Success
+420: Success
+421: Success
+422: Success
+423: Rounding error
+424: Rounding error
+425: Success
+426: Rounding error
+427: Success
+428: Rounding error
+429: Rounding error
+430: Success
+431: Rounding error
+432: Rounding error
+433: Fail
+434: Fail
+435: Success
+436: Success
+437: Fail
+438: Success
+439: Fail
+440: Fail
+441: Fail
+442: Rounding error
+443: Success
+444: Rounding error
+445: Fail
+446: Success
+447: Success
+448: Success
+449: Fail
+450: Success
+451: Fail
+452: Rounding error
+453: Success
+454: Rounding error
+455: Fail
+456: Success
+457: Fail
+458: Fail
+459: Fail
+460: Success
+461: Success
+462: Success
+463: Success
+464: Fail
+465: Fail
+466: Fail
+467: Success
+468: Success
+469: Success
+470: Success
+471: Success
+472: Rounding error
+473: Success
+474: Fail
+475: Success
+476: Rounding error
+477: Success
+478: Success
+479: Fail
+480: Success
+481: Success
+482: Rounding error
+483: Fail
+484: Success
+485: Rounding error
+486: Success
+487: Rounding error
+488: Success
+489: Success
+490: Success
+491: Success
+492: Fail
+493: Success
+494: Fail
+495: Success
+496: Fail
+497: Success
+498: Success
+499: Success
+500: Rounding error
+501: Rounding error
+502: Fail
+503: Success
+504: Success
+505: Fail
+506: Success
+507: Success
+508: Success
+509: Success
+510: Success
+511: Fail
+512: Rounding error
+513: Success
+514: Success
+515: Fail
+516: Rounding error
+517: Fail
+518: Rounding error
+519: Success
+520: Success
+521: Success
+522: Success
+523: Fail
+524: Success
+525: Rounding error
+526: Rounding error
+527: Fail
+528: Success
+529: Success
+530: Success
+531: Success
+532: Fail
+533: Success
+534: Fail
+535: Success
+536: Rounding error
+537: Rounding error
+538: Rounding error
+539: Fail
+540: Rounding error
+541: Success
+542: Success
+543: Fail
+544: Rounding error
+545: Success
+546: Fail
+547: Fail
+548: Success
+549: Fail
+550: Fail
+551: Fail
+552: Success
+553: Rounding error
+554: Success
+555: Success
+556: Rounding error
+557: Fail
+558: Rounding error
+559: Rounding error
+560: Success
+561: Fail
+562: Success
+563: Success
+564: Success
+565: Success
+566: Rounding error
+567: Fail
+568: Fail
+569: Success
+570: Rounding error
+571: Success
+572: Rounding error
+573: Success
+574: Success
+575: Success
+576: Success
+577: Fail
+578: Rounding error
+579: Success
+580: Success
+581: Rounding error
+582: Fail
+583: Success
+584: Fail
+585: Success
+586: Success
+587: Fail
+588: Fail
+589: Success
+590: Success
+591: Success
+592: Fail
+593: Success
+594: Rounding error
+595: Rounding error
+596: Success
+597: Success
+598: Success
+599: Success
+600: Success
+601: Success
+602: Success
+603: Success
+604: Rounding error
+605: Success
+606: Success
+607: Rounding error
+608: Rounding error
+609: Fail
+610: Success
+611: Fail
+612: Success
+613: Success
+614: Rounding error
+615: Rounding error
+616: Success
+617: Success
+618: Rounding error
+619: Fail
+620: Success
+621: Success
+622: Fail
+623: Success
+624: Rounding error
+625: Success
+626: Rounding error
+627: Success
+628: Success
+629: Success
+630: Success
+631: Fail
+632: Fail
+633: Success
+634: Rounding error
+635: Success
+636: Success
+637: Success
+638: Success
+639: Fail
+640: Success
+641: Success
+642: Fail
+643: Success
+644: Rounding error
+645: Success
+646: Fail
+647: Success
+648: Fail
+649: Success
+650: Success
+651: Success
+652: Success
+653: Success
+654: Success
+655: Success
+656: Success
+657: Success
+658: Success
+659: Success
+660: Success
+661: Success
+662: Fail
+663: Success
+664: Success
+665: Success
+666: Rounding error
+667: Fail
+668: Fail
+669: Success
+670: Fail
+671: Fail
+672: Success
+673: Success
+674: Success
+675: Success
+676: Rounding error
+677: Success
+678: Success
+679: Success
+680: Success
+681: Success
+682: Success
+683: Success
+684: Fail
+685: Rounding error
+686: Rounding error
+687: Success
+688: Success
+689: Fail
+690: Fail
+691: Rounding error
+692: Success
+693: Success
+694: Rounding error
+695: Rounding error
+696: Success
+697: Rounding error
+698: Fail
+699: Success
+700: Success
+701: Rounding error
+702: Rounding error
+703: Success
+704: Fail
+705: Success
+706: Success
+707: Fail
+708: Success
+709: Rounding error
+710: Success
+711: Rounding error
+712: Fail
+713: Success
+714: Rounding error
+715: Fail
+716: Success
+717: Success
+718: Success
+719: Success
+720: Success
+721: Success
+722: Fail
+723: Success
+724: Success
+725: Success
+726: Success
+727: Fail
+728: Fail
+729: Success
+730: Fail
+731: Success
+732: Fail
+733: Fail
+734: Fail
+735: Success
+736: Success
+737: Success
+738: Success
+739: Success
+740: Success
+741: Success
+742: Fail
+743: Success
+744: Rounding error
+745: Rounding error
+746: Fail
+747: Success
+748: Success
+749: Success
+750: Success
+751: Success
+752: Fail
+753: Fail
+754: Fail
+755: Fail
+756: Fail
+757: Fail
+758: Success
+759: Fail
+760: Rounding error
+761: Success
+762: Success
+763: Success
+764: Success
+765: Success
+766: Success
+767: Success
+768: Fail
+769: Success
+770: Success
+771: Success
+772: Success
+773: Rounding error
+774: Rounding error
+775: Success
+776: Success
+777: Fail
+778: Success
+779: Rounding error
+780: Fail
+781: Success
+782: Success
+783: Fail
+784: Success
+785: Success
+786: Success
+787: Fail
+788: Success
+789: Success
+790: Success
+791: Success
+792: Rounding error
+793: Success
+794: Success
+795: Success
+796: Success
+797: Success
+798: Success
+799: Success
+800: Success
+801: Rounding error
+802: Success
+803: Fail
+804: Rounding error
+805: Success
+806: Success
+807: Success
+808: Fail
+809: Rounding error
+810: Success
+811: Success
+812: Success
+813: Fail
+814: Success
+815: Rounding error
+816: Success
+817: Fail
+818: Rounding error
+819: Rounding error
+820: Fail
+821: Rounding error
+822: Fail
+823: Success
+824: Success
+825: Success
+826: Success
+827: Success
+828: Success
+829: Success
+830: Success
+831: Rounding error
+832: Rounding error
+833: Success
+834: Success
+835: Success
+836: Success
+837: Success
+838: Success
+839: Rounding error
+840: Rounding error
+841: Success
+842: Success
+843: Fail
+844: Success
+845: Rounding error
+846: Success
+847: Success
+848: Fail
+849: Success
+850: Rounding error
+851: Success
+852: Success
+853: Success
+854: Success
+855: Success
+856: Rounding error
+857: Rounding error
+858: Success
+859: Rounding error
+860: Rounding error
+861: Success
+862: Success
+863: Rounding error
+864: Success
+865: Success
+866: Success
+867: Success
+868: Rounding error
+869: Rounding error
+870: Success
+871: Fail
+872: Rounding error
+873: Success
+874: Success
+875: Success
+876: Fail
+877: Fail
+878: Success
+879: Rounding error
+880: Rounding error
+881: Success
+882: Success
+883: Success
+884: Fail
+885: Rounding error
+886: Success
+887: Fail
+888: Success
+889: Success
+890: Success
+891: Success
+892: Fail
+893: Rounding error
+894: Success
+895: Success
+896: Rounding error
+897: Fail
+898: Fail
+899: Success
+900: Success
+901: Success
+902: Success
+903: Rounding error
+904: Fail
+905: Success
+906: Success
+907: Rounding error
+908: Fail
+909: Success
+910: Fail
+911: Success
+912: Success
+913: Success
+914: Success
+915: Success
+916: Success
+917: Rounding error
+918: Success
+919: Fail
+920: Success
+921: Rounding error
+922: Success
+923: Success
+924: Rounding error
+925: Success
+926: Success
+927: Success
+928: Fail
+929: Success
+930: Fail
+931: Success
+932: Success
+933: Success
+934: Fail
+935: Fail
+936: Fail
+937: Rounding error
+938: Rounding error
+939: Success
+940: Fail
+941: Success
+942: Success
+943: Fail
+944: Success
+945: Success
+946: Fail
+947: Success
+948: Fail
+949: Fail
+950: Fail
+951: Rounding error
+952: Success
+953: Rounding error
+954: Success
+955: Success
+956: Rounding error
+957: Success
+958: Success
+959: Rounding error
+960: Fail
+961: Rounding error
+962: Success
+963: Success
+964: Fail
+965: Rounding error
+966: Success
+967: Rounding error
+968: Success
+969: Success
+970: Fail
+971: Success
+972: Success
+973: Fail
+974: Success
+975: Success
+976: Fail
+977: Success
+978: Fail
+979: Fail
+980: Fail
+981: Success
+982: Success
+983: Fail
+984: Success
+985: Fail
+986: Success
+987: Fail
+988: Fail
+989: Success
+990: Success
+991: Fail
+992: Fail
+993: Fail
+994: Success
+995: Fail
+996: Fail
+997: Rounding error
+998: Success
+999: Success
+1000: Rounding error
+1001: Rounding error
+1002: Fail
+1003: Success
+1004: Success
+1005: Success
+1006: Fail
+1007: Success
+1008: Fail
+1009: Rounding error
+1010: Rounding error
+1011: Success
+1012: Success
+1013: Fail
+1014: Success
+1015: Rounding error
+1016: Rounding error
+1017: Success
+1018: Success
+1019: Success
+1020: Fail
+1021: Fail
+1022: Success
+1023: Rounding error
+1024: Rounding error
+1025: Success
+1026: Rounding error
+1027: Rounding error
+1028: Rounding error
+1029: Fail
+1030: Rounding error
+1031: Success
+1032: Success
+1033: Rounding error
+1034: Rounding error
+1035: Success
+1036: Fail
+1037: Success
+1038: Fail
+1039: Fail
+1040: Success
+1041: Success
+1042: Fail
+1043: Success
+1044: Rounding error
+1045: Success
+1046: Rounding error
+1047: Fail
+1048: Success
+1049: Rounding error
+1050: Success
+1051: Success
+1052: Success
+1053: Fail
+1054: Success
+1055: Fail
+1056: Success
+1057: Success
+1058: Fail
+1059: Rounding error
+1060: Success
+1061: Rounding error
+1062: Fail
+1063: Fail
+1064: Success
+1065: Success
+1066: Success
+1067: Success
+1068: Fail
+1069: Success
+1070: Success
+1071: Success
+1072: Success
+1073: Success
+1074: Success
+1075: Success
+1076: Success
+1077: Success
+1078: Success
+1079: Rounding error
+1080: Success
+1081: Success
+1082: Fail
+1083: Fail
+1084: Fail
+1085: Success
+1086: Success
+1087: Rounding error
+1088: Success
+1089: Fail
+1090: Rounding error
+1091: Fail
+1092: Success
+1093: Success
+1094: Success
+1095: Fail
+1096: Success
+1097: Success
+1098: Success
+1099: Success
+1100: Fail
+1101: Success
+1102: Success
+1103: Success
+1104: Fail
+1105: Success
+1106: Success
+1107: Rounding error
+1108: Success
+1109: Fail
+1110: Success
+1111: Fail
+1112: Fail
+1113: Fail
+1114: Rounding error
+1115: Success
+1116: Success
+1117: Fail
+1118: Success
+1119: Fail
+1120: Success
+1121: Fail
+1122: Fail
+1123: Success
+1124: Fail
+1125: Success
+1126: Success
+1127: Success
+1128: Rounding error
+1129: Fail
+1130: Fail
+1131: Success
+1132: Success
+1133: Success
+1134: Success
+1135: Fail
+1136: Fail
+1137: Success
+1138: Success
+1139: Success
+1140: Rounding error
+1141: Fail
+1142: Success
+1143: Fail
+1144: Success
+1145: Success
+1146: Fail
+1147: Fail
+1148: Success
+1149: Success
+1150: Success
+1151: Success
+1152: Fail
+1153: Success
+1154: Fail
+1155: Success
+1156: Fail
+1157: Success
+1158: Success
+1159: Rounding error
+1160: Success
+1161: Fail
+1162: Rounding error
+1163: Success
+1164: Success
+1165: Success
+1166: Success
+1167: Success
+1168: Rounding error
+1169: Fail
+1170: Success
+1171: Success
+1172: Success
+1173: Success
+1174: Success
+1175: Success
+1176: Rounding error
+1177: Fail
+1178: Success
+1179: Success
+1180: Success
+1181: Success
+1182: Success
+1183: Success
+1184: Success
+1185: Rounding error
+1186: Fail
+1187: Success
+1188: Fail
+1189: Fail
+1190: Success
+1191: Success
+1192: Fail
+1193: Success
+1194: Rounding error
+1195: Success
+1196: Rounding error
+1197: Success
+1198: Success
+1199: Success
+1200: Rounding error
+1201: Rounding error
+1202: Fail
+1203: Success
+1204: Rounding error
+1205: Fail
+1206: Fail
+1207: Success
+1208: Fail
+1209: Fail
+1210: Fail
+1211: Rounding error
+1212: Fail
+1213: Fail
+1214: Success
+1215: Success
+1216: Rounding error
+1217: Fail
+1218: Success
+1219: Success
+1220: Fail
+1221: Rounding error
+1222: Rounding error
+1223: Fail
+1224: Fail
+1225: Rounding error
+1226: Success
+1227: Success
+1228: Fail
+1229: Success
+1230: Success
+1231: Rounding error
+1232: Success
+1233: Success
+1234: Success
+1235: Fail
+1236: Success
+1237: Success
+1238: Success
+1239: Success
+1240: Success
+1241: Success
+1242: Success
+1243: Rounding error
+1244: Success
+1245: Success
+1246: Success
+1247: Success
+1248: Rounding error
+1249: Fail
+1250: Rounding error
+1251: Success
+1252: Fail
+1253: Fail
+1254: Success
+1255: Rounding error
+1256: Rounding error
+1257: Success
+1258: Fail
+1259: Fail
+1260: Fail
+1261: Success
+1262: Rounding error
+1263: Success
+1264: Rounding error
+1265: Success
+1266: Rounding error
+1267: Success
+1268: Fail
+1269: Fail
+1270: Success
+1271: Success
+1272: Rounding error
+1273: Fail
+1274: Success
+1275: Rounding error
+1276: Success
+1277: Fail
+1278: Rounding error
+1279: Success
+1280: Success
+1281: Rounding error
+1282: Success
+1283: Success
+1284: Fail
+1285: Success
+1286: Rounding error
+1287: Fail
+1288: Fail
+1289: Fail
+1290: Fail
+1291: Success
+1292: Fail
+1293: Rounding error
+1294: Fail
+1295: Fail
+1296: Success
+1297: Fail
+1298: Success
+1299: Fail
+1300: Fail
+1301: Success
+1302: Success
+1303: Success
+1304: Rounding error
+1305: Fail
+1306: Success
+1307: Rounding error
+1308: Rounding error
+1309: Success
+1310: Success
+1311: Success
+1312: Success
+1313: Success
+1314: Fail
+1315: Success
+1316: Success
+1317: Success
+1318: Fail
+1319: Rounding error
+1320: Success
+1321: Fail
+1322: Success
+1323: Fail
+1324: Rounding error
+1325: Rounding error
+1326: Fail
+1327: Rounding error
+1328: Success
+1329: Fail
+1330: Success
+1331: Success
+1332: Success
+1333: Success
+1334: Success
+1335: Fail
+1336: Rounding error
+1337: Fail
+1338: Success
+1339: Rounding error
+1340: Fail
+1341: Success
+1342: Success
+1343: Success
+1344: Success
+1345: Rounding error
+1346: Success
+1347: Rounding error
+1348: Success
+1349: Rounding error
+1350: Success
+1351: Success
+1352: Success
+1353: Success
+1354: Success
+1355: Success
+1356: Success
+1357: Success
+1358: Fail
+1359: Success
+1360: Success
+1361: Success
+1362: Success
+1363: Rounding error
+1364: Success
+1365: Success
+1366: Rounding error
+1367: Success
+1368: Success
+1369: Success
+1370: Success
+1371: Fail
+1372: Success
+1373: Success
+1374: Success
+1375: Fail
+1376: Success
+1377: Success
+1378: Success
+1379: Success
+1380: Fail
+1381: Fail
+1382: Success
+1383: Fail
+1384: Success
+1385: Fail
+1386: Success
+1387: Rounding error
+1388: Fail
+1389: Success
+1390: Fail
+1391: Success
+1392: Fail
+1393: Fail
+1394: Success
+1395: Rounding error
+1396: Fail
+1397: Fail
+1398: Success
+1399: Fail
+1400: Rounding error
+1401: Success
+1402: Success
+1403: Success
+1404: Fail
+1405: Fail
+1406: Fail
+1407: Success
+1408: Rounding error
+1409: Success
+1410: Fail
+1411: Success
+1412: Success
+1413: Success
+1414: Fail
+1415: Success
+1416: Fail
+1417: Success
+1418: Success
+1419: Fail
+1420: Rounding error
+1421: Fail
+1422: Rounding error
+1423: Success
+1424: Rounding error
+1425: Rounding error
+1426: Success
+1427: Success
+1428: Rounding error
+1429: Success
+1430: Success
+1431: Success
+1432: Fail
+1433: Success
+1434: Success
+1435: Fail
+1436: Success
+1437: Success
+1438: Fail
+1439: Fail
+1440: Success
+1441: Success
+1442: Fail
+1443: Fail
+1444: Rounding error
+1445: Rounding error
+1446: Success
+1447: Success
+1448: Rounding error
+1449: Success
+1450: Success
+1451: Success
+1452: Success
+1453: Success
+1454: Success
+1455: Success
+1456: Success
+1457: Fail
+1458: Fail
+1459: Success
+1460: Rounding error
+1461: Success
+1462: Rounding error
+1463: Success
+1464: Success
+1465: Rounding error
+1466: Success
+1467: Success
+1468: Success
+1469: Success
+1470: Rounding error
+1471: Fail
+1472: Success
+1473: Success
+1474: Fail
+1475: Success
+1476: Rounding error
+1477: Success
+1478: Success
+1479: Rounding error
+1480: Rounding error
+1481: Rounding error
+1482: Success
+1483: Success
+1484: Success
+1485: Fail
+1486: Success
+1487: Success
+1488: Success
+1489: Success
+1490: Success
+1491: Success
+1492: Success
+1493: Success
+1494: Fail
+1495: Success
+1496: Rounding error
+1497: Success
+1498: Rounding error
+1499: Success
+1500: Fail
+1501: Fail
+1502: Fail
+1503: Fail
+1504: Fail
+1505: Success
+1506: Rounding error
+1507: Success
+1508: Fail
+1509: Success
+1510: Success
+1511: Rounding error
+1512: Success
+1513: Success
+1514: Rounding error
+1515: Success
+1516: Success
+1517: Rounding error
+1518: Fail
+1519: Fail
+1520: Success
+1521: Rounding error
+1522: Success
+1523: Success
+1524: Success
+1525: Success
+1526: Rounding error
+1527: Success
+1528: Fail
+1529: Rounding error
+1530: Success
+1531: Rounding error
+1532: Success
+1533: Fail
+1534: Success
+1535: Success
+1536: Success
+1537: Success
+1538: Success
+1539: Rounding error
+1540: Success
+1541: Success
+1542: Success
+1543: Success
+1544: Fail
+1545: Rounding error
+1546: Fail
+1547: Rounding error
+1548: Success
+1549: Success
+1550: Success
+1551: Success
+1552: Success
+1553: Success
+1554: Success
+1555: Success
+1556: Fail
+1557: Success
+1558: Success
+1559: Success
+1560: Rounding error
+1561: Success
+1562: Fail
+1563: Success
+1564: Success
+1565: Success
+1566: Success
+1567: Rounding error
+1568: Success
+1569: Success
+1570: Success
+1571: Fail
+1572: Success
+1573: Success
+1574: Success
+1575: Success
+1576: Success
+1577: Fail
+1578: Success
+1579: Fail
+1580: Success
+1581: Success
+1582: Fail
+1583: Fail
+1584: Success
+1585: Rounding error
+1586: Success
+1587: Fail
+1588: Rounding error
+1589: Success
+1590: Success
+1591: Rounding error
+1592: Success
+1593: Success
+1594: Rounding error
+1595: Success
+1596: Success
+1597: Success
+1598: Success
+1599: Rounding error
+1600: Fail
+1601: Fail
+1602: Success
+1603: Success
+1604: Success
+1605: Success
+1606: Fail
+1607: Fail
+1608: Fail
+1609: Rounding error
+1610: Success
+1611: Rounding error
+1612: Success
+1613: Fail
+1614: Fail
+1615: Fail
+1616: Success
+1617: Success
+1618: Success
+1619: Success
+1620: Success
+1621: Success
+1622: Rounding error
+1623: Fail
+1624: Success
+1625: Success
+1626: Fail
+1627: Success
+1628: Success
+1629: Success
+1630: Rounding error
+1631: Success
+1632: Fail
+1633: Success
+1634: Success
+1635: Fail
+1636: Success
+1637: Success
+1638: Rounding error
+1639: Rounding error
+1640: Success
+1641: Success
+1642: Success
+1643: Fail
+1644: Success
+1645: Success
+1646: Success
+1647: Success
+1648: Success
+1649: Success
+1650: Success
+1651: Success
+1652: Success
+1653: Fail
+1654: Success
+1655: Rounding error
+1656: Success
+1657: Rounding error
+1658: Success
+1659: Success
+1660: Success
+1661: Success
+1662: Rounding error
+1663: Success
+1664: Success
+1665: Success
+1666: Success
+1667: Rounding error
+1668: Success
+1669: Success
+1670: Rounding error
+1671: Success
+1672: Success
+1673: Success
+1674: Success
+1675: Success
+1676: Rounding error
+1677: Success
+1678: Success
+1679: Fail
+1680: Success
+1681: Success
+1682: Success
+1683: Success
+1684: Fail
+1685: Rounding error
+1686: Fail
+1687: Success
+1688: Success
+1689: Fail
+1690: Fail
+1691: Success
+1692: Rounding error
+1693: Success
+1694: Fail
+1695: Success
+1696: Success
+1697: Rounding error
+1698: Rounding error
+1699: Rounding error
+1700: Rounding error
+1701: Success
+1702: Success
+1703: Rounding error
+1704: Rounding error
+1705: Success
+1706: Fail
+1707: Success
+1708: Rounding error
+1709: Fail
+1710: Success
+1711: Rounding error
+1712: Success
+1713: Fail
+1714: Rounding error
+1715: Fail
+1716: Rounding error
+1717: Success
+1718: Success
+1719: Rounding error
+1720: Rounding error
+1721: Success
+1722: Fail
+1723: Rounding error
+1724: Fail
+1725: Rounding error
+1726: Success
+1727: Rounding error
+1728: Success
+1729: Fail
+1730: Fail
+1731: Fail
+1732: Success
+1733: Fail
+1734: Success
+1735: Fail
+1736: Rounding error
+1737: Success
+1738: Success
+1739: Fail
+1740: Fail
+1741: Success
+1742: Fail
+1743: Success
+1744: Fail
+1745: Success
+1746: Success
+1747: Fail
+1748: Success
+1749: Fail
+1750: Success
+1751: Success
+1752: Fail
+1753: Fail
+1754: Fail
+1755: Fail
+1756: Success
+1757: Fail
+1758: Success
+1759: Fail
+1760: Fail
+1761: Rounding error
+1762: Success
+1763: Fail
+1764: Rounding error
+1765: Success
+1766: Success
+1767: Success
+1768: Rounding error
+1769: Fail
+1770: Fail
+1771: Success
+1772: Rounding error
+1773: Rounding error
+1774: Success
+1775: Success
+1776: Success
+1777: Fail
+1778: Success
+1779: Success
+1780: Success
+1781: Success
+1782: Success
+1783: Rounding error
+1784: Success
+1785: Fail
+1786: Success
+1787: Rounding error
+1788: Fail
+1789: Success
+1790: Success
+1791: Rounding error
+1792: Success
+1793: Rounding error
+1794: Success
+1795: Fail
+1796: Success
+1797: Fail
+1798: Success
+1799: Rounding error
+1800: Fail
+1801: Rounding error
+1802: Rounding error
+1803: Success
+1804: Fail
+1805: Success
+1806: Rounding error
+1807: Fail
+1808: Success
+1809: Fail
+1810: Success
+1811: Success
+1812: Success
+1813: Success
+1814: Success
+1815: Fail
+1816: Success
+1817: Success
+1818: Success
+1819: Success
+1820: Success
+1821: Fail
+1822: Success
+1823: Rounding error
+1824: Success
+1825: Success
+1826: Rounding error
+1827: Success
+1828: Fail
+1829: Fail
+1830: Success
+1831: Fail
+1832: Success
+1833: Success
+1834: Fail
+1835: Rounding error
+1836: Success
+1837: Success
+1838: Success
+1839: Success
+1840: Success
+1841: Rounding error
+1842: Success
+1843: Fail
+1844: Success
+1845: Fail
+1846: Success
+1847: Success
+1848: Success
+1849: Success
+1850: Fail
+1851: Success
+1852: Rounding error
+1853: Rounding error
+1854: Rounding error
+1855: Success
+1856: Success
+1857: Success
+1858: Success
+1859: Rounding error
+1860: Success
+1861: Success
+1862: Fail
+1863: Fail
+1864: Fail
+1865: Success
+1866: Success
+1867: Success
+1868: Success
+1869: Fail
+1870: Rounding error
+1871: Success
+1872: Success
+1873: Fail
+1874: Rounding error
+1875: Rounding error
+1876: Rounding error
+1877: Success
+1878: Success
+1879: Success
+1880: Success
+1881: Fail
+1882: Success
+1883: Success
+1884: Rounding error
+1885: Fail
+1886: Success
+1887: Success
+1888: Success
+1889: Success
+1890: Success
+1891: Success
+1892: Fail
+1893: Fail
+1894: Success
+1895: Success
+1896: Fail
+1897: Success
+1898: Success
+1899: Rounding error
+1900: Success
+1901: Success
+1902: Success
+1903: Success
+1904: Fail
+1905: Success
+1906: Rounding error
+1907: Rounding error
+1908: Rounding error
+1909: Success
+1910: Fail
+1911: Rounding error
+1912: Success
+1913: Success
+1914: Fail
+1915: Success
+1916: Success
+1917: Success
+1918: Rounding error
+1919: Success
+1920: Success
+1921: Fail
+1922: Success
+1923: Success
+1924: Success
+1925: Fail
+1926: Rounding error
+1927: Success
+1928: Rounding error
+1929: Success
+1930: Success
+1931: Rounding error
+1932: Rounding error
+1933: Success
+1934: Rounding error
+1935: Rounding error
+1936: Fail
+1937: Success
+1938: Fail
+1939: Rounding error
+1940: Fail
+1941: Success
+1942: Success
+1943: Success
+1944: Rounding error
+1945: Fail
+1946: Success
+1947: Success
+1948: Fail
+1949: Success
+1950: Success
+1951: Success
+1952: Success
+1953: Success
+1954: Success
+1955: Fail
+1956: Fail
+1957: Success
+1958: Success
+1959: Success
+1960: Success
+1961: Success
+1962: Success
+1963: Fail
+1964: Rounding error
+1965: Fail
+1966: Rounding error
+1967: Rounding error
+1968: Fail
+1969: Fail
+1970: Success
+1971: Success
+1972: Success
+1973: Success
+1974: Fail
+1975: Success
+1976: Success
+1977: Success
+1978: Success
+1979: Success
+1980: Success
+1981: Success
+1982: Success
+1983: Rounding error
+1984: Success
+1985: Success
+1986: Fail
+1987: Fail
+1988: Fail
+1989: Rounding error
+1990: Success
+1991: Success
+1992: Success
+1993: Success
+1994: Fail
+1995: Fail
+1996: Rounding error
+1997: Success
+1998: Rounding error
+1999: Rounding error
+2000: Fail
+2001: Success
+2002: Fail
+2003: Fail
+2004: Success
+2005: Success
+2006: Fail
+2007: Rounding error
+2008: Rounding error
+2009: Fail
+2010: Success
+2011: Success
+2012: Fail
+2013: Success
+2014: Fail
+2015: Success
+2016: Rounding error
+2017: Success
+2018: Success
+2019: Success
+2020: Success
+2021: Success
+2022: Success
+2023: Success
+2024: Rounding error
+2025: Success
+2026: Success
+2027: Success
+2028: Success
+2029: Success
+2030: Fail
+2031: Fail
+2032: Success
+2033: Fail
+2034: Success
+2035: Success
+2036: Fail
+2037: Success
+2038: Success
+2039: Fail
+2040: Success
+2041: Fail
+2042: Success
+2043: Fail
+2044: Success
+2045: Success
+2046: Success
+2047: Fail
+2048: Success
+2049: Fail
+2050: Success
+2051: Rounding error
+2052: Success
+2053: Fail
+2054: Success
+2055: Success
+2056: Success
+2057: Success
+2058: Success
+2059: Fail
+2060: Success
+2061: Success
+2062: Success
+2063: Rounding error
+2064: Success
+2065: Success
+2066: Success
+2067: Fail
+2068: Rounding error
+2069: Fail
+2070: Fail
+2071: Fail
+2072: Success
+2073: Success
+2074: Success
+2075: Fail
+2076: Success
+2077: Success
+2078: Rounding error
+2079: Success
+2080: Fail
+2081: Rounding error
+2082: Success
+2083: Success
+2084: Success
+2085: Success
+2086: Success
+2087: Success
+2088: Success
+2089: Fail
+2090: Success
+2091: Fail
+2092: Success
+2093: Fail
+2094: Fail
+2095: Fail
+2096: Success
+2097: Success
+2098: Success
+2099: Fail
+2100: Success
+2101: Success
+2102: Success
+2103: Success
+2104: Rounding error
+2105: Success
+2106: Rounding error
+2107: Rounding error
+2108: Success
+2109: Fail
+2110: Fail
+2111: Success
+2112: Fail
+2113: Success
+2114: Fail
+2115: Success
+2116: Fail
+2117: Success
+2118: Success
+2119: Fail
+2120: Success
+2121: Success
+2122: Success
+2123: Success
+2124: Fail
+2125: Success
+2126: Success
+2127: Success
+2128: Rounding error
+2129: Success
+2130: Success
+2131: Success
+2132: Fail
+2133: Success
+2134: Success
+2135: Success
+2136: Success
+2137: Success
+2138: Success
+2139: Success
+2140: Success
+2141: Success
+2142: Success
+2143: Success
+2144: Success
+2145: Success
+2146: Success
+2147: Success
+2148: Success
+2149: Success
+2150: Fail
+2151: Success
+2152: Success
+2153: Success
+2154: Rounding error
+2155: Fail
+2156: Fail
+2157: Fail
+2158: Success
+2159: Fail
+2160: Fail
+2161: Success
+2162: Success
+2163: Success
+2164: Success
+2165: Success
+2166: Rounding error
+2167: Success
+2168: Fail
+2169: Success
+2170: Rounding error
+2171: Success
+2172: Fail
+2173: Fail
+2174: Fail
+2175: Success
+2176: Success
+2177: Rounding error
+2178: Success
+2179: Rounding error
+2180: Success
+2181: Success
+2182: Success
+2183: Success
+2184: Rounding error
+2185: Success
+2186: Fail
+2187: Success
+2188: Success
+2189: Success
+2190: Success
+2191: Success
+2192: Success
+2193: Success
+2194: Success
+2195: Success
+2196: Success
+2197: Fail
+2198: Rounding error
+2199: Rounding error
+2200: Rounding error
+2201: Fail
+2202: Fail
+2203: Success
+2204: Rounding error
+2205: Fail
+2206: Success
+2207: Success
+2208: Fail
+2209: Rounding error
+2210: Success
+2211: Success
+2212: Success
+2213: Success
+2214: Rounding error
+2215: Success
+2216: Fail
+2217: Success
+2218: Rounding error
+2219: Fail
+2220: Fail
+2221: Success
+2222: Success
+2223: Rounding error
+2224: Fail
+2225: Fail
+2226: Fail
+2227: Success
+2228: Success
+2229: Success
+2230: Success
+2231: Rounding error
+2232: Fail
+2233: Success
+2234: Fail
+2235: Success
+2236: Success
+2237: Success
+2238: Rounding error
+2239: Success
+2240: Success
+2241: Success
+2242: Success
+2243: Fail
+2244: Rounding error
+2245: Rounding error
+2246: Success
+2247: Rounding error
+2248: Success
+2249: Success
+2250: Rounding error
+2251: Success
+2252: Fail
+2253: Success
+2254: Success
+2255: Success
+2256: Success
+2257: Success
+2258: Fail
+2259: Success
+2260: Success
+2261: Success
+2262: Fail
+2263: Rounding error
+2264: Success
+2265: Fail
+2266: Success
+2267: Rounding error
+2268: Success
+2269: Success
+2270: Rounding error
+2271: Fail
+2272: Success
+2273: Fail
+2274: Success
+2275: Success
+2276: Success
+2277: Success
+2278: Success
+2279: Rounding error
+2280: Success
+2281: Success
+2282: Rounding error
+2283: Fail
+2284: Success
+2285: Rounding error
+2286: Rounding error
+2287: Success
+2288: Fail
+2289: Rounding error
+2290: Success
+2291: Rounding error
+2292: Success
+2293: Success
+2294: Rounding error
+2295: Success
+2296: Rounding error
+2297: Success
+2298: Success
+2299: Success
+2300: Success
+2301: Success
+2302: Rounding error
+2303: Success
+2304: Success
+2305: Fail
+2306: Success
+2307: Success
+2308: Fail
+2309: Success
+2310: Success
+2311: Success
+2312: Success
+2313: Fail
+2314: Success
+2315: Fail
+2316: Success
+2317: Success
+2318: Fail
+2319: Rounding error
+2320: Success
+2321: Success
+2322: Fail
+2323: Success
+2324: Fail
+2325: Fail
+2326: Rounding error
+2327: Rounding error
+2328: Success
+2329: Success
+2330: Success
+2331: Success
+2332: Rounding error
+2333: Success
+2334: Fail
+2335: Rounding error
+2336: Success
+2337: Success
+2338: Rounding error
+2339: Success
+2340: Success
+2341: Fail
+2342: Rounding error
+2343: Rounding error
+2344: Fail
+2345: Success
+2346: Fail
+2347: Success
+2348: Fail
+2349: Success
+2350: Rounding error
+2351: Rounding error
+2352: Rounding error
+2353: Rounding error
+2354: Rounding error
+2355: Success
+2356: Success
+2357: Success
+2358: Success
+2359: Success
+2360: Fail
+2361: Success
+2362: Rounding error
+2363: Rounding error
+2364: Success
+2365: Success
+2366: Rounding error
+2367: Success
+2368: Success
+2369: Success
+2370: Success
+2371: Success
+2372: Rounding error
+2373: Fail
+2374: Success
+2375: Success
+2376: Fail
+2377: Success
+2378: Fail
+2379: Success
+2380: Success
+2381: Success
+2382: Success
+2383: Fail
+2384: Success
+2385: Fail
+2386: Success
+2387: Fail
+2388: Success
+2389: Rounding error
+2390: Success
+2391: Success
+2392: Fail
+2393: Success
+2394: Success
+2395: Success
+2396: Success
+2397: Rounding error
+2398: Rounding error
+2399: Fail
+2400: Fail
+2401: Success
+2402: Rounding error
+2403: Success
+2404: Success
+2405: Fail
+2406: Fail
+2407: Fail
+2408: Fail
+2409: Fail
+2410: Success
+2411: Success
+2412: Success
+2413: Success
+2414: Success
+2415: Rounding error
+2416: Success
+2417: Success
+2418: Success
+2419: Success
+2420: Fail
+2421: Rounding error
+2422: Success
+2423: Success
+2424: Success
+2425: Success
+2426: Success
+2427: Success
+2428: Success
+2429: Success
+2430: Success
+2431: Success
+2432: Fail
+2433: Success
+2434: Rounding error
+2435: Fail
+2436: Fail
+2437: Success
+2438: Success
+2439: Success
+2440: Success
+2441: Rounding error
+2442: Rounding error
+2443: Success
+2444: Success
+2445: Fail
+2446: Success
+2447: Success
+2448: Fail
+2449: Success
+2450: Fail
+2451: Rounding error
+2452: Success
+2453: Fail
+2454: Success
+2455: Success
+2456: Success
+2457: Success
+2458: Success
+2459: Success
+2460: Rounding error
+2461: Success
+2462: Success
+2463: Success
+2464: Success
+2465: Success
+2466: Rounding error
+2467: Fail
+2468: Success
+2469: Fail
+2470: Success
+2471: Fail
+2472: Fail
+2473: Fail
+2474: Success
+2475: Success
+2476: Rounding error
+2477: Success
+2478: Fail
+2479: Success
+2480: Success
+2481: Success
+2482: Fail
+2483: Success
+2484: Success
+2485: Success
+2486: Success
+2487: Success
+2488: Success
+2489: Success
+2490: Success
+2491: Success
+2492: Success
+2493: Success
+2494: Fail
+2495: Fail
+2496: Fail
+2497: Success
+2498: Fail
+2499: Rounding error
+2500: Success
+2501: Success
+2502: Rounding error
+2503: Success
+2504: Rounding error
+2505: Success
+2506: Success
+2507: Success
+2508: Rounding error
+2509: Success
+2510: Fail
+2511: Rounding error
+2512: Success
+2513: Rounding error
+2514: Success
+2515: Fail
+2516: Rounding error
+2517: Fail
+2518: Success
+2519: Success
+2520: Success
+2521: Fail
+2522: Success
+2523: Success
+2524: Rounding error
+2525: Success
+2526: Success
+2527: Fail
+2528: Success
+2529: Fail
+2530: Success
+2531: Success
+2532: Rounding error
+2533: Fail
+2534: Success
+2535: Success
+2536: Success
+2537: Fail
+2538: Fail
+2539: Success
+2540: Rounding error
+2541: Fail
+2542: Success
+2543: Success
+2544: Success
+2545: Success
+2546: Success
+2547: Success
+2548: Success
+2549: Fail
+2550: Success
+2551: Rounding error
+2552: Success
+2553: Rounding error
+2554: Success
+2555: Fail
+2556: Success
+2557: Success
+2558: Fail
+2559: Rounding error
+2560: Rounding error
+2561: Success
+2562: Success
+2563: Rounding error
+2564: Fail
+2565: Fail
+2566: Rounding error
+2567: Rounding error
+2568: Fail
+2569: Rounding error
+2570: Fail
+2571: Success
+2572: Fail
+2573: Success
+2574: Success
+2575: Fail
+2576: Success
+2577: Success
+2578: Success
+2579: Success
+2580: Fail
+2581: Success
+2582: Success
+2583: Success
+2584: Fail
+2585: Success
+2586: Fail
+2587: Success
+2588: Fail
+2589: Fail
+2590: Success
+2591: Success
+2592: Fail
+2593: Success
+2594: Fail
+2595: Success
+2596: Success
+2597: Rounding error
+2598: Success
+2599: Rounding error
+2600: Success
+2601: Fail
+2602: Success
+2603: Fail
+2604: Success
+2605: Success
+2606: Success
+2607: Success
+2608: Success
+2609: Rounding error
+2610: Rounding error
+2611: Fail
+2612: Success
+2613: Success
+2614: Rounding error
+2615: Success
+2616: Fail
+2617: Fail
+2618: Success
+2619: Fail
+2620: Success
+2621: Success
+2622: Success
+2623: Success
+2624: Success
+2625: Success
+2626: Rounding error
+2627: Success
+2628: Success
+2629: Success
+2630: Success
+2631: Rounding error
+2632: Success
+2633: Fail
+2634: Rounding error
+2635: Success
+2636: Fail
+2637: Success
+2638: Success
+2639: Fail
+2640: Fail
+2641: Success
+2642: Fail
+2643: Success
+2644: Fail
+2645: Success
+2646: Success
+2647: Fail
+2648: Rounding error
+2649: Success
+2650: Fail
+2651: Fail
+2652: Success
+2653: Success
+2654: Success
+2655: Success
+2656: Fail
+2657: Rounding error
+2658: Fail
+2659: Success
+2660: Success
+2661: Rounding error
+2662: Success
+2663: Rounding error
+2664: Success
+2665: Success
+2666: Fail
+2667: Fail
+2668: Success
+2669: Success
+2670: Fail
+2671: Fail
+2672: Fail
+2673: Success
+2674: Success
+2675: Success
+2676: Fail
+2677: Success
+2678: Fail
+2679: Fail
+2680: Rounding error
+2681: Success
+2682: Success
+2683: Rounding error
+2684: Success
+2685: Success
+2686: Success
+2687: Fail
+2688: Success
+2689: Rounding error
+2690: Rounding error
+2691: Rounding error
+2692: Rounding error
+2693: Success
+2694: Success
+2695: Success
+2696: Fail
+2697: Rounding error
+2698: Success
+2699: Success
+2700: Fail
+2701: Success
+2702: Success
+2703: Success
+2704: Fail
+2705: Fail
+2706: Rounding error
+2707: Success
+2708: Success
+2709: Success
+2710: Success
+2711: Success
+2712: Success
+2713: Rounding error
+2714: Success
+2715: Success
+2716: Rounding error
+2717: Success
+2718: Success
+2719: Success
+2720: Rounding error
+2721: Success
+2722: Rounding error
+2723: Rounding error
+2724: Fail
+2725: Success
+2726: Success
+2727: Rounding error
+2728: Success
+2729: Success
+2730: Success
+2731: Success
+2732: Success
+2733: Success
+2734: Success
+2735: Success
+2736: Success
+2737: Fail
+2738: Success
+2739: Success
+2740: Success
+2741: Success
+2742: Success
+2743: Success
+2744: Rounding error
+2745: Success
+2746: Success
+2747: Rounding error
+2748: Success
+2749: Success
+2750: Success
+2751: Fail
+2752: Success
+2753: Rounding error
+2754: Rounding error
+2755: Fail
+2756: Success
+2757: Rounding error
+2758: Fail
+2759: Success
+2760: Success
+2761: Success
+2762: Success
+2763: Success
+2764: Rounding error
+2765: Success
+2766: Rounding error
+2767: Fail
+2768: Success
+2769: Rounding error
+2770: Rounding error
+2771: Rounding error
+2772: Rounding error
+2773: Fail
+2774: Rounding error
+2775: Rounding error
+2776: Success
+2777: Rounding error
+2778: Rounding error
+2779: Rounding error
+2780: Success
+2781: Success
+2782: Success
+2783: Success
+2784: Rounding error
+2785: Fail
+2786: Fail
+2787: Fail
+2788: Success
+2789: Success
+2790: Rounding error
+2791: Fail
+2792: Rounding error
+2793: Success
+2794: Success
+2795: Rounding error
+2796: Success
+2797: Success
+2798: Success
+2799: Success
+2800: Success
+2801: Fail
+2802: Rounding error
+2803: Fail
+2804: Rounding error
+2805: Success
+2806: Success
+2807: Success
+2808: Success
+2809: Success
+2810: Rounding error
+2811: Fail
+2812: Fail
+2813: Fail
+2814: Success
+2815: Success
+2816: Success
+2817: Rounding error
+2818: Success
+2819: Rounding error
+2820: Success
+2821: Fail
+2822: Success
+2823: Rounding error
+2824: Rounding error
+2825: Success
+2826: Success
+2827: Success
+2828: Success
+2829: Rounding error
+2830: Success
+2831: Success
+2832: Success
+2833: Rounding error
+2834: Success
+2835: Fail
+2836: Success
+2837: Fail
+2838: Rounding error
+2839: Rounding error
+2840: Success
+2841: Success
+2842: Rounding error
+2843: Fail
+2844: Success
+2845: Rounding error
+2846: Rounding error
+2847: Success
+2848: Success
+2849: Success
+2850: Success
+2851: Rounding error
+2852: Rounding error
+2853: Success
+2854: Rounding error
+2855: Success
+2856: Success
+2857: Success
+2858: Fail
+2859: Success
+2860: Success
+2861: Rounding error
+2862: Success
+2863: Success
+2864: Success
+2865: Fail
+2866: Success
+2867: Rounding error
+2868: Success
+2869: Success
+2870: Fail
+2871: Rounding error
+2872: Success
+2873: Fail
+2874: Fail
+2875: Success
+2876: Success
+2877: Success
+2878: Rounding error
+2879: Success
+2880: Success
+2881: Success
+2882: Rounding error
+2883: Success
+2884: Fail
+2885: Success
+2886: Success
+2887: Success
+2888: Success
+2889: Success
+2890: Rounding error
+2891: Rounding error
+2892: Success
+2893: Success
+2894: Rounding error
+2895: Rounding error
+2896: Fail
+2897: Fail
+2898: Fail
+2899: Fail
+2900: Success
+2901: Rounding error
+2902: Success
+2903: Success
+2904: Success
+2905: Fail
+2906: Rounding error
+2907: Success
+2908: Fail
+2909: Success
+2910: Fail
+2911: Success
+2912: Rounding error
+2913: Rounding error
+2914: Rounding error
+2915: Success
+2916: Fail
+2917: Fail
+2918: Success
+2919: Success
+2920: Success
+2921: Success
+2922: Fail
+2923: Rounding error
+2924: Success
+2925: Success
+2926: Success
+2927: Fail
+2928: Rounding error
+2929: Fail
+2930: Success
+2931: Success
+2932: Success
+2933: Fail
+2934: Rounding error
+2935: Rounding error
+2936: Success
+2937: Success
+2938: Success
+2939: Fail
+2940: Success
+2941: Success
+2942: Success
+2943: Success
+2944: Rounding error
+2945: Success
+2946: Success
+2947: Fail
+2948: Fail
+2949: Success
+2950: Success
+2951: Success
+2952: Success
+2953: Fail
+2954: Rounding error
+2955: Fail
+2956: Success
+2957: Rounding error
+2958: Success
+2959: Fail
+2960: Success
+2961: Success
+2962: Success
+2963: Success
+2964: Fail
+2965: Success
+2966: Rounding error
+2967: Fail
+2968: Success
+2969: Fail
+2970: Success
+2971: Fail
+2972: Rounding error
+2973: Success
+2974: Success
+2975: Success
+2976: Fail
+2977: Success
+2978: Rounding error
+2979: Success
+2980: Success
+2981: Success
+2982: Fail
+2983: Fail
+2984: Fail
+2985: Success
+2986: Success
+2987: Success
+2988: Success
+2989: Success
+2990: Rounding error
+2991: Success
+2992: Fail
+2993: Fail
+2994: Fail
+2995: Fail
+2996: Fail
+2997: Fail
+2998: Success
+2999: Rounding error
+3000: Success
+3001: Success
+3002: Success
+3003: Success
+3004: Success
+3005: Rounding error
+3006: Success
+3007: Rounding error
+3008: Fail
+3009: Fail
+3010: Success
+3011: Fail
+3012: Success
+3013: Rounding error
+3014: Rounding error
+3015: Rounding error
+3016: Success
+3017: Success
+3018: Success
+3019: Success
+3020: Success
+3021: Success
+3022: Fail
+3023: Rounding error
+3024: Success
+3025: Success
+3026: Success
+3027: Success
+3028: Success
+3029: Rounding error
+3030: Success
+3031: Fail
+3032: Fail
+3033: Success
+3034: Rounding error
+3035: Success
+3036: Rounding error
+3037: Rounding error
+3038: Success
+3039: Fail
+3040: Fail
+3041: Fail
+3042: Success
+3043: Success
+3044: Fail
+3045: Success
+3046: Success
+3047: Success
+3048: Success
+3049: Success
+3050: Rounding error
+3051: Success
+3052: Success
+3053: Fail
+3054: Fail
+3055: Success
+3056: Success
+3057: Success
+3058: Success
+3059: Fail
+3060: Success
+3061: Success
+3062: Success
+3063: Success
+3064: Success
+3065: Rounding error
+3066: Rounding error
+3067: Rounding error
+3068: Rounding error
+3069: Rounding error
+3070: Success
+3071: Success
+3072: Success
+3073: Success
+3074: Fail
+3075: Success
+3076: Rounding error
+3077: Success
+3078: Fail
+3079: Success
+3080: Success
+3081: Success
+3082: Success
+3083: Success
+3084: Success
+3085: Success
+3086: Success
+3087: Rounding error
+3088: Success
+3089: Success
+3090: Success
+3091: Success
+3092: Success
+3093: Success
+3094: Fail
+3095: Success
+3096: Success
+3097: Success
+3098: Success
+3099: Success
+3100: Success
+3101: Fail
+3102: Success
+3103: Rounding error
+3104: Success
+3105: Success
+3106: Success
+3107: Fail
+3108: Success
+3109: Success
+3110: Rounding error
+3111: Success
+3112: Fail
+3113: Fail
+3114: Success
+3115: Success
+3116: Success
+3117: Success
+3118: Fail
+3119: Fail
+3120: Fail
+3121: Success
+3122: Success
+3123: Rounding error
+3124: Success
+3125: Success
+3126: Success
+3127: Success
+3128: Success
+3129: Rounding error
+3130: Success
+3131: Success
+3132: Success
+3133: Success
+3134: Fail
+3135: Success
+3136: Success
+3137: Fail
+3138: Success
+3139: Fail
+3140: Success
+3141: Success
+3142: Rounding error
+3143: Success
+3144: Success
+3145: Fail
+3146: Success
+3147: Rounding error
+3148: Fail
+3149: Success
+3150: Success
+3151: Fail
+3152: Rounding error
+3153: Fail
+3154: Success
+3155: Success
+3156: Success
+3157: Success
+3158: Fail
+3159: Fail
+3160: Fail
+3161: Success
+3162: Success
+3163: Fail
+3164: Success
+3165: Fail
+3166: Success
+3167: Success
+3168: Success
+3169: Success
+3170: Fail
+3171: Fail
+3172: Fail
+3173: Success
+3174: Success
+3175: Success
+3176: Success
+3177: Success
+3178: Success
+3179: Rounding error
+3180: Success
+3181: Fail
+3182: Success
+3183: Success
+3184: Success
+3185: Success
+3186: Success
+3187: Success
+3188: Fail
+3189: Rounding error
+3190: Success
+3191: Success
+3192: Fail
+3193: Fail
+3194: Success
+3195: Success
+3196: Fail
+3197: Success
+3198: Success
+3199: Success
+3200: Fail
+3201: Rounding error
+3202: Success
+3203: Rounding error
+3204: Success
+3205: Rounding error
+3206: Success
+3207: Success
+3208: Rounding error
+3209: Success
+3210: Success
+3211: Fail
+3212: Fail
+3213: Rounding error
+3214: Fail
+3215: Success
+3216: Fail
+3217: Success
+3218: Fail
+3219: Success
+3220: Fail
+3221: Success
+3222: Fail
+3223: Success
+3224: Rounding error
+3225: Success
+3226: Fail
+3227: Success
+3228: Fail
+3229: Success
+3230: Fail
+3231: Success
+3232: Fail
+3233: Success
+3234: Success
+3235: Success
+3236: Success
+3237: Success
+3238: Fail
+3239: Fail
+3240: Success
+3241: Success
+3242: Fail
+3243: Fail
+3244: Fail
+3245: Success
+3246: Fail
+3247: Rounding error
+3248: Success
+3249: Success
+3250: Fail
+3251: Rounding error
+3252: Success
+3253: Success
+3254: Success
+3255: Success
+3256: Success
+3257: Success
+3258: Rounding error
+3259: Success
+3260: Success
+3261: Success
+3262: Success
+3263: Success
+3264: Fail
+3265: Success
+3266: Fail
+3267: Rounding error
+3268: Fail
+3269: Success
+3270: Rounding error
+3271: Fail
+3272: Rounding error
+3273: Fail
+3274: Rounding error
+3275: Success
+3276: Success
+3277: Success
+3278: Success
+3279: Success
+3280: Success
+3281: Success
+3282: Success
+3283: Success
+3284: Success
+3285: Success
+3286: Rounding error
+3287: Fail
+3288: Rounding error
+3289: Fail
+3290: Rounding error
+3291: Success
+3292: Fail
+3293: Rounding error
+3294: Success
+3295: Success
+3296: Success
+3297: Success
+3298: Success
+3299: Fail
+3300: Success
+3301: Success
+3302: Fail
+3303: Fail
+3304: Success
+3305: Success
+3306: Rounding error
+3307: Success
+3308: Rounding error
+3309: Rounding error
+3310: Fail
+3311: Success
+3312: Success
+3313: Success
+3314: Success
+3315: Fail
+3316: Success
+3317: Fail
+3318: Success
+3319: Success
+3320: Success
+3321: Fail
+3322: Fail
+3323: Success
+3324: Success
+3325: Rounding error
+3326: Fail
+3327: Success
+3328: Success
+3329: Fail
+3330: Success
+3331: Success
+3332: Fail
+3333: Success
+3334: Fail
+3335: Success
+3336: Rounding error
+3337: Fail
+3338: Fail
+3339: Success
+3340: Success
+3341: Success
+3342: Success
+3343: Success
+3344: Success
+3345: Fail
+3346: Fail
+3347: Success
+3348: Rounding error
+3349: Fail
+3350: Success
+3351: Rounding error
+3352: Rounding error
+3353: Rounding error
+3354: Success
+3355: Success
+3356: Fail
+3357: Success
+3358: Fail
+3359: Success
+3360: Fail
+3361: Rounding error
+3362: Rounding error
+3363: Success
+3364: Fail
+3365: Fail
+3366: Success
+3367: Success
+3368: Success
+3369: Fail
+3370: Success
+3371: Fail
+3372: Fail
+3373: Success
+3374: Fail
+3375: Success
+3376: Success
+3377: Rounding error
+3378: Success
+3379: Success
+3380: Rounding error
+3381: Rounding error
+3382: Fail
+3383: Fail
+3384: Success
+3385: Fail
+3386: Fail
+3387: Success
+3388: Rounding error
+3389: Rounding error
+3390: Success
+3391: Rounding error
+3392: Fail
+3393: Success
+3394: Rounding error
+3395: Success
+3396: Success
+3397: Success
+3398: Success
+3399: Success
+3400: Rounding error
+3401: Rounding error
+3402: Success
+3403: Fail
+3404: Fail
+3405: Success
+3406: Success
+3407: Rounding error
+3408: Success
+3409: Success
+3410: Success
+3411: Success
+3412: Success
+3413: Success
+3414: Success
+3415: Success
+3416: Success
+3417: Rounding error
+3418: Success
+3419: Rounding error
+3420: Success
+3421: Fail
+3422: Success
+3423: Success
+3424: Rounding error
+3425: Fail
+3426: Success
+3427: Success
+3428: Success
+3429: Success
+3430: Success
+3431: Success
+3432: Success
+3433: Fail
+3434: Rounding error
+3435: Fail
+3436: Fail
+3437: Fail
+3438: Fail
+3439: Fail
+3440: Fail
+3441: Fail
+3442: Fail
+3443: Fail
+3444: Success
+3445: Rounding error
+3446: Success
+3447: Fail
+3448: Success
+3449: Success
+3450: Fail
+3451: Success
+3452: Success
+3453: Success
+3454: Success
+3455: Success
+3456: Success
+3457: Rounding error
+3458: Rounding error
+3459: Success
+3460: Success
+3461: Rounding error
+3462: Success
+3463: Success
+3464: Success
+3465: Fail
+3466: Rounding error
+3467: Success
+3468: Fail
+3469: Success
+3470: Success
+3471: Success
+3472: Fail
+3473: Success
+3474: Rounding error
+3475: Success
+3476: Success
+3477: Fail
+3478: Success
+3479: Fail
+3480: Fail
+3481: Success
+3482: Success
+3483: Success
+3484: Rounding error
+3485: Fail
+3486: Success
+3487: Success
+3488: Rounding error
+3489: Success
+3490: Success
+3491: Success
+3492: Success
+3493: Rounding error
+3494: Success
+3495: Fail
+3496: Success
+3497: Fail
+3498: Success
+3499: Success
+3500: Success
+3501: Success
+3502: Success
+3503: Success
+3504: Success
+3505: Rounding error
+3506: Rounding error
+3507: Rounding error
+3508: Rounding error
+3509: Success
+3510: Success
+3511: Rounding error
+3512: Success
+3513: Rounding error
+3514: Rounding error
+3515: Success
+3516: Success
+3517: Success
+3518: Success
+3519: Success
+3520: Rounding error
+3521: Success
+3522: Success
+3523: Success
+3524: Success
+3525: Rounding error
+3526: Rounding error
+3527: Success
+3528: Fail
+3529: Fail
+3530: Success
+3531: Success
+3532: Success
+3533: Fail
+3534: Fail
+3535: Fail
+3536: Success
+3537: Rounding error
+3538: Success
+3539: Rounding error
+3540: Fail
+3541: Success
+3542: Rounding error
+3543: Fail
+3544: Rounding error
+3545: Success
+3546: Success
+3547: Success
+3548: Success
+3549: Fail
+3550: Success
+3551: Fail
+3552: Success
+3553: Rounding error
+3554: Rounding error
+3555: Fail
+3556: Success
+3557: Success
+3558: Success
+3559: Success
+3560: Rounding error
+3561: Fail
+3562: Success
+3563: Rounding error
+3564: Fail
+3565: Success
+3566: Success
+3567: Success
+3568: Success
+3569: Rounding error
+3570: Fail
+3571: Success
+3572: Fail
+3573: Fail
+3574: Rounding error
+3575: Success
+3576: Success
+3577: Success
+3578: Success
+3579: Rounding error
+3580: Fail
+3581: Success
+3582: Success
+3583: Fail
+3584: Fail
+3585: Rounding error
+3586: Fail
+3587: Success
+3588: Fail
+3589: Fail
+3590: Rounding error
+3591: Fail
+3592: Success
+3593: Rounding error
+3594: Success
+3595: Success
+3596: Fail
+3597: Success
+3598: Rounding error
+3599: Success
+3600: Success
+3601: Success
+3602: Fail
+3603: Rounding error
+3604: Success
+3605: Success
+3606: Fail
+3607: Success
+3608: Rounding error
+3609: Success
+3610: Success
+3611: Rounding error
+3612: Success
+3613: Success
+3614: Success
+3615: Success
+3616: Success
+3617: Success
+3618: Fail
+3619: Rounding error
+3620: Success
+3621: Success
+3622: Success
+3623: Success
+3624: Success
+3625: Fail
+3626: Success
+3627: Success
+3628: Success
+3629: Rounding error
+3630: Fail
+3631: Rounding error
+3632: Success
+3633: Success
+3634: Success
+3635: Rounding error
+3636: Success
+3637: Rounding error
+3638: Fail
+3639: Success
+3640: Success
+3641: Success
+3642: Success
+3643: Fail
+3644: Rounding error
+3645: Success
+3646: Success
+3647: Fail
+3648: Rounding error
+3649: Success
+3650: Rounding error
+3651: Success
+3652: Fail
+3653: Success
+3654: Success
+3655: Success
+3656: Success
+3657: Success
+3658: Success
+3659: Success
+3660: Fail
+3661: Fail
+3662: Fail
+3663: Success
+3664: Success
+3665: Success
+3666: Success
+3667: Fail
+3668: Success
+3669: Rounding error
+3670: Fail
+3671: Rounding error
+3672: Success
+3673: Rounding error
+3674: Rounding error
+3675: Fail
+3676: Rounding error
+3677: Success
+3678: Fail
+3679: Fail
+3680: Success
+3681: Success
+3682: Fail
+3683: Success
+3684: Success
+3685: Rounding error
+3686: Fail
+3687: Rounding error
+3688: Fail
+3689: Rounding error
+3690: Success
+3691: Success
+3692: Success
+3693: Success
+3694: Success
+3695: Success
+3696: Rounding error
+3697: Rounding error
+3698: Success
+3699: Success
+3700: Success
+3701: Rounding error
+3702: Success
+3703: Fail
+3704: Rounding error
+3705: Fail
+3706: Success
+3707: Fail
+3708: Rounding error
+3709: Fail
+3710: Success
+3711: Success
+3712: Success
+3713: Fail
+3714: Fail
+3715: Rounding error
+3716: Success
+3717: Rounding error
+3718: Fail
+3719: Fail
+3720: Success
+3721: Success
+3722: Fail
+3723: Fail
+3724: Rounding error
+3725: Success
+3726: Fail
+3727: Fail
+3728: Success
+3729: Success
+3730: Success
+3731: Success
+3732: Rounding error
+3733: Success
+3734: Success
+3735: Success
+3736: Fail
+3737: Fail
+3738: Success
+3739: Success
+3740: Fail
+3741: Success
+3742: Success
+3743: Fail
+3744: Success
+3745: Success
+3746: Rounding error
+3747: Fail
+3748: Success
+3749: Success
+3750: Success
+3751: Success
+3752: Success
+3753: Success
+3754: Success
+3755: Success
+3756: Success
+3757: Fail
+3758: Rounding error
+3759: Success
+3760: Success
+3761: Success
+3762: Fail
+3763: Rounding error
+3764: Success
+3765: Success
+3766: Rounding error
+3767: Fail
+3768: Success
+3769: Fail
+3770: Fail
+3771: Success
+3772: Rounding error
+3773: Success
+3774: Success
+3775: Fail
+3776: Success
+3777: Success
+3778: Rounding error
+3779: Success
+3780: Success
+3781: Rounding error
+3782: Success
+3783: Success
+3784: Fail
+3785: Success
+3786: Rounding error
+3787: Rounding error
+3788: Fail
+3789: Success
+3790: Success
+3791: Success
+3792: Success
+3793: Success
+3794: Rounding error
+3795: Fail
+3796: Success
+3797: Fail
+3798: Fail
+3799: Fail
+3800: Fail
+3801: Fail
+3802: Success
+3803: Rounding error
+3804: Success
+3805: Success
+3806: Success
+3807: Success
+3808: Success
+3809: Success
+3810: Fail
+3811: Success
+3812: Rounding error
+3813: Success
+3814: Success
+3815: Success
+3816: Rounding error
+3817: Success
+3818: Success
+3819: Success
+3820: Rounding error
+3821: Success
+3822: Success
+3823: Fail
+3824: Fail
+3825: Success
+3826: Success
+3827: Fail
+3828: Rounding error
+3829: Fail
+3830: Rounding error
+3831: Fail
+3832: Rounding error
+3833: Success
+3834: Fail
+3835: Success
+3836: Rounding error
+3837: Success
+3838: Fail
+3839: Fail
+3840: Success
+3841: Success
+3842: Success
+3843: Success
+3844: Fail
+3845: Rounding error
+3846: Rounding error
+3847: Rounding error
+3848: Success
+3849: Rounding error
+3850: Success
+3851: Success
+3852: Success
+3853: Rounding error
+3854: Fail
+3855: Success
+3856: Success
+3857: Rounding error
+3858: Success
+3859: Success
+3860: Fail
+3861: Success
+3862: Success
+3863: Fail
+3864: Rounding error
+3865: Success
+3866: Success
+3867: Success
+3868: Success
+3869: Rounding error
+3870: Success
+3871: Success
+3872: Fail
+3873: Success
+3874: Success
+3875: Success
+3876: Success
+3877: Success
+3878: Success
+3879: Success
+3880: Success
+3881: Rounding error
+3882: Success
+3883: Rounding error
+3884: Success
+3885: Rounding error
+3886: Success
+3887: Rounding error
+3888: Fail
+3889: Fail
+3890: Fail
+3891: Success
+3892: Fail
+3893: Success
+3894: Rounding error
+3895: Success
+3896: Success
+3897: Success
+3898: Success
+3899: Fail
+3900: Success
+3901: Success
+3902: Fail
+3903: Rounding error
+3904: Fail
+3905: Rounding error
+3906: Fail
+3907: Success
+3908: Success
+3909: Success
+3910: Rounding error
+3911: Success
+3912: Success
+3913: Rounding error
+3914: Rounding error
+3915: Rounding error
+3916: Success
+3917: Rounding error
+3918: Fail
+3919: Success
+3920: Success
+3921: Rounding error
+3922: Success
+3923: Success
+3924: Success
+3925: Fail
+3926: Success
+3927: Rounding error
+3928: Fail
+3929: Fail
+3930: Rounding error
+3931: Success
+3932: Success
+3933: Rounding error
+3934: Success
+3935: Fail
+3936: Rounding error
+3937: Success
+3938: Fail
+3939: Fail
+3940: Success
+3941: Fail
+3942: Fail
+3943: Rounding error
+3944: Fail
+3945: Rounding error
+3946: Fail
+3947: Success
+3948: Success
+3949: Success
+3950: Success
+3951: Fail
+3952: Success
+3953: Success
+3954: Success
+3955: Success
+3956: Rounding error
+3957: Success
+3958: Success
+3959: Fail
+3960: Success
+3961: Rounding error
+3962: Success
+3963: Fail
+3964: Fail
+3965: Fail
+3966: Success
+3967: Rounding error
+3968: Fail
+3969: Success
+3970: Success
+3971: Success
+3972: Success
+3973: Success
+3974: Success
+3975: Fail
+3976: Success
+3977: Success
+3978: Success
+3979: Fail
+3980: Success
+3981: Success
+3982: Rounding error
+3983: Success
+3984: Fail
+3985: Fail
+3986: Success
+3987: Rounding error
+3988: Success
+3989: Success
+3990: Fail
+3991: Success
+3992: Success
+3993: Success
+3994: Fail
+3995: Fail
+3996: Success
+3997: Rounding error
+3998: Success
+3999: Rounding error
+4000: Rounding error
+4001: Success
+4002: Success
+4003: Fail
+4004: Fail
+4005: Rounding error
+4006: Fail
+4007: Fail
+4008: Fail
+4009: Fail
+4010: Success
+4011: Fail
+4012: Success
+4013: Success
+4014: Success
+4015: Success
+4016: Rounding error
+4017: Success
+4018: Success
+4019: Success
+4020: Rounding error
+4021: Rounding error
+4022: Success
+4023: Success
+4024: Success
+4025: Success
+4026: Success
+4027: Success
+4028: Fail
+4029: Success
+4030: Rounding error
+4031: Success
+4032: Success
+4033: Success
+4034: Success
+4035: Rounding error
+4036: Fail
+4037: Success
+4038: Success
+4039: Success
+4040: Success
+4041: Fail
+4042: Success
+4043: Success
+4044: Fail
+4045: Success
+4046: Rounding error
+4047: Success
+4048: Success
+4049: Success
+4050: Success
+4051: Fail
+4052: Success
+4053: Success
+4054: Rounding error
+4055: Fail
+4056: Fail
+4057: Success
+4058: Success
+4059: Success
+4060: Fail
+4061: Success
+4062: Fail
+4063: Fail
+4064: Fail
+4065: Rounding error
+4066: Success
+4067: Success
+4068: Rounding error
+4069: Success
+4070: Rounding error
+4071: Fail
+4072: Fail
+4073: Rounding error
+4074: Success
+4075: Success
+4076: Success
+4077: Success
+4078: Success
+4079: Success
+4080: Fail
+4081: Fail
+4082: Success
+4083: Rounding error
+4084: Rounding error
+4085: Success
+4086: Success
+4087: Success
+4088: Rounding error
+4089: Success
+4090: Fail
+4091: Success
+4092: Success
+4093: Success
+4094: Success
+4095: Success
+4096: Success
+4097: Success
+4098: Success
+4099: Success
+4100: Success
+4101: Success
+4102: Fail
+4103: Rounding error
+4104: Rounding error
+4105: Success
+4106: Success
+4107: Success
+4108: Fail
+4109: Fail
+4110: Rounding error
+4111: Success
+4112: Success
+4113: Fail
+4114: Success
+4115: Fail
+4116: Fail
+4117: Fail
+4118: Rounding error
+4119: Rounding error
+4120: Success
+4121: Success
+4122: Success
+4123: Success
+4124: Rounding error
+4125: Fail
+4126: Success
+4127: Success
+4128: Success
+4129: Fail
+4130: Fail
+4131: Fail
+4132: Fail
+4133: Fail
+4134: Success
+4135: Rounding error
+4136: Fail
+4137: Success
+4138: Success
+4139: Success
+4140: Success
+4141: Success
+4142: Success
+4143: Fail
+4144: Success
+4145: Fail
+4146: Success
+4147: Success
+4148: Fail
+4149: Success
+4150: Fail
+4151: Success
+4152: Success
+4153: Fail
+4154: Fail
+4155: Success
+4156: Fail
+4157: Success
+4158: Success
+4159: Success
+4160: Success
+4161: Success
+4162: Rounding error
+4163: Rounding error
+4164: Fail
+4165: Success
+4166: Success
+4167: Success
+4168: Rounding error
+4169: Rounding error
+4170: Fail
+4171: Success
+4172: Success
+4173: Success
+4174: Success
+4175: Success
+4176: Success
+4177: Rounding error
+4178: Rounding error
+4179: Success
+4180: Fail
+4181: Success
+4182: Rounding error
+4183: Rounding error
+4184: Fail
+4185: Rounding error
+4186: Fail
+4187: Fail
+4188: Fail
+4189: Rounding error
+4190: Fail
+4191: Success
+4192: Success
+4193: Fail
+4194: Fail
+4195: Rounding error
+4196: Success
+4197: Rounding error
+4198: Success
+4199: Success
+4200: Success
+4201: Fail
+4202: Rounding error
+4203: Rounding error
+4204: Fail
+4205: Success
+4206: Rounding error
+4207: Success
+4208: Success
+4209: Rounding error
+4210: Success
+4211: Success
+4212: Fail
+4213: Fail
+4214: Success
+4215: Fail
+4216: Fail
+4217: Success
+4218: Success
+4219: Success
+4220: Success
+4221: Success
+4222: Fail
+4223: Rounding error
+4224: Rounding error
+4225: Fail
+4226: Fail
+4227: Rounding error
+4228: Success
+4229: Success
+4230: Success
+4231: Success
+4232: Fail
+4233: Fail
+4234: Fail
+4235: Fail
+4236: Success
+4237: Success
+4238: Success
+4239: Rounding error
+4240: Fail
+4241: Success
+4242: Rounding error
+4243: Fail
+4244: Success
+4245: Success
+4246: Fail
+4247: Success
+4248: Rounding error
+4249: Success
+4250: Fail
+4251: Fail
+4252: Success
+4253: Success
+4254: Rounding error
+4255: Fail
+4256: Success
+4257: Fail
+4258: Success
+4259: Rounding error
+4260: Success
+4261: Success
+4262: Rounding error
+4263: Success
+4264: Success
+4265: Fail
+4266: Success
+4267: Rounding error
+4268: Success
+4269: Success
+4270: Success
+4271: Success
+4272: Success
+4273: Fail
+4274: Fail
+4275: Success
+4276: Success
+4277: Success
+4278: Success
+4279: Rounding error
+4280: Rounding error
+4281: Success
+4282: Success
+4283: Success
+4284: Success
+4285: Success
+4286: Fail
+4287: Success
+4288: Fail
+4289: Rounding error
+4290: Success
+4291: Success
+4292: Rounding error
+4293: Success
+4294: Success
+4295: Fail
+4296: Success
+4297: Fail
+4298: Fail
+4299: Rounding error
+4300: Fail
+4301: Fail
+4302: Success
+4303: Success
+4304: Rounding error
+4305: Success
+4306: Fail
+4307: Rounding error
+4308: Rounding error
+4309: Success
+4310: Fail
+4311: Success
+4312: Success
+4313: Fail
+4314: Fail
+4315: Success
+4316: Rounding error
+4317: Fail
+4318: Success
+4319: Success
+4320: Success
+4321: Fail
+4322: Success
+4323: Success
+4324: Rounding error
+4325: Success
+4326: Success
+4327: Rounding error
+4328: Success
+4329: Success
+4330: Success
+4331: Success
+4332: Success
+4333: Rounding error
+4334: Fail
+4335: Success
+4336: Success
+4337: Rounding error
+4338: Success
+4339: Success
+4340: Fail
+4341: Success
+4342: Rounding error
+4343: Success
+4344: Success
+4345: Rounding error
+4346: Rounding error
+4347: Fail
+4348: Success
+4349: Rounding error
+4350: Fail
+4351: Fail
+4352: Success
+4353: Success
+4354: Success
+4355: Success
+4356: Success
+4357: Rounding error
+4358: Fail
+4359: Success
+4360: Rounding error
+4361: Success
+4362: Rounding error
+4363: Fail
+4364: Rounding error
+4365: Fail
+4366: Success
+4367: Success
+4368: Success
+4369: Success
+4370: Success
+4371: Rounding error
+4372: Success
+4373: Rounding error
+4374: Success
+4375: Success
+4376: Success
+4377: Rounding error
+4378: Success
+4379: Success
+4380: Success
+4381: Success
+4382: Success
+4383: Success
+4384: Success
+4385: Fail
+4386: Fail
+4387: Success
+4388: Rounding error
+4389: Success
+4390: Success
+4391: Success
+4392: Success
+4393: Success
+4394: Success
+4395: Success
+4396: Rounding error
+4397: Success
+4398: Success
+4399: Rounding error
+4400: Fail
+4401: Success
+4402: Success
+4403: Fail
+4404: Success
+4405: Success
+4406: Success
+4407: Rounding error
+4408: Success
+4409: Success
+4410: Fail
+4411: Success
+4412: Fail
+4413: Success
+4414: Rounding error
+4415: Success
+4416: Fail
+4417: Success
+4418: Fail
+4419: Success
+4420: Success
+4421: Rounding error
+4422: Success
+4423: Rounding error
+4424: Success
+4425: Fail
+4426: Fail
+4427: Fail
+4428: Fail
+4429: Fail
+4430: Success
+4431: Fail
+4432: Fail
+4433: Rounding error
+4434: Success
+4435: Success
+4436: Success
+4437: Rounding error
+4438: Success
+4439: Rounding error
+4440: Rounding error
+4441: Rounding error
+4442: Success
+4443: Success
+4444: Success
+4445: Fail
+4446: Success
+4447: Success
+4448: Success
+4449: Success
+4450: Fail
+4451: Success
+4452: Fail
+4453: Fail
+4454: Success
+4455: Success
+4456: Success
+4457: Fail
+4458: Rounding error
+4459: Success
+4460: Rounding error
+4461: Success
+4462: Success
+4463: Rounding error
+4464: Success
+4465: Success
+4466: Success
+4467: Success
+4468: Success
+4469: Success
+4470: Success
+4471: Fail
+4472: Fail
+4473: Fail
+4474: Fail
+4475: Success
+4476: Fail
+4477: Fail
+4478: Fail
+4479: Success
+4480: Success
+4481: Success
+4482: Fail
+4483: Fail
+4484: Success
+4485: Success
+4486: Success
+4487: Success
+4488: Success
+4489: Success
+4490: Rounding error
+4491: Fail
+4492: Success
+4493: Fail
+4494: Fail
+4495: Fail
+4496: Fail
+4497: Success
+4498: Success
+4499: Success
+4500: Success
+4501: Success
+4502: Success
+4503: Fail
+4504: Success
+4505: Rounding error
+4506: Success
+4507: Rounding error
+4508: Success
+4509: Success
+4510: Success
+4511: Success
+4512: Success
+4513: Rounding error
+4514: Success
+4515: Success
+4516: Success
+4517: Success
+4518: Fail
+4519: Rounding error
+4520: Fail
+4521: Success
+4522: Success
+4523: Success
+4524: Success
+4525: Success
+4526: Rounding error
+4527: Success
+4528: Success
+4529: Success
+4530: Rounding error
+4531: Rounding error
+4532: Success
+4533: Fail
+4534: Rounding error
+4535: Success
+4536: Success
+4537: Success
+4538: Success
+4539: Fail
+4540: Success
+4541: Rounding error
+4542: Success
+4543: Success
+4544: Success
+4545: Rounding error
+4546: Success
+4547: Success
+4548: Success
+4549: Rounding error
+4550: Success
+4551: Fail
+4552: Fail
+4553: Fail
+4554: Fail
+4555: Rounding error
+4556: Fail
+4557: Success
+4558: Success
+4559: Fail
+4560: Success
+4561: Fail
+4562: Fail
+4563: Success
+4564: Success
+4565: Rounding error
+4566: Fail
+4567: Success
+4568: Fail
+4569: Rounding error
+4570: Fail
+4571: Success
+4572: Success
+4573: Success
+4574: Rounding error
+4575: Success
+4576: Rounding error
+4577: Success
+4578: Success
+4579: Fail
+4580: Rounding error
+4581: Success
+4582: Fail
+4583: Success
+4584: Rounding error
+4585: Success
+4586: Success
+4587: Success
+4588: Fail
+4589: Success
+4590: Rounding error
+4591: Success
+4592: Success
+4593: Success
+4594: Success
+4595: Success
+4596: Success
+4597: Success
+4598: Rounding error
+4599: Success
+4600: Success
+4601: Success
+4602: Rounding error
+4603: Success
+4604: Success
+4605: Success
+4606: Success
+4607: Fail
+4608: Rounding error
+4609: Success
+4610: Success
+4611: Rounding error
+4612: Rounding error
+4613: Rounding error
+4614: Rounding error
+4615: Rounding error
+4616: Success
+4617: Success
+4618: Success
+4619: Success
+4620: Rounding error
+4621: Fail
+4622: Success
+4623: Success
+4624: Success
+4625: Success
+4626: Rounding error
+4627: Fail
+4628: Fail
+4629: Rounding error
+4630: Success
+4631: Success
+4632: Rounding error
+4633: Success
+4634: Success
+4635: Fail
+4636: Fail
+4637: Fail
+4638: Rounding error
+4639: Rounding error
+4640: Success
+4641: Success
+4642: Success
+4643: Success
+4644: Success
+4645: Success
+4646: Success
+4647: Fail
+4648: Success
+4649: Fail
+4650: Rounding error
+4651: Success
+4652: Success
+4653: Fail
+4654: Success
+4655: Rounding error
+4656: Fail
+4657: Fail
+4658: Success
+4659: Success
+4660: Success
+4661: Fail
+4662: Fail
+4663: Success
+4664: Rounding error
+4665: Rounding error
+4666: Fail
+4667: Success
+4668: Success
+4669: Success
+4670: Success
+4671: Rounding error
+4672: Success
+4673: Success
+4674: Success
+4675: Fail
+4676: Success
+4677: Rounding error
+4678: Rounding error
+4679: Rounding error
+4680: Rounding error
+4681: Success
+4682: Rounding error
+4683: Success
+4684: Fail
+4685: Success
+4686: Success
+4687: Success
+4688: Fail
+4689: Success
+4690: Fail
+4691: Success
+4692: Rounding error
+4693: Rounding error
+4694: Success
+4695: Rounding error
+4696: Success
+4697: Success
+4698: Success
+4699: Rounding error
+4700: Rounding error
+4701: Success
+4702: Fail
+4703: Success
+4704: Success
+4705: Success
+4706: Rounding error
+4707: Success
+4708: Fail
+4709: Success
+4710: Success
+4711: Success
+4712: Success
+4713: Success
+4714: Success
+4715: Fail
+4716: Success
+4717: Rounding error
+4718: Rounding error
+4719: Success
+4720: Fail
+4721: Success
+4722: Success
+4723: Success
+4724: Success
+4725: Success
+4726: Success
+4727: Success
+4728: Success
+4729: Fail
+4730: Success
+4731: Fail
+4732: Rounding error
+4733: Fail
+4734: Fail
+4735: Fail
+4736: Success
+4737: Fail
+4738: Rounding error
+4739: Fail
+4740: Success
+4741: Fail
+4742: Fail
+4743: Success
+4744: Rounding error
+4745: Fail
+4746: Success
+4747: Fail
+4748: Success
+4749: Fail
+4750: Success
+4751: Fail
+4752: Fail
+4753: Rounding error
+4754: Fail
+4755: Fail
+4756: Success
+4757: Fail
+4758: Success
+4759: Fail
+4760: Rounding error
+4761: Success
+4762: Success
+4763: Rounding error
+4764: Success
+4765: Fail
+4766: Success
+4767: Success
+4768: Success
+4769: Success
+4770: Rounding error
+4771: Rounding error
+4772: Rounding error
+4773: Rounding error
+4774: Success
+4775: Success
+4776: Fail
+4777: Success
+4778: Success
+4779: Success
+4780: Success
+4781: Success
+4782: Success
+4783: Fail
+4784: Success
+4785: Rounding error
+4786: Success
+4787: Success
+4788: Success
+4789: Rounding error
+4790: Fail
+4791: Fail
+4792: Success
+4793: Fail
+4794: Success
+4795: Rounding error
+4796: Fail
+4797: Success
+4798: Rounding error
+4799: Success
+4800: Success
+4801: Fail
+4802: Success
+4803: Success
+4804: Rounding error
+4805: Rounding error
+4806: Success
+4807: Success
+4808: Fail
+4809: Fail
+4810: Success
+4811: Success
+4812: Success
+4813: Success
+4814: Success
+4815: Fail
+4816: Success
+4817: Fail
+4818: Rounding error
+4819: Success
+4820: Success
+4821: Success
+4822: Rounding error
+4823: Success
+4824: Fail
+4825: Fail
+4826: Success
+4827: Success
+4828: Rounding error
+4829: Success
+4830: Success
+4831: Success
+4832: Fail
+4833: Success
+4834: Fail
+4835: Success
+4836: Rounding error
+4837: Success
+4838: Success
+4839: Rounding error
+4840: Success
+4841: Fail
+4842: Success
+4843: Fail
+4844: Fail
+4845: Success
+4846: Success
+4847: Rounding error
+4848: Rounding error
+4849: Success
+4850: Success
+4851: Rounding error
+4852: Fail
+4853: Success
+4854: Fail
+4855: Fail
+4856: Fail
+4857: Fail
+4858: Success
+4859: Success
+4860: Success
+4861: Success
+4862: Success
+4863: Success
+4864: Success
+4865: Rounding error
+4866: Rounding error
+4867: Success
+4868: Rounding error
+4869: Success
+4870: Fail
+4871: Success
+4872: Success
+4873: Fail
+4874: Success
+4875: Fail
+4876: Success
+4877: Rounding error
+4878: Fail
+4879: Rounding error
+4880: Fail
+4881: Success
+4882: Success
+4883: Fail
+4884: Success
+4885: Success
+4886: Fail
+4887: Success
+4888: Success
+4889: Fail
+4890: Success
+4891: Success
+4892: Rounding error
+4893: Fail
+4894: Rounding error
+4895: Fail
+4896: Fail
+4897: Success
+4898: Success
+4899: Fail
+4900: Success
+4901: Rounding error
+4902: Success
+4903: Success
+4904: Success
+4905: Fail
+4906: Success
+4907: Success
+4908: Success
+4909: Fail
+4910: Success
+4911: Success
+4912: Fail
+4913: Fail
+4914: Success
+4915: Fail
+4916: Fail
+4917: Success
+4918: Success
+4919: Fail
+4920: Fail
+4921: Success
+4922: Success
+4923: Success
+4924: Success
+4925: Success
+4926: Success
+4927: Success
+4928: Success
+4929: Success
+4930: Success
+4931: Fail
+4932: Rounding error
+4933: Rounding error
+4934: Fail
+4935: Success
+4936: Success
+4937: Success
+4938: Success
+4939: Success
+4940: Success
+4941: Success
+4942: Success
+4943: Success
+4944: Rounding error
+4945: Success
+4946: Success
+4947: Success
+4948: Success
+4949: Success
+4950: Success
+4951: Rounding error
+4952: Success
+4953: Fail
+4954: Success
+4955: Success
+4956: Rounding error
+4957: Success
+4958: Fail
+4959: Success
+4960: Success
+4961: Fail
+4962: Success
+4963: Success
+4964: Success
+4965: Success
+4966: Rounding error
+4967: Success
+4968: Success
+4969: Rounding error
+4970: Rounding error
+4971: Success
+4972: Success
+4973: Fail
+4974: Rounding error
+4975: Fail
+4976: Rounding error
+4977: Rounding error
+4978: Success
+4979: Success
+4980: Success
+4981: Fail
+4982: Success
+4983: Success
+4984: Rounding error
+4985: Success
+4986: Success
+4987: Success
+4988: Fail
+4989: Success
+4990: Success
+4991: Success
+4992: Success
+4993: Fail
+4994: Success
+4995: Fail
+4996: Success
+4997: Fail
+4998: Fail
