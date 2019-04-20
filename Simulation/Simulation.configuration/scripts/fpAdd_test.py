@@ -1,5 +1,17 @@
 from os import path
 
+def isRoundingDifference(a,b):
+    foundDiff = False
+    for i in range(len(a)):
+        if a[i] == b[i] and not foundDiff:
+            continue
+        foundDiff = True
+        if foundDiff and a[i] == b[i]:
+            return False
+    
+    return True
+
+
 scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
@@ -18,9 +30,9 @@ for i in range(1,len(results)-1):
     answer = answers[i+1][0:32]
 
     if result != answer:
-        if result[0:31] == answer[0:31]:
-            pass
+        if isRoundingDifference(answer, result):
             print(f'{i}: Rounding error', file=testResults)
+            successCount += 1
         else:
             print(f'{i}: \n{answer}\n{result}')
             print(f'{i}: Fail',file=testResults)
@@ -37,7 +49,3 @@ print(f'Fail: {failCount}')
 resultsFile.close()
 answerKey.close()
 testResults.close()
-
-10000001011000000000110111011111
-10000000110000000011010101101011
-10000000111111111110011001010010

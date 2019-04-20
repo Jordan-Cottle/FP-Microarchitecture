@@ -78,9 +78,11 @@ package body Math is
         alias G is additionResult(2);
         alias R is additionResult(1);
         alias S is additionResult(0);
+        alias LSB is additionResult(3);
         
         -- fix for bug in bitAdd function, send literal "00000001" fails to work properly
         variable one: std_logic_vector(7 downto 0) := "00000001";
+        variable mantiOne: std_logic_vector(26 downto 3) := "000000000000000000000001";
 
         variable result: std_logic_vector(31 downto 0) := (others => '0');
         alias resultSign is result(31); -- 1 bit for sign
@@ -143,7 +145,7 @@ package body Math is
 
         
         shiftedMantissa(25 downto 3):= smallerMantissa;
-        stableMantissa(22 downto 0) := greaterMantissa;
+        stableMantissa(25 downto 3) := greaterMantissa;
 
         -- set implied bits
         if smallerExponent = "00000000" then
@@ -153,9 +155,9 @@ package body Math is
         end if;
 
         if greaterExponent = "00000000" then
-            stableMantissa(23) := '0';
+            stableMantissa(26) := '0';
         else
-            stableMantissa(23) := '1';
+            stableMantissa(26) := '1';
         end if;
 
         -- align mantissas
@@ -169,24 +171,48 @@ package body Math is
         if greaterSign = smallerSign then
             additionResult := bitAdd(stableMantissa, shiftedMantissa);
         else
-            additionResult(24) := '0';
-            additionResult(23 downto 0) := bitDiff(stableMantissa,shiftedMantissa);
+            additionResult(27) := '0';
+            additionResult(26 downto 0) := bitDiff(stableMantissa,shiftedMantissa);
         end if; 
         
         -- normalize value
-        if additionResult(24) = '1' then -- shift right by one
+        if additionResult(27) = '1' then -- shift right by one
             additionResult := shift(additionResult, 1, '0', '1');
             finalExponent := bitAdd(finalExponent, one)(7 downto 0); -- ignore extra bit returned
-        elsif additionResult(23) = '0' and not(finalExponent = "00000000") then -- don't shift left for denormalized values
-            while additionResult(23) = '0' loop -- shift left until one is found in 
+        elsif additionResult(26) = '0' and not(finalExponent = "00000000") then -- don't shift left for denormalized values
+            while additionResult(26) = '0' loop -- shift left until one is found in 
                 additionResult := shift(additionResult, 1, '1', '0');
                 finalExponent := bitDiff(finalExponent, one);
             end loop;
-        elsif additionResult(23) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
+        elsif additionResult(26) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
             finalExponent := "00000001";
         end if;
         
-        resultMantissa := additionResult(22 downto 0);
+        if G='0' and R='0' and S='0' then
+            report "No rounding necessary";
+        elsif G = '0' then
+            report "Round down";
+            -- do nothing to 'truncate' and round down
+        else -- G = '1'
+            if R = '1' or S = '1' then  -- GRS = "110", "101", "111"
+                report "Round up!";
+                additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
+            elsif LSB = '1' then -- GRS = "100"
+                report "Tie, round up!";
+                additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
+            -- else, truncate to round down
+            end if;
+        end if;
+            
+        -- normalize again
+        if additionResult(27) = '1' then -- shift right by one
+            additionResult := shift(additionResult, 1, '0', '1');
+            finalExponent := bitAdd(finalExponent, one)(7 downto 0); -- ignore extra bit returned
+        elsif additionResult(26) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
+            finalExponent := "00000001";
+        end if;
+
+        resultMantissa := additionResult(25 downto 3);
         resultExponent := finalExponent;
         
         if resultExponent = "11111111" then -- clean up infinity case
@@ -230,7 +256,7 @@ package body Math is
         
         variable result: std_logic_vector(a'left+1 downto a'right) := (others=>'0');
         variable carry: std_logic := '0';
-        variable i: integer := 0;
+        variable i: integer := a'right;
     begin
         result := (others => '0');
         while i <= a'left loop
@@ -254,6 +280,8 @@ package body Math is
     begin
         if count = 0 then
             return vector;
+        elsif count >= vector'length then
+            return result; -- all 0 vector
         end if;
         if shiftLeft = '1' then
             sourceIndex := vector'right;
