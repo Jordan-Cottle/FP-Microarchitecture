@@ -27,6 +27,14 @@ package Math is
         return std_logic_vector;
     function twosCompliment(vector: std_logic_vector)
         return std_logic_vector;
+    function fpSub(a, b: std_logic_vector(31 downto 0))
+        return std_logic_vector;
+    function round(a: std_logic_vector(31 downto 0))
+        return std_logic_vector;
+    function min(a,b: std_logic_vector(31 downto 0))
+        return std_logic_vector;
+    function max(a,b: std_logic_vector(31 downto 0))
+        return std_logic_vector;
     function absolute(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
     function neg(A: std_logic_vector(31 downto 0))
@@ -363,6 +371,72 @@ package body Math is
 
         return result;
     end bitDiff;
+
+    function fpSub(a, b: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+        variable bNeg: std_logic_vector(31 downto 0);
+    begin
+        bNeg := (31 => not b(31), 30 downto 0 => b(30 downto 0));
+        return fpadd(a, bNeg);
+    end fpSub;
+
+    function round(a: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+            variable offset : std_logic_vector(7 downto 0);
+            variable bias: std_logic_vector(7 downto 0):= "01111111";
+            variable GRS: std_logic_vector(2 downto 0);
+            variable i: integer:= 7;
+            variable fracIndex: integer;
+            variable exponent:std_ogic_vector(7 downto 0);
+        begin
+            exponent := a(30 downto 23);
+            while i >= 0 and exponent(i) = bias(i) loop
+                i: i-1;
+            end loop;
+
+            if i = -1 then
+                offset := 0;
+                GRS := a(22 downto 20);
+            elsif exponent(i) = '1' then
+                offset = bitDiff(exponent, bias);
+                fracIndex := to_integer(unsigned(offset);)
+            else
+                -- offset is negative, number is less than 1
+
+            end if;
+
+            
+        end round;
+
+    function min(a,b: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+            variable i: integer:= a'left;
+        begin
+            while i >= a'right and a(i) = b(i) loop
+                i: i-1;
+            end loop;
+
+            if a(i) = '0' then
+                return a;
+            else
+                return b;
+            end if;
+        end min;
+
+    function max(a,b: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+            variable i: integer:= a'left;
+        begin
+            while i >= a'right and a(i) = b(i) loop
+                i: i-1;
+            end loop;
+
+            if a(i) = '1' then
+                return a;
+            else
+                return b;
+            end if;
+        end max;
 
     function absolute(A:std_logic_vector(31 downto 0))
         return std_logic_vector is
