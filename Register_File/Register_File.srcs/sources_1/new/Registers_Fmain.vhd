@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 04/19/2019 06:45:25 PM
+-- Create Date: 04/23/2019 10:47:25 AM
 -- Design Name: 
--- Module Name: sqrt_tb - Behavioral
+-- Module Name: Registers_Fmain - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,7 +21,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.math.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,15 +31,19 @@ use work.math.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity sqrt_tb is
---  Port ( );
-end sqrt_tb;
+entity Registers_Fmain is
+    Port ( Read_reg1 : in STD_LOGIC_VECTOR (4 downto 0);
+           Read_reg2 : in STD_LOGIC_VECTOR (4 downto 0);
+           Write_reg : in STD_LOGIC_VECTOR (4 downto 0);
+           Write_Data : in STD_LOGIC_VECTOR (31 downto 0);
+           RegWrite : in STD_LOGIC;
+           Read_Data1 : out STD_LOGIC_VECTOR (31 downto 0);
+           Read_Data2 : out STD_LOGIC_VECTOR (31 downto 0));
+end Registers_Fmain;
 
-architecture Behavioral of sqrt_tb is
-signal A: std_logic_vector(31 downto 0);
-signal C: std_logic_vector(31 downto 0);
+architecture Behavioral of Registers_Fmain is
+
 begin
-           A <= "01000010100000000000000000000000";
-           C <= sqrt(A); 
+
 
 end Behavioral;
