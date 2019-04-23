@@ -1,6 +1,5 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: Jordan Cottle
+-- Engineer: Group Effort
 -- 
 -- Create Date: 04/02/2019 10:22:29 PM
 -- Description: Contains conversion functions for Simulation project
@@ -140,10 +139,10 @@ package body Math is
         
         -- compute difference in exponent and sign bit
         finalExponent := greaterExponent;
-        if smallerExponent = "00000000" and greaterExponent = "00000001" then
-            exponentDiff := "00000000";
-        else
-            exponentDiff := bitDiff(greaterExponent, smallerExponent);
+        exponentDiff := bitDiff(greaterExponent, smallerExponent);
+        -- use -126 instead of -127 for exponent of "00000000"
+        if smallerExponent = "00000000" and not(greaterExponent = "00000000") then
+            exponentDiff := bitDiff(exponentDiff, one);
         end if;
         resultSign := greaterSign;
         
@@ -277,6 +276,9 @@ package body Math is
             carry := (a(i) and b(i)) or (a(i) and carry) or (b(i) and carry);
             i := i+1;
         end loop;
+        result(result'left) := carry;
+        return result;
+    end bitAdd;
     
     function shift(vector: std_logic_vector; count: integer; shiftLeft, stickyBit: std_logic)
         return std_logic_vector is
@@ -376,7 +378,8 @@ package body Math is
         return std_logic_vector is
         variable bNeg: std_logic_vector(31 downto 0);
     begin
-        bNeg := (31 => not b(31), 30 downto 0 => b(30 downto 0));
+        bNeg(31) := not b(31);
+        bNeg(30 downto 0) := b(30 downto 0);
         return fpadd(a, bNeg);
     end fpSub;
 
@@ -387,19 +390,19 @@ package body Math is
             variable GRS: std_logic_vector(2 downto 0);
             variable i: integer:= 7;
             variable fracIndex: integer;
-            variable exponent:std_ogic_vector(7 downto 0);
+            variable exponent:std_logic_vector(7 downto 0);
         begin
             exponent := a(30 downto 23);
             while i >= 0 and exponent(i) = bias(i) loop
-                i: i-1;
+                i:= i-1;
             end loop;
 
             if i = -1 then
-                offset := 0;
+                offset := "00000000";
                 GRS := a(22 downto 20);
             elsif exponent(i) = '1' then
-                offset = bitDiff(exponent, bias);
-                fracIndex := to_integer(unsigned(offset);)
+                offset := bitDiff(exponent, bias);
+                fracIndex := to_integer(unsigned(offset));
             else
                 -- offset is negative, number is less than 1
 
@@ -413,7 +416,7 @@ package body Math is
             variable i: integer:= a'left;
         begin
             while i >= a'right and a(i) = b(i) loop
-                i: i-1;
+                i:= i-1;
             end loop;
 
             if a(i) = '0' then
@@ -428,7 +431,7 @@ package body Math is
             variable i: integer:= a'left;
         begin
             while i >= a'right and a(i) = b(i) loop
-                i: i-1;
+                i:= i-1;
             end loop;
 
             if a(i) = '1' then
@@ -514,56 +517,94 @@ package body Math is
     -- ieee fp format components
     alias sign is Fp(31); -- 1 bit for sign
     alias exponent is Fp(30 downto 23); -- 8 bit exponent
-    alias mantissa is Fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
-
+    alias mantissa is Fp(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
+    
+    
     -- decimal values of components
     variable pow: integer;
-    variable sum: real := 0.0;
+    variable sum: real;
     begin
         pow := to_integer(unsigned(exponent))- 127;
-
-        -- calculate implied leading 1
-        sum := sum + powOfTwo(pow);
-        pow := pow-1;
-
+        if exponent = "00000000" then
+            -- skip implied mantissa bit
+            sum := 0.0;
+        elsif pow > 127 then
+            if sign = '1' then
+                return minValue * 2.0; -- less than minValue
+            else
+                return maxValue * 2.0; -- greater than maxValue
+            end if;
+        else 
+            -- compute implied mantissa bit
+            sum := 2.0**pow;
+            pow := pow-1;
+        end if;
         -- calculate listed mantissa bits
         for i in mantissa'range loop
             if mantissa(i) = '1' then
-                sum := sum + powOfTwo(pow);
+                sum := sum + 2.0**pow;
             end if;
             pow := pow - 1;
         end loop;
-
         if sign = '1' then
             return sum * (-1.0);
         else
             return sum;
         end if;
     end FpToDec;
+    
     function DecToFp(Dec: real)
         return std_logic_vector is
-
-        variable fp: std_logic_vector(31 downto 0);
-
+        variable fp: std_logic_vector(31 downto 0) := "00000000000000000000000000000000"; -- initalize to 0
         -- ieee fp format components
         alias sign is fp(31); -- 1 bit for sign
         alias exponent is fp(30 downto 23); -- 8 bit exponent
         alias mantissa is fp(22 downto 0); -- 24 bits for mantissa (1.~23bits~)
-
-        variable int: std_logic_vector(31 downto 0);
-        variable frac:std_logic_vector(34 downto 0); -- at most 3
+        variable intVector: std_logic_vector(127 downto 0);  -- max fp value is a 128 bit int
+        variable fracVector: std_logic_vector(153 downto 0); -- 128 bits + 3 for rounding + 23 for mantissa
+        variable int: integer;
+        variable fraction: real;
+        variable d: real;
+        variable i: integer;
+        variable bitIndex: integer;
+        variable firstIntIndex: integer;
+        variable firstFracIndex: integer;
+        variable shiftAmount: integer;
+        variable denormalized: boolean := false;
     begin
-    
     if dec = 0.0 then
-        return "00000000000000000000000000000000";
+        return fp;
+    elsif dec > maxValue then
+        return std_logic_vector'("01111111100000000000000000000000");
+    elsif dec < minValue then
+        return std_logic_vector'("11111111100000000000000000000000");
     end if;
-
-    if Dec < 0.0 then
+    
+    d := dec;
+    
+    -- calculate sign bit
+    if d < 0.0 then
         sign := '1';
+        d := d * (-1.0);
     else
         sign := '0';
     end if;
-
+    
+    -- calculate binary bits
+    intVector := std_logic_vector(realToUnsigned(d, intVector'length));
+    fracVector := realFractionToStdLogicVector(d, fracVector'length);
+    -- calculate exponent
+    i := intVector'length-1;
+    while(i >= 0 and intVector(i) = '0') loop
+        i := i - 1;
+    end loop;
+    firstIntIndex := i;
+    
+    i := fracVector'length-1;
+    while(i >= 0 and fracVector(i) = '0') loop -- don't include grs bits or extra mantissa
+        i := i - 1;
+    end loop;
+    firstFracIndex:= i;
     if not (firstIntIndex = -1) then
         shiftAmount := firstIntIndex;
     else
@@ -573,19 +614,54 @@ package body Math is
     if shiftAmount <= -127 then
         denormalized := true;
     end if;
+    if denormalized then
+        exponent := "00000000";
+    else
+        exponent := std_logic_vector(to_unsigned(127 + shiftAmount, 8));
+    end if;
+    
+    -- calculate mantissa bits
+    if shiftAmount >= 0 then
+        bitIndex := firstIntIndex-1; -- skip assumed 1
+    elsif denormalized then
+        bitIndex := 27;
+    else
+        bitIndex := firstFracIndex-1; -- skipped assumed 1
+    end if;
+    
+    i := 22;
+    if shiftAmount > 0 then
+        while i >= 0 and bitIndex >= 0 loop
+            mantissa(i) := intVector(bitIndex);
+            i := i - 1;
+            bitIndex := bitIndex-1;
+        end loop;
+   end if;
+   
+   if i >= 0 and bitIndex = -1 then -- ran out of integer bits, move bitIndex to beginning of fracVector
+            bitIndex := fracVector'length-1;
+    end if; 
+   
+   -- load fraction bits into mantissa
+   while i >= 0 and bitIndex >= 0 loop
+       mantissa(i) := fracVector(bitIndex);
+       i := i - 1;
+       bitIndex := bitIndex-1;
+   end loop;
+    return fp;
+    end DecToFp;
 
-
-function power(A,B: std_logic_vector(31 downto 0))
-        return real is 
-        variable C: real;
-        variable A_real: real;
-        variable B_real: real;
-    begin
-           A_real := FptoDec(A);
-           B_real := FptoDec(B);
-           C := A_real ** B_real;
-           return C;
-    end power;
+    function power(A,B: std_logic_vector(31 downto 0))
+            return real is 
+            variable C: real;
+            variable A_real: real;
+            variable B_real: real;
+        begin
+               A_real := FptoDec(A);
+               B_real := FptoDec(B);
+               C := A_real ** B_real;
+               return C;
+        end power;
     
     function mul (a, b: std_logic_vector (31 downto 0))
     return std_logic_vector is
@@ -603,7 +679,7 @@ function power(A,B: std_logic_vector(31 downto 0))
         return c;
      end div;
         
-    function power(A,B: std_logic_vector(31 downto 0))
+    function expo(A,B: std_logic_vector(31 downto 0))
             return real is 
             variable C: real;
             variable A_real: real;
