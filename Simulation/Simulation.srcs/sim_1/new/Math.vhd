@@ -49,6 +49,8 @@ package Math is
         return std_logic_vector;
     function mul (a, b: std_logic_vector (31 downto 0))
         return std_logic_vector;
+    function div (a, b: std_logic_vector (31 downto 0))
+        return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
         return real;
 end Math;
@@ -661,10 +663,19 @@ package body Math is
     
     function mul (a, b: std_logic_vector (31 downto 0))
     return std_logic_vector is
-        variable count: integer := 0;
+        variable c: std_logic_vector;
         begin
-        return a;
-        end mul;
+        c := std_logic_vector (signed(a) * signed(b));
+        return c;
+     end mul;
+     
+     function div (a, b: std_logic_vector (31 downto 0))
+     return std_logic_vector is
+        variable c: std_logic_vector;
+        begin
+        c := std_logic_vector (signed(a) / signed(b));
+        return c;
+     end div;
         
     function power(A,B: std_logic_vector(31 downto 0))
             return real is 
