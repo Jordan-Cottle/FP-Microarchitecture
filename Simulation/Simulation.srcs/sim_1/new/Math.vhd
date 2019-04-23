@@ -16,9 +16,23 @@ use IEEE.math_real.all;
 use IEEE.NUMERIC_STD.ALL;
 
 package Math is
-    function powOfTwo(exp: integer) 
-        return real;
-    function add(a, b: std_logic_vector(31 downto 0))
+    function fpAdd(a, b: std_logic_vector(31 downto 0))
+        return std_logic_vector;
+    function bitAdd(a,b: std_logic_vector)
+        return std_logic_vector;
+    function bitDiff(a, b: std_logic_vector)
+        return std_logic_vector;
+    function shift(vector: std_logic_vector; count: integer; shiftLeft, stickyBit: std_logic)
+        return std_logic_vector;
+    function twosCompliment(vector: std_logic_vector)
+        return std_logic_vector;
+    function fpSub(a, b: std_logic_vector(31 downto 0))
+        return std_logic_vector;
+    function round(a: std_logic_vector(31 downto 0))
+        return std_logic_vector;
+    function min(a,b: std_logic_vector(31 downto 0))
+        return std_logic_vector;
+    function max(a,b: std_logic_vector(31 downto 0))
         return std_logic_vector;
     function absolute(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
@@ -27,6 +41,14 @@ package Math is
     function FpToDec (Fp: std_logic_vector(31 downto 0))
         return real;
     function DecToFp(Dec: real)
+        return std_logic_vector;
+    function realToUnsigned(r: real; bitLength: integer)
+        return unsigned;
+    function realFractionToStdLogicVector(r: real; bitLength: integer)
+        return std_logic_vector;
+    function mul (a, b: std_logic_vector (31 downto 0))
+        return std_logic_vector;
+    function div (a, b: std_logic_vector (31 downto 0))
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
         return real;
@@ -37,32 +59,384 @@ package Math is
 end Math;
 
 package body Math is
-    function powOfTwo(exp: integer) 
-        return real is
-    variable value: real := 1.0;
+    function fpAdd(a,b: std_logic_vector(31 downto 0))
+    return std_logic_vector is
+        alias aSign is a(31); -- 1 bit for sign
+        alias aExponent is a(30 downto 23); -- 8 bit exponent
+        alias aMantissa is a(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
+
+        alias bSign is b(31); -- 1 bit for sign
+        alias bExponent is b(30 downto 23); -- 8 bit exponent
+        alias bMantissa is b(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
+
+        variable greater: std_logic_vector(31 downto 0);
+        alias greaterSign is greater(31); -- 1 bit for sign
+        alias greaterExponent is greater(30 downto 23); -- 8 bit exponent
+        alias greaterMantissa is greater(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
+
+        variable smaller: std_logic_vector(31 downto 0);
+        alias smallerSign is smaller(31); -- 1 bit for sign
+        alias smallerExponent is smaller(30 downto 23); -- 8 bit exponent
+        alias smallerMantissa is smaller(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
+        
+        variable i: integer;
+        variable aIsGreater: std_logic;
+        variable exponentsSame: std_logic;
+        variable exponentDiff: std_logic_vector(7 downto 0) := (others => '0');
+        variable finalExponent: std_logic_vector(7 downto 0) := (others => '0');
+        variable stableMantissa: std_logic_vector(26 downto 0) := (others => '0'); -- include implied 1 -- + 3 grs bits to match size of shifted mantissa
+        variable shiftedMantissa: std_logic_vector(26 downto 0) := (others => '0'); -- include potential implied 1 (in case of 0 shift)  include grs bits
+        variable additionResult: std_logic_vector(27 downto 0) := (others => '0');
+
+        alias G is additionResult(2);
+        alias R is additionResult(1);
+        alias S is additionResult(0);
+        alias LSB is additionResult(3);
+        
+        -- fix for bug in bitAdd function, send literal "00000001" fails to work properly
+        variable one: std_logic_vector(7 downto 0) := "00000001";
+        variable mantiOne: std_logic_vector(26 downto 3) := "000000000000000000000001";
+
+        variable result: std_logic_vector(31 downto 0) := (others => '0');
+        alias resultSign is result(31); -- 1 bit for sign
+        alias resultExponent is result(30 downto 23); -- 8 bit exponent
+        alias resultMantissa is result(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
+
     begin
-        if exp = 0 then
-            return 1.0;
+        -- find minimum exponent
+            -- locate first difference in exponents
+        i := aExponent'left;
+        while i >= aExponent'right and ((aExponent(i) xnor bExponent(i)) ='1') loop
+            i := i - 1;
+        end loop;
+        
+        -- determine larger vector
+        if i = aExponent'right-1 then
+            exponentsSame := '1';
+            
+            -- compute greater based on mantissa bits
+            i := aMantissa'left;
+            while i >= aMantissa'right and ((aMantissa(i) xnor bMantissa(i)) ='1') loop
+                i := i - 1;
+            end loop;
+            
+            if not (i = -1) and aMantissa(i) = '1' then
+                greater:= a;
+                smaller:= b;
+            else
+                greater:= b;
+                smaller:= a;
+            end if;
+        else
+            exponentsSame := '0';
+            if aExponent(i) = '1' then
+                greater := a;
+                smaller := b;
+            else
+                greater := b;
+                smaller := a;
+            end if;
+        end if;
+        
+        -- compute difference in exponent and sign bit
+        finalExponent := greaterExponent;
+        if smallerExponent = "00000000" and greaterExponent = "00000001" then
+            exponentDiff := "00000000";
+        else
+            exponentDiff := bitDiff(greaterExponent, smallerExponent);
+        end if;
+        resultSign := greaterSign;
+        
+        -- If infinity is involved in the calculation, the result is also infinity
+        if finalExponent = "11111111" then
+            if resultSign = '0' then
+                return "01111111100000000000000000000000";
+            else
+                return "11111111100000000000000000000000";
+            end if;
         end if;
 
-        for i in 1 to abs(exp) loop
-            value := value * 2.0;
-            report "value is " & real'image(value);
+        
+        shiftedMantissa(25 downto 3):= smallerMantissa;
+        stableMantissa(25 downto 3) := greaterMantissa;
+
+        -- set implied bits
+        if smallerExponent = "00000000" then
+            shiftedMantissa(26):= '0';
+        else
+            shiftedMantissa(26) := '1';
+        end if;
+
+        if greaterExponent = "00000000" then
+            stableMantissa(26) := '0';
+        else
+            stableMantissa(26) := '1';
+        end if;
+
+        -- align mantissas
+        shiftedMantissa := shift(shiftedMantissa, to_integer(unsigned(exponentDiff)), '0', '1'); -- shift right
+
+        if shiftedMantissa = "000000000000000000000000000" then -- avoids issue with 2's complimenting all zeros and adding that to another mantissa
+            return greater;
+        end if;
+        
+        
+        if greaterSign = smallerSign then
+            additionResult := bitAdd(stableMantissa, shiftedMantissa);
+        else
+            additionResult(27) := '0';
+            additionResult(26 downto 0) := bitDiff(stableMantissa,shiftedMantissa);
+        end if; 
+        
+        -- normalize value
+        if additionResult(27) = '1' then -- shift right by one
+            additionResult := shift(additionResult, 1, '0', '1');
+            finalExponent := bitAdd(finalExponent, one)(7 downto 0); -- ignore extra bit returned
+        elsif additionResult(26) = '0' and not(finalExponent = "00000000") then -- don't shift left for denormalized values
+            while additionResult(26) = '0' loop -- shift left until one is found in 
+                additionResult := shift(additionResult, 1, '1', '0');
+                finalExponent := bitDiff(finalExponent, one);
+            end loop;
+        elsif additionResult(26) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
+            finalExponent := "00000001";
+        end if;
+        
+        if G='0' and R='0' and S='0' then
+            report "No rounding necessary";
+        elsif G = '0' then
+            report "Round down";
+            -- do nothing to 'truncate' and round down
+        else -- G = '1'
+            if R = '1' or S = '1' then  -- GRS = "110", "101", "111"
+                report "Round up!";
+                additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
+            elsif LSB = '1' then -- GRS = "100"
+                report "Tie, round up!";
+                additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
+            -- else, truncate to round down
+            end if;
+        end if;
+            
+        -- normalize again
+        if additionResult(27) = '1' then -- shift right by one
+            additionResult := shift(additionResult, 1, '0', '1');
+            finalExponent := bitAdd(finalExponent, one)(7 downto 0); -- ignore extra bit returned
+        elsif additionResult(26) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
+            finalExponent := "00000001";
+        end if;
+
+        resultMantissa := additionResult(25 downto 3);
+        resultExponent := finalExponent;
+        
+        if resultExponent = "11111111" then -- clean up infinity case
+            resultMantissa:= (others => '0');
+        end if;
+        
+        return result;
+    end fpAdd;
+    
+    -- performs two's compliment operation on a std_logic_vector
+    function twosCompliment(vector: std_logic_vector)
+        return std_logic_vector is
+        
+        variable oneFound: std_logic := '0';
+        variable i: integer := vector'right;
+        variable result: std_logic_vector(vector'range);
+    begin
+        while i <= vector'left loop
+            if oneFound = '0' then
+                result(i) := vector(i);
+                if vector(i) = '1' then
+                    oneFound := '1';
+                end if;
+            else
+                result(i) := not vector(i);
+            end if;
+            i:= i + 1;
+        end loop;
+        
+        if result = vector then -- vector was max negative value, postive value falls out of range
+            -- return max positive value instead
+            return not result;
+         else
+            return result;
+         end if;
+    end twosCompliment;
+
+    -- add std_logic_vectors (treated as unsigned) binary values together
+    function bitAdd(a,b: std_logic_vector)
+        return std_logic_vector is
+        
+        variable result: std_logic_vector(a'left+1 downto a'right) := (others=>'0');
+        variable carry: std_logic := '0';
+        variable i: integer := a'right;
+    begin
+        result := (others => '0');
+        while i <= a'left loop
+            result(i) := carry xor a(i) xor b(i);
+            carry := (a(i) and b(i)) or (a(i) and carry) or (b(i) and carry);
+            i := i+1;
         end loop;
     
-        if exp > 0 then
-            return value;
-        else
-            return 1.0 / value;
-        end if;
-    end powOfTwo;
-    
-    function add(a,b: std_logic_vector(31 downto 0))
-    return std_logic_vector is
-        variable count: integer := 0;
+    function shift(vector: std_logic_vector; count: integer; shiftLeft, stickyBit: std_logic)
+        return std_logic_vector is
+        
+        variable result: std_logic_vector(vector'range):= (others => '0');
+        variable sourceIndex: integer;
+        variable destinationIndex: integer;
+        variable sticky: std_logic := '0';
     begin
-        return a;
-    end add;
+        if count = 0 then
+            return vector;
+        elsif count >= vector'length then
+            return result; -- all 0 vector
+        end if;
+        if shiftLeft = '1' then
+            sourceIndex := vector'right;
+            destinationIndex := sourceIndex + count;
+
+            while destinationIndex <= vector'left loop
+                result(destinationIndex) := vector(sourceIndex);
+                destinationIndex := destinationIndex + 1;
+                sourceIndex := sourceIndex + 1;
+            end loop;
+
+            if stickyBit = '1' then
+                while sourceIndex <= vector'left loop
+                    sticky := sticky or vector(sourceIndex);
+                    sourceIndex := sourceIndex + 1;
+                end loop;
+                result(destinationIndex-1) := sticky or result(destinationIndex-1);
+            end if;
+        else
+            sourceIndex := vector'left;
+            destinationIndex := sourceIndex - count;
+            
+            while destinationIndex >= vector'right loop
+                result(destinationIndex) := vector(sourceIndex);
+                destinationIndex := destinationIndex - 1;
+                sourceIndex := sourceIndex - 1;
+            end loop;
+
+            if stickyBit = '1' then
+                while sourceIndex >= vector'right loop
+                    sticky := sticky or vector(sourceIndex);
+                    sourceIndex := sourceIndex - 1;
+                end loop;
+                result(destinationIndex+1) := sticky or result(destinationIndex+1);
+            end if;
+        end if;
+        return result;
+    end shift;
+
+    -- computes difference of two std_logic_vector (treated as unsigned values) unsigned values, send first parameter as larger value, and second as smaller value
+    function bitDiff(a, b: std_logic_vector)
+        return std_logic_vector is
+
+        variable zero: std_logic_vector(a'range):= (others => '0');
+        variable i: integer:= a'right;
+        variable carryIndex: integer;
+        variable big: std_logic_vector(a'range) := a;
+        variable small: std_logic_vector(b'range) := b;
+        variable result: std_logic_vector(a'range):= (others => '0');
+    begin
+        if a = zero then -- cannot subtract from unsigned 0
+            return a;
+        end if;
+                        while i <= a'left loop
+            if big(i) = '1' and small(i)='1' then -- 1,1
+                result(i) := '0';
+            elsif big(i) = '0' and small(i) = '0' then
+                result(i) := '0';
+            elsif big(i) = '1' and small(i) = '0' then  -- 1,0
+                result(i) := '1';
+            elsif big(i) = '0' and small(i) = '1' then  -- 0,1
+                result(i) := '1';
+                -- carry in values from big i + 1
+                carryIndex := i+1;
+                    -- find 1 in big to carry from, toggling bits as we go
+                while big(carryIndex) = '0' loop
+                    if small(carryIndex) = '1' then
+                        small(carryIndex) := '0'; -- 'subtract
+                    else
+                        big(carryIndex) := '1';
+                    end if;
+                    carryIndex := carryIndex + 1;
+                end loop;
+                -- big(carryIndex) = '1'
+                big(carryIndex) := '0';
+            end if;
+            i := i+1;
+        end loop;
+
+        return result;
+    end bitDiff;
+
+    function fpSub(a, b: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+        variable bNeg: std_logic_vector(31 downto 0);
+    begin
+        bNeg := (31 => not b(31), 30 downto 0 => b(30 downto 0));
+        return fpadd(a, bNeg);
+    end fpSub;
+
+    function round(a: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+            variable offset : std_logic_vector(7 downto 0);
+            variable bias: std_logic_vector(7 downto 0):= "01111111";
+            variable GRS: std_logic_vector(2 downto 0);
+            variable i: integer:= 7;
+            variable fracIndex: integer;
+            variable exponent:std_ogic_vector(7 downto 0);
+        begin
+            exponent := a(30 downto 23);
+            while i >= 0 and exponent(i) = bias(i) loop
+                i: i-1;
+            end loop;
+
+            if i = -1 then
+                offset := 0;
+                GRS := a(22 downto 20);
+            elsif exponent(i) = '1' then
+                offset = bitDiff(exponent, bias);
+                fracIndex := to_integer(unsigned(offset);)
+            else
+                -- offset is negative, number is less than 1
+
+            end if;
+
+            
+        end round;
+
+    function min(a,b: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+            variable i: integer:= a'left;
+        begin
+            while i >= a'right and a(i) = b(i) loop
+                i: i-1;
+            end loop;
+
+            if a(i) = '0' then
+                return a;
+            else
+                return b;
+            end if;
+        end min;
+
+    function max(a,b: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+            variable i: integer:= a'left;
+        begin
+            while i >= a'right and a(i) = b(i) loop
+                i: i-1;
+            end loop;
+
+            if a(i) = '1' then
+                return a;
+            else
+                return b;
+            end if;
+        end max;
 
     function absolute(A:std_logic_vector(31 downto 0))
         return std_logic_vector is
@@ -70,7 +444,7 @@ package body Math is
     begin
         C(31):= '0';
         C(30 downto 0) := a(30 downto 0);
-            return C;    
+        return C;    
     end absolute;
     
      function neg(A: std_logic_vector(31 downto 0))
@@ -81,6 +455,59 @@ package body Math is
         C(30 downto 0) := a(30 downto 0);
         return C;   
     end neg;
+    
+    -- All because ints are too small :'(
+    function realToUnsigned(r: real; bitLength: integer)
+    return unsigned is
+        variable num: real;
+        variable remainder: real;
+        variable i: integer;
+        variable u: unsigned(bitLength-1 downto 0):= (others => '0');
+    begin
+        num := trunc(r);
+        if num < 0.0 then
+            num := -num;
+        end if;
+        i := 0;
+        while(i < u'length and num > 0.0) loop
+            num := num / 2.0;
+            remainder := num - trunc(num);
+            num := trunc(num);
+            if remainder > 0.0 then
+                u(i) := '1';
+            else
+                u(i) := '0';
+            end if;
+            i := i + 1;
+        end loop;
+        return u;
+    end realToUnsigned;
+    
+    function realFractionToStdLogicVector(r: real; bitLength: integer)
+    return std_logic_vector is
+        variable fracVector: std_logic_vector(bitLength-1 downto 0):= (others => '0');
+        variable i: integer;
+        variable d: real:= r;
+    begin
+        if d < 0.0 then
+            d := -d;
+        end if;
+        d := d - trunc(d);
+        
+        i := fracVector'length-1;
+        while not (d = 0.0) and i >= 0 loop
+            if d*2.0 >= 1.0 then
+                fracVector(i) := '1';
+                d := (d * 2.0) - 1.0;
+            else
+                fracVector(i) := '0';
+                d := d * 2.0;
+            end if;
+            i := i - 1;
+        end loop;
+        return fracVector;
+    end realFractionToStdLogicVector;
+        
 
     function FpToDec (Fp: std_logic_vector(31 downto 0))
         return real is
@@ -137,9 +564,15 @@ package body Math is
         sign := '0';
     end if;
 
-
-        
-    end DecToFp;
+    if not (firstIntIndex = -1) then
+        shiftAmount := firstIntIndex;
+    else
+        shiftAmount := firstFracIndex-fracVector'length;
+    end if;
+    
+    if shiftAmount <= -127 then
+        denormalized := true;
+    end if;
 
 
 function power(A,B: std_logic_vector(31 downto 0))
@@ -154,8 +587,24 @@ function power(A,B: std_logic_vector(31 downto 0))
            return C;
     end power;
     
-function expo(A: std_logic_vector(31 downto 0))
-            return real is
+    function mul (a, b: std_logic_vector (31 downto 0))
+    return std_logic_vector is
+        variable c: std_logic_vector;
+        begin
+        c := std_logic_vector (signed(a) * signed(b));
+        return c;
+     end mul;
+     
+     function div (a, b: std_logic_vector (31 downto 0))
+     return std_logic_vector is
+        variable c: std_logic_vector;
+        begin
+        c := std_logic_vector (signed(a) / signed(b));
+        return c;
+     end div;
+        
+    function power(A,B: std_logic_vector(31 downto 0))
+            return real is 
             variable C: real;
             variable A_real: real;
             variable Euler_num: real;

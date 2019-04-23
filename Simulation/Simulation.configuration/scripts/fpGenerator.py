@@ -5,13 +5,18 @@ scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
 
-fpFile = open(f'{configPath}/InputFiles/fpValues.txt', 'r')
+fpFile = open(f'{configPath}/InputFiles/fpValues.txt', 'w')
 
-
+lastExponent = 127
 bitVectors = []
-for _ in range (25000):
-    binaryString = [str(r.randint(0,1)) for _ in range(32)]
-    bitVectors.append(''.join(binaryString))
+for i in range (100000):
+    sign = str(r.randint(0,1))
+    exponent = ''.join((str(r.randint(0,1)) for _ in range(8)))
+    lastExponent = exponent
+    mantissa = ''.join((str(r.randint(0,1)) for _ in range(23)))
+
+    binaryString = ''.join([sign,exponent,mantissa])
+    bitVectors.append(binaryString)
 
 #bitVectors.sort()
 for bitVector in bitVectors:

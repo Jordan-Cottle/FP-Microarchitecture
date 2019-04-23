@@ -1,6 +1,6 @@
 TODO
 -- Get ALU Math functions completed
--Add * -Jordan
+-Add * -Jordan**
 -Sub * -Jordan
 -Neg * -Harshil(1)
 -Muls - Michael

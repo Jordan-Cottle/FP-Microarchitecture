@@ -30,10 +30,10 @@ end shift_tb;
 architecture Behavioral of shift_tb is
 
 signal baseVector: std_logic_vector(22 downto 0) := std_logic_vector'("10000000000100000000001");
-signal leftNormalizedResult : std_logic_vector(baseVector'range);
-signal rightNormalizedResult: std_logic_vector(baseVector'range);
-signal leftDenormalizedResult : std_logic_vector(baseVector'range);
-signal rightDenormalizedResult: std_logic_vector(baseVector'range);
+signal leftNormalResult : std_logic_vector(baseVector'range);
+signal rightNormalResult: std_logic_vector(baseVector'range);
+signal leftStickyResult : std_logic_vector(baseVector'range);
+signal rightStickyResult: std_logic_vector(baseVector'range);
 
 signal step: integer;
 begin
@@ -48,17 +48,17 @@ begin
     
     while count < baseVector'length loop
         step <= count;
-        shiftedVector := shift(baseVector, count, '1', '1');
-        leftNormalizedResult <= shiftedVector;
-        
-        shiftedVector := shift(baseVector, count, '0', '1');
-        rightNormalizedResult <= shiftedVector;
-
         shiftedVector := shift(baseVector, count, '1', '0');
-        leftDenormalizedResult <= shiftedVector;
+        leftNormalResult <= shiftedVector;
         
         shiftedVector := shift(baseVector, count, '0', '0');
-        rightDenormalizedResult <= shiftedVector;
+        rightNormalResult <= shiftedVector;
+
+        shiftedVector := shift(baseVector, count, '1', '1');
+        leftStickyResult <= shiftedVector;
+        
+        shiftedVector := shift(baseVector, count, '0', '1');
+        rightStickyResult <= shiftedVector;
         wait for 20ns;
         
         count := count + 1;

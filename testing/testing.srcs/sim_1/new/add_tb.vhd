@@ -13,7 +13,11 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 library Sim;
-use Sim.math.fpadd;
+use Sim.math.all;
+use Sim.constants.all;
+
+use IEEE.math_real.all;
+use std.textio.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -29,21 +33,106 @@ entity add_tb is
 end add_tb;
 
 architecture Behavioral of add_tb is
-    signal a: std_logic_vector(31 downto 0);
-    signal b: std_logic_vector(31 downto 0);
-    signal c: std_logic_vector(31 downto 0);
+    signal a : std_logic_vector(31 downto 0);
+    signal b : std_logic_vector(31 downto 0);
+    signal result: std_logic_vector(31 downto 0);
+    file inputFile: text;
+    file resultsOutputFile: text;
+    file expectedResultsFile: text;
 begin
+
     process
-        variable aVec: std_logic_vector(31 downto 0);
-        variable bVec: std_logic_vector(31 downto 0);
-        variable cVec: std_logic_vector(31 downto 0);
+        variable aVar : std_logic_vector(31 downto 0);
+        variable bVar : std_logic_vector(31 downto 0);
+        variable resultVar: std_logic_vector(31 downto 0);
+        variable lineIn: line;
+        variable lineOut: line;
+        variable str: string(1 to 32);
+
+        variable aReal: real;
+        variable bReal: real;
+        variable resultReal: real;
+        variable answerVec: std_logic_vector(31 downto 0);
     begin
-        aVec := "00111111100000000000000000000000";
-        a <= aVec;
-        bVec := "00111111100000000000000000000000";
-        b <= bVec;
-        cVec := fpAdd(aVec,bVec);
-        c <= cVec;
+        file_open(inputFile, inputFolderPath & "fpValues.txt", read_mode);
+        file_open(resultsOutputFile, outputFolderPath & "addResults.txt", write_mode);
+        file_open(expectedResultsFile, outputFolderPath & "addAnswerKey.txt", write_mode);
+
+        while not endfile(inputFile) loop
+            -- read a
+            readline(inputFile, lineIn);
+            read(lineIn, str);
+            -- pull bits from line into vector
+            for index in 1 to 32 loop
+                if str(index) = '1' then
+                    aVar(32-index) := '1';
+                else
+                    aVar(32-index) := '0';
+                end if;
+            end loop;
+
+            -- read b
+            readline(inputFile, lineIn);
+            read(lineIn, str);
+            -- pull bits from line into vector
+            for index in 1 to 32 loop
+                if str(index) = '1' then
+                    bVar(32-index) := '1';
+                else
+                    bVar(32-index) := '0';
+                end if;
+            end loop;
+            
+            if aVar = "10000000000001000101110000110111" then
+                report "Found it";
+            end if;
+            
+            resultVar := fpAdd(aVar, bVar);
+
+            a <= aVar;
+            b <= bVar;
+            result <= resultVar;
+            
+            -- write fp vector into str for writing into output file
+            for i in str'range loop
+                if resultVar(32-i) = '1' then
+                    str(i) := '1';
+                else
+                    str(i) := '0';
+                end if;
+            end loop;
+            
+            write(lineOut, str);
+            writeLine(resultsOutputFile, lineOut);
+
+            aReal := fpToDec(aVar);
+            bReal := fpToDec(bVar);
+            resultReal:= aReal + bReal;
+            answerVec:= decToFp(resultReal);
+            
+            if not (answerVec = resultVar) then
+                report "Wrong answer!";
+                resultVar := fpAdd(aVar, bVar);
+            end if;
+
+            -- write fp vector into str for writing into output file
+            for i in str'range loop
+                if answerVec(32-i) = '1' then
+                    str(i) := '1';
+                else
+                    str(i) := '0';
+                end if;
+            end loop;
+
+            write(lineOut, str);
+            writeLine(expectedResultsFile, lineOut);
+
+            wait for 20ns;
+        end loop;
+
+        file_close(inputFile);
+        file_close(resultsOutputFile);
+        file_close(expectedResultsFile);
         wait;
     end process;
 end Behavioral;
