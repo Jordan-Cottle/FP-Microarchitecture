@@ -16,6 +16,7 @@ scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
 
+sourceFile = open(f'{configPath}/InputFiles/fpValues.txt', 'r')
 resultsFile = open(f'{configPath}/OutputFiles/addResults.txt', 'r')
 answerKey = open(f'{configPath}/OutputFiles/addAnswerKey.txt', 'r')
 testResults = open(f'{configPath}/OutputFiles/fpAddResults.txt', 'w')
@@ -26,6 +27,9 @@ answers = answerKey.readlines()
 successCount = 0
 failCount = 0
 for i in range(1,len(results)+1):
+    a = sourceFile.readline()
+    b = sourceFile.readline()
+
     result = results[i-1][0:32]
     answer = answers[i-1][0:32]
 
@@ -34,7 +38,9 @@ for i in range(1,len(results)+1):
             print(f'{i}: Rounding error', file=testResults)
             successCount += 1
         else:
-            print(f'{i}: \n{answer}\n{result}')
+            print("Case", i)
+            print(a[0:32], " +\n", b[0:32], ' =', sep = '')
+            print(f'{answer} but got\n{result}')
             print(f'{i}: Fail',file=testResults)
             failCount += 1
         #print('Failed on test', i+1)
@@ -46,6 +52,7 @@ for i in range(1,len(results)+1):
 print(f'Success: {successCount}')
 print(f'Fail: {failCount}')
 
+sourceFile.close()
 resultsFile.close()
 answerKey.close()
 testResults.close()
