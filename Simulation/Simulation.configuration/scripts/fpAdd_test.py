@@ -38,11 +38,13 @@ for i in range(1,len(results)+1):
             print(f'{i}: Rounding error', file=testResults)
             successCount += 1
         else:
-            print("Case", i)
-            print(a[0:32], " +\n", b[0:32], ' =', sep = '')
-            print(f'{answer} but got\n{result}')
+            if failCount < 25:
+                print("Case", i)
+                print(a[0:32], " +\n", b[0:32], ' =', sep = '')
+                print(f'{answer} but got\n{result}')
             print(f'{i}: Fail',file=testResults)
             failCount += 1
+        
         #print('Failed on test', i+1)
     else:
         print(f'{i}: Success',file=testResults)
