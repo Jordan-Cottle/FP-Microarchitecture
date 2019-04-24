@@ -82,8 +82,6 @@ package body Math is
         alias smallerMantissa is smaller(22 downto 0); -- 23 bits for mantissa (1.~23bits~)
         
         variable i: integer;
-        variable aIsGreater: std_logic;
-        variable exponentsSame: std_logic;
         variable exponentDiff: std_logic_vector(7 downto 0) := (others => '0');
         variable finalExponent: std_logic_vector(7 downto 0) := (others => '0');
         variable stableMantissa: std_logic_vector(26 downto 0) := (others => '0'); -- include implied 1 -- + 3 grs bits to match size of shifted mantissa
@@ -114,8 +112,6 @@ package body Math is
         
         -- determine larger vector
         if i = aExponent'right-1 then
-            exponentsSame := '1';
-            
             -- compute greater based on mantissa bits
             i := aMantissa'left;
             while i >= aMantissa'right and ((aMantissa(i) xnor bMantissa(i)) ='1') loop
@@ -130,7 +126,6 @@ package body Math is
                 smaller:= a;
             end if;
         else
-            exponentsSame := '0';
             if aExponent(i) = '1' then
                 greater := a;
                 smaller := b;
@@ -191,17 +186,36 @@ package body Math is
         end if; 
         
         -- normalize value
-        if additionResult(27) = '1' then -- shift right by one
+        -- locate first one
+        i := 27;
+        while additionResult(i) = '0' loop
+            i := i - 1;
+        end loop;
+        
+        if i = 27 then -- shift right by one
             additionResult := shift(additionResult, 1, '0', '1');
             finalExponent := bitAdd(finalExponent, one)(7 downto 0); -- ignore extra bit returned
-        elsif additionResult(26) = '0' and not(finalExponent = "00000000") then -- don't shift left for denormalized values
-            while additionResult(26) = '0' loop -- shift left until one is found in 
-                additionResult := shift(additionResult, 1, '1', '0');
-                finalExponent := bitDiff(finalExponent, one);
-            end loop;
-        elsif additionResult(26) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
+        elsif 26-i < to_integer(unsigned(finalExponent)) then
+            additionResult := shift(additionResult, 26-i, '1', '0');
+            finalExponent := bitDiff(finalExponent, std_logic_vector(to_unsigned(26-i, 8)));
+        elsif i = 26 and finalExponent = "00000000" then
             finalExponent := "00000001";
+        else -- shift would set exponent into negative
+            finalExponent := "00000000";
+            --additionResult := shift(additionResult, to_integer(unsigned(exponentDiff)), '1', '0');
+            -- Shift up to lesser exponent to make 0             
         end if;
+        
+--        if i = 27 then
+--            report "pass";
+--        elsif additionResult(26) = '0' and not(finalExponent = "00000000") then -- don't shift left for denormalized values
+--            while additionResult(26) = '0' and not(finalExponent = "00000000") loop -- shift left until one is found in exponent or value is denormalized
+--                additionResult := shift(additionResult, 1, '1', '0');
+--                finalExponent := bitDiff(finalExponent, one);
+--            end loop;
+--        elsif additionResult(26) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
+--            finalExponent := "00000001";
+--        end if;
         
         if G='0' and R='0' and S='0' then
             report "No rounding necessary";
@@ -218,14 +232,8 @@ package body Math is
             -- else, truncate to round down
             end if;
         end if;
-            
-        -- normalize again
-        if additionResult(27) = '1' then -- shift right by one
-            additionResult := shift(additionResult, 1, '0', '1');
-            finalExponent := bitAdd(finalExponent, one)(7 downto 0); -- ignore extra bit returned
-        elsif additionResult(26) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
-            finalExponent := "00000001";
-        end if;
+        
+        
 
         resultMantissa := additionResult(25 downto 3);
         resultExponent := finalExponent;
@@ -236,6 +244,36 @@ package body Math is
         
         return result;
     end fpAdd;
+    
+    function normalize(exponent: std_logic_vector(7 downto 0); mantissa: std_logic_vector(27 downto 0))
+    return std_logic_vector is
+    
+    variable exp: std_logic_vector(7 downto 0);
+    variable man: std_logic_vector(27 downto 0);
+    variable i: integer;
+    begin
+        exp := exponent;
+        man := mantissa;
+    
+        i := mantissa'left;
+        while man(i) = '0' loop
+            i := i - 1;
+        end loop;
+        -- normalize again
+        if i = 27 then -- shift right by one
+            man := shift(man, 1, '0', '1');
+            exp := bitAdd(exp, one(8))(7 downto 0); -- ignore extra bit returned
+        elsif 26-i < to_integer(unsigned(exp)) then
+            man := shift(man, 26-i, '1', '0');
+            exp := bitDiff(exp, std_logic_vector(to_unsigned(26-i, 8)));
+        elsif i = 26 and exp = zero(8) then
+            exp := one(8);
+        else -- shift would set exponent into negative
+            exp := zero(8);
+            --additionResult := shift(additionResult, to_integer(unsigned(exponentDiff)), '1', '0');
+            -- Shift up to lesser exponent to make 0             
+        end if;
+    end normalize;
     
     -- performs two's compliment operation on a std_logic_vector
     function twosCompliment(vector: std_logic_vector)

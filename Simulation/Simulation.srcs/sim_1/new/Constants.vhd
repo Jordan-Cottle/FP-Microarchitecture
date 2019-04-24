@@ -27,8 +27,24 @@ package Constants is
     constant outputFolderPath: string := configurationPath & "OutputFiles\";
     constant maxValue: real := 3.4028235 * (10.0**38);
     constant minValue: real := maxValue * (-1.0);
+    
+    function one(length: integer) return std_logic_vector;
+    function zero(length: integer) return std_logic_vector;
 end Constants;
 
 package body Constants is
+
+function one(length: integer) return std_logic_vector is
+    variable oneVector : std_logic_vector(length-1 downto 0) := (others => '0');
+begin
+    oneVector(oneVector'right) := '1';
+    return oneVector;
+end one;
+
+function zero(length: integer) return std_logic_vector is
+    variable zeroVector : std_logic_vector(length-1 downto 0) := (others => '0');
+begin
+    return zeroVector;
+end zero;
     
 end Constants;
