@@ -9,7 +9,7 @@ fpFile = open(f'{configPath}/InputFiles/fpValues.txt', 'w')
 
 lastExponent = 127
 bitVectors = []
-for i in range (100000):
+for i in range (500000):
     sign = str(r.randint(0,1))
     exponent = ''.join((str(r.randint(0,1)) for _ in range(8)))
     lastExponent = exponent
