@@ -146,7 +146,9 @@ package body Math is
         
         -- If infinity is involved in the calculation, the result is also infinity
         if finalExponent = "11111111" then
-            if resultSign = '0' then
+            if exponentDiff = zero(8) and not(aSign = bSign) then -- + inifnity - infinity = 0
+                return zero(32);
+            elsif resultSign = '0' then
                 return "01111111100000000000000000000000";
             else
                 return "11111111100000000000000000000000";
