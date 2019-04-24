@@ -61,8 +61,32 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/../Simulation/Simulation.srcs/sim_1/new/Constants.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="Sim"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../Simulation/Simulation.srcs/sim_1/new/Math.vhd">
         <FileInfo>
+          <Attr Name="Library" Val="Sim"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Simulation/Simulation.srcs/sources_1/new/Components.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="Sim"/>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Simulation/Simulation.srcs/sources_1/new/Conversions.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="Sim"/>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
