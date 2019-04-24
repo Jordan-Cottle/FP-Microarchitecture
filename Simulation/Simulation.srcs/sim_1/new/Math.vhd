@@ -10,6 +10,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.math_real.all;
 
+library Sim;
+use Sim.constants.all;
+
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
@@ -51,7 +54,7 @@ package Math is
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
         return real;
-    function expo(A: std_logic_vector(31 downto 0))
+    function expo(A,B: std_logic_vector(31 downto 0))
         return real;
     function sqrt(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
