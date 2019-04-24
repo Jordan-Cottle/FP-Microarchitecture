@@ -145,7 +145,7 @@ package body Math is
         exponentDiff := bitDiff(greaterExponent, smallerExponent);
         -- use -126 instead of -127 for exponent of "00000000"
         if smallerExponent = "00000000" and not(greaterExponent = "00000000") then
-            exponentDiff := bitDiff(exponentDiff, one);
+            exponentDiff := bitDiff(finalExponent, one);
         end if;
         resultSign := greaterSign;
         
@@ -348,7 +348,7 @@ package body Math is
         if a = zero then -- cannot subtract from unsigned 0
             return a;
         end if;
-                        while i <= a'left loop
+        while i <= a'left loop
             if big(i) = '1' and small(i)='1' then -- 1,1
                 result(i) := '0';
             elsif big(i) = '0' and small(i) = '0' then
