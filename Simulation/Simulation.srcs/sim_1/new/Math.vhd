@@ -200,40 +200,28 @@ package body Math is
             finalExponent := bitDiff(finalExponent, std_logic_vector(to_unsigned(26-i, 8)));
         elsif i = 26 and finalExponent = "00000000" then
             finalExponent := "00000001";
-        else -- shift would set exponent into negative
-            finalExponent := "00000000";
-            --additionResult := shift(additionResult, to_integer(unsigned(exponentDiff)), '1', '0');
-            -- Shift up to lesser exponent to make 0             
+        elsif not (finalExponent = zero(8)) then -- shift would set exponent into negative
+            additionResult := shift(additionResult, to_integer(unsigned(finalExponent)) - 1, '1', '0');
+            finalExponent := "00000000";   
         end if;
         
---        if i = 27 then
---            report "pass";
---        elsif additionResult(26) = '0' and not(finalExponent = "00000000") then -- don't shift left for denormalized values
---            while additionResult(26) = '0' and not(finalExponent = "00000000") loop -- shift left until one is found in exponent or value is denormalized
---                additionResult := shift(additionResult, 1, '1', '0');
---                finalExponent := bitDiff(finalExponent, one);
---            end loop;
---        elsif additionResult(26) = '1' and finalExponent = "00000000" then -- going from denormalize value to normalized value
---            finalExponent := "00000001";
---        end if;
-        
         if G='0' and R='0' and S='0' then
-            report "No rounding necessary";
+            --report "No rounding necessary";
         elsif G = '0' then
-            report "Round down";
+            --report "Round down";
             -- do nothing to 'truncate' and round down
         else -- G = '1'
             if R = '1' or S = '1' then  -- GRS = "110", "101", "111"
-                report "Round up!";
+                --report "Round up!";
                 additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
             elsif LSB = '1' then -- GRS = "100"
-                report "Tie, round up!";
+                --report "Tie, round up!";
                 additionResult(27 downto 3) := bitAdd(additionResult(26 downto 3), mantiOne);
             -- else, truncate to round down
             end if;
         end if;
         
-        
+        -- renormalize value
 
         resultMantissa := additionResult(25 downto 3);
         resultExponent := finalExponent;
@@ -269,9 +257,7 @@ package body Math is
         elsif i = 26 and exp = zero(8) then
             exp := one(8);
         else -- shift would set exponent into negative
-            exp := zero(8);
-            --additionResult := shift(additionResult, to_integer(unsigned(exponentDiff)), '1', '0');
-            -- Shift up to lesser exponent to make 0             
+            exp := zero(8);           
         end if;
     end normalize;
     
