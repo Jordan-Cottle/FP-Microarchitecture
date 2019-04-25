@@ -1,21 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Engineer: Jordan Cottle
 -- 
 -- Create Date: 04/24/2019 06:07:46 PM
--- Design Name: 
 -- Module Name: fpSub_tb - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
+-- Description: test bench for fpSub function
 -- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Dependencies: Math.vhd
 ----------------------------------------------------------------------------------
 
 
