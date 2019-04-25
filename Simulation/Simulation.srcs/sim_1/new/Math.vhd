@@ -32,9 +32,9 @@ package Math is
         return std_logic_vector;
     function round(a: std_logic_vector(31 downto 0))
         return std_logic_vector;
-    function min(a,b: std_logic_vector)
+    function min(a,b: std_logic_vector; ignoreMSB: std_logic)
         return std_logic_vector;
-    function max(a,b: std_logic_vector)
+    function max(a,b: std_logic_vector; ignoreMSB: std_logic)
         return std_logic_vector;
     function absolute(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
@@ -104,8 +104,8 @@ package body Math is
 
     begin
         -- find greater value ignoring sign bit
-        greater := max(absolute(a),absolute(b));
-        smaller := min(absolute(a),absolute(b));
+        greater := max(a, b, '1');
+        smaller := min(a, b, '1');
         
         -- compute difference in exponent and sign bit
         finalExponent := greaterExponent;
@@ -412,13 +412,20 @@ package body Math is
             
         end round;
 
-    function min(a,b: std_logic_vector)
+    function min(a,b: std_logic_vector; ignoreMSB: std_logic)
         return std_logic_vector is
             variable i: integer:= a'left;
         begin
+            if ignoreMSB = '1' then
+                i := i-1;
+            end if;
             while i >= a'right and a(i) = b(i) loop
                 i:= i-1;
             end loop;
+            
+            if i = -1 then
+                return a;
+            end if;
 
             if a(i) = '0' then
                 return a;
@@ -427,13 +434,20 @@ package body Math is
             end if;
         end min;
 
-    function max(a,b: std_logic_vector)
+    function max(a,b: std_logic_vector; ignoreMSB: std_logic)
         return std_logic_vector is
             variable i: integer:= a'left;
         begin
+            if ignoreMSB = '1' then
+                i := i-1;
+            end if;
             while i >= a'right and a(i) = b(i) loop
                 i:= i-1;
             end loop;
+            
+            if i = -1 then
+                return a;
+            end if;
 
             if a(i) = '1' then
                 return a;
