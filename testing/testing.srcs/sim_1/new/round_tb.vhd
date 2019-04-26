@@ -46,7 +46,7 @@ begin
         variable aVar : std_logic_vector(31 downto 0);
         variable resultVar: std_logic_vector(31 downto 0);
     begin
-        aR := -8.5;
+        aR := 6.5;
         while aR <= 10.0 loop
             aVar := decToFp(aR);
             resultVar := round(aVar);
