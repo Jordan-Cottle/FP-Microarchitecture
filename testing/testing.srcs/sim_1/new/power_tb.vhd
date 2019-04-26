@@ -21,7 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.math.power;
+library Sim;
+use Sim.math.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -39,11 +40,11 @@ end power_tb;
 architecture Behavioral of power_tb is
 signal A: std_logic_vector(31 downto 0);
 signal B: std_logic_vector(31 downto 0);
-signal C: real;
+signal C: std_logic_vector(a'range);
 begin
 
     A <= "01000000000000000000000000000000";
     B <= "01000000010000000000000000000000"; 
-    C <= power(A,B);
+    C <= (power(A,B));
      
 end Behavioral;

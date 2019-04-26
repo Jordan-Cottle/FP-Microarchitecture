@@ -53,9 +53,9 @@ package Math is
     function div (a, b: std_logic_vector (31 downto 0))
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
-        return real;
-    function expo(A,B: std_logic_vector(31 downto 0))
-        return real;
+        return std_logic_vector;
+    function expo(A: std_logic_vector(31 downto 0))
+        return std_logic_vector;
     function sqrt(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
 end Math;
@@ -720,14 +720,14 @@ package body Math is
     end DecToFp;
 
     function power(A,B: std_logic_vector(31 downto 0))
-            return real is 
-            variable C: real;
+            return std_logic_vector is 
+            variable C: std_logic_vector(a'range);
             variable A_real: real;
             variable B_real: real;
         begin
                A_real := FptoDec(A);
                B_real := FptoDec(B);
-               C := A_real ** B_real;
+               C := DectoFp( A_real ** B_real);
                return C;
         end power;
     
@@ -747,29 +747,25 @@ package body Math is
         return c;
      end div;
         
-    function expo(A,B: std_logic_vector(31 downto 0))
-            return real is 
-            variable C: real;
+    function expo(A: std_logic_vector(31 downto 0))
+            return std_logic_vector is 
+            variable C: std_logic_vector(a'range);
             variable A_real: real;
             variable Euler_num: real;
     begin
             A_real := FptoDec(A);
             Euler_num := 2.718281828459;
-            C := Euler_num ** A_real;
+            C := DecToFp(Euler_num ** A_real);
             return C;
     end expo;        
             
 function sqrt(A: std_logic_vector(31 downto 0))
                 return std_logic_vector is
-                variable bufer: real;
                 variable A_real: real;
-                variable sqrt_pow: real;
-                variable C: std_logic_vector;
+                variable C: std_logic_vector(a'range);
         begin
                 A_real := FptoDec(A);
-                sqrt_pow := 0.5;
-                bufer := A_real ** sqrt_pow ;
-                C := DecToFp(bufer);
+                C := DecToFp(A_real ** 0.5);
                 return C;
         end sqrt;            
 end Math;    
