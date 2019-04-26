@@ -30,9 +30,12 @@ end minMax_tb;
 
 architecture Behavioral of minMax_tb is
     signal a: std_logic_vector(7 downto 0);
-    signal b: std_logic_vector(7 downto 0);
+    signal b: std_logic_vector(a'range);
     signal max: std_logic_vector(a'range);
     signal min: std_logic_vector(a'range);
+    
+    signal maxSansMsb: std_logic_vector(a'range);
+    signal minSansMsb: std_logic_vector(a'range);
 begin
 
     process
@@ -52,6 +55,10 @@ begin
                 max <= result;
                 result := math.min(aVec, bVec, '0');
                 min <= result;
+                result := math.max(aVec, bVec, '1');
+                maxSansMsb <= result;
+                result := math.min(aVec, bVec, '1');
+                minSansMsb <= result;
                 wait for 20ns;
             end loop;
             count := count + 1;
