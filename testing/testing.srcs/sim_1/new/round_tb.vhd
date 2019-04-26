@@ -15,6 +15,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 library Sim;
 use Sim.math.round;
 use Sim.math.fpToDec;
+use Sim.math.decToFp;
 use sim.constants.all;
 
 use std.textio.all;
@@ -38,37 +39,16 @@ architecture Behavioral of round_tb is
     signal aReal : real;
     signal result: std_logic_vector(31 downto 0);
     signal realResult: real;
-    file inputFile: text;
-    file resultsOutputFile: text;
 begin
 
     process
+        variable aR: real;
         variable aVar : std_logic_vector(31 downto 0);
-        variable bVar : std_logic_vector(31 downto 0);
         variable resultVar: std_logic_vector(31 downto 0);
-        variable lineIn: line;
-        variable lineOut: line;
-        variable str: string(1 to 32);
-
-        variable resultReal: real;
-        variable answerVec: std_logic_vector(31 downto 0);
     begin
-        file_open(inputFile, inputFolderPath & "fpValues.txt", read_mode);
-        file_open(resultsOutputFile, outputFolderPath & "roundResults.txt", write_mode);
-
-        while not endfile(inputFile) loop
-            -- read a
-            readline(inputFile, lineIn);
-            read(lineIn, str);
-            -- pull bits from line into vector
-            for index in 1 to 32 loop
-                if str(index) = '1' then
-                    aVar(32-index) := '1';
-                else
-                    aVar(32-index) := '0';
-                end if;
-            end loop;
-            
+        aR := -8.5;
+        while aR <= 10.0 loop
+            aVar := decToFp(aR);
             resultVar := round(aVar);
 
             a <= aVar;
@@ -76,23 +56,9 @@ begin
             result <= resultVar;
             realResult <= fpToDec(resultVar);
             
-            -- write fp vector into str for writing into output file
-            for i in str'range loop
-                if resultVar(32-i) = '1' then
-                    str(i) := '1';
-                else
-                    str(i) := '0';
-                end if;
-            end loop;
-            
-            write(lineOut, str);
-            writeLine(resultsOutputFile, lineOut);
-
+            aR := aR + 0.03125; -- 1/32
             wait for 20ns;
         end loop;
-
-        file_close(inputFile);
-        file_close(resultsOutputFile);
         wait;
     end process;
 end Behavioral;
