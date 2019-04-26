@@ -388,27 +388,33 @@ package body Math is
         return std_logic_vector is
             variable offset : std_logic_vector(7 downto 0);
             variable bias: std_logic_vector(7 downto 0):= "01111111";
-            variable GRS: std_logic_vector(2 downto 0);
+            variable half: std_logic;
+            variable sticky: std_logic;
             variable i: integer:= 7;
             variable fracIndex: integer;
             variable exponent:std_logic_vector(7 downto 0);
+            variable result: std_logic_vector(a'range);
+            variable mantissa: std_logic_vector(23 downto 0); -- 24 bits (1).(23 bits)
         begin
+            result := a;
             exponent := a(30 downto 23);
-            while i >= 0 and exponent(i) = bias(i) loop
-                i:= i-1;
-            end loop;
-
-            if i = -1 then
-                offset := "00000000";
-                GRS := a(22 downto 20);
-            elsif exponent(i) = '1' then
+            mantissa(23) := '1'; -- denormalized values all round to 0, assume leading bit is 1
+            mantissa(22 downto 0) := a(22 downto 0);
+            if exponent(exponent'left) = '1' or exponent = bias then -- exponent >= bias
                 offset := bitDiff(exponent, bias);
-                fracIndex := to_integer(unsigned(offset));
-            else
-                -- offset is negative, number is less than 1
-
+                fracIndex := 22 - to_integer(unsigned(offset));
+                if fracIndex < 0 then -- a has no fractional bits (large number)
+                    return a;
+                end if;
+            else -- mantissa is all fractional bits
+                -- TODO locate 2^(-1) (.5)
+                -- TODO Compute sticky bit (round 2^-2 -> a'right)
+                -- TODO 
             end if;
 
+            half := mantissa(fracIndex);
+
+            -- or remaining bits to compute sticky bit
             
         end round;
 
