@@ -443,12 +443,8 @@ package body Math is
                 result(22 downto 0) := mantissa(22 downto 0);
                 return result;
             end if;
-        elsif (half and sticky) = '1' then -- round up
+        elsif half = '1' and (mantissa(fracIndex+1) = '1' or sticky = '1') then -- round up
             mantissaAdd := bitAdd(mantissa, upVector);
-        elsif half = '1' then-- round to even
-            if mantissa(fracIndex+1) = '1' then
-                mantissaAdd := bitAdd(mantissa, upVector);
-            end if;
         else -- round down 
             result(22 downto 0) := mantissa(22 downto 0);
             return result;
