@@ -385,76 +385,129 @@ package body Math is
     end fpSub;
 
     function round(a: std_logic_vector(31 downto 0))
-        return std_logic_vector is
-            variable offset : std_logic_vector(7 downto 0);
-            variable bias: std_logic_vector(7 downto 0):= "01111111";
-            variable GRS: std_logic_vector(2 downto 0);
-            variable i: integer:= 7;
-            variable fracIndex: integer;
-            variable exponent:std_logic_vector(7 downto 0);
-        begin
-            exponent := a(30 downto 23);
-            while i >= 0 and exponent(i) = bias(i) loop
-                i:= i-1;
-            end loop;
-
-            if i = -1 then
-                offset := "00000000";
-                GRS := a(22 downto 20);
-            elsif exponent(i) = '1' then
-                offset := bitDiff(exponent, bias);
-                fracIndex := to_integer(unsigned(offset));
-            else
-                -- offset is negative, number is less than 1
-
+    return std_logic_vector is
+        variable offset : std_logic_vector(7 downto 0);
+        variable bias: std_logic_vector(7 downto 0):= "01111111";
+        variable half: std_logic;
+        variable sticky: std_logic;
+        variable i: integer;
+        variable fracIndex: integer;
+        variable exponent:std_logic_vector(7 downto 0);
+        variable result: std_logic_vector(a'range);
+        variable mantissa: std_logic_vector(23 downto 0); -- 24 bits (1).(23 bits)
+        variable mantissaAdd: std_logic_vector(24 downto 0) := (others => '0'); -- extra bit from addition carryout
+        variable upVector: std_logic_vector(mantissa'range):= (others => '0'); -- vector to add by one
+    begin
+        result := a;
+        exponent := a(30 downto 23);
+        mantissa(23) := '1'; -- denormalized values all round to 0, assume leading bit is 1
+        mantissa(22 downto 0) := a(22 downto 0);
+        if exponent(exponent'left) = '1' or exponent = bias then -- exponent >= bias
+            offset := bitDiff(exponent, bias);
+            fracIndex := 22 - to_integer(unsigned(offset));
+            if fracIndex < 0 then -- a has no fractional bits (large number)
+                return a;
             end if;
+        else -- mantissa is all fractional bits
+            offset := bitDiff(bias, exponent);
+            fracIndex:= 22 + to_integer(unsigned(offset));
 
-            
-        end round;
+            if fracIndex > mantissa'left then
+                result(30 downto 0) := (others => '0');
+                return result; -- value is between -.5 and .5 (excluding endpoints) and rounds to 0
+            end if;
+        end if;
+
+        half := mantissa(fracIndex); 
+        
+        if not(fracIndex = mantissa'left) then       
+            upVector(fracIndex+1):= '1';
+        end if;
+
+        sticky := '0';
+        i := fracIndex-1;
+        while i >= 0 and sticky = '0' loop
+            sticky := sticky or mantissa(i);
+            i := i - 1;
+        end loop;
+        
+        -- all information from original mantissa is aquired, clear fractional bits
+        mantissa(fracIndex downto 0):= (others => '0');
+        
+        if fracIndex = mantissa'left then -- implied mantissa msb is first fraction bit (therefore half = '1')
+            if sticky = '1' then -- round up
+                -- manually add one into addition carry out position, since upVector is too small to hold it
+                mantissaAdd(mantissaAdd'left) := '1';
+                mantissaAdd(mantissa'range) := mantissa;
+            else -- round down
+                result(22 downto 0) := mantissa(22 downto 0);
+                return result;
+            end if;
+        elsif (half and sticky) = '1' then -- round up
+            mantissaAdd := bitAdd(mantissa, upVector);
+        elsif half = '1' then-- round to even
+            if mantissa(fracIndex+1) = '1' then
+                mantissaAdd := bitAdd(mantissa, upVector);
+            end if;
+        else -- round down 
+            result(22 downto 0) := mantissa(22 downto 0);
+            return result;
+        end if;
+
+        -- rounded up, may need to renormalize
+        if mantissaAdd(mantissaAdd'left) = '1' then -- renormalize
+            exponent := bitAdd(exponent, one(exponent'length))(7 downto 0); -- exponent overflow case skipped by exiting early above (for exponents that leave no fractional bits in mantissa)
+            mantissaAdd := shift(mantissaAdd, 1, '0', '0');
+            result(30 downto 23) := exponent;
+        end if;
+
+        result(22 downto 0) := mantissaAdd(22 downto 0);
+        return result;
+    end round;
 
     function min(a,b: std_logic_vector; ignoreMSB: std_logic)
-        return std_logic_vector is
-            variable i: integer:= a'left;
-        begin
-            if ignoreMSB = '1' then
-                i := i-1;
-            end if;
-            while i >= a'right and a(i) = b(i) loop
-                i:= i-1;
-            end loop;
-            
-            if i = -1 then
-                return a;
-            end if;
+    return std_logic_vector is
+        variable i: integer:= a'left;
+    begin
+        if ignoreMSB = '1' then
+            i := i-1;
+        end if;
+        while i >= a'right and a(i) = b(i) loop
+            i:= i-1;
+        end loop;
+        
+        if i = -1 then
+            return a;
+        end if;
 
-            if a(i) = '0' then
-                return a;
-            else
-                return b;
-            end if;
-        end min;
+        if a(i) = '0' then
+            return a;
+        else
+            return b;
+        end if;
+    end min;
 
     function max(a,b: std_logic_vector; ignoreMSB: std_logic)
-        return std_logic_vector is
-            variable i: integer:= a'left;
-        begin
-            if ignoreMSB = '1' then
-                i := i-1;
-            end if;
-            while i >= a'right and a(i) = b(i) loop
-                i:= i-1;
-            end loop;
-            
-            if i = -1 then
-                return a;
-            end if;
+    return std_logic_vector is
+        variable i: integer:= a'left;
+    begin
+        if ignoreMSB = '1' then
+            i := i-1;
+        end if;
+        while i >= a'right and a(i) = b(i) loop
+            i:= i-1;
+        end loop;
+        
+        if i = -1 then
+            return a;
+        end if;
 
-            if a(i) = '1' then
-                return a;
-            else
-                return b;
-            end if;
-        end max;
+        if a(i) = '1' then
+            return a;
+        else
+            return b;
+        end if;
+    end max;
 
     function absolute(A:std_logic_vector(31 downto 0))
         return std_logic_vector is
