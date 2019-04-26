@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/Jordan/Documents/Projects/FP-Microarchitecture/Simulation/Simulation.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/jorda/Documents/Projects/FP-Microarchitecture/Simulation/Simulation.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="a387ce37c3cf4a5893fd5ebb966a76e8"/>
@@ -108,6 +108,12 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/FileReader.vhd"/>
       <File Path="$PSRCDIR/sources_1/new/Mux2To1_1b_tb.vhd"/>
+      <File Path="$PSRCDIR/sources_1/new/ALU.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="Decoder10to1024"/>
