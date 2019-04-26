@@ -37,7 +37,7 @@ end Register_File_tb;
 
 architecture Behavioral of Register_File_tb is
 
-   signal out1, out2, Write : std_logic_vector(31 downto 0) := x"0000";
+   signal out1, out2, Write : std_logic_vector(31 downto 0) := x"00000";
    signal Read_1, Read_2, Write_Val : std_logic_vector(4 downto 0) := "00000";
    signal Enable, clock : std_logic:= '0';
      
