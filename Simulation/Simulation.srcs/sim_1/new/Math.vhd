@@ -54,10 +54,17 @@ package Math is
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
         return real;
+<<<<<<< HEAD
     function expo(A,B: std_logic_vector(31 downto 0))
         return real;
     function sqrt(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
+=======
+    function floor(a, b: std_logic_vector (31 downto 0))
+        return real;
+    function ceil(a, b: std_logic_vector (31 downto 0))
+        return real;
+>>>>>>> added spaces for floor and ceiling
 end Math;
 
 package body Math is
@@ -733,21 +740,48 @@ package body Math is
     
     function mul (a, b: std_logic_vector (31 downto 0))
     return std_logic_vector is
-        variable c: std_logic_vector;
+            variable c: real;
+            variable a_real: real;
+            variable b_real: real;
         begin
-        c := std_logic_vector (signed(a) * signed(b));
-        return c;
+            a_real := FptoDec(a);
+            b_real := FptoDec(b);
+            c := a_real * b_real;
+        return DectoFp(c);
      end mul;
      
-     function div (a, b: std_logic_vector (31 downto 0))
-     return std_logic_vector is
-        variable c: std_logic_vector;
+    function div (a, b: std_logic_vector (31 downto 0))
+    return std_logic_vector is
+        variable c: real;
+        variable a_real: real;
+        variable b_real: real;
         begin
-        c := std_logic_vector (signed(a) / signed(b));
-        return c;
+        a_real := FptoDec(a);
+        b_real := FptoDec(b);
+        c := a_real / b_real;
+        return DectoFp(c);
      end div;
+<<<<<<< HEAD
         
     function expo(A,B: std_logic_vector(31 downto 0))
+=======
+     
+    function floor (a, b: std_logic_vector (31 downto 0))
+    return real is
+        variable c: real;
+        begin
+        return c;
+    end floor;
+    
+    function ceil (a, b: std_logic_vector (31 downto 0))
+    return real is
+        variable c: real;
+        begin
+        return c;
+    end ceil;
+    
+    function power(A,B: std_logic_vector(31 downto 0))
+>>>>>>> added spaces for floor and ceiling
             return real is 
             variable C: real;
             variable A_real: real;
