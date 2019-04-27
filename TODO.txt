@@ -1,16 +1,6 @@
 TODO
--- Get ALU Math functions completed
--Add * -Jordan**
--Sub * -Jordan**
--Neg * -Harshil(Done)
--Muls - Michael
--Div - Michael
--Floor * - Michael
--Ceil * - Michael
--Rnd * - Jordan
--Abs * -Harshil(Done)
--Min * -Jordan**
--Max * -Jordan**
--Pow - Harshil(Done)
--Exponent - Harshil(Done)
--Sqrt - Harshil(Done)
+-- Model memories
+-- Model controller
+-- model PC + logic
+-- Read instruction file
+-- Build datapath/simulation
