@@ -53,11 +53,15 @@ package Math is
     function div (a, b: std_logic_vector (31 downto 0))
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
-        return real;
-    function expo(A,B: std_logic_vector(31 downto 0))
-        return real;
+        return std_logic_vector;
+    function expo(A: std_logic_vector(31 downto 0))
+        return std_logic_vector;
     function sqrt(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
+    function floor(a, b: std_logic_vector (31 downto 0))
+        return real;
+    function ceil(a, b: std_logic_vector (31 downto 0))
+        return real;
 end Math;
 
 package body Math is
@@ -716,34 +720,61 @@ package body Math is
     end DecToFp;
 
     function power(A,B: std_logic_vector(31 downto 0))
-            return real is 
-            variable C: real;
+            return std_logic_vector is 
+            variable C: std_logic_vector(a'range);
             variable A_real: real;
             variable B_real: real;
         begin
                A_real := FptoDec(A);
                B_real := FptoDec(B);
-               C := A_real ** B_real;
+               C := DectoFp( A_real ** B_real);
                return C;
         end power;
     
     function mul (a, b: std_logic_vector (31 downto 0))
     return std_logic_vector is
-        variable c: std_logic_vector;
+            variable c: real;
+            variable a_real: real;
+            variable b_real: real;
         begin
-        c := std_logic_vector (signed(a) * signed(b));
-        return c;
+            a_real := FptoDec(a);
+            b_real := FptoDec(b);
+            c := a_real * b_real;
+        return DectoFp(c);
      end mul;
      
-     function div (a, b: std_logic_vector (31 downto 0))
-     return std_logic_vector is
-        variable c: std_logic_vector;
+    function div (a, b: std_logic_vector (31 downto 0))
+    return std_logic_vector is
+        variable c: real;
+        variable a_real: real;
+        variable b_real: real;
         begin
-        c := std_logic_vector (signed(a) / signed(b));
-        return c;
+        a_real := FptoDec(a);
+        b_real := FptoDec(b);
+        c := a_real / b_real;
+        return DectoFp(c);
      end div;
         
+    function expo(A: std_logic_vector(31 downto 0))
+            return std_logic_vector is 
+            variable C: std_logic_vector(a'range);
     function expo(A,B: std_logic_vector(31 downto 0))
+     
+    function floor (a, b: std_logic_vector (31 downto 0))
+    return real is
+        variable c: real;
+        begin
+        return c;
+    end floor;
+    
+    function ceil (a, b: std_logic_vector (31 downto 0))
+    return real is
+        variable c: real;
+        begin
+        return c;
+    end ceil;
+    
+    function power(A,B: std_logic_vector(31 downto 0))
             return real is 
             variable C: real;
             variable A_real: real;
@@ -751,21 +782,17 @@ package body Math is
     begin
             A_real := FptoDec(A);
             Euler_num := 2.718281828459;
-            C := Euler_num ** A_real;
+            C := DecToFp(Euler_num ** A_real);
             return C;
     end expo;        
             
 function sqrt(A: std_logic_vector(31 downto 0))
                 return std_logic_vector is
-                variable bufer: real;
                 variable A_real: real;
-                variable sqrt_pow: real;
-                variable C: std_logic_vector;
+                variable C: std_logic_vector(a'range);
         begin
                 A_real := FptoDec(A);
-                sqrt_pow := 0.5;
-                bufer := A_real ** sqrt_pow ;
-                C := DecToFp(bufer);
+                C := DecToFp(A_real ** 0.5);
                 return C;
         end sqrt;            
 end Math;    

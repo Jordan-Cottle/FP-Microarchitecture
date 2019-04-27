@@ -2,15 +2,15 @@ TODO
 -- Get ALU Math functions completed
 -Add * -Jordan**
 -Sub * -Jordan**
--Neg * -Harshil(1)
+-Neg * -Harshil(Done)
 -Muls - Michael
 -Div - Michael
 -Floor * - Michael
 -Ceil * - Michael
 -Rnd * - Jordan
--Abs * -Harshil(1)
+-Abs * -Harshil(Done)
 -Min * -Jordan**
 -Max * -Jordan**
--Pow - Harshil(1)
--Exponent - Harshil(1)
--Sqrt - Harshil(1)
+-Pow - Harshil(Done)
+-Exponent - Harshil(Done)
+-Sqrt - Harshil(Done)

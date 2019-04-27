@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 04/19/2019 06:45:25 PM
+-- Create Date: 04/26/2019 05:44:34 PM
 -- Design Name: 
--- Module Name: sqrt_tb - Behavioral
+-- Module Name: ISA_Controller - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,8 +21,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-library Sim;
-use Sim.math.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -33,15 +31,13 @@ use Sim.math.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity sqrt_tb is
+entity ISA_Controller is
 --  Port ( );
-end sqrt_tb;
+end ISA_Controller;
 
-architecture Behavioral of sqrt_tb is
-signal A: std_logic_vector(31 downto 0);
-signal C: std_logic_vector(a'range);
+architecture Behavioral of ISA_Controller is
+
 begin
-           A <= "01000010100000000000000000000000";
-           C <= sqrt(A); 
+
 
 end Behavioral;
