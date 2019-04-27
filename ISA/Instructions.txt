@@ -141,21 +141,21 @@ Square root			Root Sqrt Rd, Ri				Rd ← sqrt(Ri) 							8
 	-condition codes used: Z _ _ E
 
 
-Branch				(Uncond.) B Ri 					PC ← M[Ri] 							    1
+Branch				(Uncond.) B Ri 					PC ← M(Ri) (line) 							    1
 	-description: Moves program counter to the stored value in the memory addressed by the value in register Ri
-	-syntax: GOTO Ri
+	-syntax: B Ri
 	-opcode: 11010
 	-condition codes used: _ _ _ _
 
 Branch				Zero BZ Ri, LABEL 				If (Ri == 0) PC ← LABEL (line) 			3
 	-description: Moves to program counter to the specified label if the value in register Ri is 0
-	-syntax: GOTOZ Ri LABEL
+	-syntax: BZ Ri LABEL
 	-opcode: 11000
 	-condition codes used: Z _ _ _
 
 Branch				Negative BN Ri, LABEL 			If (Ri < 0) PC ← LABEL (line) 			3
 	-description: Moves the program counter to the specified label if the value in register Ri is negative
-	-syntax: GOTON Ri LABEL
+	-syntax: BN Ri LABEL
 	-opcode: 11001
 	-condition codes used: _ N _ _
 
@@ -167,6 +167,6 @@ No-op               Nop 							No operation 			                 1
 
 Halt				Halt 							Stop Program                 	         -
 	-description: Stops execution of the program
-	-syntax: STOP
+	-syntax: HALT
 	-opcode: 10101
 	-condition codes used: _ _ _ _
