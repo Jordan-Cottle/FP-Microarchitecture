@@ -6,7 +6,6 @@
 -- Description: Contains declarations of components to use in project
 ----------------------------------------------------------------------------------
 
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -38,5 +37,16 @@ package Components is
                b : in STD_LOGIC;
                control : in STD_LOGIC;
                result : out STD_LOGIC);
+    end component;
+    
+    component ALU is
+        Port ( opCode : in STD_LOGIC_VECTOR (3 downto 0);
+               a : in STD_LOGIC_VECTOR (31 downto 0);
+               b : in STD_LOGIC_VECTOR (31 downto 0);
+               clock: in Std_logic;
+               result : out STD_LOGIC_VECTOR (31 downto 0);
+               z : out STD_LOGIC; -- zero
+               n : out STD_LOGIC; -- negative
+               e : out std_logic); -- error
     end component;
 end Components;

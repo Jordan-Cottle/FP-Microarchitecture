@@ -16,6 +16,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 library Sim;
 use Sim.math.all;
+use Sim.constants.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -27,33 +28,75 @@ use Sim.math.all;
 --use UNISIM.VComponents.all;
 
 entity ALU is
-    Port ( OpCode : in STD_LOGIC_VECTOR (3 downto 0);
+    Port ( opCode : in STD_LOGIC_VECTOR (3 downto 0);
            a : in STD_LOGIC_VECTOR (31 downto 0);
            b : in STD_LOGIC_VECTOR (31 downto 0);
+           clock: in Std_logic;
            result : out STD_LOGIC_VECTOR (31 downto 0);
-           z : out STD_LOGIC;
-           n : out STD_LOGIC);
+           z : out STD_LOGIC; -- zero
+           n : out STD_LOGIC; -- negative
+           e : out std_logic); -- error
 end ALU;
 
 architecture Behavioral of ALU is
 
 begin
-    with opcode select result <=
-        a when "1111",
-        fpAdd(a,b) when "0000",
-        fpSub(a,b) when "0001",
-        neg(a) when "0010",
-        mul(a,b) when "0011",
-        div(a,b) when "0100",
-        floor(a) when "0101",
-        ceil(a) when "0110",
-        round(a) when "0111",
-        absolute(a) when "1000",
-        min(a,b, '0') when "1001",
-        max(a,b, '0') when "1010",
-        power(a,b) when "1011",
-        expo(a) when "1100",
-        sqrt(a) when "1101",
-        a when others;
+    process(clock)
+        variable answer: std_logic_vector(31 downto 0);
+    begin
+        if rising_Edge(clock) then
+			case opcode is
+                when "1111" =>
+					answer:= a;
+                when "0000" =>
+					answer:= fpAdd(a,b);
+                when "0001" =>
+					answer:= fpSub(a,b);
+                when "0010" =>
+					answer:= neg(a);
+                when "0011" =>
+					answer:= mul(a,b);
+                when "0100" =>
+                    if b = zero(32) then
+                        answer:= "011111111010101010101010101010101"; -- NAN
+                        e <= '1';
+                    else
+                        answer:= div(a,b);
+                    end if;
+--                when "0101" =>
+--					answer:= floor(a);
+--                when "0110" =>
+--					answer:= ceil(a);
+                when "0111" =>
+					answer:= round(a);
+                when "1000" =>
+					answer:= absolute(a);
+                when "1001" =>
+					answer:= min(a,b,'0');
+                when "1010" =>
+					answer:= max(a,b,'0');
+--                when "1011" =>
+--					answer:= power(a,b);
+--                when "1100" =>
+--					answer:= expo(a);
+                when "1101" =>
+                    if a(31) = '1' then
+                        answer:= "011111111010101010101010101010101"; -- NAN
+                        e <= '1';
+                    else
+                        answer:= sqrt(a);
+                    end if;
+                when others =>
+                    answer:= b;
+            end case;
+
+            n <= answer(31);
+            if answer = "10000000000000000000000000000000" or answer = zero(32) then
+                z <= '1';
+            else
+                z <= '0';
+            end if;
+        end if;
+    end process;
 
 end Behavioral;
