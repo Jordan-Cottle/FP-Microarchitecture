@@ -48,4 +48,25 @@ package Components is
                n : out STD_LOGIC; -- negative
                e : out std_logic); -- error
     end component;
+    
+    component Registers_Fmain is
+        Port ( Read_reg1 : in STD_LOGIC_VECTOR (4 downto 0);
+               Read_reg2 : in STD_LOGIC_VECTOR (4 downto 0);
+               Write_reg : in STD_LOGIC_VECTOR (4 downto 0);
+               Write_Data : in STD_LOGIC_VECTOR (31 downto 0);
+               RegWrite : in STD_LOGIC;
+               ReadOut_Data1 : out STD_LOGIC_VECTOR (31 downto 0);
+               ReadOut_Data2 : out STD_LOGIC_VECTOR (31 downto 0);
+               clk: in STD_Logic
+               );
+    end component;
+    
+    component Data_Memory is
+        Port ( Address : in STD_LOGIC_VECTOR (9 downto 0);
+               Data_In : in STD_LOGIC_VECTOR (31 downto 0);
+               Data_Out : out STD_LOGIC_VECTOR (31 downto 0);
+               Mem_Write : in STD_LOGIC;
+               clk: in STD_Logic
+               );
+    end component;
 end Components;
