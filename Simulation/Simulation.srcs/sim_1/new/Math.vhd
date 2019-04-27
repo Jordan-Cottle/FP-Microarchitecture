@@ -58,10 +58,10 @@ package Math is
         return std_logic_vector;
     function sqrt(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
-    function floor(a, b: std_logic_vector (31 downto 0))
-        return real;
-    function ceil(a, b: std_logic_vector (31 downto 0))
-        return real;
+    function floor(a: std_logic_vector (31 downto 0))
+        return std_logic_vector;
+    function ceil(a: std_logic_vector (31 downto 0))
+        return std_logic_vector;
 end Math;
 
 package body Math is
@@ -471,6 +471,12 @@ package body Math is
     begin
         if ignoreMSB = '1' then
             i := i-1;
+        elsif not(a(a'left) = b(b'left)) then --positive/negative pair
+            if a(a'left) = '1' then
+                return a;
+            else
+                return b;
+            end if;
         end if;
         while i >= a'right and a(i) = b(i) loop
             i:= i-1;
@@ -493,6 +499,12 @@ package body Math is
     begin
         if ignoreMSB = '1' then
             i := i-1;
+        elsif not(a(a'left) = b(b'left)) then --positive/negative pair
+            if a(a'left) = '0' then
+                return a;
+            else
+                return b;
+            end if;
         end if;
         while i >= a'right and a(i) = b(i) loop
             i:= i-1;
@@ -720,16 +732,26 @@ package body Math is
     end DecToFp;
 
     function power(A,B: std_logic_vector(31 downto 0))
-            return std_logic_vector is 
-            variable C: std_logic_vector(a'range);
-            variable A_real: real;
-            variable B_real: real;
-        begin
-               A_real := FptoDec(A);
-               B_real := FptoDec(B);
-               C := DectoFp( A_real ** B_real);
-               return C;
-        end power;
+    return std_logic_vector is 
+        variable C: std_logic_vector(a'range);
+        variable A_real: real;
+        variable B_real: real;
+    begin
+        A_real := FptoDec(A);
+        B_real := FptoDec(B);
+        
+        if a_real < 0.0 and trunc(B_real) = B_real then -- value is an integer exponent
+            A_real := abs(a_Real);
+            C := DectoFp(a_real ** B_real);
+            if to_integer(realToUnsigned(b_real, 32)) mod 2 = 1 then -- odd exponent
+                c(31) := '1';
+            end if;
+        else
+            C := DectoFp(A_real ** B_real);
+        end if; 
+        
+        return C;
+    end power;
     
     function mul (a, b: std_logic_vector (31 downto 0))
     return std_logic_vector is
@@ -754,45 +776,189 @@ package body Math is
         c := a_real / b_real;
         return DectoFp(c);
      end div;
-        
-    function expo(A: std_logic_vector(31 downto 0))
-            return std_logic_vector is 
-            variable C: std_logic_vector(a'range);
-    function expo(A,B: std_logic_vector(31 downto 0))
      
-    function floor (a, b: std_logic_vector (31 downto 0))
-    return real is
-        variable c: real;
-        begin
-        return c;
+    function floor (a: std_logic_vector (31 downto 0))
+    return std_logic_vector is
+        variable offset : std_logic_vector(7 downto 0);
+        variable bias: std_logic_vector(7 downto 0):= "01111111";
+        variable fracIndex: integer;
+        variable exponent:std_logic_vector(7 downto 0);
+        variable result: std_logic_vector(a'range);
+        variable mantissa: std_logic_vector(23 downto 0); -- 24 bits (1).(23 bits)
+        variable mantissaAdd: std_logic_vector(24 downto 0) := (others => '0'); -- extra bit from addition carryout
+        variable upVector: std_logic_vector(mantissa'range):= (others => '0'); -- vector to add by one
+        variable isInteger: std_logic;
+    begin
+        result := a;
+        exponent := a(30 downto 23);
+        mantissa(23) := '1'; -- denormalized values all round to 0, assume leading bit is 1
+        mantissa(22 downto 0) := a(22 downto 0);
+        if exponent(exponent'left) = '1' or exponent = bias then -- exponent >= bias
+            offset := bitDiff(exponent, bias);
+            fracIndex := 22 - to_integer(unsigned(offset));
+            if fracIndex < 0 then -- a has no fractional bits (large number)
+                return a;
+            end if;
+        else -- mantissa is all fractional bits
+            offset := bitDiff(bias, exponent);
+            fracIndex:= 22 + to_integer(unsigned(offset));
+
+            if fracIndex >= mantissa'left then -- value is between -.5 and .5 (excluding endpoints)
+                if a(a'left) = '0' then
+                    result(30 downto 0) := (others => '0');
+                    return result; 
+                else -- return -1
+                    result(22 downto 0) := (others => '0');
+                    result(30 downto 23) := "01111111"; -- 2^0
+                    return result;
+                end if;
+            end if;
+        end if;
+
+        -- check if rounding is needed
+        isInteger := '1';
+        for i in fracIndex downto mantissa'right loop
+            if mantissa(i) = '1' then
+                isInteger := '0';
+            end if;
+        end loop;
+
+        if isInteger = '1' then -- no changes required
+            return a;
+        end if;
+
+        -- clear fraction bits
+        mantissa(fracIndex downto 0):= (others => '0');
+
+        if a(a'left) = '0' then -- truncate to find floor
+            result(22 downto 0):= mantissa(22 downto 0);
+            return result;
+        end if;
+
+        -- working with a negative value, floor increases magnitude by one
+        if not(fracIndex = mantissa'left) then       
+            upVector(fracIndex+1):= '1';
+        end if;
+        
+        if fracIndex = mantissa'left then -- implied mantissa msb is first fraction bit (therefore half = '1')
+            mantissaAdd(mantissaAdd'left) := '1';
+            mantissaAdd(mantissa'range) := mantissa;
+        else
+            mantissaAdd := bitAdd(mantissa, upVector);
+        end if;
+
+        -- rounded up, may need to renormalize
+        if mantissaAdd(mantissaAdd'left) = '1' then -- renormalize
+            exponent := bitAdd(exponent, one(exponent'length))(7 downto 0); -- exponent overflow case skipped by exiting early above (for exponents that leave no fractional bits in mantissa)
+            mantissaAdd := shift(mantissaAdd, 1, '0', '0');
+            result(30 downto 23) := exponent;
+        end if;
+
+        result(22 downto 0) := mantissaAdd(22 downto 0);
+        return result;
     end floor;
     
-    function ceil (a, b: std_logic_vector (31 downto 0))
-    return real is
-        variable c: real;
-        begin
-        return c;
+    function ceil (a: std_logic_vector (31 downto 0))
+    return std_logic_vector is
+        variable offset : std_logic_vector(7 downto 0);
+        variable bias: std_logic_vector(7 downto 0):= "01111111";
+        variable fracIndex: integer;
+        variable exponent:std_logic_vector(7 downto 0);
+        variable result: std_logic_vector(a'range);
+        variable mantissa: std_logic_vector(23 downto 0); -- 24 bits (1).(23 bits)
+        variable mantissaAdd: std_logic_vector(24 downto 0) := (others => '0'); -- extra bit from addition carryout
+        variable upVector: std_logic_vector(mantissa'range):= (others => '0'); -- vector to add by one
+        variable isInteger: std_logic;
+    begin
+        result := a;
+        exponent := a(30 downto 23);
+        mantissa(23) := '1'; -- denormalized values all round to 0, assume leading bit is 1
+        mantissa(22 downto 0) := a(22 downto 0);
+        if exponent(exponent'left) = '1' or exponent = bias then -- exponent >= bias
+            offset := bitDiff(exponent, bias);
+            fracIndex := 22 - to_integer(unsigned(offset));
+            if fracIndex < 0 then -- a has no fractional bits (large number)
+                return a;
+            end if;
+        else -- mantissa is all fractional bits
+            offset := bitDiff(bias, exponent);
+            fracIndex:= 22 + to_integer(unsigned(offset));
+
+            if fracIndex >= mantissa'left then -- value is between -.5 and .5 (excluding endpoints)
+                if a(a'left) = '1' then
+                    result(30 downto 0) := (others => '0');
+                    return result; 
+                else -- return 1
+                    result(22 downto 0) := (others => '0');
+                    result(30 downto 23) := "01111111"; -- 2^0
+                    return result;
+                end if;
+            end if;
+        end if;
+
+        -- check if rounding is needed
+        isInteger := '1';
+        for i in fracIndex downto mantissa'right loop
+            if mantissa(i) = '1' then
+                isInteger := '0';
+            end if;
+        end loop;
+
+        if isInteger = '1' then -- no changes required
+            return a;
+        end if;
+
+
+        -- clear fraction bits
+        mantissa(fracIndex downto 0):= (others => '0');
+
+        if a(a'left) = '1' then -- truncate to find ceil
+            result(22 downto 0):= mantissa(22 downto 0);
+            return result;
+        end if;
+
+        -- working with a positive value, ceil increases magnitude by one
+        if not(fracIndex = mantissa'left) then       
+            upVector(fracIndex+1):= '1';
+        end if;
+        
+        if fracIndex = mantissa'left then -- implied mantissa msb is first fraction bit (therefore half = '1')
+            mantissaAdd(mantissaAdd'left) := '1';
+            mantissaAdd(mantissa'range) := mantissa;
+        else
+            mantissaAdd := bitAdd(mantissa, upVector);
+        end if;
+
+        -- rounded up, may need to renormalize
+        if mantissaAdd(mantissaAdd'left) = '1' then -- renormalize
+            exponent := bitAdd(exponent, one(exponent'length))(7 downto 0); -- exponent overflow case skipped by exiting early above (for exponents that leave no fractional bits in mantissa)
+            mantissaAdd := shift(mantissaAdd, 1, '0', '0');
+            result(30 downto 23) := exponent;
+        end if;
+
+        result(22 downto 0) := mantissaAdd(22 downto 0);
+        return result;
     end ceil;
     
-    function power(A,B: std_logic_vector(31 downto 0))
-            return real is 
-            variable C: real;
-            variable A_real: real;
-            variable Euler_num: real;
+    function expo(A: std_logic_vector(31 downto 0))
+        return std_logic_vector is 
+        variable C: std_logic_vector(a'range);
+        variable A_real: real;
+        variable Euler_num: real;
     begin
-            A_real := FptoDec(A);
-            Euler_num := 2.718281828459;
-            C := DecToFp(Euler_num ** A_real);
-            return C;
-    end expo;        
+        A_real := FptoDec(A);
+        Euler_num := 2.718281828459;
+        C := DecToFp(Euler_num ** A_real);
+        return C;
+    end expo;
             
-function sqrt(A: std_logic_vector(31 downto 0))
-                return std_logic_vector is
-                variable A_real: real;
-                variable C: std_logic_vector(a'range);
-        begin
-                A_real := FptoDec(A);
-                C := DecToFp(A_real ** 0.5);
-                return C;
-        end sqrt;            
-end Math;    
+    function sqrt(A: std_logic_vector(31 downto 0))
+        return std_logic_vector is
+        variable A_real: real;
+        variable C: std_logic_vector(a'range);
+    begin
+        A_real := FptoDec(A);
+        C := DecToFp(A_real ** 0.5);
+        return C;
+    end sqrt;
+end Math;
