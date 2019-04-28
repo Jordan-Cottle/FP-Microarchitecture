@@ -54,14 +54,17 @@ package Math is
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
         return real;
+<<<<<<< HEAD
     function expo(A,B: std_logic_vector(31 downto 0))
         return real;
     function sqrt(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
+=======
     function floor(a, b: std_logic_vector (31 downto 0))
         return real;
     function ceil(a, b: std_logic_vector (31 downto 0))
         return real;
+>>>>>>> added spaces for floor and ceiling
 end Math;
 
 package body Math is
@@ -758,24 +761,32 @@ package body Math is
         c := a_real / b_real;
         return DectoFp(c);
      end div;
+<<<<<<< HEAD
         
     function expo(A,B: std_logic_vector(31 downto 0))
+=======
      
     function floor (a, b: std_logic_vector (31 downto 0))
     return real is
         variable c: real;
+        variable a_real: real;
+        variable b_real: real;
         begin
+        if c >=
         return c;
     end floor;
     
     function ceil (a, b: std_logic_vector (31 downto 0))
     return real is
         variable c: real;
+        variable a_real: real;
+        variable b_real: real;
         begin
         return c;
     end ceil;
     
     function power(A,B: std_logic_vector(31 downto 0))
+>>>>>>> added spaces for floor and ceiling
             return real is 
             variable C: real;
             variable A_real: real;
