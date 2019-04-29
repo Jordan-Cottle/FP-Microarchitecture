@@ -21,7 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use work.math.all;
+library Sim;
+use Sim.math.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -38,7 +39,7 @@ end sqrt_tb;
 
 architecture Behavioral of sqrt_tb is
 signal A: std_logic_vector(31 downto 0);
-signal C: std_logic_vector(31 downto 0);
+signal C: std_logic_vector(a'range);
 begin
            A <= "01000010100000000000000000000000";
            C <= sqrt(A); 

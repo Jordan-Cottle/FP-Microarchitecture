@@ -37,14 +37,14 @@ end Register_File_tb;
 
 architecture Behavioral of Register_File_tb is
 
-   signal out1, out2, Write : std_logic_vector(31 downto 0) := x"00000000";
-   signal Read_1, Read_2, Write_Val : std_logic_vector(4 downto 0) := "00000";
+   signal out1, out2, Write_val : std_logic_vector(31 downto 0) := x"00000000";
+   signal Read_1, Read_2, Write : std_logic_vector(4 downto 0) := "00000";
    signal Enable, clock : std_logic:= '0';
      
 begin
 
    uut : entity work.Registers_Fmain 
-   port map( Read_1,Read_2,Write,Write_Val,Enable,out1,out2,clock);
+   port map( Read_1,Read_2,Write,Write_val,Enable,out1,out2,clock);
    process
    begin 
          clock <='1';
@@ -55,15 +55,21 @@ begin
    
    process(clock)
       variable count: integer := 0;
+      variable data: integer:= 0;
    begin
       enable <= '1';
-      if(clock = '0') then
+      if(clock = '1') then
          -- pass
-      elsif 
-         write <= std_logic_vector(to_unsigned(count, 32));
-         write_val <= std_logic_vector(to_unsigned(count, 32));
-         read_1 <= std_logic_vector(to_unsigned(count, 32));
-         read_2 <= std_logic_vector(to_unsigned(count, 32));
+      else
+         Write <= std_logic_vector(to_unsigned(count, 5));
+         Write_val <= std_logic_vector(to_unsigned(data, 32));
+         read_1 <= std_logic_vector(to_unsigned((count-1) mod 16, 5));
+         read_2 <= std_logic_vector(to_unsigned((count+1) mod 16, 5));
+         count := count+1;
+         data := data + 1;
+         if count = 16 then
+            count := 0;
+         end if;
       end if;
    end process;
 end Behavioral;

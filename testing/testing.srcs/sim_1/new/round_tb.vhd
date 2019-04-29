@@ -13,10 +13,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 library Sim;
-use Sim.math.round;
-use Sim.math.fpToDec;
-use Sim.math.decToFp;
-use sim.constants.all;
+use Sim.math.all;
+use Sim.constants.all;
 
 use std.textio.all;
 use IEEE.math_real.all;
@@ -36,29 +34,45 @@ end round_tb;
 
 architecture Behavioral of round_tb is
     signal a : std_logic_vector(31 downto 0);
-    signal aReal : real;
+    signal aReal: real;
     signal result: std_logic_vector(31 downto 0);
-    signal realResult: real;
+    signal resultReal: real;
+    file inputFile: text;
 begin
 
     process
-        variable aR: real;
         variable aVar : std_logic_vector(31 downto 0);
         variable resultVar: std_logic_vector(31 downto 0);
+        variable lineIn: line;
+        variable lineOut: line;
+        variable str: string(1 to 32);
     begin
-        aR := 6.5;
-        while aR <= 10.0 loop
-            aVar := decToFp(aR);
-            resultVar := round(aVar);
+        file_open(inputFile, inputFolderPath & "fpValues.txt", read_mode);
 
-            a <= aVar;
-            aReal <= fpToDec(aVar);
-            result <= resultVar;
-            realResult <= fpToDec(resultVar);
+        while not endfile(inputFile) loop
+            -- read a
+            readline(inputFile, lineIn);
+            read(lineIn, str);
+            -- pull bits from line into vector
+            for index in 1 to 32 loop
+                if str(index) = '1' then
+                    aVar(32-index) := '1';
+                else
+                    aVar(32-index) := '0';
+                end if;
+            end loop;
             
-            aR := aR + 0.03125; -- 1/32
-            wait for 20ns;
+            for i in 0 to 3 loop
+                aVar := shift(aVar, i, '0', '1');
+                resultVar := round(aVar);
+                a <= aVar;
+                result <= resultVar;
+                aReal <= fpToDec(aVar);
+                resultReal <= fpToDec(resultVar);
+                wait for 20ns;
+            end loop;
         end loop;
-        wait;
+
+        file_close(inputFile);
     end process;
 end Behavioral;
