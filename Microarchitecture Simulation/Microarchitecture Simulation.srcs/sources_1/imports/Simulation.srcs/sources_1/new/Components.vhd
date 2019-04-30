@@ -62,7 +62,7 @@ package Components is
     end component;
     
     component Data_Memory is
-        Port ( Address : in STD_LOGIC_VECTOR (9 downto 0);
+        Port ( Address : in STD_LOGIC_VECTOR (31 downto 0);
                Data_In : in STD_LOGIC_VECTOR (31 downto 0);
                Data_Out : out STD_LOGIC_VECTOR (31 downto 0);
                Mem_Write : in STD_LOGIC;
