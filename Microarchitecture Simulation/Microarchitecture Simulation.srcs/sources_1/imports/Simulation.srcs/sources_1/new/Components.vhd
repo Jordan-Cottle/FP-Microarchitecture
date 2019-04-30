@@ -50,9 +50,9 @@ package Components is
     end component;
     
     component Registers_Fmain is
-        Port ( Read_reg1 : in STD_LOGIC_VECTOR (4 downto 0);
-               Read_reg2 : in STD_LOGIC_VECTOR (4 downto 0);
-               Write_reg : in STD_LOGIC_VECTOR (4 downto 0);
+        Port ( Read_reg1 : in STD_LOGIC_VECTOR (3 downto 0);
+               Read_reg2 : in STD_LOGIC_VECTOR (3 downto 0);
+               Write_reg : in STD_LOGIC_VECTOR (3 downto 0);
                Write_Data : in STD_LOGIC_VECTOR (31 downto 0);
                RegWrite : in STD_LOGIC;
                ReadOut_Data1 : out STD_LOGIC_VECTOR (31 downto 0);
@@ -62,11 +62,43 @@ package Components is
     end component;
     
     component Data_Memory is
-        Port ( Address : in STD_LOGIC_VECTOR (9 downto 0);
+        Port ( Address : in STD_LOGIC_VECTOR (31 downto 0);
                Data_In : in STD_LOGIC_VECTOR (31 downto 0);
                Data_Out : out STD_LOGIC_VECTOR (31 downto 0);
                Mem_Write : in STD_LOGIC;
                clk: in STD_Logic
                );
     end component;
+    
+    component Instruction_Mem is
+        Port ( PC : in STD_LOGIC_VECTOR (9 downto 0);
+               Load_Address : in STD_LOGIC_VECTOR (9 downto 0);
+               Load_File : in STD_LOGIC_VECTOR (31 downto 0);
+               Load_Enable : in STD_LOGIC;
+               Output_Data : out STD_LOGIC_VECTOR (31 downto 0);
+               Immidiate : out STD_LOGIC_VECTOR (31 downto 0);
+               clk : in STD_LOGIC
+               );
+    end component;
+    
+    component PC is
+        Port ( PC : out STD_LOGIC_VECTOR (9 downto 0);
+               UB : in STD_LOGIC;
+               NB : in STD_LOGIC;
+               ZB : in STD_LOGIC;
+               RDS : in STD_LOGIC;
+               IVA : in STD_LOGIC;
+               N : in STD_LOGIC;
+               Z : in STD_LOGIC;
+               BDEST : in STD_LOGIC_VECTOR (9 downto 0);
+               clk : in STD_LOGIC;
+               start: in std_logic);
+    end component;
+    
+    component ISA_Controller is
+        port ( opcode: in std_logic_vector(4 downto 0);
+               alu_op: out std_logic_vector (3 downto 0);
+               u_branch, z_branch, n_branch, reg_write, mem_write, mem_to_reg, reg_dst, iva: out std_logic
+         );
+     end component;
 end Components;

@@ -32,9 +32,9 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity Registers_Fmain is
-    Port ( Read_reg1 : in STD_LOGIC_VECTOR (4 downto 0);
-           Read_reg2 : in STD_LOGIC_VECTOR (4 downto 0);
-           Write_reg : in STD_LOGIC_VECTOR (4 downto 0);
+    Port ( Read_reg1 : in STD_LOGIC_VECTOR (3 downto 0);
+           Read_reg2 : in STD_LOGIC_VECTOR (3 downto 0);
+           Write_reg : in STD_LOGIC_VECTOR (3 downto 0);
            Write_Data : in STD_LOGIC_VECTOR (31 downto 0);
            RegWrite : in STD_LOGIC;
            ReadOut_Data1 : out STD_LOGIC_VECTOR (31 downto 0);
@@ -48,17 +48,16 @@ architecture Behavioral of Registers_Fmain is
     signal reg_Data : Registers_Fmain;
     
 begin
-   Register_File : process (clk) is
-   begin
-      if rising_edge(clk) then
-      
-       ReadOut_Data1 <= reg_Data(to_integer(unsigned(Read_reg1)));
-       ReadOut_Data2 <= reg_Data(to_integer(unsigned(Read_reg2)));
-       
-          if RegWrite = '1' then
-          reg_Data(to_integer(unsigned(Write_reg))) <= Write_Data;
-          end if;
-      end if;
+    process (clk) is
+    begin
+        if rising_edge(clk) then
+            ReadOut_Data1 <= reg_Data(to_integer(unsigned(Read_reg1)));
+            ReadOut_Data2 <= reg_Data(to_integer(unsigned(Read_reg2)));
+            
+            if RegWrite = '1' then
+                reg_Data(to_integer(unsigned(Write_reg))) <= Write_Data;
+            end if;
+        end if;
     end process;
 
 end Behavioral;

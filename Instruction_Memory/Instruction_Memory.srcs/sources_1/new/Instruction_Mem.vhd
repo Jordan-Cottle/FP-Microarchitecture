@@ -44,23 +44,16 @@ entity Instruction_Mem is
 end Instruction_Mem;
 
 architecture Behavioral of Instruction_Mem is
-  type instruction_Array is array(0 to 1023) of std_logic_vector(31 downto 0);
+  type instruction_Array is array(0 to 1024) of std_logic_vector(31 downto 0);
   signal instruction_Data : instruction_Array;
 
 begin
-   Instruction : process(clk) is
-     begin
-         if rising_edge(clk) then
-         
-         Output_Data <= instruction_Data(to_integer(unsigned(PC)));          -- Regular Output Data...
-         Immidiate   <= instruction_Data(to_integer(unsigned(PC)) + 1);      -- Immidiate value Output...
-         
-         
-             if Load_Enable = '1' then             -- laoding the instruction file...
-             
-             instruction_Data(to_integer(unsigned(Load_Address))) <= Load_File;
-             
-             end if;
-         end if;
+    process(clk) is
+    begin
+        Output_Data <= instruction_Data(to_integer(unsigned(PC)));          -- Regular Output Data...
+        Immidiate   <= instruction_Data(to_integer(unsigned(PC)) + 1);      -- Immidiate value Output...
+        if Load_Enable = '0' then -- active low write instructions
+            instruction_Data(to_integer(unsigned(Load_Address))) <= Load_File;
+        end if;
      end process;
 end Behavioral;

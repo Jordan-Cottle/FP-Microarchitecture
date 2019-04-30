@@ -23,11 +23,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 library Sim;
-use Sim.components.Data_Memory;
+use Sim.components;
+use Sim.math.decToFp;
+use Sim.constants.zero;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
+use IEEE.math_real.all;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -40,13 +43,21 @@ end Data_Mem_tb;
 
 architecture Behavioral of Data_Mem_tb is
 
-   signal Address: std_logic_vector(9 downto 0) := "0000000000";
-   signal Data_In,Data_Out: std_logic_vector(31 downto 0) := x"00000000";
+   signal Address: std_logic_vector(31 downto 0) := zero(32);
+   signal Data_In,Data_Out: std_logic_vector(31 downto 0) := zero(32);
    signal Mem_Write, clk : std_logic:= '0';
 
 begin
-        uut : Data_Memory 
-        port map( Address,Data_In,Data_Out,Mem_Write,clk);
+
+
+
+        uut : components.Data_Memory 
+        port map(
+         Address,
+         Data_In,
+         Data_Out,
+         Mem_Write,
+         clk);
         process
           begin 
              clk <='1';
@@ -56,7 +67,7 @@ begin
           end process;
         
           process(clk)
-              variable count: integer := 0;
+              variable count: real := 0.0;
               variable data: integer:= 0;
               variable writeCount: integer:= 0;
            begin
@@ -64,18 +75,18 @@ begin
                  mem_write <= '0';
               else
                  Mem_Write <= '1';
-                 Address <= std_logic_vector(to_unsigned(count,10));
+                 Address <= std_logic_vector(decToFp(count));
                  Data_In <= std_logic_vector(to_unsigned(data, 32));
                  
                  if writeCount = 1 then
-                     count := count+1;
+                     count := count+1.0;
                      data := data + 1;
                      writeCount := 0;
                  else
                      writeCount := 1;
                  end if;
-                 if count = 16 then
-                    count := 0;
+                 if count = 16.0 then
+                    count := 0.0;
                  end if;
               end if;
            end process;

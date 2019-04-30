@@ -722,12 +722,12 @@ package body Math is
             bitIndex := fracVector'length-1;
     end if; 
    
-   -- load fraction bits into mantissa
-   while i >= 0 and bitIndex >= 0 loop
-       mantissa(i) := fracVector(bitIndex);
-       i := i - 1;
-       bitIndex := bitIndex-1;
-   end loop;
+    -- load fraction bits into mantissa
+    while i >= 0 and bitIndex >= 0 loop
+        mantissa(i) := fracVector(bitIndex);
+        i := i - 1;
+        bitIndex := bitIndex-1;
+    end loop;
     return fp;
     end DecToFp;
 
@@ -775,7 +775,7 @@ package body Math is
         b_real := FptoDec(b);
         c := a_real / b_real;
         return DectoFp(c);
-     end div;
+     end div;   
      
     function floor (a: std_logic_vector (31 downto 0))
     return std_logic_vector is

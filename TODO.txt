@@ -1,6 +1,6 @@
 TODO
--- Model memories
--- Model controller
--- model PC + logic
--- Read instruction file
--- Build datapath/simulation
+-- Model memories **
+-- Model controller **
+-- model PC + logic **
+-- Read instruction file **
+-- Build datapath/simulation (in progress)
