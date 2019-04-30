@@ -53,20 +53,6 @@ package Math is
     function div (a, b: std_logic_vector (31 downto 0))
         return std_logic_vector;
     function power(A, B: std_logic_vector(31 downto 0))
-<<<<<<< HEAD:Simulation/Simulation.srcs/sim_1/new/Math.vhd
-        return real;
-<<<<<<< HEAD
-    function expo(A,B: std_logic_vector(31 downto 0))
-        return real;
-    function sqrt(A: std_logic_vector(31 downto 0))
-        return std_logic_vector;
-=======
-    function floor(a, b: std_logic_vector (31 downto 0))
-        return real;
-    function ceil(a, b: std_logic_vector (31 downto 0))
-        return real;
->>>>>>> added spaces for floor and ceiling
-=======
         return std_logic_vector;
     function expo(A: std_logic_vector(31 downto 0))
         return std_logic_vector;
@@ -76,7 +62,6 @@ package Math is
         return std_logic_vector;
     function ceil(a: std_logic_vector (31 downto 0))
         return std_logic_vector;
->>>>>>> 41cb64ee28ee23bcfd4a4b2d491a948fba4914f8:Microarchitecture Simulation/Microarchitecture Simulation.srcs/sources_1/imports/Simulation.srcs/sim_1/new/Math.vhd
 end Math;
 
 package body Math is
@@ -737,12 +722,12 @@ package body Math is
             bitIndex := fracVector'length-1;
     end if; 
    
-   -- load fraction bits into mantissa
-   while i >= 0 and bitIndex >= 0 loop
-       mantissa(i) := fracVector(bitIndex);
-       i := i - 1;
-       bitIndex := bitIndex-1;
-   end loop;
+    -- load fraction bits into mantissa
+    while i >= 0 and bitIndex >= 0 loop
+        mantissa(i) := fracVector(bitIndex);
+        i := i - 1;
+        bitIndex := bitIndex-1;
+    end loop;
     return fp;
     end DecToFp;
 
@@ -790,39 +775,7 @@ package body Math is
         b_real := FptoDec(b);
         c := a_real / b_real;
         return DectoFp(c);
-     end div;
-<<<<<<< HEAD:Simulation/Simulation.srcs/sim_1/new/Math.vhd
-<<<<<<< HEAD
-        
-    function expo(A,B: std_logic_vector(31 downto 0))
-=======
-     
-    function floor (a, b: std_logic_vector (31 downto 0))
-    return real is
-        variable c: real;
-        variable a_real: real;
-        variable b_real: real;
-        begin
-        if c >=
-        return c;
-    end floor;
-    
-    function ceil (a, b: std_logic_vector (31 downto 0))
-    return real is
-        variable c: real;
-        variable a_real: real;
-        variable b_real: real;
-        begin
-        return c;
-    end ceil;
-    
-    function power(A,B: std_logic_vector(31 downto 0))
->>>>>>> added spaces for floor and ceiling
-            return real is 
-            variable C: real;
-            variable A_real: real;
-            variable Euler_num: real;
-=======
+     end div;   
      
     function floor (a: std_logic_vector (31 downto 0))
     return std_logic_vector is
@@ -992,7 +945,6 @@ package body Math is
         variable C: std_logic_vector(a'range);
         variable A_real: real;
         variable Euler_num: real;
->>>>>>> 41cb64ee28ee23bcfd4a4b2d491a948fba4914f8:Microarchitecture Simulation/Microarchitecture Simulation.srcs/sources_1/imports/Simulation.srcs/sim_1/new/Math.vhd
     begin
         A_real := FptoDec(A);
         Euler_num := 2.718281828459;
