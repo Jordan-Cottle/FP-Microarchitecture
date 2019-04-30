@@ -51,15 +51,10 @@ begin
    Instruction : process(clk) is
      begin
          if rising_edge(clk) then
-         
-         Output_Data <= instruction_Data(to_integer(unsigned(PC)));          -- Regular Output Data...
-         Immidiate   <= instruction_Data(to_integer(unsigned(PC)) + 1);      -- Immidiate value Output...
-         
-         
-             if Load_Enable = '1' then             -- laoding the instruction file...
-             
-             instruction_Data(to_integer(unsigned(Load_Address))) <= Load_File;
-             
+             Output_Data <= instruction_Data(to_integer(unsigned(PC)));          -- Regular Output Data...
+             Immidiate   <= instruction_Data(to_integer(unsigned(PC)) + 1);      -- Immidiate value Output...
+             if Load_Enable = '0' then -- active low write instructions
+                instruction_Data(to_integer(unsigned(Load_Address))) <= Load_File;
              end if;
          end if;
      end process;

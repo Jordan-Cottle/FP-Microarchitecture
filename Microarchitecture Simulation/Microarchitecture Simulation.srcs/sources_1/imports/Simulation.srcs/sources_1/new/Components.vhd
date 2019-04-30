@@ -69,4 +69,28 @@ package Components is
                clk: in STD_Logic
                );
     end component;
+    
+    component Instruction_Mem is
+        Port ( PC : in STD_LOGIC_VECTOR (9 downto 0);
+               Load_Address : in STD_LOGIC_VECTOR (9 downto 0);
+               Load_File : in STD_LOGIC_VECTOR (31 downto 0);
+               Load_Enable : in STD_LOGIC;
+               Output_Data : out STD_LOGIC_VECTOR (31 downto 0);
+               Immidiate : out STD_LOGIC_VECTOR (31 downto 0);
+               clk : in STD_LOGIC
+               );
+    end component;
+    
+    component PC is
+        Port ( PC : out STD_LOGIC_VECTOR (9 downto 0);
+               UB : in STD_LOGIC;
+               NB : in STD_LOGIC;
+               ZB : in STD_LOGIC;
+               RDS : in STD_LOGIC;
+               IVA : in STD_LOGIC;
+               N : in STD_LOGIC;
+               Z : in STD_LOGIC;
+               BDEST : in STD_LOGIC_VECTOR (9 downto 0);
+               clk : in STD_LOGIC);
+    end component;
 end Components;
