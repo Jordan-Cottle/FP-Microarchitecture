@@ -119,7 +119,7 @@ for line in allButLabelDesintations:
     for item in line:
         if item in branchLabels:
             length = sum([len(s) for s in newLine])
-            newLine.append(bin(branchLabels[item])[2:].zfill(32-length) + "<---")
+            newLine.append(bin(branchLabels[item])[2:].zfill(32-length))
         else:
             newLine.append(item)
     print(newLine)

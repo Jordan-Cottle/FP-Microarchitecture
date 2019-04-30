@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/jorda/Documents/Projects/FP-Microarchitecture/Microarchitecture Simulation/Microarchitecture Simulation.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/Jordan/Documents/Projects/FP-Microarchitecture/Microarchitecture Simulation/Microarchitecture Simulation.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="54957da89020430481b824904eb59455"/>
@@ -34,7 +34,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="82"/>
+    <Option Name="WTXSimLaunchSim" Val="119"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -160,6 +160,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/ISA_Controller.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="Sim"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../ISA Controller/ISA Controller.srcs/sources_1/new/ISA_Controller.vhd"/>
+          <Attr Name="ImportTime" Val="1556587850"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
@@ -262,6 +271,12 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sim_1/new/PC_tb.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/new/Controller_tb.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
