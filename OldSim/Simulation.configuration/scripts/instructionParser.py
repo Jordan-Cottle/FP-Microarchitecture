@@ -4,8 +4,8 @@ from fpConverter import decToFp
 scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
-inputFileName = "input1.txt"
-outputFileName = "program1.txt"
+inputFileName = "input3.txt"
+outputFileName = "program3.txt"
 inputFile = open(f'{configPath}/InputFiles/{inputFileName}', 'r')
 
 

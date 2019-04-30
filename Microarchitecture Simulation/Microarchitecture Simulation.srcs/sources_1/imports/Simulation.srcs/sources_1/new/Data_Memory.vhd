@@ -48,17 +48,17 @@ architecture Behavioral of Data_Memory is
     signal Mem_Data : Data_Memory;
 
 begin
-   process (clk) is
-    variable realAddress: real;
-   begin
-      if rising_edge(clk) then
-        realAddress := fpToDec(address); -- addresses will coming in as fp values
-       Data_Out <= Mem_Data(to_integer(realToUnsigned(realAddress, 10)));
-       
-          if Mem_Write = '1' then
-          Mem_Data(to_integer(realToUnsigned(realAddress, 10))) <= Data_In;
-          end if;
-      end if;
+    process (clk) is
+        variable realAddress: real;
+    begin
+        if rising_edge(clk) then
+            realAddress := fpToDec(address); -- addresses will coming in as fp values
+            Data_Out <= Mem_Data(to_integer(realToUnsigned(realAddress, 10)));
+           
+            if Mem_Write = '1' then
+                Mem_Data(to_integer(realToUnsigned(realAddress, 10))) <= Data_In;
+            end if;
+        end if;
     end process;
 
 end Behavioral;

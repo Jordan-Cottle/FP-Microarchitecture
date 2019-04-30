@@ -48,17 +48,16 @@ architecture Behavioral of Registers_Fmain is
     signal reg_Data : Registers_Fmain;
     
 begin
-   Register_File : process (clk) is
-   begin
-      if rising_edge(clk) then
-      
-       ReadOut_Data1 <= reg_Data(to_integer(unsigned(Read_reg1)));
-       ReadOut_Data2 <= reg_Data(to_integer(unsigned(Read_reg2)));
-       
-          if RegWrite = '1' then
-          reg_Data(to_integer(unsigned(Write_reg))) <= Write_Data;
-          end if;
-      end if;
+    process (clk) is
+    begin
+        if rising_edge(clk) then
+            ReadOut_Data1 <= reg_Data(to_integer(unsigned(Read_reg1)));
+            ReadOut_Data2 <= reg_Data(to_integer(unsigned(Read_reg2)));
+            
+            if RegWrite = '1' then
+                reg_Data(to_integer(unsigned(Write_reg))) <= Write_Data;
+            end if;
+        end if;
     end process;
 
 end Behavioral;
