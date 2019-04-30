@@ -4,8 +4,8 @@ from fpConverter import decToFp
 scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
-inputFileName = "input2.txt"
-outputFileName = "program2.txt"
+inputFileName = "input1.txt"
+outputFileName = "program1.txt"
 inputFile = open(f'{configPath}/InputFiles/{inputFileName}', 'r')
 
 
@@ -143,14 +143,14 @@ for line in cleanedFile[endProgram+1:]:
 
 initialMem = []
 # set up instructions to load in initial memory state
-setR0 =    opCodes["SET"] + "0000"
-setR1 =    opCodes["SET"] + "0001"
-storeR0R1= opCodes["STORE"] + "0000" + "0000" + "0001"
+setR14 =    opCodes["SET"] + "1110"
+setR15 =    opCodes["SET"] + "1111"
+storeR14R15= opCodes["STORE"] + "0000" + "1110" + "1111"
 
 # extend instructions to 32 bits
-setR0 = setR0 + '0' * (32 - len(setR0))
-setR1 = setR1 + '0' * (32 - len(setR1))
-storeR0R1 = storeR0R1 + '0' * (32 - len(storeR0R1))
+setR14 = setR14 + '0' * (32 - len(setR14))
+setR15 = setR15 + '0' * (32 - len(setR15))
+storeR14R15 = storeR14R15 + '0' * (32 - len(storeR14R15))
 
 if int(memoryStateInstructions[0]) != 0: # parse memory for initial state
     for line in memoryStateInstructions[1:]:
@@ -158,11 +158,11 @@ if int(memoryStateInstructions[0]) != 0: # parse memory for initial state
         address = decToFp(float(address[1:]))
         value = decToFp(float(value[:-1]))
 
-        initialMem.append(setR0)      # set address in r0
+        initialMem.append(setR14)      # set address in r0
         initialMem.append(address)    # add in immediate value (address)
-        initialMem.append(setR1)      # set value (in fp format) into R1
+        initialMem.append(setR15)      # set value (in fp format) into R1
         initialMem.append(value)      # add in immediate value (fp)
-        initialMem.append(storeR0R1)  # store fp value in R1 into memorey address in R0
+        initialMem.append(storeR14R15)  # store fp value in R1 into memorey address in R0
 
 # use 32 1's to signal seperation of initial state from instructions
 finalFile = initialMem + instructionFile
