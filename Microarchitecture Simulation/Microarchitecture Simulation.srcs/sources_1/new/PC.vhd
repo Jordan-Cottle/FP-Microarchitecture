@@ -42,8 +42,10 @@ process (clk)
     variable counter: integer:= 0;
 begin
     if rising_edge(clk) and start = '1' then
-        PC <= std_logic_vector(to_unsigned(counter, 10));
-   
+        PC <= std_logic_vector(to_unsigned(counter, 10));     
+    elsif start = '0' then
+        PC <= "0000000000";
+    else
         if UB = '1' then -- branch
             counter := to_integer(unsigned(BDEST)); 
         elsif ((NB and N) = '1') or ((ZB and Z) = '1') then -- conditional branch condition was met
@@ -53,8 +55,6 @@ begin
         else
             counter := counter + 1;
         end if;
-    elsif start = '0' then
-        PC <= "0000000000";
     end if;
 end process;
 

@@ -42,7 +42,8 @@ architecture Behavioral of FileReader is
     file output: text;
     
     -- simulation signals
-    signal clk : STD_LOGIC := '0';
+    signal clock: std_logic := '0'; -- main clock
+    signal clk : STD_LOGIC := '0'; -- inner clock
     signal start: std_logic := '0';
     
     -- instruction memory/PC signals
@@ -63,13 +64,10 @@ architecture Behavioral of FileReader is
     signal RegWriteData: std_logic_vector(31 downto 0);
     
     -- Data Memory signals
-    signal MemAddress : STD_LOGIC_VECTOR (9 downto 0);
-    signal MemDataIn : STD_LOGIC_VECTOR (31 downto 0);
     signal MemDataOut : STD_LOGIC_VECTOR (31 downto 0);
     
     --ALU signals
-    signal AluInA : STD_LOGIC_VECTOR (31 downto 0);
-    signal AluInB : STD_LOGIC_VECTOR (31 downto 0);
+    signal AluInB: std_logic_vector(31 downto 0);
     signal AluResult : STD_LOGIC_VECTOR (31 downto 0);
     signal z : STD_LOGIC; -- zero
     signal n : STD_LOGIC; -- negative
@@ -105,8 +103,8 @@ begin
         clk => clk
     );
     D_MEM: Data_Memory Port Map (
-        Address => MemAddress,
-        Data_In => MemDataIn,
+        Address => AluResult,
+        Data_In => RValueB,
         Data_Out => MemDataOut,
         Mem_Write => MW,
         clk => clk
@@ -115,7 +113,7 @@ begin
     -- ALU wasn't being recognized without being explicit
     ALU: Components.ALU Port Map (
         opCode => AluOpCode,
-        a => AluInA,
+        a => RValueA,
         b => AluInB,
         result => AluResult,
         z => z,
@@ -133,7 +131,7 @@ begin
             N => N,
             Z => Z,
             BDEST => BDEST,
-            clk => clk,
+            clk => clock,
             start => start
         );
     
@@ -176,14 +174,24 @@ begin
     process(Instruction)
     
     begin
-        if start = '1' then
-            -- assign constant, fixed locations
-            opCode <= instruction(31 downto 27);
-            Rd <= instruction(26 downto 23);
-            R1 <= instruction(22 downto 19);
-            R2 <= instruction(18 downto 15);
-            BDEST <= instruction(9 downto 0);
+        -- assign constant, fixed locations
+        opCode <= instruction(31 downto 27);
+        Rd <= instruction(26 downto 23);
+        R1 <= instruction(22 downto 19);
+        R2 <= instruction(18 downto 15);
+        BDEST <= instruction(9 downto 0);
+    end process;
+    
+    -- count up big clock only once every 5 mini clock cycles
+    process(clk)
+        variable count: integer:= 0;
+    begin
+        if count = 5 then
+            clock <= not clock;
+            count := 0;
         end if;
+        
+        count := count + 1;
     end process;
 
     -- Main process, controls clock
@@ -192,7 +200,6 @@ begin
         variable vectorString: string(32 downto 1);
         variable loadTo: unsigned(9 downto 0) := "0000000000";
     begin
-        wait for 20 ns;
         file_open(instructions, inputFolderPath & "program1.txt", read_mode);
         while not endfile(instructions) loop
             -- load instructions onto signal
@@ -213,11 +220,39 @@ begin
         clk <= not(clk);
         wait for 20ns;
         
-        
-        while start = '1' loop
+        file_open(output, outputFolderPath & "SimTest1.txt", write_mode);
+        while start = '1' and not(opCode = "10101") loop
             clk <= not(clk);
             wait for 20 ns;
         end loop;
+        
+        file_close(output);
         wait;
+    end process;
+    
+    
+    process(clock) -- write output values on falling edge of slow clock
+        variable lineOut: line;
+        variable registerIndex: integer;
+        variable str: string;
+        variable instruction: string;
+    begin
+        if falling_edge(clock) and start = '1' then
+            instruction := opCodeToString(opCode);
+            str := "OpCode: " & instruction;
+            write(lineOut, str);
+            
+            if (MW or MTR) = '1' then -- write info for memory access operation
+                if instruction = "STORE" then
+                    str:= "  " & registerIndexToString(R1) & ": " & vectorToString(RValueA);
+                    str:= "  " & registerIndexToString(R2) & ": " & vectorToString(RValueB);
+                    
+                end if;
+            elsif (UB or NB or ZB) = '1' then -- write info for branching
+            
+            else -- write info for R type instructions
+            
+            end if;
+        end if;
     end process;
 end Behavioral;
