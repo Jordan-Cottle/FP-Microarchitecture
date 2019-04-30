@@ -32,9 +32,9 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity Registers_Fmain is
-    Port ( Read_reg1 : in STD_LOGIC_VECTOR (4 downto 0);
-           Read_reg2 : in STD_LOGIC_VECTOR (4 downto 0);
-           Write_reg : in STD_LOGIC_VECTOR (4 downto 0);
+    Port ( Read_reg1 : in STD_LOGIC_VECTOR (3 downto 0);
+           Read_reg2 : in STD_LOGIC_VECTOR (3 downto 0);
+           Write_reg : in STD_LOGIC_VECTOR (3 downto 0);
            Write_Data : in STD_LOGIC_VECTOR (31 downto 0);
            RegWrite : in STD_LOGIC;
            ReadOut_Data1 : out STD_LOGIC_VECTOR (31 downto 0);
