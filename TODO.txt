@@ -1,6 +1,5 @@
 TODO
--- Model memories **
--- Model controller **
--- model PC + logic **
--- Read instruction file **
--- Build datapath/simulation (in progress)
+-- pipelined architecture design
+-- pipeline simulation
+-- add reporting to simulations (write signals into file)
+-- finalize report
