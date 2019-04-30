@@ -44,7 +44,6 @@ architecture Behavioral of FileReader is
     -- simulation signals
     signal clk : STD_LOGIC := '0';
     signal start: std_logic := '0';
-    signal running: std_logic := '0';
     
     -- instruction memory/PC signals
     signal ProgramCounter : STD_LOGIC_VECTOR (9 downto 0) := "0000000000";
@@ -56,19 +55,17 @@ architecture Behavioral of FileReader is
     signal opCode : std_logic_vector(4 downto 0);
     
     -- Register Signals
-    signal RAddressA: std_logic_vector(4 downto 0);
+    signal R1: std_logic_vector(3 downto 0);
     signal RValueA: std_logic_vector(31 downto 0);
-    signal RAddressB: std_logic_vector(4 downto 0);
+    signal R2: std_logic_vector(3 downto 0);
     signal RValueB: std_logic_vector(31 downto 0);
-    signal RegWriteAddress: std_logic_vector(4 downto 0);
+    signal Rd: std_logic_vector(3 downto 0);
     signal RegWriteData: std_logic_vector(31 downto 0);
-    signal RegWrite: std_logic;
     
     -- Data Memory signals
     signal MemAddress : STD_LOGIC_VECTOR (9 downto 0);
     signal MemDataIn : STD_LOGIC_VECTOR (31 downto 0);
     signal MemDataOut : STD_LOGIC_VECTOR (31 downto 0);
-    signal MemWrite : STD_LOGIC;
     
     --ALU signals
     signal AluInA : STD_LOGIC_VECTOR (31 downto 0);
@@ -79,9 +76,12 @@ architecture Behavioral of FileReader is
     signal e : std_logic; -- error
     
     -- Control signals
-    signal UB, NB, ZB, RW, MW, MTR, RDS, IVA: std_logic;
+    signal UB: STD_LOGIC;
+    signal NB, ZB, RW, MW, MTR, RDS, IVA: std_logic;
     signal AluOpCode : STD_LOGIC_VECTOR (3 downto 0);
     signal BDEST : std_logic_vector(9 downto 0);
+    
+    signal DataToReg: std_logic_vector(31 downto 0);
     
 begin
     I_MEM: Instruction_Mem Port Map (
@@ -95,11 +95,11 @@ begin
     );
         
     REGISTERS: Registers_Fmain Port Map(
-        Read_reg1 => RAddressA,
-        Read_reg2 => RAddressB,
-        Write_reg => RegWriteAddress,
+        Read_reg1 => R1,
+        Read_reg2 => R2,
+        Write_reg => Rd,
         Write_Data => RegWriteData,
-        RegWrite => RegWrite,
+        RegWrite => RW,
         ReadOut_Data1 => RValueA,
         ReadOut_Data2 => RValueB,
         clk => clk
@@ -108,7 +108,7 @@ begin
         Address => MemAddress,
         Data_In => MemDataIn,
         Data_Out => MemDataOut,
-        Mem_Write => MemWrite,
+        Mem_Write => MW,
         clk => clk
     );
     
@@ -123,7 +123,7 @@ begin
         e => e
     );
     
-    PC : components.PC Port Map ( 
+    PC : components.PC Port Map (
             PC => ProgramCounter,
             UB => UB,
             NB => NB,
@@ -133,32 +133,55 @@ begin
             N => N,
             Z => Z,
             BDEST => BDEST,
-            clk => clk
+            clk => clk,
+            start => start
         );
     
-    -- CONTROL: 
+    CONTROL: ISA_Controller Port Map(
+            opcode => opCode,
+            alu_op => AluOpCode,
+            u_branch => UB,
+            z_branch => ZB,
+            n_branch => NB,
+            reg_write => RW,
+            mem_write => MW,
+            mem_to_reg => MTR,
+            reg_dst => RDS,
+            iva => IVA                
+    );   
     
     -- Muxes
+    RdsMux: Mux2To1_32b Port Map ( 
+            a => DataToReg,
+            b => ImmediateValue,
+            control => RDS,
+            result => RegWriteData
+    );
     
-    process (start) -- unlock pc
-    
-    begin
-        if start = '1' then
-            UB <= '0';
-        else
-            BDEST <= "0000000000";
-            UB <= '1';
-        end if;
-    end process;
-    
+    MtrMux: Mux2To1_32b Port Map ( 
+                a => AluResult,
+                b => MemDataOut,
+                control => MTR,
+                result => DataToReg
+    );
+            
+    IvaMux: Mux2To1_32b Port Map( 
+            a => RValueB,
+            b => ImmediateValue,
+            control => IVA,
+            result => AluInB
+    );
     
     -- decode instruction
     process(Instruction)
     
     begin
-        if running = '1' then
+        if start = '1' then
             -- assign constant, fixed locations
             opCode <= instruction(31 downto 27);
+            Rd <= instruction(26 downto 23);
+            R1 <= instruction(22 downto 19);
+            R2 <= instruction(18 downto 15);
             BDEST <= instruction(9 downto 0);
         end if;
     end process;
@@ -186,13 +209,12 @@ begin
         
         file_close(instructions);
         
-        running <= '1';
         start <= '1';
         clk <= not(clk);
         wait for 20ns;
         
         
-        while running = '1' loop
+        while start = '1' loop
             clk <= not(clk);
             wait for 20 ns;
         end loop;
