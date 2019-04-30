@@ -4,8 +4,8 @@ from fpConverter import decToFp
 scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
-inputFileName = "input2.txt"
-outputFileName = "program2.txt"
+inputFileName = "input3.txt"
+outputFileName = "program3.txt"
 inputFile = open(f'{configPath}/InputFiles/{inputFileName}', 'r')
 
 
@@ -17,7 +17,10 @@ commentStart = ";"
 # convert immediate values
 for line in instructions:
     endLine = line.find(commentStart) # remove inline comments
-    items = line[:endLine].split()
+    if endLine != -1:
+        items = line[:endLine].split()
+    else:
+        items = line.split()
 
     if len(items) >0: #ignore blank lines
         cleanedFile.append(items)
@@ -63,12 +66,14 @@ opCodes = {
     "POW": "01011",
     "EEXP": "01100",
     "SQRT": "01101",
-    "B": "11010", # Add 'don't care' register to unconditional branch
+    "UB": "11010", # Add 'don't care' register to unconditional branch
     "BZ": "11000",
     "BN": "11001",
     "PASS": "11111",
     "HALT": "10101"
     }
+# ops that need Rd padded out
+needsPadding = {opCodes["STORE"], opCodes["BZ"], opCodes["BN"]}
 
 branchLabels = {}
 allButLabelDesintations = []
@@ -78,12 +83,16 @@ for i, line in enumerate(convertedImmediateValues):
     newLine = []
     print(line)
     for item in line:
-        if item[-1] == ':': # skip over labels for now (line numbers will be changed by immediate values)
+        if item[-1] == ':': # log branch labels
             branchLabels[item[:-1]] = i
-            print(branchLabels[item[:-1]])
+            #print(branchLabels[item[:-1]])
         elif item in opCodes:
             code = opCodes[item]
             newLine.append(code)
+
+            # handle Store opcode by inserting blank for register destination
+            if code in needsPadding:
+                newLine.append("0000")
         # convert register names
         elif item[0] == 'R': 
             address = bin(int(item[1:]))[2:].zfill(4)
@@ -99,10 +108,12 @@ almostDone = []
 print("Almost done: ")
 for line in allButLabelDesintations:
     newLine = []
-    print(line)
+    #print(line)
+    
     for item in line:
         if item in branchLabels:
-            newLine.append(bin(branchLabels[item])[2:].zfill(23))
+            length = sum([len(s) for s in newLine])
+            newLine.append(bin(branchLabels[item])[2:].zfill(32-length))
         else:
             newLine.append(item)
     print(newLine)
@@ -123,6 +134,7 @@ for line in instructionFile:
 memoryStateInstructions = []
 for line in cleanedFile[endProgram+1:]:
     memoryStateInstructions.extend(line)
+print(memoryStateInstructions)
 
 initialMem = []
 if int(memoryStateInstructions[0]) != 0: # parse memory for initial state
