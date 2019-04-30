@@ -69,82 +69,81 @@ package body CONVERSIONS is
     
     function opCodeToString(opCode: std_logic_vector(4 downto 0))
     return string is
-        variable result: string;
+
     begin
         case opCode is
             when "00000" => -- add
-                result := "ADD";
+                return string'("ADD");
                 
             when "00001" => --sub
-                result := "SUB";
+                return string'("SUB");
                 
             when "00010" => --neg
-                result := "NEG";
+                return string'("NEG");
                 
             when "00011" => --mul
-                result := "MUL";
+                return string'("MUL");
                 
             when "00100" => --div
-                result := "DIV";
+                return string'("DIV");
                 
             when "00101" => --floor
-                result := "FLOOR";
+                return string'("FLOOR");
                 
             when "00110" => --ceil
-                result := "CEIL";
+                return string'("CEIL");
                 
             when "00111" => --round
-                result := "ROUND";
+                return string'("ROUND");
                 
             when "01000" => --abs
-                result := "ABS";
+                return string'("ABS");
                 
             when "01001" => --min
-                result := "MIN";
+                return string'("MIN");
                 
             when "01010" => --max
-                result := "MAX";
+                return string'("MAX");
                 
             when "01011" => --pow
-                result := "POW";
+                return string'("POW");
                 
             when "01100" => --exp
-                result := "EXP";
+                return string'("EXP");
                 
             when "01101" => --sqrt
-                result := "SQRT";
+                return string'("SQRT");
                 
             when "10000" => --set
-                result := "SET";
+                return string'("SET");
                 
             when "10001" => --load
-                result := "LOAD";
+                return string'("LOAD");
                 
             when "10010" => --store
-                result := "STORE";
+                return string'("STORE");
                     
             when "10011" => --move
-                result := "MOVE";
+                return string'("MOVE");
                         
             when "11010" => --u_branch
-                result := "UB";
+                return string'("UB");
                 
             when "11000" => --z_branch
-                result := "ZB";
+                return string'("ZB");
                 
             when "11001" => --n_branch
-                result := "NB";
+                return string'("NB");
                 
             when "11111" => --nop
-                result := "PASS";
+                return string'("PASS");
                 
             when "10101" => --halt
-                result := "HALT";
+                return string'("HALT");
             
             when others => -- do a noop
-                result := "NOOP";                           
+                return string'("NOOP");                           
             end case;
-        return result;
     end opCodeToString;
     
     function registerIndexToString(reg: std_logic_vector(3 downto 0))
