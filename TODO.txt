@@ -1,6 +1,6 @@
 TODO
 -- Model memories **
--- Model controller * (needs testbench)
+-- Model controller **
 -- model PC + logic **
 -- Read instruction file **
 -- Build datapath/simulation (in progress)
