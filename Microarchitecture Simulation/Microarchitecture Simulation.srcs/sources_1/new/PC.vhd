@@ -30,7 +30,8 @@ entity PC is
            N : in STD_LOGIC;
            Z : in STD_LOGIC;
            BDEST : in STD_LOGIC_VECTOR (9 downto 0);
-           clk : in STD_LOGIC);
+           clk : in STD_LOGIC;
+           start: in std_logic);
 end PC;
 
 architecture Behavioral of PC is
@@ -40,7 +41,7 @@ begin
 process (clk)
     variable counter: integer:= 0;
 begin
-    if rising_edge(clk) then
+    if rising_edge(clk) and start = '1' then
         PC <= std_logic_vector(to_unsigned(counter, 10));
    
         if UB = '1' then -- branch
@@ -52,6 +53,8 @@ begin
         else
             counter := counter + 1;
         end if;
+    elsif start = '0' then
+        PC <= "0000000000";
     end if;
 end process;
 
