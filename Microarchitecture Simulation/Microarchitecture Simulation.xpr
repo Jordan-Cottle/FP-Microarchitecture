@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="38" Path="C:/Users/Jordan/Documents/Projects/FP-Microarchitecture/Microarchitecture Simulation/Microarchitecture Simulation.xpr">
+<Project Version="7" Minor="38" Path="C:/Users/jorda/Documents/Projects/FP-Microarchitecture/Microarchitecture Simulation/Microarchitecture Simulation.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="54957da89020430481b824904eb59455"/>
@@ -20,6 +20,7 @@
     <Option Name="TargetLanguage" Val="VHDL"/>
     <Option Name="SimulatorLanguage" Val="VHDL"/>
     <Option Name="BoardPart" Val=""/>
+    <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
@@ -33,7 +34,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="8"/>
+    <Option Name="WTXSimLaunchSim" Val="82"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -61,45 +62,10 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/../Register_File/Register_File.srcs/sources_1/new/Registers_Fmain.vhd">
+      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sim_1/new/Constants.vhd">
         <FileInfo>
           <Attr Name="Library" Val="Sim"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/ALU.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/ALU.vhd"/>
-          <Attr Name="ImportTime" Val="1556372047"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/FileReader.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/FileReader.vhd"/>
-          <Attr Name="ImportTime" Val="1556372047"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/Mux2To1_32b.vhd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/Mux2To1_32b.vhd"/>
-          <Attr Name="ImportTime" Val="1556372047"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/Conversions.vhd">
-        <FileInfo>
-          <Attr Name="Library" Val="Sim"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/Conversions.vhd"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sim_1/new/Constants.vhd"/>
           <Attr Name="ImportTime" Val="1556372047"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -108,17 +74,16 @@
       <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sim_1/new/Math.vhd">
         <FileInfo>
           <Attr Name="Library" Val="Sim"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sim_1/new/Math.vhd"/>
           <Attr Name="ImportTime" Val="1556372047"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/Mux2To1_1b.vhd">
+      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/ALU.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/Mux2To1_1b.vhd"/>
+          <Attr Name="Library" Val="Sim"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/ALU.vhd"/>
           <Attr Name="ImportTime" Val="1556372047"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -127,8 +92,16 @@
       <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/Components.vhd">
         <FileInfo>
           <Attr Name="Library" Val="Sim"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/Components.vhd"/>
+          <Attr Name="ImportTime" Val="1556372047"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/Conversions.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="Sim"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/Conversions.vhd"/>
           <Attr Name="ImportTime" Val="1556372047"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -136,26 +109,59 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/Data_Memory.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/Data_Memory.vhd"/>
           <Attr Name="ImportTime" Val="1556372047"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sim_1/new/Constants.vhd">
+      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/FileReader.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/FileReader.vhd"/>
+          <Attr Name="ImportTime" Val="1556372047"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/Mux2To1_1b.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/Mux2To1_1b.vhd"/>
+          <Attr Name="ImportTime" Val="1556372047"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Simulation.srcs/sources_1/new/Mux2To1_32b.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sources_1/new/Mux2To1_32b.vhd"/>
+          <Attr Name="ImportTime" Val="1556372047"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Register_File/Register_File.srcs/sources_1/new/Registers_Fmain.vhd">
         <FileInfo>
           <Attr Name="Library" Val="Sim"/>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../OldSim/Simulation.srcs/sim_1/new/Constants.vhd"/>
-          <Attr Name="ImportTime" Val="1556372047"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../Instruction_Memory/Instruction_Memory.srcs/sources_1/new/Instruction_Mem.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="Sim"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/PC.vhd">
+        <FileInfo>
+          <Attr Name="Library" Val="Sim"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="Registers_Fmain"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -169,7 +175,6 @@
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/Simulation/Simulation.srcs/sim_1/new/Data_Mem_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Simulation/Simulation.srcs/sim_1/new/Data_Mem_tb.vhd"/>
           <Attr Name="ImportTime" Val="1556335098"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -178,7 +183,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/testing/testing.srcs/sources_1/new/ALU_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../testing/testing.srcs/sources_1/new/ALU_tb.vhd"/>
           <Attr Name="ImportTime" Val="1556342019"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -187,7 +191,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/testing/testing.srcs/sim_1/new/bitDiff_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../testing/testing.srcs/sim_1/new/bitDiff_tb.vhd"/>
           <Attr Name="ImportTime" Val="1555708720"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -196,7 +199,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/Simulation/Simulation.srcs/sources_1/new/Mux2To1_1b_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Simulation/Simulation.srcs/sources_1/new/Mux2To1_1b_tb.vhd"/>
           <Attr Name="ImportTime" Val="1555188875"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -205,7 +207,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/Simulation/Simulation.srcs/sim_1/new/Decoder_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Simulation/Simulation.srcs/sim_1/new/Decoder_tb.vhd"/>
           <Attr Name="ImportTime" Val="1554340495"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -214,7 +215,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/Register_File/Register_File.srcs/sim_1/new/Register_File_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Register_File/Register_File.srcs/sim_1/new/Register_File_tb.vhd"/>
           <Attr Name="ImportTime" Val="1556335098"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -223,7 +223,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/Simulation/Simulation.srcs/sim_1/new/ConversionTest.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../Simulation/Simulation.srcs/sim_1/new/ConversionTest.vhd"/>
           <Attr Name="ImportTime" Val="1555189589"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -232,7 +231,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/testing/testing.srcs/sim_1/new/twosCompliment_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../testing/testing.srcs/sim_1/new/twosCompliment_tb.vhd"/>
           <Attr Name="ImportTime" Val="1555561885"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -241,7 +239,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/testing/testing.srcs/sim_1/new/shift_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../testing/testing.srcs/sim_1/new/shift_tb.vhd"/>
           <Attr Name="ImportTime" Val="1556066220"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -250,7 +247,6 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/testing/testing.srcs/sim_1/new/bitAdd_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../testing/testing.srcs/sim_1/new/bitAdd_tb.vhd"/>
           <Attr Name="ImportTime" Val="1555740782"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -259,9 +255,14 @@
       </File>
       <File Path="$PSRCDIR/sim_1/imports/FP-Microarchitecture/testing/testing.srcs/sim_1/new/decToFp_tb.vhd">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../testing/testing.srcs/sim_1/new/decToFp_tb.vhd"/>
           <Attr Name="ImportTime" Val="1555469770"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/new/PC_tb.vhd">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
