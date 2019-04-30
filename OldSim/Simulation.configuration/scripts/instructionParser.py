@@ -4,8 +4,8 @@ from fpConverter import decToFp
 scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
-inputFileName = "input3.txt"
-outputFileName = "program3.txt"
+inputFileName = "input2.txt"
+outputFileName = "program2.txt"
 inputFile = open(f'{configPath}/InputFiles/{inputFileName}', 'r')
 
 
@@ -26,6 +26,10 @@ for line in instructions:
         cleanedFile.append(items)
 
 endProgram = cleanedFile.index(["HALT"])
+print(cleanedFile)
+
+initialMemoryAddresses = int(cleanedFile[endProgram+1][0])
+print(f'Initial Memory addresses = {initialMemoryAddresses}')
 
 convertedImmediateValues = []
 print("Instructions:")
@@ -84,7 +88,7 @@ for i, line in enumerate(convertedImmediateValues):
     print(line)
     for item in line:
         if item[-1] == ':': # log branch labels
-            branchLabels[item[:-1]] = i
+            branchLabels[item[:-1]] = i + (5*initialMemoryAddresses)
             #print(branchLabels[item[:-1]])
         elif item in opCodes:
             code = opCodes[item]
@@ -93,6 +97,8 @@ for i, line in enumerate(convertedImmediateValues):
             # handle Store opcode by inserting blank for register destination
             if code in needsPadding:
                 newLine.append("0000")
+            elif item == "HALT":
+                newLine.append(bin(i + 5*initialMemoryAddresses)[2:].zfill(32-5))
         # convert register names
         elif item[0] == 'R': 
             address = bin(int(item[1:]))[2:].zfill(4)
@@ -113,7 +119,7 @@ for line in allButLabelDesintations:
     for item in line:
         if item in branchLabels:
             length = sum([len(s) for s in newLine])
-            newLine.append(bin(branchLabels[item])[2:].zfill(32-length))
+            newLine.append(bin(branchLabels[item])[2:].zfill(32-length) + "<---")
         else:
             newLine.append(item)
     print(newLine)
@@ -134,20 +140,32 @@ for line in instructionFile:
 memoryStateInstructions = []
 for line in cleanedFile[endProgram+1:]:
     memoryStateInstructions.extend(line)
-print(memoryStateInstructions)
 
 initialMem = []
+# set up instructions to load in initial memory state
+setR0 =    opCodes["SET"] + "0000"
+setR1 =    opCodes["SET"] + "0001"
+storeR0R1= opCodes["STORE"] + "0000" + "0000" + "0001"
+
+# extend instructions to 32 bits
+setR0 = setR0 + '0' * (32 - len(setR0))
+setR1 = setR1 + '0' * (32 - len(setR1))
+storeR0R1 = storeR0R1 + '0' * (32 - len(storeR0R1))
+
 if int(memoryStateInstructions[0]) != 0: # parse memory for initial state
     for line in memoryStateInstructions[1:]:
         address, value = line.split("><")
-        print(address, value)
-        address = bin(int(address[1:]))[2:].zfill(32)
+        address = decToFp(float(address[1:]))
         value = decToFp(float(value[:-1]))
-        initialMem.append(address)
-        initialMem.append(value)
+
+        initialMem.append(setR0)      # set address in r0
+        initialMem.append(address)    # add in immediate value (address)
+        initialMem.append(setR1)      # set value (in fp format) into R1
+        initialMem.append(value)      # add in immediate value (fp)
+        initialMem.append(storeR0R1)  # store fp value in R1 into memorey address in R0
 
 # use 32 1's to signal seperation of initial state from instructions
-finalFile = initialMem + ["11111111111111111111111111111111"] + instructionFile
+finalFile = initialMem + instructionFile
 
 with open(f'{configPath}/InputFiles/{outputFileName}', 'w') as outputFile:
     for line in finalFile:

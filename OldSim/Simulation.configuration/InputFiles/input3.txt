@@ -1,4 +1,4 @@
-LABEL: SET	    R0 #100	        ; R0 = 100
+LABEL: ADD	    R0 R2 R3	        ; R0 = 100
  LOAD	R1 R0		    ; R1 = M[100] = 3.14159
  SET	    R2 #18.0	    ; R2 = 18.0
  SET 	R3 #6.5	        ; R3 = 6.5
@@ -15,5 +15,6 @@ LABEL: SET	    R0 #100	        ; R0 = 100
  BN	    R10 LABEL		    ; branch to first line substitue with a LABEL as needed in your simulation	
  
  HALT
-1
+2
 <100><3.14159>
+<25><31.557>
