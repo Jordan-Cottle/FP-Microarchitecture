@@ -605,7 +605,7 @@ package body Math is
     variable sum: real;
     begin
         pow := to_integer(unsigned(exponent))- 127;
-        if exponent = "00000000" then
+        if pow = -127 then
             -- skip implied mantissa bit
             sum := 0.0;
         elsif pow > 127 then
