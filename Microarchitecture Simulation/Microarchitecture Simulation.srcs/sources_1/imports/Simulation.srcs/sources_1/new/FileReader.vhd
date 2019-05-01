@@ -18,6 +18,7 @@ library Sim;
 
 use Sim.Constants.all;
 use Sim.conversions.all;
+use Sim.math.fpToDec;
 use Sim.components;
 use Sim.components.all;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -196,11 +197,12 @@ begin
 
     -- Main process, controls clock
     process
+        variable programNum: string(1 to 1):= "2";
         variable lineIn: line;
         variable vectorString: string(32 downto 1);
         variable loadTo: unsigned(9 downto 0) := "0000000000";
     begin
-        file_open(instructions, inputFolderPath & "program1.txt", read_mode);
+        file_open(instructions, inputFolderPath & "program" & programNum & ".txt", read_mode);
         while not endfile(instructions) loop
             -- load instructions onto signal
             readline(instructions, lineIn);
@@ -220,7 +222,7 @@ begin
         clk <= not(clk);
         wait for 20ns;
         
-        file_open(output, outputFolderPath & "SimTest1.txt", write_mode);
+        file_open(output, outputFolderPath & "SimTest" & programNum & ".txt", write_mode);
         while start = '1' and not(opCode = "10101") loop
             clk <= not(clk);
             wait for 20 ns;
@@ -234,24 +236,52 @@ begin
     process(clock) -- write output values on falling edge of slow clock
         variable lineOut: line;
         variable registerIndex: integer;
-        variable str: string;
-        variable instruction: string;
     begin
         if falling_edge(clock) and start = '1' then
-            instruction := opCodeToString(opCode);
-            str := "OpCode: " & instruction;
-            write(lineOut, str);
+            write(lineOut, string'("PC: ") & integer'image(to_integer(unsigned(ProgramCounter))));
+            write(lineOut, " (" & vectorToString(ProgramCounter) & ")");
+            writeLine(output, lineOut);
+            write(lineOut, string'("   OpCode: "));
+            write(lineOut, opCodeToString(opCode));
+            write(lineOut, string'(" ("));
+            write(lineOut, vectorToString(opCode));
+            write(lineOut, string'(")"));
+            writeLine(output, lineOut);
+            
+            write(lineOut, "   R1 Address: " & vectorToString(R1));
+            writeLine(output, lineOut);
+            write(lineOut, "   R1 Value: " & vectorToString(RValueA));
+            write(lineOut, " (" & real'image(fpToDec(RValueA)) & ")");
+            writeLine(output, lineOut);
+            
+            write(lineOut, "   R2 Address: " & vectorToString(R2));
+            writeLine(output, lineOut);
+            write(lineOut, "   R2 Value: " & vectorToString(RValueB));
+            write(lineOut, " (" & real'image(fpToDec(RValueB)) & ")");
+            writeLine(output, lineOut);
+            
+            write(lineOut, "   Rd Address: " & vectorToString(Rd));
+            writeLine(output, lineOut);
+            write(lineOut, "   Rd Write Value: " & vectorToString(RegWriteData));
+            write(lineOut, " (" & real'image(fpToDec(RegWriteData)) & ")");
+            writeLine(output, lineOut);
+            
             
             if (MW or MTR) = '1' then -- write info for memory access operation
-                if instruction = "STORE" then
-                    str:= "  " & registerIndexToString(R1) & ": " & vectorToString(RValueA);
-                    str:= "  " & registerIndexToString(R2) & ": " & vectorToString(RValueB);
-                    
-                end if;
-            elsif (UB or NB or ZB) = '1' then -- write info for branching
-            
-            else -- write info for R type instructions
-            
+                write(lineOut, "   MemIn: " & vectorToString(RValueB));
+                writeLine(output, lineOut);
+                write(lineOut, "   MemOut: " & vectorToString(MemDataOut));
+                writeLine(output, lineOut);
+            elsif (NB or ZB) = '1' then -- write info for branching
+                write(lineOut, "   N: " & std_logic'image(N));
+                writeLine(output, lineOut);
+                write(lineOut, "   Z: " & std_logic'image(Z));
+                writeLine(output, lineOut);
+                write(lineOut, "   BDEST: " & integer'image(to_integer(unsigned(BDEST))) & " (" &vectorToString(BDEST) & ")");
+                writeLine(output, lineOut);
+            elsif UB = '1' then
+                write(lineOut, "   BDEST: " & integer'image(to_integer(unsigned(BDEST))) & " (" &vectorToString(BDEST) & ")");
+                writeLine(output, lineOut);
             end if;
         end if;
     end process;
