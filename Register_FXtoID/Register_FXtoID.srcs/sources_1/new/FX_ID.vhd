@@ -31,35 +31,34 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity FX_ID is
-    Port ( PC_In : in STD_LOGIC_VECTOR (9 downto 0);
-           Instruction_In : in STD_LOGIC_VECTOR (31 downto 0);
+entity IF_ID is
+    Port ( Instruction : in STD_LOGIC_VECTOR (31 downto 0);
            Immidiate_In : in STD_LOGIC_VECTOR (31 downto 0);
-           PC_Out : out STD_LOGIC_VECTOR (9 downto 0);
-           Instruction_Out : out STD_LOGIC_VECTOR (31 downto 0);
+           BDest : out STD_LOGIC_VECTOR (9 downto 0);
+           Opcode : out STD_LOGIC_VECTOR (4 downto 0);
+           R1 : out std_logic_vector (3 downto 0);
+           R2 : out std_logic_vector (3 downto 0);
+           Rd : out std_logic_vector (3 downto 0);
            Immidiate_Out : out STD_LOGIC_VECTOR (31 downto 0);
            clk : in STD_LOGIC
            );
-end FX_ID;
-
-architecture Behavioral of FX_ID is
-
-signal PC_value : std_logic_vector(9 downto 0);
+end IF_ID;
+architecture Behavioral of IF_ID is
+--Defing the signals...
 signal Instruction_value : std_logic_vector(31 downto 0);
 signal Immidiate_value : std_logic_vector(31 downto 0);
-
 begin
-
 process(clk)
 begin
-        if rising_edge(clk) then
-           PC_value <= PC_In;
-           Instruction_value <= Instruction_In;
-           Immidiate_value <= Immidiate_In;
-           
-        elsif falling_edge(clk) then
-           PC_Out <= PC_value;
-           Instruction_Out <= Instruction_value;
+        if rising_edge(clk) then            -- loading the input values...
+           Instruction_value <= Instruction;
+           Immidiate_value <= Immidiate_In;  
+        else                                -- Omitting out the values... 
+           BDest <= Instruction_value(9 downto 0);
+           Opcode <= Instruction_value (31 downto 27);
+           R1 <= Instruction_value (26 downto 23);
+           R2 <= Instruction_value (23 downto 19);
+           Rd <= Instruction_value (18 downto 15);
            Immidiate_Out <= Immidiate_value;
         end if;
 end process;

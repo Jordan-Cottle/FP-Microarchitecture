@@ -31,31 +31,53 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity MEMtoWB is
-    Port ( MemDataOutput_IN : in STD_LOGIC_VECTOR (31 downto 0);
+entity MEM_WB is
+    Port ( -- Input ports...
+           MemDataOutput_IN : in STD_LOGIC_VECTOR (31 downto 0);
            ALUResult_In : in STD_LOGIC_VECTOR (31 downto 0);
-           MemDataOutput_Out : out STD_LOGIC_VECTOR (31 downto 0);
+           Write_Address_In: in STD_LOGIC_VECTOR (3 downto 0);
+           MTR_In : in std_logic;
+           RW_In : in std_logic;
+           
+           --Output ports...
            ALUResult_Out : out STD_LOGIC_VECTOR (31 downto 0);
+           MemDataOutput_Out : out STD_LOGIC_VECTOR (31 downto 0);
+           Write_Address_Out : out STD_LOGIC_VECTOR (3 downto 0);
+           MTR_Out : out std_logic;
+           RW_Out : out std_logic;
+           --clock...
            clk : in STD_LOGIC
            );
-end MEMtoWB;
+end MEM_WB;
 
-architecture Behavioral of MEMtoWB is
+architecture Behavioral of MEM_WB is
 
 signal MemDataOutput_Value : std_logic_vector(31 downto 0);
 signal ALUResult_Value : std_logic_vector(31 downto 0);
+signal Write_Address_Value: std_logic_vector(3 downto 0);
+signal MTR_Value : std_logic;
+signal RW_Value : std_logic;
 
 begin
     
 process(clk)
 begin
         if rising_edge(clk) then
-           MemDataOutput_Value <= MemDataOutput_In;
+           -- Loading the values...
            ALUResult_Value <= ALUResult_In;
+           MemDataOutput_Value <= MemDataOutput_In;
+           Write_Address_Value <= Write_Address_In;
+           MTR_Value <= MTR_In;
+           RW_Value <= RW_In;
            
-        elsif falling_edge(clk) then
-           MemDataOutput_Out <= MemDataOutput_Value;
+        else
+           -- Omitting out the values...
            AlUResult_Out <= ALUResult_Value;
+           MemDataOutput_Out <= MemDataOutput_Value;
+           Write_Address_Out <= Write_Address_Value;
+           MTR_Out <= MTR_Value;
+           RW_Out <= RW_Value;
+           
         end if;
         
 end process;
