@@ -4,8 +4,8 @@ from fpConverter import decToFp
 scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
-inputFileName = "input3.txt"
-outputFileName = "program3.txt"
+inputFileName = "pipeinput2.txt"
+outputFileName = "pipeprogram2.txt"
 inputFile = open(f'{configPath}/InputFiles/{inputFileName}', 'r')
 
 
@@ -70,7 +70,7 @@ opCodes = {
     "POW": "01011",
     "EEXP": "01100",
     "SQRT": "01101",
-    "UB": "11010", # Add 'don't care' register to unconditional branch
+    "UB": "11010",
     "BZ": "11000",
     "BN": "11001",
     "PASS": "11111",

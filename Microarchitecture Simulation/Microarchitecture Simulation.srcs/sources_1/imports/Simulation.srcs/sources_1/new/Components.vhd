@@ -101,4 +101,102 @@ package Components is
                u_branch, z_branch, n_branch, reg_write, mem_write, mem_to_reg, reg_dst, iva: out std_logic
          );
      end component;
+     
+     component EX_MEM is
+         Port ( -- Input ports....
+                ALUResult_In : in STD_LOGIC_VECTOR (31 downto 0);
+                ReadOut2_In : in STD_LOGIC_VECTOR (31 downto 0);
+                Write_Address_In : in std_logic_vector ( 3 downto 0);
+                MW_In : in STD_LOGIC;
+                MTR_In : in STD_LOGIC;
+                RW_In : in STD_LOGIC;
+                RDS_in : in std_logic;
+                IV_in: in std_logic_vector(31 downto 0);
+                -- Output ports....
+                ALUResult_Out : out STD_LOGIC_VECTOR (31 downto 0);
+                ReadOut2_Out : out STD_LOGIC_VECTOR (31 downto 0);
+                Write_Address_Out : out std_logic_vector (3 downto 0);
+                MW_Out : out STD_LOGIC;
+                MTR_Out : out STD_LOGIC;
+                RW_Out : out STD_LOGIC;
+                RDS_out : out std_logic;
+                IV_out: out std_logic_vector(31 downto 0);
+                -- clock....
+                clk : in STD_LOGIC
+                );
+     end component;
+     
+     component ID_EX is
+         Port ( -- Input ports....
+                BDest_In : in STD_LOGIC_VECTOR (9 downto 0);
+                ReadData1_In : in STD_LOGIC_VECTOR (31 downto 0);
+                ReadData2_In : in STD_LOGIC_VECTOR (31 downto 0);
+                MuxOut_In : in std_logic_vector (31 downto 0);
+                Write_Address_In : in STD_LOGIC_VECTOR (3 downto 0);
+                MTR_In : in STD_LOGIC;
+                UB_In : in STD_LOGIC;
+                ZB_In : in STD_LOGIC;
+                NB_In : in STD_LOGIC;
+                ALUC_In : in STD_LOGIC_vector(3 downto 0);
+                RW_In : in STD_LOGIC;
+                MW_In : in STD_LOGIC;
+                IVA_in : in std_logic;
+                RDS_in : in std_logic;
+                IV_in: in std_logic_vector(31 downto 0);
+                -- Output ports...
+                BDest_Out : out STD_Logic_vector(9 downto 0);
+                ReadData1_Out : out STD_LOGIC_VECTOR (31 downto 0);
+                ReadData2_Out : out STD_LOGIC_VECTOR (31 downto 0);
+                MuxOut_Out : out STD_LOGIC_VECTOR (31 downto 0);
+                Write_Address_Out : out STD_LOGIC_VECTOR (3 downto 0);
+                MTR_Out : out STD_LOGIC;
+                UB_Out : out STD_LOGIC;
+                ZB_Out : out STD_LOGIC;
+                NB_Out : out STD_LOGIC;
+                ALUC_Out : out STD_LOGIC_vector(3 downto 0);
+                RW_Out : out STD_LOGIC;
+                MW_Out : out STD_LOGIC;
+                IVA_out : out std_logic;
+                RDS_out : out std_logic;
+                IV_out: out std_logic_vector(31 downto 0);
+                -- clock...
+                clk : in STD_LOGIC);
+     end component;
+     
+     component IF_ID is
+         Port ( Instruction : in STD_LOGIC_VECTOR (31 downto 0);
+                Immidiate_In : in STD_LOGIC_VECTOR (31 downto 0);
+                BDest : out STD_LOGIC_VECTOR (9 downto 0);
+                Opcode : out STD_LOGIC_VECTOR (4 downto 0);
+                R1 : out std_logic_vector (3 downto 0);
+                R2 : out std_logic_vector (3 downto 0);
+                Rd : out std_logic_vector (3 downto 0);
+                Immidiate_Out : out STD_LOGIC_VECTOR (31 downto 0);
+                clk : in STD_LOGIC
+                );
+     end component;
+     
+     component MEM_WB is
+         Port ( -- Input ports...
+                MemDataOutput_IN : in STD_LOGIC_VECTOR (31 downto 0);
+                ALUResult_In : in STD_LOGIC_VECTOR (31 downto 0);
+                Write_Address_In: in STD_LOGIC_VECTOR (3 downto 0);
+                MTR_In : in std_logic;
+                RW_In : in std_logic;
+                IV_in: in std_logic_vector(31 downto 0);
+                RDS_in: in std_logic;
+                
+                
+                --Output ports...
+                ALUResult_Out : out STD_LOGIC_VECTOR (31 downto 0);
+                MemDataOutput_Out : out STD_LOGIC_VECTOR (31 downto 0);
+                Write_Address_Out : out STD_LOGIC_VECTOR (3 downto 0);
+                MTR_Out : out std_logic;
+                RW_Out : out std_logic;
+                IV_out: out std_logic_vector(31 downto 0);
+                RDS_out: out std_logic;
+                --clock...
+                clk : in STD_LOGIC
+                );
+     end component;
 end Components;

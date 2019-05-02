@@ -31,33 +31,62 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity MEMtoWB is
-    Port ( MemDataOutput_IN : in STD_LOGIC_VECTOR (31 downto 0);
+entity MEM_WB is
+    Port ( -- Input ports...
+           MemDataOutput_IN : in STD_LOGIC_VECTOR (31 downto 0);
            ALUResult_In : in STD_LOGIC_VECTOR (31 downto 0);
-           MemDataOutput_Out : out STD_LOGIC_VECTOR (31 downto 0);
+           Write_Address_In: in STD_LOGIC_VECTOR (3 downto 0);
+           MTR_In : in std_logic;
+           RW_In : in std_logic;
+           IV_in: in std_logic_vector(31 downto 0);
+           RDS_in: in std_logic;
+           
+           --Output ports...
            ALUResult_Out : out STD_LOGIC_VECTOR (31 downto 0);
+           MemDataOutput_Out : out STD_LOGIC_VECTOR (31 downto 0);
+           Write_Address_Out : out STD_LOGIC_VECTOR (3 downto 0);
+           MTR_Out : out std_logic;
+           RW_Out : out std_logic;
+           IV_out: out std_logic_vector(31 downto 0);
+           RDS_out : out std_logic;
+           --clock...
            clk : in STD_LOGIC
            );
-end MEMtoWB;
+end MEM_WB;
 
-architecture Behavioral of MEMtoWB is
-
-signal MemDataOutput_Value : std_logic_vector(31 downto 0);
-signal ALUResult_Value : std_logic_vector(31 downto 0);
+architecture Behavioral of MEM_WB is
 
 begin
     
 process(clk)
+--Declaring the Variable....
+variable MemDataOutput_Value : std_logic_vector(31 downto 0);
+variable ALUResult_Value : std_logic_vector(31 downto 0);
+variable Write_Address_Value: std_logic_vector(3 downto 0);
+variable MTR_Value : std_logic;
+variable RW_Value : std_logic;
+variable RDS_value: std_logic;
+variable IV_value: std_logic_vector(31 downto 0);
+
 begin
         if rising_edge(clk) then
-           MemDataOutput_Value <= MemDataOutput_In;
-           ALUResult_Value <= ALUResult_In;
-           
-        elsif falling_edge(clk) then
-           MemDataOutput_Out <= MemDataOutput_Value;
-           AlUResult_Out <= ALUResult_Value;
+           -- Loading the values...
+           ALUResult_Value := ALUResult_In;
+           MemDataOutput_Value := MemDataOutput_In;
+           Write_Address_Value := Write_Address_In;
+           MTR_Value := MTR_In;
+           RW_Value := RW_In;
+           RDS_value := RDS_in;
+           IV_value:= IV_in;
+           -- Omitting out the values...
         end if;
-        
+           AlUResult_Out <= ALUResult_Value;
+           MemDataOutput_Out <= MemDataOutput_Value;
+           Write_Address_Out <= Write_Address_Value;
+           MTR_Out <= MTR_Value;
+           RW_Out <= RW_Value;
+           RDS_out <= RDS_value;
+           IV_out <= IV_value;
 end process;
 
 end Behavioral;
