@@ -59,12 +59,14 @@ architecture Behavioral of MEM_WB is
 begin
     
 process(clk)
+--Declaring the Variable....
 variable MemDataOutput_Value : std_logic_vector(31 downto 0);
 variable ALUResult_Value : std_logic_vector(31 downto 0);
 variable Write_Address_Value: std_logic_vector(3 downto 0);
 variable MTR_Value : std_logic;
 variable RW_Value : std_logic;
 variable RDS_value: std_logic;
+variable IV_value: std_logic_vector(31 downto 0);
 
 begin
         if rising_edge(clk) then
