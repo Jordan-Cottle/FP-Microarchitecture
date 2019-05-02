@@ -6,7 +6,7 @@ scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
 
 n = '2'
-programName = "pipe"
+programName = ""
 outputName = f"{programName}Program"
 inputFileName = f"{programName}input{n}.txt"
 outputFileName = f"{programName}program{n}.txt"
@@ -34,6 +34,8 @@ print(cleanedFile)
 
 initialMemoryAddresses = int(cleanedFile[endProgram+1][0])
 print(f'Initial Memory addresses = {initialMemoryAddresses}')
+
+hasStartingMemoryState = initialMemoryAddresses != 0
 
 convertedImmediateValues = []
 print("Instructions:")
@@ -92,7 +94,7 @@ for i, line in enumerate(convertedImmediateValues):
     print(line)
     for item in line:
         if item[-1] == ':': # log branch labels
-            branchLabels[item[:-1]] = i + (5*initialMemoryAddresses+4)
+            branchLabels[item[:-1]] = i + (5*initialMemoryAddresses+(4*hasStartingMemoryState))
             #print(branchLabels[item[:-1]])
         elif item in opCodes:
             code = opCodes[item]
@@ -102,7 +104,7 @@ for i, line in enumerate(convertedImmediateValues):
             if code in needsPadding:
                 newLine.append("0000")
             elif item == "HALT":
-                newLine.append(bin(i + 5*initialMemoryAddresses)[2:].zfill(32-5))
+                newLine.append(bin(i + 5*initialMemoryAddresses+(4*hasStartingMemoryState))[2:].zfill(32-5))
         # convert register names
         elif item[0] == 'R': 
             address = bin(int(item[1:]))[2:].zfill(4)
