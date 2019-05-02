@@ -291,7 +291,7 @@ begin
         variable vectorString: string(32 downto 1);
         variable loadTo: unsigned(9 downto 0) := "0000000000";
     begin
-        file_open(instructions, inputFolderPath & "program" & programNum & ".txt", read_mode);
+        file_open(instructions, inputFolderPath & "pipeprogram" & programNum & ".txt", read_mode);
         while not endfile(instructions) loop
             -- load instructions onto signal
             readline(instructions, lineIn);
