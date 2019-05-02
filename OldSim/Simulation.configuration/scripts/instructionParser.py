@@ -146,6 +146,7 @@ initialMem = []
 setR14 =    opCodes["SET"] + "1110"
 setR15 =    opCodes["SET"] + "1111"
 storeR14R15= opCodes["STORE"] + "0000" + "1110" + "1111"
+noop = opCodes["PASS"] + "0" * (32 - len(opCodes["PASS"]))
 
 # extend instructions to 32 bits
 setR14 = setR14 + '0' * (32 - len(setR14))
@@ -163,6 +164,10 @@ if int(memoryStateInstructions[0]) != 0: # parse memory for initial state
         initialMem.append(setR15)      # set value (in fp format) into R1
         initialMem.append(value)      # add in immediate value (fp)
         initialMem.append(storeR14R15)  # store fp value in R1 into memorey address in R0
+    
+    # add noops to let memory state finish loading before program executes
+    for _ in range (4):
+        initialMem.append(noop)
 
 # use 32 1's to signal seperation of initial state from instructions
 finalFile = initialMem + instructionFile
