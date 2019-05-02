@@ -56,28 +56,27 @@ end MEM_WB;
 
 architecture Behavioral of MEM_WB is
 
-signal MemDataOutput_Value : std_logic_vector(31 downto 0);
-signal ALUResult_Value : std_logic_vector(31 downto 0);
-signal Write_Address_Value: std_logic_vector(3 downto 0);
-signal MTR_Value : std_logic;
-signal RW_Value : std_logic;
-signal RDS_value: std_logic;
-
 begin
     
 process(clk)
+variable MemDataOutput_Value : std_logic_vector(31 downto 0);
+variable ALUResult_Value : std_logic_vector(31 downto 0);
+variable Write_Address_Value: std_logic_vector(3 downto 0);
+variable MTR_Value : std_logic;
+variable RW_Value : std_logic;
+variable RDS_value: std_logic;
+
 begin
         if rising_edge(clk) then
            -- Loading the values...
-           ALUResult_Value <= ALUResult_In;
-           MemDataOutput_Value <= MemDataOutput_In;
-           Write_Address_Value <= Write_Address_In;
-           MTR_Value <= MTR_In;
-           RW_Value <= RW_In;
-           RDS_value <= RDS_in;
-           
-        else
+           ALUResult_Value := ALUResult_In;
+           MemDataOutput_Value := MemDataOutput_In;
+           Write_Address_Value := Write_Address_In;
+           MTR_Value := MTR_In;
+           RW_Value := RW_In;
+           RDS_value := RDS_in;
            -- Omitting out the values...
+        end if;
            AlUResult_Out <= ALUResult_Value;
            MemDataOutput_Out <= MemDataOutput_Value;
            Write_Address_Out <= Write_Address_Value;
@@ -85,7 +84,7 @@ begin
            RW_Out <= RW_Value;
            RDS_out <= RDS_value;
            
-        end if;
+        
         
 end process;
 
