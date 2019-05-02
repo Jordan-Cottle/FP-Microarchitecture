@@ -5,7 +5,7 @@ scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
 
-n = '1'
+n = '2'
 programName = ""
 outputName = f"{programName}Program"
 inputFileName = f"{programName}input{n}.txt"
@@ -43,7 +43,7 @@ print("Instructions:")
 for i in range(endProgram+1):
     line = cleanedFile[i]
     newLine = []
-    nextLine = None
+    nextLine = []
     print(line)
     for item in line:
         if item.find('#') != -1:
@@ -54,8 +54,7 @@ for i in range(endProgram+1):
         else: # ignore rest
             newLine.append(item)
     convertedImmediateValues.append(newLine)
-    if nextLine:
-        convertedImmediateValues.append(nextLine)
+    convertedImmediateValues.append(nextLine)
 
 opCodes = {
     "SET": "10000",
