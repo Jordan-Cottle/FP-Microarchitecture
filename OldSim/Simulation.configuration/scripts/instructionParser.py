@@ -5,7 +5,7 @@ scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
 
-n = '2'
+n = '1'
 programName = ""
 outputName = f"{programName}Program"
 inputFileName = f"{programName}input{n}.txt"
@@ -94,7 +94,7 @@ for i, line in enumerate(convertedImmediateValues):
     print(line)
     for item in line:
         if item[-1] == ':': # log branch labels
-            branchLabels[item[:-1]] = i + (5*initialMemoryAddresses+(4*hasStartingMemoryState))
+            branchLabels[item[:-1]] = i + (9*initialMemoryAddresses)
             #print(branchLabels[item[:-1]])
         elif item in opCodes:
             code = opCodes[item]
@@ -104,7 +104,7 @@ for i, line in enumerate(convertedImmediateValues):
             if code in needsPadding:
                 newLine.append("0000")
             elif item == "HALT":
-                newLine.append(bin(i + 5*initialMemoryAddresses+(4*hasStartingMemoryState))[2:].zfill(32-5))
+                newLine.append(bin(i + 9*initialMemoryAddresses)[2:].zfill(32-5))
         # convert register names
         elif item[0] == 'R': 
             address = bin(int(item[1:]))[2:].zfill(4)
@@ -169,13 +169,10 @@ if int(memoryStateInstructions[0]) != 0: # parse memory for initial state
         initialMem.append(address)    # add in immediate value (address)
         initialMem.append(setR15)      # set value (in fp format) into R1
         initialMem.append(value)      # add in immediate value (fp)
+        for _ in range (4): # store is dependant on Set instructions
+            initialMem.append(noop)
         initialMem.append(storeR14R15)  # store fp value in R1 into memorey address in R0
-    
-    # add noops to let memory state finish loading before program executes
-    for _ in range (4):
-        initialMem.append(noop)
 
-# use 32 1's to signal seperation of initial state from instructions
 finalFile = initialMem + instructionFile
 
 with open(f'{configPath}/InputFiles/{outputFileName}', 'w') as outputFile:
