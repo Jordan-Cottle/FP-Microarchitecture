@@ -85,7 +85,7 @@ begin
            IV_value := IV_in;
         end if;
         -- Omitting the Value out...
-           
+           Write_address_out <= Write_Address_Value;
            ALUResult_Out <= ALUResult_Value;
            ReadOut2_Out <= ReadOut2_Value;
            MW_Out <= MW_Value;

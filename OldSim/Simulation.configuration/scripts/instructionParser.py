@@ -6,7 +6,7 @@ scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
 
 n = '2'
-programName = ""
+programName = "pipe"
 outputName = f"{programName}Program"
 inputFileName = f"{programName}input{n}.txt"
 outputFileName = f"{programName}program{n}.txt"
@@ -93,7 +93,7 @@ for i, line in enumerate(convertedImmediateValues):
     print(line)
     for item in line:
         if item[-1] == ':': # log branch labels
-            branchLabels[item[:-1]] = i + (9*initialMemoryAddresses)
+            branchLabels[item[:-1]] = i + (14*initialMemoryAddresses)
             #print(branchLabels[item[:-1]])
         elif item in opCodes:
             code = opCodes[item]
@@ -103,7 +103,7 @@ for i, line in enumerate(convertedImmediateValues):
             if code in needsPadding:
                 newLine.append("0000")
             elif item == "HALT":
-                newLine.append(bin(i + 9*initialMemoryAddresses)[2:].zfill(32-5))
+                newLine.append(bin(i + 14*initialMemoryAddresses)[2:].zfill(32-5))
         # convert register names
         elif item[0] == 'R': 
             address = bin(int(item[1:]))[2:].zfill(4)
@@ -170,7 +170,9 @@ if int(memoryStateInstructions[0]) != 0: # parse memory for initial state
         initialMem.append(value)      # add in immediate value (fp)
         for _ in range (4): # store is dependant on Set instructions
             initialMem.append(noop)
+            initialMem.append('0'*32)
         initialMem.append(storeR14R15)  # store fp value in R1 into memorey address in R0
+        initialMem.append('0'*32)
 
 finalFile = initialMem + instructionFile
 

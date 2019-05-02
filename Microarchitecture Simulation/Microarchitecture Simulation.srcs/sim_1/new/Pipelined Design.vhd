@@ -93,8 +93,6 @@ begin
         UB => UBX,
         NB => NBX,
         ZB => ZBX,
-        RDS => RDSX,
-        IVA => IVAX,
         N => N,
         Z => Z,
         BDEST => BDESTX,
@@ -128,7 +126,7 @@ begin
     REGISTERS: Registers_Fmain Port Map(
         Read_reg1 => R1,
         Read_reg2 => R2,
-        Write_reg => Rd,
+        Write_reg => RDW,
         Write_Data => RegWriteData,
         RegWrite => RWW,
         ReadOut_Data1 => RValueA,
@@ -276,17 +274,19 @@ begin
     process(clk)
         variable count: integer:= 0;
     begin
-        if count = 10 then
-            clock <= not clock;
-            count := 0;
+        if start = '1' then
+            if count = 5 then
+                clock <= not clock;
+                count := 0;
+            end if;
+            
+            count := count + 1;
         end if;
-        
-        count := count + 1;
     end process;
 
     -- Main process, controls clock
     process
-        variable programNum: string(1 to 1):= "2";
+        variable programNum: string(1 to 1):= "1";
         variable lineIn: line;
         variable vectorString: string(32 downto 1);
         variable loadTo: unsigned(9 downto 0) := "0000000000";
@@ -334,8 +334,10 @@ begin
             write(lineout, string'("  F->D Register:"));
             writeLine(output, lineOut);
             write(lineout, "    Instruction in: " & vectorToString(Instruction));
+            write(lineOut, " (" & opCodeToString(instruction(31 downto 27)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Immediate Value in: " & vectorToString(immediateValue));
+            write(lineOut, " (" & real'image(fpToDec(immediateValue)) & ")");
             writeLine(output, lineOut);
             
             
@@ -360,6 +362,7 @@ begin
             writeLine(output, lineOut);
                         
             write(lineOut, "    Immediate Value out: " & vectorToString(IVDecode));
+            write(lineOut, " (" & real'image(fpToDec(IVDecode)) & ")");
             writeLine(output, lineOut);
             -- D/X
             
@@ -367,12 +370,16 @@ begin
             writeLine(output, lineOut);
             -- data in
             write(lineOut, "    R1 Value in: " & vectorToString(RValueA));
+            write(lineOut, " (" & real'image(fpToDec(RValueA)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    R2 Value in: " & vectorToString(RValueB));
+            write(lineOut, " (" & real'image(fpToDec(RValueB)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    ALU B in: " & vectorToString(AluInB));
+            write(lineOut, " (" & real'image(fpToDec(AluInB)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Immediate Value in: " & vectorToString(IVDecode));
+            write(lineOut, " (" & real'image(fpToDec(IVDecode)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Register Write Address in: " & vectorToString(Rd));
             writeLine(output, lineOut);
@@ -401,18 +408,22 @@ begin
             -- output signals
             -- data out
             write(lineOut, "    R1 Value out: " & vectorToString(RVAX));
+            write(lineOut, " (" & real'image(fpToDec(RVAX)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    R2 Value out: " & vectorToString(RVBX));
+            write(lineOut, " (" & real'image(fpToDec(RVBX)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    ALU B out: " & vectorToString(ALuInBx));
+            write(lineOut, " (" & real'image(fpToDec(AluInBx)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Immediate Value out: " & vectorToString(IVX));
+            write(lineOut, " (" & real'image(fpToDec(IVX)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Register Write Address out: " & vectorToString(RDX));
             writeLine(output, lineOut);
             write(lineOut, "    Branch destination out: " & vectorToString(BDESTX));
             writeLine(output, lineOut);
-            -- control in
+            -- control out
             write(lineOut, "    UB out: " & std_logic'image((UBx)));
             writeLine(output, lineOut);
             write(lineOut, "    ZB out: " & std_logic'image((ZBx)));
@@ -436,10 +447,13 @@ begin
             writeLine(output, lineOut);
             -- data in
             write(lineOut, "    ALU result in: " & vectorToString(AluResult));
+            write(lineOut, " (" & real'image(fpToDec(ALUResult)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    R2 Value in: " & vectorToString(RVBX));
+            write(lineOut, " (" & real'image(fpToDec(RVBX)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Immediate Value in: " & vectorToString(IVX));
+            write(lineOut, " (" & real'image(fpToDec(IVX)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Register Write Address in: " & vectorToString(RDX));
             writeLine(output, lineOut);
@@ -456,10 +470,13 @@ begin
             -- output signals
             -- data out
             write(lineOut, "    ALU result out: " & vectorToString(ALURM));
+            write(lineOut, " (" & real'image(fpToDec(ALURM)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    R2 Value out: " & vectorToString(RVBM));
+            write(lineOut, " (" & real'image(fpToDec(RVBM)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Immediate Value out: " & vectorToString(IVM));
+            write(lineOut, " (" & real'image(fpToDec(IVM)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Register Write Address out: " & vectorToString(RDM));
             writeLine(output, lineOut);
@@ -477,10 +494,13 @@ begin
             writeLine(output, lineOut);
             -- data in
             write(lineOut, "    ALU result in: " & vectorToString(ALURM));
+            write(lineOut, " (" & real'image(fpToDec(ALURM)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Memory Data in: " & vectorToString(MemDataOut));
+            write(lineOut, " (" & real'image(fpToDec(MemDataOut)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Immediate Value in: " & vectorToString(IVM));
+            write(lineOut, " (" & real'image(fpToDec(IVM)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Register Write Address in: " & vectorToString(RDM));
             writeLine(output, lineOut);
@@ -497,10 +517,13 @@ begin
             -- output signals
             -- data out
             write(lineOut, "    ALU result out: " & vectorToString(ALURW));
+            write(lineOut, " (" & real'image(fpToDec(ALURW)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Memory Data out: " & vectorToString(MEMDW));
+            write(lineOut, " (" & real'image(fpToDec(MEMDW)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Immediate Value out: " & vectorToString(IVW));
+            write(lineOut, " (" & real'image(fpToDec(IVW)) & ")");
             writeLine(output, lineOut);
             write(lineOut, "    Register Write Address out: " & vectorToString(RDW));
             writeLine(output, lineOut);
