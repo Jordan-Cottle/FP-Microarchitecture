@@ -38,6 +38,8 @@ entity MEM_WB is
            Write_Address_In: in STD_LOGIC_VECTOR (3 downto 0);
            MTR_In : in std_logic;
            RW_In : in std_logic;
+           IV_in: in std_logic_vector(31 downto 0);
+           RDS_in: in std_logic;
            
            --Output ports...
            ALUResult_Out : out STD_LOGIC_VECTOR (31 downto 0);
@@ -45,6 +47,8 @@ entity MEM_WB is
            Write_Address_Out : out STD_LOGIC_VECTOR (3 downto 0);
            MTR_Out : out std_logic;
            RW_Out : out std_logic;
+           IV_out: out std_logic_vector(31 downto 0);
+           RDS_out : out std_logic;
            --clock...
            clk : in STD_LOGIC
            );
@@ -57,6 +61,7 @@ signal ALUResult_Value : std_logic_vector(31 downto 0);
 signal Write_Address_Value: std_logic_vector(3 downto 0);
 signal MTR_Value : std_logic;
 signal RW_Value : std_logic;
+signal RDS_value: std_logic;
 
 begin
     
@@ -69,6 +74,7 @@ begin
            Write_Address_Value <= Write_Address_In;
            MTR_Value <= MTR_In;
            RW_Value <= RW_In;
+           RDS_value <= RDS_in;
            
         else
            -- Omitting out the values...
@@ -77,6 +83,7 @@ begin
            Write_Address_Out <= Write_Address_Value;
            MTR_Out <= MTR_Value;
            RW_Out <= RW_Value;
+           RDS_out <= RDS_value;
            
         end if;
         

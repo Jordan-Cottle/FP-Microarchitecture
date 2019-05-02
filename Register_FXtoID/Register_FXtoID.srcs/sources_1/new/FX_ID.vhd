@@ -52,13 +52,12 @@ process(clk)
 begin
         if rising_edge(clk) then            -- loading the input values...
            Instruction_value <= Instruction;
-           Immidiate_value <= Immidiate_In;  
-        else                                -- Omitting out the values... 
+           Immidiate_value <= Immidiate_In;                                -- Omitting out the values... 
            BDest <= Instruction_value(9 downto 0);
            Opcode <= Instruction_value (31 downto 27);
-           R1 <= Instruction_value (26 downto 23);
-           R2 <= Instruction_value (23 downto 19);
-           Rd <= Instruction_value (18 downto 15);
+           R1 <= Instruction_value (22 downto 19);
+           R2 <= Instruction_value (18 downto 15);
+           Rd <= Instruction_value (26 downto 23);
            Immidiate_Out <= Immidiate_value;
         end if;
 end process;

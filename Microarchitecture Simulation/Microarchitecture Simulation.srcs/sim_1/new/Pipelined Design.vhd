@@ -71,12 +71,21 @@ architecture Behavioral of PipelinedDesign is
     signal e : std_logic; -- error
     
     -- Control signals
-    signal UB: STD_LOGIC;
-    signal NB, ZB, RW, MW, MTR, RDS, IVA: std_logic;
+    signal UB, NB, ZB, RW, MW, MTR, RDS, IVA: std_logic;
     signal AluOpCode : STD_LOGIC_VECTOR (3 downto 0);
     signal BDEST : std_logic_vector(9 downto 0);
     
     signal DataToReg: std_logic_vector(31 downto 0);
+    
+    -- pipeline signals
+    signal IVDecode: std_logic_vector(31 downto 0);
+    signal UBX, NBX, ZBX, RWX, MWX, MTRX, RDSX, IVAX, MWM, RWM, MTRM, RDSM, RWW, RDSW, MTRW: std_logic;
+    signal BDESTX: std_logic_vector(9 downto 0);
+    signal AluOpX: std_logic_vector(3 downto 0);
+    signal AluInBX: std_logic_vector(31 downto 0);
+    signal RVAX, RVBX, RVBM: std_logic_vector(31 downto 0);
+    signal RDX, RDM, RDW: std_logic_vector(3 downto 0);
+    signal ALURM, ALURW, MEMDW, IVX, IVM, IVW: std_logic_vector(31 downto 0);
     
 begin
     I_MEM: Instruction_Mem Port Map (
@@ -94,24 +103,24 @@ begin
         Read_reg2 => R2,
         Write_reg => Rd,
         Write_Data => RegWriteData,
-        RegWrite => RW,
+        RegWrite => RWW,
         ReadOut_Data1 => RValueA,
         ReadOut_Data2 => RValueB,
         clk => clk
     );
     D_MEM: Data_Memory Port Map (
-        Address => AluResult,
-        Data_In => RValueB,
+        Address => ALURM,
+        Data_In => RVBM,
         Data_Out => MemDataOut,
-        Mem_Write => MW,
+        Mem_Write => MWM,
         clk => clk
     );
     
     -- ALU wasn't being recognized without being explicit
     ALU: Components.ALU Port Map (
-        opCode => AluOpCode,
-        a => RValueA,
-        b => AluInB,
+        opCode => AluOpX,
+        a => RVAX,
+        b => ALuInBx,
         result => AluResult,
         z => z,
         n => n,
@@ -120,14 +129,14 @@ begin
     
     PC : components.PC Port Map (
             PC => ProgramCounter,
-            UB => UB,
-            NB => NB,
-            ZB => ZB,
-            RDS => RDS,
-            IVA => IVA,
+            UB => UBX,
+            NB => NBX,
+            ZB => ZBX,
+            RDS => RDSX,
+            IVA => IVAX,
             N => N,
             Z => Z,
-            BDEST => BDEST,
+            BDEST => BDESTX,
             clk => clock,
             start => start
         );
@@ -148,15 +157,15 @@ begin
     -- Muxes
     RdsMux: Mux2To1_32b Port Map ( 
             a => DataToReg,
-            b => ImmediateValue,
-            control => RDS,
+            b => IVW,
+            control => RDSW,
             result => RegWriteData
     );
     
     MtrMux: Mux2To1_32b Port Map ( 
-                a => AluResult,
-                b => MemDataOut,
-                control => MTR,
+                a => ALURW,
+                b => MEMDW,
+                control => MTRW,
                 result => DataToReg
     );
             
@@ -167,17 +176,99 @@ begin
             result => AluInB
     );
     
-    -- decode instruction
-    process(Instruction)
+    -- F/D Register
+    FD: IF_ID Port Map (
+        Instruction => Instruction,
+        Immidiate_In => ImmediateValue,
+        BDest => BDEST,
+        Opcode => opCode,
+        R1 => R1,
+        R2 => R2,
+        Rd => Rd,
+        Immidiate_Out => IVDecode,
+        clk => clock
+    );
     
-    begin
-        -- assign constant, fixed locations
-        opCode <= instruction(31 downto 27);
-        Rd <= instruction(26 downto 23);
-        R1 <= instruction(22 downto 19);
-        R2 <= instruction(18 downto 15);
-        BDEST <= instruction(9 downto 0);
-    end process;
+    -- D/X
+    DX : ID_EX Port Map ( -- Input ports....
+                    BDest_In => BDEST,
+                    ReadData1_In => RValueA,
+                    ReadData2_In => RValueB,
+                    MuxOut_In => AluInB,
+                    Write_Address_In => Rd,
+                    MTR_In => MTR,
+                    UB_In => UB,
+                    ZB_In => ZB,
+                    NB_In => NB,
+                    ALUC_In => AluOpCode,
+                    RW_In => RW,
+                    MW_In => MW,
+                    IVA_in => IVA,
+                    RDS_in => RDS,
+                    IV_in => IVDecode,
+                    -- Output ports...
+                    BDest_Out => BDESTX,
+                    ReadData1_Out => RVAX,
+                    ReadData2_Out => RVBX,
+                    MuxOut_Out => ALuInBx,
+                    Write_Address_Out => RDX,
+                    MTR_Out => MTRX,
+                    UB_Out => UBX,
+                    ZB_Out => ZBX,
+                    NB_Out => NBX,
+                    ALUC_Out => AluOpX,
+                    RW_Out => RWX,
+                    MW_Out => MWX,
+                    IVA_out => IVAX,
+                    RDS_out => RDSX,
+                    IV_out => IVX,
+                    -- clock...
+                    clk => clock
+            );
+    
+    -- X/M
+    XM: EX_MEM Port Map ( -- Input ports....
+                    ALUResult_In => AluResult,
+                    ReadOut2_In => RVBX,
+                    Write_Address_In => RDX,
+                    MW_In => MWX,
+                    MTR_In => MTRX,
+                    RW_In => RWX,
+                    RDS_in => RDSX,
+                    IV_in => IVX,
+                    -- Output ports....
+                    ALUResult_Out => ALURM,
+                    ReadOut2_Out => RVBM,
+                    Write_Address_Out => RDM,
+                    MW_Out => MWM,
+                    MTR_Out => MTRM,
+                    RW_Out => RWM,
+                    RDS_out => RDSM,
+                    IV_out => IVM,
+                    -- clock....
+                    clk => clock
+                    );
+    -- M/W
+    MWPR: MEM_WB Port Map ( -- Input ports...
+                    MemDataOutput_IN => MemDataOut,
+                    ALUResult_In => ALURM,
+                    Write_Address_In => RDM,
+                    MTR_In => MTRM,
+                    RW_In => RWM,
+                    RDS_in => RDSM,
+                    IV_in => IVM,
+                    
+                    --Output ports...
+                    ALUResult_Out => ALURW,
+                    MemDataOutput_Out => MEMDW,
+                    Write_Address_Out => RDW,
+                    MTR_Out => MTRW,
+                    RW_Out => RWW,
+                    IV_out => IVW,
+                    RDS_out => RDSW,
+                    --clock...
+                    clk => clock
+                    );
     
     -- count up big clock only once every 5 mini clock cycles
     process(clk)
@@ -218,7 +309,7 @@ begin
         clk <= not(clk);
         wait for 20ns;
         
-        file_open(output, outputFolderPath & "SimTest" & programNum & ".txt", write_mode);
+        file_open(output, outputFolderPath & "PipeTest" & programNum & ".txt", write_mode);
         while start = '1' and not(opCode = "10101") loop
             clk <= not(clk);
             wait for 20 ns;
@@ -237,48 +328,42 @@ begin
             write(lineOut, string'("PC: ") & integer'image(to_integer(unsigned(ProgramCounter))));
             write(lineOut, " (" & vectorToString(ProgramCounter) & ")");
             writeLine(output, lineOut);
-            write(lineOut, string'("   OpCode: "));
+            -- F/D
+            write(lineout, string'("  F->D Register:"));
+            writeLine(output, lineOut);
+            write(lineout, "    Instruction in: " & vectorToString(Instruction));
+            writeLine(output, lineOut);
+            write(lineOut, "    Immediate Value in: " & vectorToString(immediateValue));
+            writeLine(output, lineOut);
+            
+            
+            
+            write(lineOut, string'("    OpCode out: "));
             write(lineOut, opCodeToString(opCode));
             write(lineOut, string'(" ("));
             write(lineOut, vectorToString(opCode));
             write(lineOut, string'(")"));
             writeLine(output, lineOut);
             
-            write(lineOut, "   R1 Address: " & vectorToString(R1));
-            writeLine(output, lineOut);
-            write(lineOut, "   R1 Value: " & vectorToString(RValueA));
-            write(lineOut, " (" & real'image(fpToDec(RValueA)) & ")");
+            write(lineOut, "    Rd address out: " & vectorToString(Rd));
             writeLine(output, lineOut);
             
-            write(lineOut, "   R2 Address: " & vectorToString(R2));
-            writeLine(output, lineOut);
-            write(lineOut, "   R2 Value: " & vectorToString(RValueB));
-            write(lineOut, " (" & real'image(fpToDec(RValueB)) & ")");
+            write(lineOut, "    R1 addess out: " & vectorToString(R1));
             writeLine(output, lineOut);
             
-            write(lineOut, "   Rd Address: " & vectorToString(Rd));
-            writeLine(output, lineOut);
-            write(lineOut, "   Rd Write Value: " & vectorToString(RegWriteData));
-            write(lineOut, " (" & real'image(fpToDec(RegWriteData)) & ")");
+            write(lineOut, "    R2 address out: " & vectorToString(R2));
             writeLine(output, lineOut);
             
+            write(lineOut, "    BDEST out: " & vectorToString(BDEST));
+            writeLine(output, lineOut);
+                        
+            write(lineOut, "    Immediate Value out: " & vectorToString(IVDecode));
+            writeLine(output, lineOut);
+            -- D/X
             
-            if (MW or MTR) = '1' then -- write info for memory access operation
-                write(lineOut, "   MemIn: " & vectorToString(RValueB));
-                writeLine(output, lineOut);
-                write(lineOut, "   MemOut: " & vectorToString(MemDataOut));
-                writeLine(output, lineOut);
-            elsif (NB or ZB) = '1' then -- write info for branching
-                write(lineOut, "   N: " & std_logic'image(N));
-                writeLine(output, lineOut);
-                write(lineOut, "   Z: " & std_logic'image(Z));
-                writeLine(output, lineOut);
-                write(lineOut, "   BDEST: " & integer'image(to_integer(unsigned(BDEST))) & " (" &vectorToString(BDEST) & ")");
-                writeLine(output, lineOut);
-            elsif UB = '1' then
-                write(lineOut, "   BDEST: " & integer'image(to_integer(unsigned(BDEST))) & " (" &vectorToString(BDEST) & ")");
-                writeLine(output, lineOut);
-            end if;
+            -- X/M
+            
+            -- M/W
         end if;
     end process;
 end Behavioral;
