@@ -1,5 +1,5 @@
 ;11
-SET	R0 #5292.46; R0  = 5292.46
+START: SET	R0 #5292.46; R0  = 5292.46
 SET	R1 #1.61	; R1 = 1.61
 PASS
 PASS
@@ -11,8 +11,8 @@ PASS             ; PASS
 PASS             ; PASS
 PASS             ; PASS
 CEIL R3 R2		; R3 = ceil(R2)
-PASS			    ; PASS	
-BN	R3 5		; if(R3 < 0) loop to PASS (instruction number 5 in the list). If you use labels add your label here instead of "5"
+NOP: PASS			    ; PASS	
+BN	R3 NOP		; if(R3 < 0) loop to PASS (instruction number 5 in the list). If you use labels add your label here instead of "5"
 SET	R4 #49		; R4 = 49
 PASS             ; PASS
 PASS             ; PASS
@@ -23,7 +23,7 @@ PASS
 PASS
 PASS
 PASS
-B	R10		; branch(M[R10]) -> Loop to instruction number 1. If you use labels add your label here instead of R10 (instruction above still needs to be executed)
+B	START		; branch(M[R10]) -> Loop to instruction number 1. If you use labels add your label here instead of R10 (instruction above still needs to be executed)
 HALT 
 
 0
