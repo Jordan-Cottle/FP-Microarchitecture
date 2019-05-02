@@ -364,6 +364,7 @@ begin
             -- D/X
             
             write(lineout, string'("  D->X Register:"));
+            writeLine(output, lineOut);
             -- data in
             write(lineOut, "    R1 Value in: " & vectorToString(RValueA));
             writeLine(output, lineOut);
@@ -431,8 +432,85 @@ begin
             write(lineOut, "    RDS out: " & std_logic'image((RDSx)));
             writeLine(output, lineOut);
             -- X/M
-            
+            write(lineout, string'("  X->M Register:"));
+            writeLine(output, lineOut);
+            -- data in
+            write(lineOut, "    ALU result in: " & vectorToString(AluResult));
+            writeLine(output, lineOut);
+            write(lineOut, "    R2 Value in: " & vectorToString(RVBX));
+            writeLine(output, lineOut);
+            write(lineOut, "    Immediate Value in: " & vectorToString(IVX));
+            writeLine(output, lineOut);
+            write(lineOut, "    Register Write Address in: " & vectorToString(RDX));
+            writeLine(output, lineOut);
+            -- control in
+            write(lineOut, "    MTR in: " & std_logic'image((MTRX)));
+            writeLine(output, lineOut);
+            write(lineOut, "    RW in: " & std_logic'image((RWX)));
+            writeLine(output, lineOut);
+            write(lineOut, "    MW in: " & std_logic'image((MWX)));
+            writeLine(output, lineOut);
+            write(lineOut, "    RDS in: " & std_logic'image((RDSX)));
+            writeLine(output, lineOut);
+                    
+            -- output signals
+            -- data out
+            write(lineOut, "    ALU result out: " & vectorToString(ALURM));
+            writeLine(output, lineOut);
+            write(lineOut, "    R2 Value out: " & vectorToString(RVBM));
+            writeLine(output, lineOut);
+            write(lineOut, "    Immediate Value out: " & vectorToString(IVM));
+            writeLine(output, lineOut);
+            write(lineOut, "    Register Write Address out: " & vectorToString(RDM));
+            writeLine(output, lineOut);
+            -- control out
+            write(lineOut, "    MTR out: " & std_logic'image((MTRM)));
+            writeLine(output, lineOut);
+            write(lineOut, "    RW out: " & std_logic'image((RWM)));
+            writeLine(output, lineOut);
+            write(lineOut, "    MW out: " & std_logic'image((MWM)));
+            writeLine(output, lineOut);
+            write(lineOut, "    RDS out: " & std_logic'image((RDSM)));
+            writeLine(output, lineOut);
             -- M/W
+            write(lineout, string'("  M->W Register:"));
+            writeLine(output, lineOut);
+            -- data in
+            write(lineOut, "    ALU result in: " & vectorToString(ALURM));
+            writeLine(output, lineOut);
+            write(lineOut, "    Memory Data in: " & vectorToString(MemDataOut));
+            writeLine(output, lineOut);
+            write(lineOut, "    Immediate Value in: " & vectorToString(IVM));
+            writeLine(output, lineOut);
+            write(lineOut, "    Register Write Address in: " & vectorToString(RDM));
+            writeLine(output, lineOut);
+            -- control in
+            write(lineOut, "    MTR in: " & std_logic'image((MTRM)));
+            writeLine(output, lineOut);
+            write(lineOut, "    RW in: " & std_logic'image((RWM)));
+            writeLine(output, lineOut);
+            write(lineOut, "    RDS in: " & std_logic'image((RDSM)));
+            writeLine(output, lineOut);
+                    
+                    
+                    
+            -- output signals
+            -- data out
+            write(lineOut, "    ALU result out: " & vectorToString(ALURW));
+            writeLine(output, lineOut);
+            write(lineOut, "    Memory Data out: " & vectorToString(MEMDW));
+            writeLine(output, lineOut);
+            write(lineOut, "    Immediate Value out: " & vectorToString(IVW));
+            writeLine(output, lineOut);
+            write(lineOut, "    Register Write Address out: " & vectorToString(RDW));
+            writeLine(output, lineOut);
+            -- control out
+            write(lineOut, "    MTR out: " & std_logic'image((MTRW)));
+            writeLine(output, lineOut);
+            write(lineOut, "    RW out: " & std_logic'image((RWW)));
+            writeLine(output, lineOut);
+            write(lineOut, "    RDS out: " & std_logic'image((RDSW)));
+            writeLine(output, lineOut);
         end if;
     end process;
 end Behavioral;
