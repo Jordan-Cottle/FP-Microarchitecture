@@ -7,8 +7,13 @@ SET R4, #192	; R4 = 192
 MUL	R5, R2, R0	; R5 = R2 * R0 = 100 * 18.0
 NOP             ; NOP
 NOP             ; NOP
-NOP             ;
+NOP             ; NOP
+NOP             ; NOP
 MUL	R6, R3, R0	; R6 = R3 * R0 = 100 * 6.5
+NOP             ; NOP
+NOP             ; NOP
+NOP             ; NOP
+NOP             ; NOP
 DIV	R7, R5, R6	; R7 = R6 / R5
 SET	R8, #2		; R8 = 2
 SET	R9, #1		; R9 = 1
