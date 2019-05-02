@@ -72,42 +72,41 @@ architecture Behavioral of ID_EX is
 
 --Declaring the signals....
 
-signal BDest_Value : std_logic_vector(9 downto 0);
-signal ReadData1_Value : std_logic_vector(31 downto 0);
-signal ReadData2_Value : std_logic_vector(31 downto 0);
-signal MuxOut_Value : std_logic_vector(31 downto 0);
-signal Write_Address_Value : std_logic_vector(3 downto 0);
-signal MTR_Value : STD_LOGIC;
-signal UB_Value : STD_LOGIC;
-signal ZB_Value : STD_LOGIC;
-signal NB_Value : STD_LOGIC;
-signal ALUC_Value : STD_LOGIC_vector(3 downto 0);
-signal RW_Value :  STD_LOGIC;
-signal MW_Value :  STD_LOGIC;
-signal IVA_Value: std_logic;
-signal RDS_Value: std_logic;
-
 begin
 
 process(clk)
+variable BDest_Value : std_logic_vector(9 downto 0);
+variable ReadData1_Value : std_logic_vector(31 downto 0);
+variable ReadData2_Value : std_logic_vector(31 downto 0);
+variable MuxOut_Value : std_logic_vector(31 downto 0);
+variable Write_Address_Value : std_logic_vector(3 downto 0);
+variable MTR_Value : STD_LOGIC;
+variable UB_Value : STD_LOGIC;
+variable ZB_Value : STD_LOGIC;
+variable NB_Value : STD_LOGIC;
+variable ALUC_Value : STD_LOGIC_vector(3 downto 0);
+variable RW_Value :  STD_LOGIC;
+variable MW_Value :  STD_LOGIC;
+variable IVA_Value: std_logic;
+variable RDS_Value: std_logic;
+
 begin
         if rising_edge(clk) then             --- Loading the values...
-           BDest_Value <= BDest_In;
-           ReadData1_Value <= ReadData1_In;
-           ReadData2_Value <= ReadData2_In;
-           MuxOut_Value <= MuxOut_In;
-           Write_Address_Value <= Write_Address_In;
-           MTR_Value <= MTR_In;
-           UB_Value <= UB_In;
-           ZB_Value <= ZB_In;
-           NB_Value <= NB_In;
-           ALUC_Value <= ALUC_In;
-           RW_Value   <= RW_In;
-           MW_Value <= MW_In;
-           IVA_value <= IVA_in;
-           RDS_value <= RDS_in;
-
-        else                               -- Omitting the values out...
+           BDest_Value := BDest_In;
+           ReadData1_Value := ReadData1_In;
+           ReadData2_Value := ReadData2_In;
+           MuxOut_Value := MuxOut_In;
+           Write_Address_Value := Write_Address_In;
+           MTR_Value := MTR_In;
+           UB_Value := UB_In;
+           ZB_Value := ZB_In;
+           NB_Value := NB_In;
+           ALUC_Value := ALUC_In;
+           RW_Value   := RW_In;
+           MW_Value := MW_In;
+           IVA_value := IVA_in;
+           RDS_value := RDS_in;
+        end if;                               -- Omitting the values out...
            BDest_Out <= BDest_Value;
            ReadData1_Out <= ReadData1_Value;
            ReadData2_Out <= ReadData2_Value;
@@ -123,7 +122,6 @@ begin
            IVA_out <= IVA_value;
            RDS_out <= RDS_value;
            
-        end if;
 end process;
 
 

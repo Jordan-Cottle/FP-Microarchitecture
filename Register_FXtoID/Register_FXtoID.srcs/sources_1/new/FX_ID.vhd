@@ -53,16 +53,15 @@ variable Immidiate_value : std_logic_vector(31 downto 0);
 begin
         if rising_edge(clk) then            -- loading the input values...                               -- Omitting out the values... 
            
-           
            Instruction_value := Instruction;
            Immidiate_value := Immidiate_In; 
         end if;
         BDest <= Instruction_value(9 downto 0);
-                   Opcode <= Instruction_value (31 downto 27);
-                   R1 <= Instruction_value (22 downto 19);
-                   R2 <= Instruction_value (18 downto 15);
-                   Rd <= Instruction_value (26 downto 23);
-                   Immidiate_Out <= Immidiate_value;
+        Opcode <= Instruction_value (31 downto 27);
+        R1 <= Instruction_value (22 downto 19);
+        R2 <= Instruction_value (18 downto 15);
+        Rd <= Instruction_value (26 downto 23);
+        Immidiate_Out <= Immidiate_value;
 end process;
   
 end Behavioral;
