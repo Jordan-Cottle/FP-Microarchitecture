@@ -39,6 +39,8 @@ entity EX_MEM is
            MW_In : in STD_LOGIC;
            MTR_In : in STD_LOGIC;
            RW_In : in STD_LOGIC;
+           RDS_in: in std_logic;
+           IV_in: in std_logic_vector(31 downto 0);
            -- Output ports....
            ALUResult_Out : out STD_LOGIC_VECTOR (31 downto 0);
            ReadOut2_Out : out STD_LOGIC_VECTOR (31 downto 0);
@@ -46,6 +48,8 @@ entity EX_MEM is
            MW_Out : out STD_LOGIC;
            MTR_Out : out STD_LOGIC;
            RW_Out : out STD_LOGIC;
+           RDS_out : out std_logic;
+           IV_out: out std_logic_vector(31 downto 0);
            -- clock....
            clk : in STD_LOGIC
            );
@@ -61,6 +65,7 @@ signal Write_Address_Value : std_logic_vector(3 downto 0);
 signal MW_Value : std_logic;
 signal MTR_Value : std_logic;
 signal RW_Value : std_logic;
+signal RDS_value: std_logic;
 
 begin
 
@@ -74,6 +79,7 @@ begin
            MW_Value <= MW_In;
            MTR_Value <= MTR_In;
            RW_Value <= RW_In;
+           RdS_value <= RDs_in;
            
         else -- Omitting the Value out...
            
@@ -82,6 +88,7 @@ begin
            MW_Out <= MW_Value;
            MTR_Out <= MTR_Value;
            RW_Out <= RW_Value;
+           RDS_out <= RDS_value;
         end if;
 end process;
 

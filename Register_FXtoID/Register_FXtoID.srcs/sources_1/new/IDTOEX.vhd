@@ -42,9 +42,12 @@ entity ID_EX is
            UB_In : in STD_LOGIC;
            ZB_In : in STD_LOGIC;
            NB_In : in STD_LOGIC;
-           ALUC_In : in STD_LOGIC;
+           ALUC_In : in STD_LOGIC_vector(3 downto 0);
            RW_In : in STD_LOGIC;
            MW_In : in STD_LOGIC;
+           IVA_in: in std_logic;
+           RDS_in: in std_logic;
+           IV_in: in std_logic_vector(31 downto 0);
            -- Output ports...
            BDest_Out : out STD_Logic_vector(9 downto 0);
            ReadData1_Out : out STD_LOGIC_VECTOR (31 downto 0);
@@ -55,9 +58,12 @@ entity ID_EX is
            UB_Out : out STD_LOGIC;
            ZB_Out : out STD_LOGIC;
            NB_Out : out STD_LOGIC;
-           ALUC_Out : out STD_LOGIC;
+           ALUC_Out : out STD_LOGIC_vector(3 downto 0);
            RW_Out : out STD_LOGIC;
            MW_Out : out STD_LOGIC;
+           IVA_out: out std_logic;
+           RDS_out: out std_logic;
+           IV_out: out std_logic_vector(31 downto 0);
            -- clock...
            clk : in STD_LOGIC);
 end ID_EX;
@@ -75,9 +81,11 @@ signal MTR_Value : STD_LOGIC;
 signal UB_Value : STD_LOGIC;
 signal ZB_Value : STD_LOGIC;
 signal NB_Value : STD_LOGIC;
-signal ALUC_Value : STD_LOGIC;
+signal ALUC_Value : STD_LOGIC_vector(3 downto 0);
 signal RW_Value :  STD_LOGIC;
 signal MW_Value :  STD_LOGIC;
+signal IVA_Value: std_logic;
+signal RDS_Value: std_logic;
 
 begin
 
@@ -96,6 +104,8 @@ begin
            ALUC_Value <= ALUC_In;
            RW_Value   <= RW_In;
            MW_Value <= MW_In;
+           IVA_value <= IVA_in;
+           RDS_value <= RDS_in;
 
         else                               -- Omitting the values out...
            BDest_Out <= BDest_Value;
@@ -110,6 +120,8 @@ begin
            ALUC_Out <= ALUC_Value;
            RW_Out   <= RW_Value;
            MW_Out <= MW_Value;
+           IVA_out <= IVA_value;
+           RDS_out <= RDS_value;
            
         end if;
 end process;
