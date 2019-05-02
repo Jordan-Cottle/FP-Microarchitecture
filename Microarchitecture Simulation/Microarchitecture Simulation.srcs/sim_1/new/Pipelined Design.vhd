@@ -274,7 +274,7 @@ begin
     process(clk)
         variable count: integer:= 0;
     begin
-        if count = 5 then
+        if count = 10 then
             clock <= not clock;
             count := 0;
         end if;
