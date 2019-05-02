@@ -32,11 +32,17 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity ISA_Controller_tb is
---  Port ( );
+    
 end ISA_Controller_tb;
 
 architecture Behavioral of ISA_Controller_tb is
-
+    component ISA_Controller
+    Port (
+          opcode: in std_logic_vector (4 downto 0);
+          count: out std_logic_vector (4 downto 0)
+          );
+    end component;
+    signal opcode: std_logic_vector (4 downto 0)
 begin
 
 

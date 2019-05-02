@@ -62,6 +62,7 @@ package Math is
         return std_logic_vector;
     function ceil(a: std_logic_vector (31 downto 0))
         return std_logic_vector;
+    
 end Math;
 
 package body Math is
