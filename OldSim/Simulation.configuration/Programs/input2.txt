@@ -8,7 +8,7 @@ BN	R3 NOPE		; if(R3 < 0) loop to NOP (instruction number 5 in the list). If you 
 SET	R4 #49		; R4 = 49
 MIN	R5 R3 R4	; R5 = min(R3 R4)
 SET	R10 #0		; R10 = 0
-B	START		; branch(M[R10]) -> Loop to instruction number 1. If you use labels add your label here instead of R10 (instruction above still needs to be executed)
+UB	START		; branch(M[R10]) -> Loop to instruction number 1. If you use labels add your label here instead of R10 (instruction above still needs to be executed)
 HALT 
 
 0
