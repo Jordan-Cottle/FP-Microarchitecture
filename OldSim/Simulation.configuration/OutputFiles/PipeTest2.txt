@@ -18,156 +18,6 @@ PC: 1 (0000000001)
     R2 address out: 0000
     BDEST out: 0000000000
     Immediate Value out: 01000101101001010110001110101110
-PC: 2 (0000000010)
-  F->D Register:
-    Instruction in: 10000000100000000000000000000000
-    Immediate Value in: 00111111110011100001010001111011
-    OpCode out: SET (10000)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 01000101101001010110001110101110
-PC: 4 (0000000100)
-  F->D Register:
-    Instruction in: 00011001000000001000000000000000
-    Immediate Value in: 00110001100100000000000000000000
-    OpCode out: ABS (01000)
-    Rd address out: 1011
-    R1 addess out: 0100
-    R2 address out: 1010
-    BDEST out: 1110101110
-    Immediate Value out: 10000000100000000000000000000000
-PC: 6 (0000000110)
-  F->D Register:
-    Instruction in: 11111000000000000000000000000000
-    Immediate Value in: 11001000000110000000000000000110
-    OpCode out: SET (10000)
-    Rd address out: 0001
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 00111111110011100001010001111011
-PC: 8 (0000001000)
-  F->D Register:
-    Instruction in: 10000010000000000000000000000000
-    Immediate Value in: 01000010010001000000000000000000
-    OpCode out: MUL (00011)
-    Rd address out: 0010
-    R1 addess out: 0000
-    R2 address out: 0001
-    BDEST out: 0000000000
-    Immediate Value out: 00110001100100000000000000000000
-PC: 9 (0000001001)
-  F->D Register:
-    Instruction in: 01000010010001000000000000000000
-    Immediate Value in: 01001010100110100000000000000000
-    OpCode out: PASS (11111)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 11001000000110000000000000000110
-PC: 11 (0000001011)
-  F->D Register:
-    Instruction in: 10000101000000000000000000000000
-    Immediate Value in: 00000000000000000000000000000000
-    OpCode out: SET (10000)
-    Rd address out: 0100
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 01000010010001000000000000000000
-PC: 12 (0000001100)
-  F->D Register:
-    Instruction in: 00000000000000000000000000000000
-    Immediate Value in: 11010000000000000000000000000000
-    OpCode out: ABS (01000)
-    Rd address out: 0100
-    R1 addess out: 1000
-    R2 address out: 1000
-    BDEST out: 0000000000
-    Immediate Value out: 01001010100110100000000000000000
-PC: 13 (0000001101)
-  F->D Register:
-    Instruction in: 11010000000000000000000000000000
-    Immediate Value in: 10101000000000000000000000001110
-    OpCode out: SET (10000)
-    Rd address out: 1010
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 00000000000000000000000000000000
-PC: 15 (0000001111)
-  F->D Register:
-    Instruction in: 00000000000000000000000000000000
-    Immediate Value in: 00000000000000000000000000000000
-    OpCode out: ADD (00000)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 11010000000000000000000000000000
-PC: 16 (0000010000)
-  F->D Register:
-    Instruction in: 00000000000000000000000000000000
-    Immediate Value in: 00000000000000000000000000000000
-    OpCode out: UB (11010)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 10101000000000000000000000001110
-PC: 18 (0000010010)
-  F->D Register:
-    Instruction in: 00000000000000000000000000000000
-    Immediate Value in: 00000000000000000000000000000000
-    OpCode out: NOOP (00000)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 00000000000000000000000000000000
-PC: 19 (0000010011)
-  F->D Register:
-    Instruction in: 00000000000000000000000000000000
-    Immediate Value in: 00000000000000000000000000000000
-    OpCode out: NOOP (00000)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 00000000000000000000000000000000
-PC: 0 (0000000000)
-  F->D Register:
-    Instruction in: 10000000000000000000000000000000
-    Immediate Value in: 01000101101001010110001110101110
-    OpCode out: NOOP (00000)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 00000000000000000000000000000000
-PC: 1 (0000000001)
-  F->D Register:
-    Instruction in: 01000101101001010110001110101110
-    Immediate Value in: 10000000100000000000000000000000
-    OpCode out: NOOP (00000)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 00000000000000000000000000000000
-PC: 2 (0000000010)
-  F->D Register:
-    Instruction in: 10000000100000000000000000000000
-    Immediate Value in: 00111111110011100001010001111011
-    OpCode out: SET (10000)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 01000101101001010110001110101110
 PC: 3 (0000000011)
   F->D Register:
     Instruction in: 00111111110011100001010001111011
@@ -178,20 +28,10 @@ PC: 3 (0000000011)
     R2 address out: 1010
     BDEST out: 1110101110
     Immediate Value out: 10000000100000000000000000000000
-PC: 4 (0000000100)
+PC: 5 (0000000101)
   F->D Register:
-    Instruction in: 00011001000000001000000000000000
-    Immediate Value in: 00110001100100000000000000000000
-    OpCode out: SET (10000)
-    Rd address out: 0001
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 00111111110011100001010001111011
-PC: 6 (0000000110)
-  F->D Register:
-    Instruction in: 11111000000000000000000000000000
-    Immediate Value in: 11001000000110000000000000000110
+    Instruction in: 00110001100100000000000000000000
+    Immediate Value in: 11111000000000000000000000000000
     OpCode out: ROUND (00111)
     Rd address out: 1111
     R1 addess out: 1001
@@ -202,46 +42,46 @@ PC: 7 (0000000111)
   F->D Register:
     Instruction in: 11001000000110000000000000000110
     Immediate Value in: 10000010000000000000000000000000
-    OpCode out: MUL (00011)
-    Rd address out: 0010
-    R1 addess out: 0000
-    R2 address out: 0001
-    BDEST out: 0000000000
-    Immediate Value out: 00110001100100000000000000000000
-PC: 9 (0000001001)
-  F->D Register:
-    Instruction in: 01000010010001000000000000000000
-    Immediate Value in: 01001010100110100000000000000000
-    OpCode out: PASS (11111)
-    Rd address out: 0000
-    R1 addess out: 0000
+    OpCode out: CEIL (00110)
+    Rd address out: 0011
+    R1 addess out: 0010
     R2 address out: 0000
     BDEST out: 0000000000
-    Immediate Value out: 11001000000110000000000000000110
-PC: 10 (0000001010)
+    Immediate Value out: 11111000000000000000000000000000
+PC: 8 (0000001000)
   F->D Register:
-    Instruction in: 01001010100110100000000000000000
-    Immediate Value in: 10000101000000000000000000000000
+    Instruction in: 10000010000000000000000000000000
+    Immediate Value in: 01000010010001000000000000000000
     OpCode out: NB (11001)
     Rd address out: 0000
     R1 addess out: 0011
     R2 address out: 0000
     BDEST out: 0000000110
     Immediate Value out: 10000010000000000000000000000000
-PC: 11 (0000001011)
+PC: 9 (0000001001)
   F->D Register:
-    Instruction in: 10000101000000000000000000000000
-    Immediate Value in: 00000000000000000000000000000000
+    Instruction in: 01000010010001000000000000000000
+    Immediate Value in: 01001010100110100000000000000000
+    OpCode out: SET (10000)
+    Rd address out: 0100
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000010010001000000000000000000
+PC: 10 (0000001010)
+  F->D Register:
+    Instruction in: 01001010100110100000000000000000
+    Immediate Value in: 10000101000000000000000000000000
     OpCode out: ABS (01000)
     Rd address out: 0100
     R1 addess out: 1000
     R2 address out: 1000
     BDEST out: 0000000000
     Immediate Value out: 01001010100110100000000000000000
-PC: 12 (0000001100)
+PC: 11 (0000001011)
   F->D Register:
-    Instruction in: 00000000000000000000000000000000
-    Immediate Value in: 11010000000000000000000000000000
+    Instruction in: 10000101000000000000000000000000
+    Immediate Value in: 00000000000000000000000000000000
     OpCode out: MIN (01001)
     Rd address out: 0101
     R1 addess out: 0011
@@ -261,16 +101,6 @@ PC: 13 (0000001101)
 PC: 14 (0000001110)
   F->D Register:
     Instruction in: 10101000000000000000000000001110
-    Immediate Value in: 00000000000000000000000000000000
-    OpCode out: ADD (00000)
-    Rd address out: 0000
-    R1 addess out: 0000
-    R2 address out: 0000
-    BDEST out: 0000000000
-    Immediate Value out: 11010000000000000000000000000000
-PC: 15 (0000001111)
-  F->D Register:
-    Instruction in: 00000000000000000000000000000000
     Immediate Value in: 00000000000000000000000000000000
     OpCode out: UB (11010)
     Rd address out: 0000
