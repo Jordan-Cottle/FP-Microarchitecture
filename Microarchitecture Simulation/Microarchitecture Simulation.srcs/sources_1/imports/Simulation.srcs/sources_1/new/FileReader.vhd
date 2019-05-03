@@ -186,17 +186,19 @@ begin
     process(clk)
         variable count: integer:= 0;
     begin
-        if count = 5 then
-            clock <= not clock;
-            count := 0;
+        if start = '1' then
+            if count = 5 then
+                clock <= not clock;
+                count := 0;
+            end if;
+            
+            count := count + 1;
         end if;
-        
-        count := count + 1;
     end process;
 
     -- Main process, controls clock
     process
-        variable programNum: string(1 to 1):= "1";
+        variable programNum: string(1 to 1):= "2";
         variable lineIn: line;
         variable vectorString: string(32 downto 1);
         variable loadTo: unsigned(9 downto 0) := "0000000000";
