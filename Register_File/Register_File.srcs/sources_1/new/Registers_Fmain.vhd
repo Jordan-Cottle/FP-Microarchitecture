@@ -45,19 +45,19 @@ end Registers_Fmain;
 
 architecture Behavioral of Registers_Fmain is
     type Registers_Fmain is array( 0 to 15) of std_logic_vector(31 downto 0);
-    signal reg_Data : Registers_Fmain;
     
+    signal register_data: Registers_Fmain;
 begin
     process (clk) is
+    variable reg_Data : Registers_Fmain;
     begin
-        if rising_edge(clk) then
-            ReadOut_Data1 <= reg_Data(to_integer(unsigned(Read_reg1)));
-            ReadOut_Data2 <= reg_Data(to_integer(unsigned(Read_reg2)));
-            
-            if RegWrite = '1' then
-                reg_Data(to_integer(unsigned(Write_reg))) <= Write_Data;
-            end if;
+        if rising_edge(clk) and RegWrite = '1' then
+            reg_Data(to_integer(unsigned(Write_reg))) := Write_Data;
+            register_data <= reg_data;
         end if;
+        
+        ReadOut_Data1 <= reg_Data(to_integer(unsigned(Read_reg1)));
+        ReadOut_Data2 <= reg_Data(to_integer(unsigned(Read_reg2)));
     end process;
 
 end Behavioral;

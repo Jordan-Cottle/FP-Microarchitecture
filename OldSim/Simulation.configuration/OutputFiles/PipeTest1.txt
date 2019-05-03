@@ -1,0 +1,2920 @@
+PC: 0 (0000000000)
+  F->D Register:
+    Instruction in: 10000111000000000000000000000000 (SET)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    OpCode out: SET (10000)
+    Rd address out: 1110
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 1110
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: 'U'
+    RW out: 'U'
+    MW out: 'U'
+    RDS out: 'U'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: 'U'
+    RW in: 'U'
+    RDS in: 'U'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: 'U'
+    RW out: 'U'
+    RDS out: 'U'
+PC: 2 (0000000010)
+  F->D Register:
+    Instruction in: 10000111100000000000000000000000 (SET)
+    Immediate Value in: 01000000010010010000111111010000 (3.141590e+00)
+    OpCode out: SET (10000)
+    Rd address out: 1110
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 1110
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 1110
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 1110
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: 'U'
+    RW out: 'U'
+    RDS out: 'U'
+PC: 4 (0000000100)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: SET (10000)
+    Rd address out: 1111
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000000010010010000111111010000 (3.141590e+00)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000000010010010000111111010000 (3.141590e+00)
+    Register Write Address in: 1111
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 1110
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 1110
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 1110
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 1110
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 6 (0000000110)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000000010010010000111111010000 (3.141590e+00)
+    Register Write Address out: 1111
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000000010010010000111111010000 (3.141590e+00)
+    Register Write Address in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 1110
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 1110
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 1110
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 8 (0000001000)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000000010010010000111111010000 (3.141590e+00)
+    Register Write Address out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000000010010010000111111010000 (3.141590e+00)
+    Register Write Address in: 1111
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 1110
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 10 (0000001010)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000000010010010000111111010000 (3.141590e+00)
+    Register Write Address out: 1111
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 12 (0000001100)
+  F->D Register:
+    Instruction in: 10010000011101111000000000000000 (STORE)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 14 (0000001110)
+  F->D Register:
+    Instruction in: 10000000000000000000000000000000 (SET)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    OpCode out: STORE (10010)
+    Rd address out: 0000
+    R1 addess out: 1110
+    R2 address out: 1111
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000000010010010000111111010000 (3.141590e+00)
+    ALU B in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '1'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 16 (0000010000)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: SET (10000)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000000010010010000111111010000 (3.141590e+00)
+    ALU B out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '1'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '1'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 18 (0000010010)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '1'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 20 (0000010100)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 22 (0000010110)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    ALU B out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 24 (0000011000)
+  F->D Register:
+    Instruction in: 10001000100000000000000000000000 (LOAD)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    R2 Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 26 (0000011010)
+  F->D Register:
+    Instruction in: 10000001000000000000000000000000 (SET)
+    Immediate Value in: 01000001100100000000000000000000 (1.800000e+01)
+    OpCode out: LOAD (10001)
+    Rd address out: 0001
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0001
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '1'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 00000000000000000000000000000000 (0.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 28 (0000011100)
+  F->D Register:
+    Instruction in: 10000001100000000000000000000000 (SET)
+    Immediate Value in: 01000000110100000000000000000000 (6.500000e+00)
+    OpCode out: SET (10000)
+    Rd address out: 0010
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000001100100000000000000000000 (1.800000e+01)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 01000001100100000000000000000000 (1.800000e+01)
+    Register Write Address in: 0010
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0001
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '1'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0001
+    MTR in: '1'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 30 (0000011110)
+  F->D Register:
+    Instruction in: 10000010000000000000000000000000 (SET)
+    Immediate Value in: 01000011010000000000000000000000 (1.920000e+02)
+    OpCode out: SET (10000)
+    Rd address out: 0011
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000000110100000000000000000000 (6.500000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 01000000110100000000000000000000 (6.500000e+00)
+    Register Write Address in: 0011
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 01000001100100000000000000000000 (1.800000e+01)
+    Register Write Address out: 0010
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 01000001100100000000000000000000 (1.800000e+01)
+    Register Write Address in: 0010
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0001
+    MTR out: '1'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0001
+    MTR in: '1'
+    RW in: '1'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 32 (0000100000)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: SET (10000)
+    Rd address out: 0100
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000011010000000000000000000000 (1.920000e+02)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 01000011010000000000000000000000 (1.920000e+02)
+    Register Write Address in: 0100
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 01000000110100000000000000000000 (6.500000e+00)
+    Register Write Address out: 0011
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 01000000110100000000000000000000 (6.500000e+00)
+    Register Write Address in: 0011
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 01000001100100000000000000000000 (1.800000e+01)
+    Register Write Address out: 0010
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 01000001100100000000000000000000 (1.800000e+01)
+    Register Write Address in: 0010
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0001
+    MTR out: '1'
+    RW out: '1'
+    RDS out: '0'
+PC: 34 (0000100010)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 01000011010000000000000000000000 (1.920000e+02)
+    Register Write Address out: 0100
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 01000011010000000000000000000000 (1.920000e+02)
+    Register Write Address in: 0100
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 01000000110100000000000000000000 (6.500000e+00)
+    Register Write Address out: 0011
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 01000000110100000000000000000000 (6.500000e+00)
+    Register Write Address in: 0011
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 01000001100100000000000000000000 (1.800000e+01)
+    Register Write Address out: 0010
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 36 (0000100100)
+  F->D Register:
+    Instruction in: 00011010100100000000000000000000 (MUL)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 01000011010000000000000000000000 (1.920000e+02)
+    Register Write Address out: 0100
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 01000011010000000000000000000000 (1.920000e+02)
+    Register Write Address in: 0100
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 01000000110100000000000000000000 (6.500000e+00)
+    Register Write Address out: 0011
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 38 (0000100110)
+  F->D Register:
+    Instruction in: 00011011000110000000000000000000 (MUL)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: MUL (00011)
+    Rd address out: 0101
+    R1 addess out: 0010
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000001100100000000000000000000 (1.800000e+01)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0101
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 0011
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 01000011010000000000000000000000 (1.920000e+02)
+    Register Write Address out: 0100
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 40 (0000101000)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: MUL (00011)
+    Rd address out: 0110
+    R1 addess out: 0011
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000000110100000000000000000000 (6.500000e+00)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0110
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 0011
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000001100100000000000000000000 (1.800000e+01)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0101
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 0011
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000100111000010000000000000000 (1.800000e+03)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0101
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 42 (0000101010)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000000110100000000000000000000 (6.500000e+00)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0110
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 0011
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000100001000101000000000000000 (6.500000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0110
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000100111000010000000000000000 (1.800000e+03)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0101
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000100111000010000000000000000 (1.800000e+03)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0101
+    MTR in: '0'
+    RW in: '1'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 44 (0000101100)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000100001000101000000000000000 (6.500000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0110
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000100001000101000000000000000 (6.500000e+02)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0110
+    MTR in: '0'
+    RW in: '1'
+    RDS in: '0'
+    ALU result out: 01000100111000010000000000000000 (1.800000e+03)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0101
+    MTR out: '0'
+    RW out: '1'
+    RDS out: '0'
+PC: 46 (0000101110)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000100001000101000000000000000 (6.500000e+02)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0110
+    MTR out: '0'
+    RW out: '1'
+    RDS out: '0'
+PC: 48 (0000110000)
+  F->D Register:
+    Instruction in: 00100011101010110000000000000000 (DIV)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 50 (0000110010)
+  F->D Register:
+    Instruction in: 10000100000000000000000000000000 (SET)
+    Immediate Value in: 01000000000000000000000000000000 (2.000000e+00)
+    OpCode out: DIV (00100)
+    Rd address out: 0111
+    R1 addess out: 0101
+    R2 address out: 0110
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000100111000010000000000000000 (1.800000e+03)
+    R2 Value in: 01000100001000101000000000000000 (6.500000e+02)
+    ALU B in: 01000100001000101000000000000000 (6.500000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0111
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 0100
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 52 (0000110100)
+  F->D Register:
+    Instruction in: 10000100100000000000000000000000 (SET)
+    Immediate Value in: 00111111100000000000000000000000 (1.000000e+00)
+    OpCode out: SET (10000)
+    Rd address out: 1000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 01000000000000000000000000000000 (2.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 01000000000000000000000000000000 (2.000000e+00)
+    Register Write Address in: 1000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 01000100111000010000000000000000 (1.800000e+03)
+    R2 Value out: 01000100001000101000000000000000 (6.500000e+02)
+    ALU B out: 01000100001000101000000000000000 (6.500000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0111
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 0100
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000000001100010011101100010011 (2.769231e+00)
+    R2 Value in: 01000100001000101000000000000000 (6.500000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0111
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 54 (0000110110)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: SET (10000)
+    Rd address out: 1001
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00111111100000000000000000000000 (1.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00111111100000000000000000000000 (1.000000e+00)
+    Register Write Address in: 1001
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '1'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 01000000000000000000000000000000 (2.000000e+00)
+    Register Write Address out: 1000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 01000000000000000000000000000000 (2.000000e+00)
+    Register Write Address in: 1000
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 01000000001100010011101100010011 (2.769231e+00)
+    R2 Value out: 01000100001000101000000000000000 (6.500000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0111
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000000001100010011101100010011 (2.769231e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0111
+    MTR in: '0'
+    RW in: '1'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 56 (0000111000)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00111111100000000000000000000000 (1.000000e+00)
+    Register Write Address out: 1001
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '1'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00111111100000000000000000000000 (1.000000e+00)
+    Register Write Address in: 1001
+    MTR in: '-'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 01000000000000000000000000000000 (2.000000e+00)
+    Register Write Address out: 1000
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 01000000000000000000000000000000 (2.000000e+00)
+    Register Write Address in: 1000
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 01000000001100010011101100010011 (2.769231e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0111
+    MTR out: '0'
+    RW out: '1'
+    RDS out: '0'
+PC: 58 (0000111010)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00111111100000000000000000000000 (1.000000e+00)
+    Register Write Address out: 1001
+    MTR out: '-'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '1'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00111111100000000000000000000000 (1.000000e+00)
+    Register Write Address in: 1001
+    MTR in: '-'
+    RW in: '1'
+    RDS in: '1'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 01000000000000000000000000000000 (2.000000e+00)
+    Register Write Address out: 1000
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 60 (0000111100)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00111111100000000000000000000000 (1.000000e+00)
+    Register Write Address out: 1001
+    MTR out: '-'
+    RW out: '1'
+    RDS out: '1'
+PC: 62 (0000111110)
+  F->D Register:
+    Instruction in: 00001101010001001000000000000000 (SUB)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 64 (0001000000)
+  F->D Register:
+    Instruction in: 00000100110011001000000000000000 (ADD)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: SUB (00001)
+    Rd address out: 1010
+    R1 addess out: 1000
+    R2 address out: 1001
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000000000000000000000000000000 (2.000000e+00)
+    R2 Value in: 00111111100000000000000000000000 (1.000000e+00)
+    ALU B in: 00111111100000000000000000000000 (1.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 1010
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 0001
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 66 (0001000010)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: ADD (00000)
+    Rd address out: 1001
+    R1 addess out: 1001
+    R2 address out: 1001
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 00111111100000000000000000000000 (1.000000e+00)
+    R2 Value in: 00111111100000000000000000000000 (1.000000e+00)
+    ALU B in: 00111111100000000000000000000000 (1.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 1001
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 0000
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000000000000000000000000000000 (2.000000e+00)
+    R2 Value out: 00111111100000000000000000000000 (1.000000e+00)
+    ALU B out: 00111111100000000000000000000000 (1.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 1010
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 0001
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00111111100000000000000000000000 (1.000000e+00)
+    R2 Value in: 00111111100000000000000000000000 (1.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 1010
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 68 (0001000100)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00111111100000000000000000000000 (1.000000e+00)
+    R2 Value out: 00111111100000000000000000000000 (1.000000e+00)
+    ALU B out: 00111111100000000000000000000000 (1.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 1001
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 0000
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000000000000000000000000000000 (2.000000e+00)
+    R2 Value in: 00111111100000000000000000000000 (1.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 1001
+    MTR in: '0'
+    RW in: '1'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00111111100000000000000000000000 (1.000000e+00)
+    R2 Value out: 00111111100000000000000000000000 (1.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 1010
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00111111100000000000000000000000 (1.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 1010
+    MTR in: '0'
+    RW in: '1'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 70 (0001000110)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000000000000000000000000000000 (2.000000e+00)
+    R2 Value out: 00111111100000000000000000000000 (1.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 1001
+    MTR out: '0'
+    RW out: '1'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000000000000000000000000000000 (2.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 1001
+    MTR in: '0'
+    RW in: '1'
+    RDS in: '0'
+    ALU result out: 00111111100000000000000000000000 (1.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 1010
+    MTR out: '0'
+    RW out: '1'
+    RDS out: '0'
+PC: 72 (0001001000)
+  F->D Register:
+    Instruction in: 11001000010100000000000000001110 (NB)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000000000000000000000000000000 (2.000000e+00)
+    Memory Data out: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 1001
+    MTR out: '0'
+    RW out: '1'
+    RDS out: '0'
+PC: 74 (0001001010)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: NB (11001)
+    Rd address out: 0000
+    R1 addess out: 1010
+    R2 address out: 0000
+    BDEST out: 0000001110
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 00111111100000000000000000000000 (1.000000e+00)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000001110
+    UB in: '0'
+    ZB in: '0'
+    NB in: '1'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 76 (0001001100)
+  F->D Register:
+    Instruction in: 11111000000000000000000000000000 (PASS)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 00111111100000000000000000000000 (1.000000e+00)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000001110
+    UB out: '0'
+    ZB out: '0'
+    NB out: '1'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 00111111100000000000000000000000 (1.000000e+00)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data in: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'
+PC: 78 (0001001110)
+  F->D Register:
+    Instruction in: 10101000000000000000000001001110 (HALT)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    OpCode out: PASS (11111)
+    Rd address out: 0000
+    R1 addess out: 0000
+    R2 address out: 0000
+    BDEST out: 0000000000
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+  D->X Register:
+    R1 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    Branch destination in: 0000000000
+    UB in: '0'
+    ZB in: '0'
+    NB in: '0'
+    ALU Control in: 1111
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    IVA in: '0'
+    RDS in: '0'
+    R1 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    ALU B out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    Branch destination out: 0000000000
+    UB out: '0'
+    ZB out: '0'
+    NB out: '0'
+    ALU Control out: 1111
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    IVA out: '0'
+    RDS out: '0'
+  X->M Register:
+    ALU result in: 01000010110010000000000000000000 (1.000000e+02)
+    R2 Value in: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    MW in: '0'
+    RDS in: '0'
+    ALU result out: 00111111100000000000000000000000 (1.000000e+00)
+    R2 Value out: 01000010110010000000000000000000 (1.000000e+02)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    MW out: '0'
+    RDS out: '0'
+  M->W Register:
+    ALU result in: 00111111100000000000000000000000 (1.000000e+00)
+    Memory Data in: 00000000000000000000000000000000 (0.000000e+00)
+    Immediate Value in: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address in: 0000
+    MTR in: '-'
+    RW in: '0'
+    RDS in: '0'
+    ALU result out: 01000010110010000000000000000000 (1.000000e+02)
+    Memory Data out: 01000000010010010000111111010000 (3.141590e+00)
+    Immediate Value out: 00000000000000000000000000000000 (0.000000e+00)
+    Register Write Address out: 0000
+    MTR out: '-'
+    RW out: '0'
+    RDS out: '0'

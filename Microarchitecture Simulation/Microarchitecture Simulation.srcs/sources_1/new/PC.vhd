@@ -25,8 +25,6 @@ entity PC is
            UB : in STD_LOGIC;
            NB : in STD_LOGIC;
            ZB : in STD_LOGIC;
-           RDS : in STD_LOGIC;
-           IVA : in STD_LOGIC;
            N : in STD_LOGIC;
            Z : in STD_LOGIC;
            BDEST : in STD_LOGIC_VECTOR (9 downto 0);
@@ -44,16 +42,14 @@ begin
     if rising_edge(clk) and start = '1' then
         PC <= std_logic_vector(to_unsigned(counter, 10));     
     elsif start = '0' then
-        PC <= "0000000000";
+        PC <= "UUUUUUUUUU";
     else
         if UB = '1' then -- branch
             counter := to_integer(unsigned(BDEST)); 
         elsif ((NB and N) = '1') or ((ZB and Z) = '1') then -- conditional branch condition was met
             counter := to_integer(unsigned(BDEST));
-        elsif (RDS or IVA) = '1' then -- immediate value was used
-            counter := counter + 2;
         else
-            counter := counter + 1;
+            counter := counter + 2; -- 1 for instruction 1 for potential immediate value
         end if;
     end if;
 end process;

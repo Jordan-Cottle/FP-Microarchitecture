@@ -86,8 +86,6 @@ package Components is
                UB : in STD_LOGIC;
                NB : in STD_LOGIC;
                ZB : in STD_LOGIC;
-               RDS : in STD_LOGIC;
-               IVA : in STD_LOGIC;
                N : in STD_LOGIC;
                Z : in STD_LOGIC;
                BDEST : in STD_LOGIC_VECTOR (9 downto 0);

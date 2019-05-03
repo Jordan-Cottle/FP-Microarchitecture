@@ -77,6 +77,7 @@ begin
            MTR_Value := MTR_In;
            RW_Value := RW_In;
            RDS_value := RDS_in;
+           IV_value:= IV_in;
            -- Omitting out the values...
         end if;
            AlUResult_Out <= ALUResult_Value;
@@ -85,9 +86,7 @@ begin
            MTR_Out <= MTR_Value;
            RW_Out <= RW_Value;
            RDS_out <= RDS_value;
-           
-        
-        
+           IV_out <= IV_value;
 end process;
 
 end Behavioral;

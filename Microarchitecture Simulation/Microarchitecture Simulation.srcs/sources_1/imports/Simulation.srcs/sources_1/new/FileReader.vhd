@@ -227,6 +227,10 @@ begin
             clk <= not(clk);
             wait for 20 ns;
         end loop;
+        for i in 1 to 5 loop
+            clk <= not(clk);
+            wait for 20 ns;
+        end loop;
         
         file_close(output);
         wait;
