@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="PipelinedDesign_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="PipelinedDesign" />
+            <top_module name="components" />
+            <top_module name="constants" />
+            <top_module name="conversions" />
+            <top_module name="math" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="17956666666fs"></ZoomStartTime>
+      <ZoomEndTime time="21032666667fs"></ZoomEndTime>
+      <Cursor1Time time="20520000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="170"></NameColumnWidth>
+      <ValueColumnWidth column_width="168"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/PipelinedDesign/clock" type="logic">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PipelinedDesign/ProgramCounter" type="array">
+      <obj_property name="ElementShortName">ProgramCounter[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ProgramCounter[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="group240" type="group">
+      <obj_property name="label">Fetch</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/PipelinedDesign/Instruction" type="array">
+         <obj_property name="ElementShortName">Instruction[31:0]</obj_property>
+         <obj_property name="ObjectShortName">Instruction[31:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/ImmediateValue" type="array">
+         <obj_property name="ElementShortName">ImmediateValue[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ImmediateValue[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group241" type="group">
+      <obj_property name="label">Decode</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/PipelinedDesign/opCode" type="array">
+         <obj_property name="ElementShortName">opCode[4:0]</obj_property>
+         <obj_property name="ObjectShortName">opCode[4:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/R1" type="array">
+         <obj_property name="ElementShortName">R1[3:0]</obj_property>
+         <obj_property name="ObjectShortName">R1[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RValueA" type="array">
+         <obj_property name="ElementShortName">RValueA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RValueA[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/R2" type="array">
+         <obj_property name="ElementShortName">R2[3:0]</obj_property>
+         <obj_property name="ObjectShortName">R2[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RValueB" type="array">
+         <obj_property name="ElementShortName">RValueB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RValueB[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/Rd" type="array">
+         <obj_property name="ElementShortName">Rd[3:0]</obj_property>
+         <obj_property name="ObjectShortName">Rd[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RegWriteData" type="array">
+         <obj_property name="ElementShortName">RegWriteData[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RegWriteData[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/BDEST" type="array">
+         <obj_property name="ElementShortName">BDEST[9:0]</obj_property>
+         <obj_property name="ObjectShortName">BDEST[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/IVDecode" type="array">
+         <obj_property name="ElementShortName">IVDecode[31:0]</obj_property>
+         <obj_property name="ObjectShortName">IVDecode[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/AluInB" type="array">
+         <obj_property name="ElementShortName">AluInB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">AluInB[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="group243" type="group">
+         <obj_property name="label">Control</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/PipelinedDesign/AluOpCode" type="array">
+            <obj_property name="ElementShortName">AluOpCode[3:0]</obj_property>
+            <obj_property name="ObjectShortName">AluOpCode[3:0]</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PipelinedDesign/UB" type="logic">
+            <obj_property name="ElementShortName">UB</obj_property>
+            <obj_property name="ObjectShortName">UB</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PipelinedDesign/NB" type="logic">
+            <obj_property name="ElementShortName">NB</obj_property>
+            <obj_property name="ObjectShortName">NB</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PipelinedDesign/ZB" type="logic">
+            <obj_property name="ElementShortName">ZB</obj_property>
+            <obj_property name="ObjectShortName">ZB</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PipelinedDesign/RW" type="logic">
+            <obj_property name="ElementShortName">RW</obj_property>
+            <obj_property name="ObjectShortName">RW</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PipelinedDesign/MW" type="logic">
+            <obj_property name="ElementShortName">MW</obj_property>
+            <obj_property name="ObjectShortName">MW</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PipelinedDesign/MTR" type="logic">
+            <obj_property name="ElementShortName">MTR</obj_property>
+            <obj_property name="ObjectShortName">MTR</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PipelinedDesign/RDS" type="logic">
+            <obj_property name="ElementShortName">RDS</obj_property>
+            <obj_property name="ObjectShortName">RDS</obj_property>
+         </wvobject>
+         <wvobject fp_name="/PipelinedDesign/IVA" type="logic">
+            <obj_property name="ElementShortName">IVA</obj_property>
+            <obj_property name="ObjectShortName">IVA</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group242" type="group">
+      <obj_property name="label">Execute</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/PipelinedDesign/AluOpX" type="array">
+         <obj_property name="ElementShortName">AluOpX[3:0]</obj_property>
+         <obj_property name="ObjectShortName">AluOpX[3:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RVAX" type="array">
+         <obj_property name="ElementShortName">RVAX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RVAX[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/AluInBX" type="array">
+         <obj_property name="ElementShortName">AluInBX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">AluInBX[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/AluResult" type="array">
+         <obj_property name="ElementShortName">AluResult[31:0]</obj_property>
+         <obj_property name="ObjectShortName">AluResult[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/n" type="logic">
+         <obj_property name="ElementShortName">n</obj_property>
+         <obj_property name="ObjectShortName">n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/z" type="logic">
+         <obj_property name="ElementShortName">z</obj_property>
+         <obj_property name="ObjectShortName">z</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/e" type="logic">
+         <obj_property name="ElementShortName">e</obj_property>
+         <obj_property name="ObjectShortName">e</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/UBX" type="logic">
+         <obj_property name="ElementShortName">UBX</obj_property>
+         <obj_property name="ObjectShortName">UBX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/NBX" type="logic">
+         <obj_property name="ElementShortName">NBX</obj_property>
+         <obj_property name="ObjectShortName">NBX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/ZBX" type="logic">
+         <obj_property name="ElementShortName">ZBX</obj_property>
+         <obj_property name="ObjectShortName">ZBX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RWX" type="logic">
+         <obj_property name="ElementShortName">RWX</obj_property>
+         <obj_property name="ObjectShortName">RWX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/MWX" type="logic">
+         <obj_property name="ElementShortName">MWX</obj_property>
+         <obj_property name="ObjectShortName">MWX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/MTRX" type="logic">
+         <obj_property name="ElementShortName">MTRX</obj_property>
+         <obj_property name="ObjectShortName">MTRX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RDSX" type="logic">
+         <obj_property name="ElementShortName">RDSX</obj_property>
+         <obj_property name="ObjectShortName">RDSX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/IVAX" type="logic">
+         <obj_property name="ElementShortName">IVAX</obj_property>
+         <obj_property name="ObjectShortName">IVAX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/BDESTX" type="array">
+         <obj_property name="ElementShortName">BDESTX[9:0]</obj_property>
+         <obj_property name="ObjectShortName">BDESTX[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RVBX" type="array">
+         <obj_property name="ElementShortName">RVBX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RVBX[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RDX" type="array">
+         <obj_property name="ElementShortName">RDX[3:0]</obj_property>
+         <obj_property name="ObjectShortName">RDX[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/IVX" type="array">
+         <obj_property name="ElementShortName">IVX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">IVX[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group276" type="group">
+      <obj_property name="label">Memory</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/PipelinedDesign/MemDataOut" type="array">
+         <obj_property name="ElementShortName">MemDataOut[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MemDataOut[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/MWM" type="logic">
+         <obj_property name="ElementShortName">MWM</obj_property>
+         <obj_property name="ObjectShortName">MWM</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RWM" type="logic">
+         <obj_property name="ElementShortName">RWM</obj_property>
+         <obj_property name="ObjectShortName">RWM</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/MTRM" type="logic">
+         <obj_property name="ElementShortName">MTRM</obj_property>
+         <obj_property name="ObjectShortName">MTRM</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RDSM" type="logic">
+         <obj_property name="ElementShortName">RDSM</obj_property>
+         <obj_property name="ObjectShortName">RDSM</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RVBM" type="array">
+         <obj_property name="ElementShortName">RVBM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RVBM[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RDM" type="array">
+         <obj_property name="ElementShortName">RDM[3:0]</obj_property>
+         <obj_property name="ObjectShortName">RDM[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/ALURM" type="array">
+         <obj_property name="ElementShortName">ALURM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ALURM[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/MEMDW" type="array">
+         <obj_property name="ElementShortName">MEMDW[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MEMDW[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/IVM" type="array">
+         <obj_property name="ElementShortName">IVM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">IVM[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group278" type="group">
+      <obj_property name="label">Write Back</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/PipelinedDesign/RWW" type="logic">
+         <obj_property name="ElementShortName">RWW</obj_property>
+         <obj_property name="ObjectShortName">RWW</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RDSW" type="logic">
+         <obj_property name="ElementShortName">RDSW</obj_property>
+         <obj_property name="ObjectShortName">RDSW</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/MTRW" type="logic">
+         <obj_property name="ElementShortName">MTRW</obj_property>
+         <obj_property name="ObjectShortName">MTRW</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/DataToReg" type="array">
+         <obj_property name="ElementShortName">DataToReg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">DataToReg[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/RDW" type="array">
+         <obj_property name="ElementShortName">RDW[3:0]</obj_property>
+         <obj_property name="ObjectShortName">RDW[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/ALURW" type="array">
+         <obj_property name="ElementShortName">ALURW[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ALURW[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/PipelinedDesign/IVW" type="array">
+         <obj_property name="ElementShortName">IVW[31:0]</obj_property>
+         <obj_property name="ObjectShortName">IVW[31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

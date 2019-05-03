@@ -26,6 +26,7 @@ SET	R10 #0		; R10 = 0
 UB	START		; branch(M[R10]) -> Loop to instruction number 1. If you use labels add your label here instead of R10 (instruction above still needs to be executed)
 PASS
 PASS
+PASS
 HALT 
 
 0
