@@ -1,0 +1,36 @@
+;14
+START: SET	R0 #100	; R0 = 100
+PASS
+PASS
+PASS
+PASS
+LOAD	R1 R0		; R1 = M[100] = 3.14159
+SET	R2 #18.0	; R2 = 18.0
+SET 	R3 #6.5	; R3 = 6.5
+SET 	R4 #192	; R4 = 192
+PASS
+PASS
+MUL	R5 R2 R0	; R5 = R2 * R0 = 100 * 18.0
+MUL	R6 R3 R0	; R6 = R3 * R0 = 100 * 6.5
+PASS
+PASS
+PASS
+PASS
+DIV	R7 R5 R6	; R7 = R6 / R5
+SET	R8 #2		; R8 = 2
+SET	R9 #1		; R9 = 1
+PASS
+PASS
+PASS
+PASS
+SUB	R10 R8 R9	; R10 = R8 - R9
+ADD	R9 R9 R9	; R9 = R9 + R9
+PASS
+PASS
+PASS
+BN	R10 START		; branch to first line substitue with a LABEL as needed in your simulation
+PASS
+PASS
+HALT
+1
+<100><3.14159>

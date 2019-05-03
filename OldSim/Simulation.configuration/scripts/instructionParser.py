@@ -4,9 +4,14 @@ from fpConverter import decToFp
 scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
-inputFileName = "input3.txt"
-outputFileName = "program3.txt"
-inputFile = open(f'{configPath}/InputFiles/{inputFileName}', 'r')
+
+n = '2'
+programName = "pipe"
+singleCycle = False
+outputName = f"{programName}Program"
+inputFileName = f"{programName}input{n}.txt"
+outputFileName = f"{programName}program{n}.txt"
+inputFile = open(f'{configPath}/Programs/{inputFileName}', 'r')
 
 
 instructions = inputFile.readlines()
@@ -31,13 +36,15 @@ print(cleanedFile)
 initialMemoryAddresses = int(cleanedFile[endProgram+1][0])
 print(f'Initial Memory addresses = {initialMemoryAddresses}')
 
+hasStartingMemoryState = initialMemoryAddresses != 0
+
 convertedImmediateValues = []
 print("Instructions:")
 #loop through valid instructions, convert immediate values and set on new line
 for i in range(endProgram+1):
     line = cleanedFile[i]
     newLine = []
-    nextLine = None
+    nextLine = []
     print(line)
     for item in line:
         if item.find('#') != -1:
@@ -48,8 +55,7 @@ for i in range(endProgram+1):
         else: # ignore rest
             newLine.append(item)
     convertedImmediateValues.append(newLine)
-    if nextLine:
-        convertedImmediateValues.append(nextLine)
+    convertedImmediateValues.append(nextLine)
 
 opCodes = {
     "SET": "10000",
@@ -70,7 +76,7 @@ opCodes = {
     "POW": "01011",
     "EEXP": "01100",
     "SQRT": "01101",
-    "UB": "11010", # Add 'don't care' register to unconditional branch
+    "UB": "11010",
     "BZ": "11000",
     "BN": "11001",
     "PASS": "11111",
@@ -84,11 +90,15 @@ allButLabelDesintations = []
 print("Converted Immediate Values:")
 # loop through instructions + IVs, convert opcodes and registers to binary, note label locations
 for i, line in enumerate(convertedImmediateValues):
+    if singleCycle:
+        offset = 6*initialMemoryAddresses
+    else:
+        offset = 14*initialMemoryAddresses
     newLine = []
     print(line)
     for item in line:
         if item[-1] == ':': # log branch labels
-            branchLabels[item[:-1]] = i + (5*initialMemoryAddresses)
+            branchLabels[item[:-1]] = i + offset
             #print(branchLabels[item[:-1]])
         elif item in opCodes:
             code = opCodes[item]
@@ -98,7 +108,7 @@ for i, line in enumerate(convertedImmediateValues):
             if code in needsPadding:
                 newLine.append("0000")
             elif item == "HALT":
-                newLine.append(bin(i + 5*initialMemoryAddresses)[2:].zfill(32-5))
+                newLine.append(bin(i + offset)[2:].zfill(32-5))
         # convert register names
         elif item[0] == 'R': 
             address = bin(int(item[1:]))[2:].zfill(4)
@@ -146,6 +156,7 @@ initialMem = []
 setR14 =    opCodes["SET"] + "1110"
 setR15 =    opCodes["SET"] + "1111"
 storeR14R15= opCodes["STORE"] + "0000" + "1110" + "1111"
+noop = opCodes["PASS"] + "0" * (32 - len(opCodes["PASS"]))
 
 # extend instructions to 32 bits
 setR14 = setR14 + '0' * (32 - len(setR14))
@@ -162,9 +173,13 @@ if int(memoryStateInstructions[0]) != 0: # parse memory for initial state
         initialMem.append(address)    # add in immediate value (address)
         initialMem.append(setR15)      # set value (in fp format) into R1
         initialMem.append(value)      # add in immediate value (fp)
+        for _ in range (4): # store is dependant on Set instructions
+            if not singleCycle:
+                initialMem.append(noop)
+                initialMem.append('0'*32)
         initialMem.append(storeR14R15)  # store fp value in R1 into memorey address in R0
+        initialMem.append('0'*32)
 
-# use 32 1's to signal seperation of initial state from instructions
 finalFile = initialMem + instructionFile
 
 with open(f'{configPath}/InputFiles/{outputFileName}', 'w') as outputFile:

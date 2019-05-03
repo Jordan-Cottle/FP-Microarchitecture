@@ -27,17 +27,18 @@ use std.textio.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
+use IEEE.math_real.all;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity FileReader is
+entity SingleCycleDesign is
 --  Port ( );
-end FileReader;
+end SingleCycleDesign;
 
-architecture Behavioral of FileReader is
+architecture Behavioral of SingleCycleDesign is
 
     file instructions: text;
     file output: text;
@@ -127,8 +128,6 @@ begin
             UB => UB,
             NB => NB,
             ZB => ZB,
-            RDS => RDS,
-            IVA => IVA,
             N => N,
             Z => Z,
             BDEST => BDEST,
@@ -197,7 +196,7 @@ begin
 
     -- Main process, controls clock
     process
-        variable programNum: string(1 to 1):= "2";
+        variable programNum: string(1 to 1):= "1";
         variable lineIn: line;
         variable vectorString: string(32 downto 1);
         variable loadTo: unsigned(9 downto 0) := "0000000000";
@@ -224,6 +223,10 @@ begin
         
         file_open(output, outputFolderPath & "SimTest" & programNum & ".txt", write_mode);
         while start = '1' and not(opCode = "10101") loop
+            clk <= not(clk);
+            wait for 20 ns;
+        end loop;
+        for i in 1 to 5 loop
             clk <= not(clk);
             wait for 20 ns;
         end loop;
@@ -268,9 +271,14 @@ begin
             
             
             if (MW or MTR) = '1' then -- write info for memory access operation
+                write(lineOut, "   Memory Address: " & vectorToString(AluResult));
+                write(lineOut, " (" & integer'image(integer(trunc(fpToDec(AluResult)))) & ")");
+                writeLine(output, lineOut);
                 write(lineOut, "   MemIn: " & vectorToString(RValueB));
+                write(lineOut, " (" & real'image(fpToDec(RValueB)) & ")");
                 writeLine(output, lineOut);
                 write(lineOut, "   MemOut: " & vectorToString(MemDataOut));
+                write(lineOut, " (" & real'image(fpToDec(MemDataOut)) & ")");
                 writeLine(output, lineOut);
             elsif (NB or ZB) = '1' then -- write info for branching
                 write(lineOut, "   N: " & std_logic'image(N));
@@ -283,6 +291,28 @@ begin
                 write(lineOut, "   BDEST: " & integer'image(to_integer(unsigned(BDEST))) & " (" &vectorToString(BDEST) & ")");
                 writeLine(output, lineOut);
             end if;
+            
+            -- control signals
+            write(lineOut, string'("  Control Signals:"));
+            writeLine(output, lineOut);
+            write(lineOut, "   ALU Control: " & vectorToString(AluOpCode));
+            writeLine(output, lineOut);
+            write(lineOut, "   UB: " & std_logic'image(UB));
+            writeLine(output, lineOut);            
+            write(lineOut, "   ZB: " & std_logic'image(ZB));
+            writeLine(output, lineOut);  
+            write(lineOut, "   NB: " & std_logic'image(NB));
+            writeLine(output, lineOut);  
+            write(lineOut, "   RW: " & std_logic'image(RW));
+            writeLine(output, lineOut);  
+            write(lineOut, "   MW: " & std_logic'image(MW));
+            writeLine(output, lineOut);  
+            write(lineOut, "   MTR: " & std_logic'image(MTR));
+            writeLine(output, lineOut);  
+            write(lineOut, "   RDS: " & std_logic'image(RDS));
+            writeLine(output, lineOut);
+            write(lineOut, "   IVA: " & std_logic'image(IVA));
+            writeLine(output, lineOut);  
         end if;
     end process;
-end Behavioral;
+end behavioral;

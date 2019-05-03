@@ -1,0 +1,370 @@
+PC: 0 (0000000000)
+   OpCode: SET (10000)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0000
+   Rd Write Value: 01000101101001010110001110101110 (5.292460e+03)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '-'
+   RDS: '1'
+   IVA: '0'
+PC: 2 (0000000010)
+   OpCode: SET (10000)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0001
+   Rd Write Value: 00111111110011100001010001111011 (1.610000e+00)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '-'
+   RDS: '1'
+   IVA: '0'
+PC: 4 (0000000100)
+   OpCode: MUL (00011)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0001
+   R2 Value: 00111111110011100001010001111011 (1.610000e+00)
+   Rd Address: 0010
+   Rd Write Value: 01000110000001010010001101110001 (8.520860e+03)
+  Control Signals:
+   ALU Control: 0011
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '0'
+   RDS: '0'
+   IVA: '0'
+PC: 6 (0000000110)
+   OpCode: CEIL (00110)
+   R1 Address: 0010
+   R1 Value: 01000110000001010010001101110001 (8.520860e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0011
+   Rd Write Value: 01000110000001010010010000000000 (8.521000e+03)
+  Control Signals:
+   ALU Control: 0110
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '0'
+   RDS: '0'
+   IVA: '0'
+PC: 8 (0000001000)
+   OpCode: PASS (11111)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0000
+   Rd Write Value: 00000000000000000000000000000000 (0.000000e+00)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '0'
+   MW: '0'
+   MTR: '-'
+   RDS: '0'
+   IVA: '0'
+PC: 10 (0000001010)
+   OpCode: NB (11001)
+   R1 Address: 0011
+   R1 Value: 01000110000001010010010000000000 (8.521000e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0000
+   Rd Write Value: 00000000000000000000000000000000 (0.000000e+00)
+   N: '0'
+   Z: '0'
+   BDEST: 8 (0000001000)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '1'
+   RW: '0'
+   MW: '0'
+   MTR: '-'
+   RDS: '0'
+   IVA: '0'
+PC: 12 (0000001100)
+   OpCode: SET (10000)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0100
+   Rd Write Value: 01000010010001000000000000000000 (4.900000e+01)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '-'
+   RDS: '1'
+   IVA: '0'
+PC: 14 (0000001110)
+   OpCode: MIN (01001)
+   R1 Address: 0011
+   R1 Value: 01000110000001010010010000000000 (8.521000e+03)
+   R2 Address: 0100
+   R2 Value: 01000010010001000000000000000000 (4.900000e+01)
+   Rd Address: 0101
+   Rd Write Value: 01000010010001000000000000000000 (4.900000e+01)
+  Control Signals:
+   ALU Control: 1001
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '0'
+   RDS: '0'
+   IVA: '0'
+PC: 16 (0000010000)
+   OpCode: SET (10000)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 1010
+   Rd Write Value: 00000000000000000000000000000000 (0.000000e+00)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '-'
+   RDS: '1'
+   IVA: '0'
+PC: 18 (0000010010)
+   OpCode: UB (11010)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0000
+   Rd Write Value: 00000000000000000000000000000000 (0.000000e+00)
+   BDEST: 0 (0000000000)
+  Control Signals:
+   ALU Control: 1111
+   UB: '1'
+   ZB: '0'
+   NB: '0'
+   RW: '0'
+   MW: '0'
+   MTR: '-'
+   RDS: '0'
+   IVA: '0'
+PC: 0 (0000000000)
+   OpCode: SET (10000)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0000
+   Rd Write Value: 01000101101001010110001110101110 (5.292460e+03)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '-'
+   RDS: '1'
+   IVA: '0'
+PC: 2 (0000000010)
+   OpCode: SET (10000)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0001
+   Rd Write Value: 00111111110011100001010001111011 (1.610000e+00)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '-'
+   RDS: '1'
+   IVA: '0'
+PC: 4 (0000000100)
+   OpCode: MUL (00011)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0001
+   R2 Value: 00111111110011100001010001111011 (1.610000e+00)
+   Rd Address: 0010
+   Rd Write Value: 01000110000001010010001101110001 (8.520860e+03)
+  Control Signals:
+   ALU Control: 0011
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '0'
+   RDS: '0'
+   IVA: '0'
+PC: 6 (0000000110)
+   OpCode: CEIL (00110)
+   R1 Address: 0010
+   R1 Value: 01000110000001010010001101110001 (8.520860e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0011
+   Rd Write Value: 01000110000001010010010000000000 (8.521000e+03)
+  Control Signals:
+   ALU Control: 0110
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '0'
+   RDS: '0'
+   IVA: '0'
+PC: 8 (0000001000)
+   OpCode: PASS (11111)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0000
+   Rd Write Value: 00000000000000000000000000000000 (0.000000e+00)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '0'
+   MW: '0'
+   MTR: '-'
+   RDS: '0'
+   IVA: '0'
+PC: 10 (0000001010)
+   OpCode: NB (11001)
+   R1 Address: 0011
+   R1 Value: 01000110000001010010010000000000 (8.521000e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0000
+   Rd Write Value: 00000000000000000000000000000000 (0.000000e+00)
+   N: '0'
+   Z: '0'
+   BDEST: 8 (0000001000)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '1'
+   RW: '0'
+   MW: '0'
+   MTR: '-'
+   RDS: '0'
+   IVA: '0'
+PC: 12 (0000001100)
+   OpCode: SET (10000)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0100
+   Rd Write Value: 01000010010001000000000000000000 (4.900000e+01)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '-'
+   RDS: '1'
+   IVA: '0'
+PC: 14 (0000001110)
+   OpCode: MIN (01001)
+   R1 Address: 0011
+   R1 Value: 01000110000001010010010000000000 (8.521000e+03)
+   R2 Address: 0100
+   R2 Value: 01000010010001000000000000000000 (4.900000e+01)
+   Rd Address: 0101
+   Rd Write Value: 01000010010001000000000000000000 (4.900000e+01)
+  Control Signals:
+   ALU Control: 1001
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '0'
+   RDS: '0'
+   IVA: '0'
+PC: 16 (0000010000)
+   OpCode: SET (10000)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 1010
+   Rd Write Value: 00000000000000000000000000000000 (0.000000e+00)
+  Control Signals:
+   ALU Control: 1111
+   UB: '0'
+   ZB: '0'
+   NB: '0'
+   RW: '1'
+   MW: '0'
+   MTR: '-'
+   RDS: '1'
+   IVA: '0'
+PC: 18 (0000010010)
+   OpCode: UB (11010)
+   R1 Address: 0000
+   R1 Value: 01000101101001010110001110101110 (5.292460e+03)
+   R2 Address: 0000
+   R2 Value: 01000101101001010110001110101110 (5.292460e+03)
+   Rd Address: 0000
+   Rd Write Value: 00000000000000000000000000000000 (0.000000e+00)
+   BDEST: 0 (0000000000)
+  Control Signals:
+   ALU Control: 1111
+   UB: '1'
+   ZB: '0'
+   NB: '0'
+   RW: '0'
+   MW: '0'
+   MTR: '-'
+   RDS: '0'
+   IVA: '0'
+*************************************************************************************
+Loops infinitely

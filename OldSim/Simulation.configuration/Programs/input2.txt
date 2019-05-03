@@ -3,8 +3,8 @@ START: SET	R0 #5292.46	; R0  = 5292.46
 SET	R1 #1.61	; R1 = 1.61
 MUL	R2 R0 R1	; R2 = R1 * R0
 CEIL 	R3 R2		; R3 = ceil(R2)
-LOOP: PASS			; NOP	
-BN	R3 LOOP		; if(R3 < 0) loop to NOP (instruction number 5 in the list). If you use labels add your label here instead of "5"
+NOPE: PASS			; NOP	
+BN	R3 NOPE		; if(R3 < 0) loop to NOP (instruction number 5 in the list). If you use labels add your label here instead of "5"
 SET	R4 #49		; R4 = 49
 MIN	R5 R3 R4	; R5 = min(R3 R4)
 SET	R10 #0		; R10 = 0

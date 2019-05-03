@@ -22,7 +22,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 package Constants is
-    constant configurationPath: string := "C:\Users\jorda\Documents\Projects\FP-Microarchitecture\OldSim\Simulation.configuration\";
+    constant configurationPath: string := "C:\Users\Jordan\Documents\Projects\FP-Microarchitecture\OldSim\Simulation.configuration\";
     constant inputFolderPath: string := configurationPath & "InputFiles\";
     constant outputFolderPath: string := configurationPath & "OutputFiles\";
     constant maxValue: real := 3.4028235 * (10.0**38);

@@ -89,6 +89,7 @@ variable RW_Value :  STD_LOGIC;
 variable MW_Value :  STD_LOGIC;
 variable IVA_Value: std_logic;
 variable RDS_Value: std_logic;
+variable IV_value: std_logic_vector(31 downto 0);
 
 begin
         if rising_edge(clk) then             --- Loading the values...
@@ -106,6 +107,7 @@ begin
            MW_Value := MW_In;
            IVA_value := IVA_in;
            RDS_value := RDS_in;
+           IV_value := IV_in;
         end if;                               -- Omitting the values out...
            BDest_Out <= BDest_Value;
            ReadData1_Out <= ReadData1_Value;
@@ -121,6 +123,7 @@ begin
            MW_Out <= MW_Value;
            IVA_out <= IVA_value;
            RDS_out <= RDS_value;
+           IV_out <= IV_value;
            
 end process;
 
