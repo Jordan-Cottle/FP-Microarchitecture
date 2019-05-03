@@ -33,11 +33,11 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity FileReader is
+entity SingleCycleDesign is
 --  Port ( );
-end FileReader;
+end SingleCycleDesign;
 
-architecture Behavioral of FileReader is
+architecture Behavioral of SingleCycleDesign is
 
     file instructions: text;
     file output: text;
@@ -127,8 +127,6 @@ begin
             UB => UB,
             NB => NB,
             ZB => ZB,
-            RDS => RDS,
-            IVA => IVA,
             N => N,
             Z => Z,
             BDEST => BDEST,
@@ -287,6 +285,28 @@ begin
                 write(lineOut, "   BDEST: " & integer'image(to_integer(unsigned(BDEST))) & " (" &vectorToString(BDEST) & ")");
                 writeLine(output, lineOut);
             end if;
+            
+            -- control signals
+            write(lineOut, string'("  Control Signals:"));
+            writeLine(output, lineOut);
+            write(lineOut, "   ALU Control: " & vectorToString(AluOpCode));
+            writeLine(output, lineOut);
+            write(lineOut, "   UB: " & std_logic'image(UB));
+            writeLine(output, lineOut);            
+            write(lineOut, "   ZB: " & std_logic'image(ZB));
+            writeLine(output, lineOut);  
+            write(lineOut, "   NB: " & std_logic'image(NB));
+            writeLine(output, lineOut);  
+            write(lineOut, "   RW: " & std_logic'image(RW));
+            writeLine(output, lineOut);  
+            write(lineOut, "   MW: " & std_logic'image(MW));
+            writeLine(output, lineOut);  
+            write(lineOut, "   MTR: " & std_logic'image(MTR));
+            writeLine(output, lineOut);  
+            write(lineOut, "   RDS: " & std_logic'image(RDS));
+            writeLine(output, lineOut);
+            write(lineOut, "   IVA: " & std_logic'image(IVA));
+            writeLine(output, lineOut);  
         end if;
     end process;
-end Behavioral;
+end behavioral;
