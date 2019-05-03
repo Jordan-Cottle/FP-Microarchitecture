@@ -16,10 +16,9 @@ Notes:
         - Single ALU operation: 200ns
         - Register Read/Write: 100ns
         - Memory Read/Write: 300ns
-    - Condition Codes: Z N V E (CAPS = Used)
+    - Condition Codes: Z N E (CAPS = Used)
         - Z: Zero flag - set when operation results in a 0
         - N: Negative flag - set when operation results in a negative value
-        - V: Overflow flag - set when operation results in an overflowed operation
 		- E: Error flag - set when an operations results in an error
     - Conventions:
         - Rd signifies a destination register
