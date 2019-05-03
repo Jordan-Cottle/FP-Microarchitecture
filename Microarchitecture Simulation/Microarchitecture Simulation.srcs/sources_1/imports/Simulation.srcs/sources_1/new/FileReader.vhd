@@ -27,6 +27,7 @@ use std.textio.ALL;
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
+use IEEE.math_real.all;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -195,7 +196,7 @@ begin
 
     -- Main process, controls clock
     process
-        variable programNum: string(1 to 1):= "2";
+        variable programNum: string(1 to 1):= "1";
         variable lineIn: line;
         variable vectorString: string(32 downto 1);
         variable loadTo: unsigned(9 downto 0) := "0000000000";
@@ -270,9 +271,14 @@ begin
             
             
             if (MW or MTR) = '1' then -- write info for memory access operation
+                write(lineOut, "   Memory Address: " & vectorToString(AluResult));
+                write(lineOut, " (" & integer'image(integer(trunc(fpToDec(AluResult)))) & ")");
+                writeLine(output, lineOut);
                 write(lineOut, "   MemIn: " & vectorToString(RValueB));
+                write(lineOut, " (" & real'image(fpToDec(RValueB)) & ")");
                 writeLine(output, lineOut);
                 write(lineOut, "   MemOut: " & vectorToString(MemDataOut));
+                write(lineOut, " (" & real'image(fpToDec(MemDataOut)) & ")");
                 writeLine(output, lineOut);
             elsif (NB or ZB) = '1' then -- write info for branching
                 write(lineOut, "   N: " & std_logic'image(N));
