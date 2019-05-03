@@ -5,9 +5,9 @@ scriptPath = path.abspath(__file__)
 scriptDirPath = path.split(scriptPath)[0]
 configPath = path.split(scriptDirPath)[0]
 
-n = '1'
-programName = ""
-singleCycle = True
+n = '2'
+programName = "pipe"
+singleCycle = False
 outputName = f"{programName}Program"
 inputFileName = f"{programName}input{n}.txt"
 outputFileName = f"{programName}program{n}.txt"
